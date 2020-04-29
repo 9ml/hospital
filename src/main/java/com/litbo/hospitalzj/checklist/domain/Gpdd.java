@@ -1,7 +1,5 @@
 package com.litbo.hospitalzj.checklist.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class Gpdd {
@@ -13,34 +11,15 @@ public class Gpdd {
 
     private String tester;
 
-    private String auditor;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date testTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date shsjTime;
-    private String jcjl;
-
-
-
-
-
     private String shrJcjl;
 
-    public Date getShsjTime() {
-        return shsjTime;
-    }
+    private String auditor;
 
-    public void setShsjTime(Date shsjTime) {
-        this.shsjTime = shsjTime;
-    }
+    private Date testTime;
 
-    public String getShrJcjl() {
-        return shrJcjl;
-    }
+    private Date shsjTime;
 
-    public void setShrJcjl(String shrJcjl) {
-        this.shrJcjl = shrJcjl;
-    }
+    private String jcjl;
 
     private String jcsm;
 
@@ -148,15 +127,55 @@ public class Gpdd {
 
     private Byte sjgpldResult;
 
-    private Byte spare1;
+    private String spare1;
 
-    private Byte spare2;
+    private String spare2;
 
-    private Byte spare3;
+    private Integer spare3;
 
-    private Byte spare4;
+    private Integer spare4;
 
-    private Byte spare5;
+    private Integer spare5;
+
+    public String getSpare1() {
+        return spare1;
+    }
+
+    public void setSpare1(String spare1) {
+        this.spare1 = spare1;
+    }
+
+    public String getSpare2() {
+        return spare2;
+    }
+
+    public void setSpare2(String spare2) {
+        this.spare2 = spare2;
+    }
+
+    public Integer getSpare3() {
+        return spare3;
+    }
+
+    public void setSpare3(Integer spare3) {
+        this.spare3 = spare3;
+    }
+
+    public Integer getSpare4() {
+        return spare4;
+    }
+
+    public void setSpare4(Integer spare4) {
+        this.spare4 = spare4;
+    }
+
+    public Integer getSpare5() {
+        return spare5;
+    }
+
+    public void setSpare5(Integer spare5) {
+        this.spare5 = spare5;
+    }
 
     public Integer getGpddid() {
         return gpddid;
@@ -190,6 +209,14 @@ public class Gpdd {
         this.tester = tester == null ? null : tester.trim();
     }
 
+    public String getShrJcjl() {
+        return shrJcjl;
+    }
+
+    public void setShrJcjl(String shrJcjl) {
+        this.shrJcjl = shrJcjl == null ? null : shrJcjl.trim();
+    }
+
     public String getAuditor() {
         return auditor;
     }
@@ -206,15 +233,15 @@ public class Gpdd {
         this.testTime = testTime;
     }
 
-    public Date getShsjtime() {
-		return shsjTime;
-	}
+    public Date getShsjTime() {
+        return shsjTime;
+    }
 
-	public void setShsjtime(Date shsjtime) {
-		this.shsjTime = shsjtime;
-	}
+    public void setShsjTime(Date shsjTime) {
+        this.shsjTime = shsjTime;
+    }
 
-	public String getJcjl() {
+    public String getJcjl() {
         return jcjl;
     }
 
@@ -646,43 +673,4 @@ public class Gpdd {
         this.sjgpldResult = sjgpldResult;
     }
 
-    public Byte getSpare1() {
-        return spare1;
-    }
-
-    public void setSpare1(Byte spare1) {
-        this.spare1 = spare1;
-    }
-
-    public Byte getSpare2() {
-        return spare2;
-    }
-
-    public void setSpare2(Byte spare2) {
-        this.spare2 = spare2;
-    }
-
-    public Byte getSpare3() {
-        return spare3;
-    }
-
-    public void setSpare3(Byte spare3) {
-        this.spare3 = spare3;
-    }
-
-    public Byte getSpare4() {
-        return spare4;
-    }
-
-    public void setSpare4(Byte spare4) {
-        this.spare4 = spare4;
-    }
-
-    public Byte getSpare5() {
-        return spare5;
-    }
-
-    public void setSpare5(Byte spare5) {
-        this.spare5 = spare5;
-    }
 }

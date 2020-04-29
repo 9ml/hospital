@@ -161,7 +161,7 @@
 <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-xs layui-btn-normal" lay-event="lookMore">查看详细</a>
     <a class="layui-btn layui-btn-xs" lay-event="lookFssb">查看附属设备</a>
-    <a class="layui-btn layui-btn-xs" lay-event="lookFj">查看附件</a>
+   <!-- <a class="layui-btn layui-btn-xs" lay-event="lookFj">查看附件</a>-->
 </script>
 <script>
     // 获取上个页面传递的类型
@@ -207,8 +207,7 @@
         });
         laydate.render({
             elem:"#date",
-            type:"datetime",
-            range: '至'
+            type:"datetime"
         });
         // 设备信息
         table.render({
@@ -306,10 +305,7 @@
                 dataType:"JSON",
                 success:function(res){
                     if(res.state === 200){
-                        setTimeout(function(){
-                            location.href="/apply_manage/home/not_manage.html";
-                        },1000);
-                        layer.msg("提交成功");
+                        console.log("提交成功");
                     }else{
                         layer.msg("提交失败");
                     }
@@ -318,6 +314,11 @@
                     layer.msg("提交失败,请稍后再试");
                 }
             });
+            layer.msg("提交成功,已将审核结果通知此供应商。");
+            setTimeout(function(){
+                location.href="/apply_manage/home/not_manage.html";
+                parent.location.reload();
+            },2000);
             return false;
         });
         // 购置审批申请单

@@ -48,7 +48,7 @@ public class FileUpload {
             System.out.println("EEEEEEEEEEEEEEE"+upload);
             if(!upload.exists()) upload.mkdirs();
             insertPath = UUID.randomUUID().toString()+file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-            newFileName =upload.getAbsolutePath()+"\\" + insertPath;
+            newFileName =upload.getAbsolutePath()+ File.separator + insertPath;
             BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(newFileName)));
             out.write(file.getBytes());
             out.flush();
@@ -71,15 +71,18 @@ public class FileUpload {
             throw new FileSizeOutOfLimitException("上传失败！文件过大");
         }
         // TODO 检查文件类型 > file.getContentType()
-        if (!FILE_CONTENT_TYPES.contains(
+        /*if (FILE_CONTENT_TYPES.contains(
                 file.getContentType())) {
             // 抛出异常：文件类型限制
             throw new FileTypeNotSupportException("文件类型不符");
-        }
+        }*/
         String newFileName = null;
         String insertPath = null;
-        String filePath="/images/upload/";
-        String PATH = "static/"+filePath;
+       /* String filePath="/images/upload/";
+        String PATH = "static/"+filePath;*/
+
+        String filePath= File.separator +"images"+ File.separator+"upload" + File.separator;
+        String PATH = "static"+ File.separator +filePath;
         try {
             //获取跟目录
             File path = new File(ResourceUtils.getURL("classpath:").getPath());
@@ -88,7 +91,9 @@ public class FileUpload {
             System.out.println("EEEEEEEEEEEEEEE"+upload);
             if(!upload.exists()) upload.mkdirs();
             insertPath = UUID.randomUUID().toString()+file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-            newFileName =upload.getAbsolutePath()+"\\" + insertPath;
+
+
+            newFileName =upload.getAbsolutePath()+ File.separator + insertPath;
             BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(new File(newFileName)));
             out.write(file.getBytes());
             out.flush();

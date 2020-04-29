@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>高频电刀质量检测原始记录表</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/admin.css"/>
+    <script src="../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../../static/layui/layui.js"></script>
+    <style>
+        td{
+            text-align: center;
+        }
+        .btn{
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">高频电刀质量检测原始记录表</legend>
+        </fieldset>
+        <table class="layui-table">
+            <tr>
+                <td>最大允许误差</td>
+                <td colspan="7">输出功率±20%、高频漏电流≤150 mA（单极）、高频漏电流≤60 mA（双极）</td>
+            </tr>
+            <tr>
+                <td style="width: 12%;" rowspan="6">输出功率 (W)</td>
+                <td style="width: 12%;" rowspan="2">单极电切</td>
+                <td style="width: 12%;">设定功率 (W)</td>
+                <td style="width: 12%;">75</td>
+                <td style="width: 12%;">150</td>
+                <td style="width: 12%;">220</td>
+                <td style="width: 12%;">300</td>
+                <td style="width: 12%;">允许误差：±20%</td>
+            </tr>
+            <tr>
+                <td>测量功率 (W)</td>
+                <td id="djdqValue1">&nbsp;</td>
+                <td id="djdqValue2">&nbsp;</td>
+                <td id="djdqValue3">&nbsp;</td>
+                <td id="djdqValue4">&nbsp;</td>
+                <td>□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td rowspan="2">单极电凝</td>
+                <td>设定功率 (W)</td>
+                <td>30</td>
+                <td>60</td>
+                <td>90</td>
+                <td>120</td>
+                <td>允许误差：±20%</td>
+            </tr>
+            <tr>
+                <td>测量功率 (W)</td>
+                <td id="djdnValue1">&nbsp;</td>
+                <td id="djdnValue2">&nbsp;</td>
+                <td id="djdnValue3">&nbsp;</td>
+                <td id="djdnValue4">&nbsp;</td>
+                <td>□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td rowspan="2">双极电凝</td>
+                <td>设定功率 (W)</td>
+                <td>12.5</td>
+                <td>25</td>
+                <td>37.5</td>
+                <td>50</td>
+                <td>允许误差：±20%</td>
+            </tr>
+            <tr>
+                <td>测量功率 (W)</td>
+                <td id="sjdnValue1">&nbsp;</td>
+                <td id="sjdnValue2">&nbsp;</td>
+                <td id="sjdnValue3">&nbsp;</td>
+                <td id="sjdnValue4">&nbsp;</td>
+                <td>□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td rowspan="3">高频漏电 (mA)</td>
+                <td>单极模式</td>
+                <td>单极电切</td>
+                <td>单极电凝</td>
+                <td>允许误差 ≤150 mA</td>
+                <td>双极模式</td>
+                <td>双极电凝</td>
+                <td>允许误差 ≤60 mA</td>
+            </tr>
+            <tr>
+                <td>手术电极高频漏电</td>
+                <td id="ssldDjdq">&nbsp;</td>
+                <td id="ssldDjdn">&nbsp;</td>
+                <td rowspan="2">□符合  □不符合 □不适用</td>
+                <td>电极1</td>
+                <td id="ssldSjdn">&nbsp;</td>
+                <td rowspan="2">□符合  □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>中性电极高频漏电</td>
+                <td id="zxldDjdq">&nbsp;</td>
+                <td id="zxldDjdn">&nbsp;</td>
+                <td>电极2</td>
+                <td id="zxldSjdn">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>接触电阻监测</td>
+                <td id="spare1" colspan="2">□符合 □不符合</td>
+                <td colspan="2">声光报警功能</td>
+                <td id="spare2" colspan="3">□符合 □不符合</td>
+            </tr>
+        </table>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;">检测人信息</legend>
+        </fieldset>
+        <table class="layui-hide" id="testerInfo"></table>
+        <!--<div class="col-xs-12 btn">-->
+            <!--<a id="update" class="layui-btn">修改</a>-->
+            <!--<a id="back" class="layui-btn">暂不上传</a>-->
+            <!--<button id="upload" class="layui-btn layui-btn-normal">上传</button>-->
+        <!--</div>-->
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+    </div>
+</script>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    var eqId = parseInt(sessionStorage['eqId']);
+    $(function(){
+        $.ajax({
+            url:"/yqEq/findByEqIdAndJcyqId/" + eqId + "/"  + ids ,
+            method:"GET",
+            dataType:"JSON",
+            success:function(res){
+                console.log(res);
+                if(res.data != null && res.data != ""){
+                    $("#djdqValue1").append(res.data.djdqValue1);
+                    $("#djdqValue2").append(res.data.djdqValue2);
+                    $("#djdqValue3").append(res.data.djdqValue3);
+                    $("#djdqValue4").append(res.data.djdqValue4);
+                    $("#djdnValue1").append(res.data.djdnValue1);
+                    $("#djdnValue2").append(res.data.djdnValue2);
+                    $("#djdnValue3").append(res.data.djdnValue3);
+                    $("#djdnValue4").append(res.data.djdnValue4);
+                    $("#sjdnValue1").append(res.data.sjdnValue1);
+                    $("#sjdnValue2").append(res.data.sjdnValue2);
+                    $("#sjdnValue3").append(res.data.sjdnValue3);
+                    $("#sjdnValue4").append(res.data.sjdnValue4);
+                    $("#ssldDjdq").append(res.data.ssldDjdq);
+                    $("#ssldDjdn").append(res.data.ssldDjdn);
+                    $("#ssldSjdn").append(res.data.ssldSjdn);
+                    $("#zxldDjdq").append(res.data.zxldDjdq);
+                    $("#zxldDjdn").append(res.data.zxldDjdn);
+                    $("#zxldSjdn").append(res.data.zxldSjdn);
+                    // 单选框
+                    if(res.data.spare1 == 1){
+                        $("#spare1").append("<p style='color: green;'>符合</p>");
+                    }else{
+                        $("#spare1").append("<p style='color: red;'>不符合</p>");
+                    }
+                    if(res.data.spare2 == 1){
+                        $("#spare2").append("<p style='color: green;'>符合</p>");
+                    }else{
+                        $("#spare2").append("<p style='color: red;'>不符合</p>");
+                    }
+                }
+            }
+        })
+    });
+    //Demo
+    layui.use(['table','layer','jquery','form'],function(){
+        var table = layui.table
+            , layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        table.render({
+            elem:"#testerInfo",
+            cellMinWidth:100,
+            toolbar: '#toolbarDemo',
+            url:"/yqEq/findByEqIdAndJcyqId/" + eqId + "/"  + ids ,
+            method:"GET",
+            response: {
+                statusName: 'status'
+                ,statusCode: 200
+                ,msgName: 'hint'
+                ,countName: 'total'
+                ,dataName: 'data'
+            },
+            parseData:function(res){
+                console.log(res.data);
+//                sessionStorage['lreqId'] = res.data.eqId;
+                return{
+                    "status":200
+                    ,"msg":res.message
+                    ,"count":res.total
+                    ,"data":[res.data]
+                }
+            },
+            cols:[[
+                {field:'tester', title:'检测人',align:'center'},
+                {field:'testTime', title:'检测时间',align:'center'},
+                {field:'jcsm', title:'检测情况说明',align:'center'}
+            ]]
+        });
+        // 上传
+        $("#upload").click(function(){
+            $.ajax({
+                url:"/dqjc/updateState?yqEqId="+thissjId+"&userEqId="+thisId,
+                method:"POST",
+                success:function(res){
+                    if(res.state === 200){
+                        layer.msg("上传成功，请耐心等待管理员审核");
+                        setTimeout(function(){
+                            location.href="/control/home/home.html";
+                        },1000)
+                    }else{
+                        layer.msg("上传失败");
+                    }
+                },
+                error:function(data){
+                    layer.msg("上传失败,请稍后再试");
+                    console.log(data);
+                }
+            })
+        });
+        // 修改
+        $("#update").click(function(){
+            location.href="/control/home/waiting/write_info/write_endotherm_knife_info.html?id="+ids;
+        });
+        // 返回
+        $("#back").click(function () {
+            location.href="/control/home/home.html";
+        })
+    })
+</script>
+</body>
+
+</html>

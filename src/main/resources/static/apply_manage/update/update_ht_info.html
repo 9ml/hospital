@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>修改合同信息</title>
+    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
+    <link rel="stylesheet" href="../../static/css/all.min.css"/>
+    <script src="../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../static/js/basic.js"></script>
+    <style>
+        .inp{
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <p style="height: 34px;width: 100%;line-height: 34px;background-color: lightyellow; text-align: center;">红色标识<span class="sign">* </span>为必填项,请认真填写</p>
+    <div class="col-xs-12">
+        <form class="layui-form layui-form-pane" action="">
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+                <legend style="color: red;">修改仪器设备采购合同验收申请</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>供应商</label>
+                <div class="layui-input-block">
+                    <input id="htGhsn" type="text" placeholder="供应商" name="htGhsn" class="layui-input" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>供方联系人</label>
+                <div class="layui-input-block">
+                    <input type="text" id="htGhslxr" name="htGhslxr" class="layui-input" placeholder="供方联系人" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>供方联系电话</label>
+                <div class="layui-input-block">
+                    <input type="text" id="htGhsdh" name="htGhsdh" class="layui-input" placeholder="供方联系电话" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>合同号</label>
+                <div class="layui-input-block">
+                    <input type="text" id="htHthao" name="htHthao" placeholder="合同号" class="layui-input" autocomplete="off" lay-verify="required">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">招标编号</label>
+                <div class="layui-input-block">
+                    <input type="text" id="htZhbhao" name="htZhbhao" class="layui-input" placeholder="招标编号" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>邮箱</label>
+                <div class="layui-input-block">
+                    <input type="text" id="email" name="email" class="layui-input" placeholder="邮箱" autocomplete="off" lay-verify="email">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label"><span style="color: red;">*</span>合同总金额</label>
+                <div class="layui-input-block" style="display: flex;">
+                    <input type="text" id="htZje" name="htZje" placeholder="合同总金额" class="layui-input" autocomplete="off" lay-verify="required">
+                    <div style="display: flex;align-items: center;justify-content: center;margin-left: 6%;">
+                        <span>元</span>
+                        <input type="radio" name="htJedw" value="元" checked>
+                        <span style="width: 30px;">美元</span>
+                        <input type="radio" name="htJedw" value="美元">
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">合同签约期</label>
+                <div class="layui-input-block">
+                    <input id="htQytime" type="text" placeholder="合同签约期" name="htQytime" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">合同到货期</label>
+                <div class="layui-input-block">
+                    <input id="htDhtime" type="text" name="htDhtime" placeholder="合同到货期" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">备注</label>
+                <div class="layui-input-block">
+                    <input type="text" id="htBz" name="htBz" placeholder="备注" class="layui-input" autocomplete="off">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">来源</label>
+                <div class="layui-input-block">
+                    <select id="htLy" name="htLy" lay-verify="" lay-search>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">采购方式</label>
+                <div class="layui-input-block">
+                    <select id="htCgfs" name="htCgfs" lay-verify="" lay-search>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">申购类别</label>
+                <div class="layui-input-block">
+                    <select id="htSglb" name="htSglb" lay-verify="" lay-search>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">经费来源</label>
+                <div class="layui-input-block">
+                    <select id="htJfly" name="htJfly" lay-verify="" lay-search>
+                    </select>
+                </div>
+            </div>
+            <div class="inp layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-lg layui-btn-normal" lay-submit lay-filter="htSave">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    $(function(){
+        $.ajax({
+            url:"/htInfo/selectOne?htId="+ids,
+            method:"POST",
+            dataType:"JSON",
+            success:function(res){
+                console.log(res.data);
+                if(res.data != "" && res.data != null){
+                    $("#htGhsn").val(res.data.htGhsn);
+                    $("#htGhslxr").val(res.data.htGhslxr);
+                    $("#htGhsdh").val(res.data.htGhsdh);
+                    $("#htHthao").val(res.data.htHthao);
+                    $("#htZhbhao").val(res.data.htZhbhao);
+                    $("#email").val(res.data.email);
+                    $("#htZje").val(res.data.htZje);
+                    $("#htQytime").val(res.data.htQytime);
+                    $("#htDhtime").val(res.data.htDhtime);
+                    $("#htBz").val(res.data.htBz);
+                    $("#htLy").val(res.data.htLy);
+                    $("#htCgfs").val(res.data.htCgfs);
+                    $("#htSglb").val(res.data.htSglb);
+                    $("#htJfly").val(res.data.htJfly);
+                }
+            }
+        });
+        // 来源字典
+        function lyList(){
+            // 清空当前列表
+            $("#htLy").empty();
+            // 添加默认选项
+            // var op = '<option value=""></option>';
+            // $("#htLy").append(op);
+            // 发出ajax请求，并处理结果
+            $.ajax({
+                url:"/eqly/allEqly",
+                method: "GET",
+                dataType: "JSON",
+                async:false,
+                "success":function(json){
+                    // 遍历加载新列表项
+                    var list = json.data;
+                    for (var i = 0; i < list.length; i++) {
+                        // console.log(list[i].eqlyId + " - " + list[i].eqlyName);
+                        op = '<option value="' + list[i].eqlyName + '">' + list[i].eqlyName + '</option>';
+                        $("#htLy").append(op);
+                    }
+                }
+            });
+        }
+        lyList();
+        // 采购方式字典
+        function cgfsList(){
+            // 清空当前列表
+            $("#htCgfs").empty();
+            // 添加默认选项
+            // var op = '<option value=""></option>';
+            // $("#htCgfs").append(op);
+            // 发出ajax请求，并处理结果
+            $.ajax({
+                url:"/eqcg/allEqCgfs",
+                method: "GET",
+                dataType: "JSON",
+                async:false,
+                "success": function(json) {
+                    // 遍历加载新列表项
+                    var list = json.data;
+                    console.log(list);
+                    for (var i = 0; i < list.length; i++) {
+                        // console.log(list[i].eqcgId + " - " + list[i].eqcgName);
+                        op = '<option value="' + list[i].eqcgName + '">' + list[i].eqcgName + '</option>';
+                        $("#htCgfs").append(op);
+                    }
+                }
+            });
+        }
+        cgfsList();
+        // 申购类别字典
+        function sglbList(){
+            // 清空当前列表
+            $("#htSglb").empty();
+            // 添加默认选项
+            // var op = '<option value=""></option>';
+            // $("#htSglb").append(op);
+            // 发出ajax请求，并处理结果
+            $.ajax({
+                url:"/eqsglb/allEqSglb",
+                method: "GET",
+                dataType: "JSON",
+                async:false,
+                "success": function(json) {
+                    // 遍历加载新列表项
+                    var list = json.data;
+                    console.log(list);
+                    for (var i = 0; i < list.length; i++) {
+                        console.log(list[i].eqsgId + " - " + list[i].eqsgName);
+                        op = '<option value="' + list[i].eqsgName + '">' + list[i].eqsgName + '</option>';
+                        $("#htSglb").append(op);
+                    }
+                }
+            });
+        }
+        sglbList();
+        // 经费来源字典
+        function jflyList(){
+            // 清空当前列表
+            $("#htJfly").empty();
+            // 添加默认选项
+            // var op = '<option value=""></option>';
+            // $("#htJfly").append(op);
+            // 发出ajax请求，并处理结果
+            $.ajax({
+                url:"/eqjf/allEqJfly",
+                method: "GET",
+                dataType: "JSON",
+                async:false,
+                "success": function(json){
+                    // 遍历加载新列表项
+                    var list = json.data;
+                    console.log(list);
+                    for (var i = 0; i < list.length; i++) {
+                        console.log(list[i].eqjfId + " - " + list[i].eqjfName);
+                        op = '<option value="' + list[i].eqjfName + '">' + list[i].eqjfName + '</option>';
+                        $("#htJfly").append(op);
+                    }
+                }
+            });
+        }
+        jflyList();
+    });
+    layui.use(['element','laydate','layer','form','jquery'], function() {
+        var element = layui.element
+            , laydate = layui.laydate
+            , layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        laydate.render({
+            elem: '#htQytime'
+        });
+        laydate.render({
+            elem: '#htDhtime'
+        });
+        form.on('submit(htSave)',function(data){
+            console.log(data.field);
+            $.ajax({
+                url:"/htInfo/updateInfo?htId="+ids,
+                method:"POST",
+                data:data.field,
+                dataType:"JSON",
+                success:function(res){
+                    if(res.state === 200){
+                        setTimeout(function(){
+                            location.href="/apply_manage/apply_manage/check_ht_info.html?id="+ids;
+                        },1000);
+                        layer.msg("修改成功");
+                    }else{
+                        layer.msg("修改失败");
+                    }
+                },
+                error:function(data){
+                    layer.msg("修改失败,请稍后再试");
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

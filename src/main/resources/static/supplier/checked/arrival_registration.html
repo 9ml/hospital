@@ -32,7 +32,11 @@
             <fieldset class="layui-elem-field layui-field-title">
                 <legend>到货登记信息</legend>
             </fieldset>
-            <table class="layui-hide" id="arrivalInfo"></table>
+            <table class="layui-hide" id="arrivalInfo">
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend>到货登记图片</legend>
             </fieldset>
@@ -48,6 +52,12 @@
                     <td>到货登记图片</td>
                     <td>
                         <a id="lookPic" class="layui-btn layui-btn-normal">查看</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>电子签名图片</td>
+                    <td>
+                        <a id="lookQm" class="layui-btn layui-btn-normal">查看</a>
                     </td>
                 </tr>
                 </tbody>
@@ -103,6 +113,9 @@
             });
             $("#lookPic").click(function(){
                 location.href="/supplier/file/already_pic.html?id="+ids;
+            });
+            $("#lookQm").click(function(){
+                location.href="/supplier/file/dzqm_pic.html?id="+ids;
             });
             $("#back").click(function () {
                 window.history.back(-1);

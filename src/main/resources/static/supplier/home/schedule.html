@@ -89,7 +89,7 @@
                                   handle.append("<p style='color:red;'>当前无操作</p>")
                               }else if(rate == "预约验收"){
                                   handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='lookinfo'>查看详情</a>");
-                              }else if(rate == "信息未完善"){
+                              }else if(rate == "合同信息未完善"){
                                   handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='lookno'>查看验收信息</a>");
                               }else if(rate == "完善资料"){
                                   handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='uploads'>查看到货登记</a>");
@@ -97,8 +97,8 @@
                                   handle.append("<p style='color:red;'>正在审核电子资料，请耐心等待...</p>");
                               }else if(rate == "验收审核不通过"){
                                   handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='upload'>重新上传</a>");
-                              }else if(rate == "验收通过"){
-                                  handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='stamp'>打印</a>");
+                              }else if(rate == "验收完成"){
+                                  handle.append("<a class='layui-btn layui-btn-sm layui-btn-normal' lay-event='stamp'>查看验收单</a>");
                               }
                               return{
                                   "status":200,
@@ -117,7 +117,7 @@
                               {field:'htYssj', title:'预约验收时间',minWidth: 330,align:'center'},
                               {field:'htYzm', title:'验证码',sort: true,align:'center'},
                               {field:'htState', title:'状态',sort: true,align:'center'},
-                              {fixed: 'right', title:'操作',minWidth: 120, toolbar: '#handle'}
+                              {fixed: 'right', title:'操作',minWidth: 120, toolbar: '#handle',align:'center'}
                           ]]
                       });
                   }else if(res.state === 701){
@@ -152,10 +152,10 @@
             location.href="/supplier/checked/electronic_materials.html?htId="+obj.data.htId;
         }else if(obj.event === 'stamp'){
             if(obj.data.htGzspd == "无"){
-                location.href="/supplier/checked/look_hta_info.html?htId="+obj.data.htId;
+              location.href="/supplier/home/stamp_ht.html?htId="+obj.data.htId;
             }else{
-                location.href="/supplier/checked/look_sga_info.html?htId="+obj.data.htId;
-            }
+              location.href="/supplier/home/stamp_sg.html?htId="+obj.data.htId;
+            }  
         }
       });
     });

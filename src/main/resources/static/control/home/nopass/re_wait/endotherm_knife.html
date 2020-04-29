@@ -170,12 +170,12 @@
                     $("#zxldDjdn").append(res.data.zxldDjdn);
                     $("#zxldSjdn").append(res.data.zxldSjdn);
                     // 单选框
-                    if(res.data.spare1 === "1"){
+                    if(res.data.spare1 == 1){
                         $("#spare1").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#spare1").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.spare2 === "1"){
+                    if(res.data.spare2 == 1){
                         $("#spare2").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#spare2").append("<p style='color: red;'>不符合</p>");

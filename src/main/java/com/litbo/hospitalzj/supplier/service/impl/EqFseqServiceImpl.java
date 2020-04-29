@@ -1,5 +1,7 @@
 package com.litbo.hospitalzj.supplier.service.impl;
 
+import com.litbo.hospitalzj.supplier.controller.ex.EqFjIsNullException;
+import com.litbo.hospitalzj.supplier.entity.EqFj;
 import com.litbo.hospitalzj.supplier.entity.EqFseq;
 import com.litbo.hospitalzj.supplier.mapper.EqFseqMapper;
 import com.litbo.hospitalzj.supplier.service.EqFseqService;
@@ -37,5 +39,69 @@ public class EqFseqServiceImpl implements EqFseqService {
 	@Override
 	public EqFseq selectById(Integer eqFsid) {
 		return eqFseqMapper.selectById(eqFsid);
+	}
+
+	public List<EqFseq> selectEqFseqGroup(Integer eqIds) {
+		List<EqFseq> data=eqFseqMapper.selectEqFjGroup(eqIds);
+		for (EqFseq eqFj : data) {
+			List<EqFseq> eqFjs = eqFseqMapper.selectEqFjByRq(eqFj.getEqMc(), eqFj.getEqXh(), String.valueOf(eqIds));
+			StringBuffer bh = new StringBuffer();
+			StringBuffer rq = new StringBuffer();
+			int i = 1;
+			for (EqFseq fj : eqFjs) {
+				if(i < eqFjs.size()){
+					bh.append(fj.getEqScbh()).append(",");
+					rq.append(fj.getEqCcdate()).append(",");
+				}else{
+					bh.append(fj.getEqScbh());
+					rq.append(fj.getEqCcdate());
+				}
+				i++;
+			}
+			eqFj.setEqScbh(bh.toString());
+			eqFj.setEqCcdate(rq.toString());
+			eqFj.setEqNum(String.valueOf(eqFjs.size()));
+		}
+		if (data==null) {
+			throw new EqFjIsNullException("设备附件信息不存在，需要请添加");
+		}
+		return data;
+	}
+
+	public void deleteBat(EqFseq eqFseq) {
+		eqFseqMapper.deleteBat(eqFseq.getEqIds(), eqFseq.getEqMc(), eqFseq.getEqXh());
+	}
+
+	public EqFseq selectById2(Integer eqFsid) {
+		EqFseq eqFj = eqFseqMapper.selectById(eqFsid);
+		List<EqFseq> eqFjs = eqFseqMapper.selectEqFjByRq(eqFj.getEqMc(), eqFj.getEqXh(), eqFj.getEqIds());
+		StringBuffer bh = new StringBuffer();
+		StringBuffer rq = new StringBuffer();
+		int i = 1;
+		for (EqFseq fj : eqFjs) {
+			if(i < eqFjs.size()){
+				bh.append(fj.getEqScbh()).append(",");
+				rq.append(fj.getEqCcdate()).append(",");
+			}else{
+				bh.append(fj.getEqScbh());
+				rq.append(fj.getEqCcdate());
+			}
+			i++;
+		}
+		eqFj.setEqScbh(bh.toString());
+		eqFj.setEqCcdate(rq.toString());
+		eqFj.setEqNum(String.valueOf(eqFjs.size()));
+
+		return eqFj;
+	}
+
+	@Override
+	public void update(EqFseq eqFseq) {
+		eqFseqMapper.update(eqFseq);
+	}
+
+	@Override
+	public List<EqFseq> selectByMcAndXh(Integer eqIds, String eqMc, String eqXh) {
+		return eqFseqMapper.selectByMcAndXh(eqIds, eqMc, eqXh);
 	}
 }

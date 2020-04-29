@@ -38,7 +38,7 @@
             </tr>
             <tr>
                 <td style="width: 12%;" rowspan="6">输出功率 (W)</td>
-                <td style="width: 12%;" rowspan="2">单极电切</td>
+                <td id="zk1" style="width: 12%;" rowspan="2">单极电切<br></td>
                 <td style="width: 12%;">设定功率 (W)</td>
                 <td style="width: 12%;">75</td>
                 <td style="width: 12%;">150</td>
@@ -52,10 +52,10 @@
                 <td id="djdqValue2">&nbsp;</td>
                 <td id="djdqValue3">&nbsp;</td>
                 <td id="djdqValue4">&nbsp;</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="is1"></td>
             </tr>
             <tr>
-                <td rowspan="2">单极电凝</td>
+                <td id="zk2" rowspan="2">单极电凝<br></td>
                 <td>设定功率 (W)</td>
                 <td>30</td>
                 <td>60</td>
@@ -69,14 +69,14 @@
                 <td id="djdnValue2">&nbsp;</td>
                 <td id="djdnValue3">&nbsp;</td>
                 <td id="djdnValue4">&nbsp;</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="is2"></td>
             </tr>
             <tr>
-                <td rowspan="2">双极电凝</td>
+                <td id="zk3" rowspan="2">双极电凝<br></td>
                 <td>设定功率 (W)</td>
-                <td>12.5</td>
+                <td>13</td>
                 <td>25</td>
-                <td>37.5</td>
+                <td>38</td>
                 <td>50</td>
                 <td>允许误差：±20%</td>
             </tr>
@@ -86,7 +86,7 @@
                 <td id="sjdnValue2">&nbsp;</td>
                 <td id="sjdnValue3">&nbsp;</td>
                 <td id="sjdnValue4">&nbsp;</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="is3"></td>
             </tr>
             <tr>
                 <td rowspan="3">高频漏电 (mA)</td>
@@ -102,10 +102,10 @@
                 <td>手术电极高频漏电</td>
                 <td id="ssldDjdq">&nbsp;</td>
                 <td id="ssldDjdn">&nbsp;</td>
-                <td rowspan="2">□符合  □不符合 □不适用</td>
+                <td id="is4" rowspan="2"></td>
                 <td>电极1</td>
                 <td id="ssldSjdn">&nbsp;</td>
-                <td rowspan="2">□符合  □不符合 □不适用</td>
+                <td id="is5" rowspan="2"></td>
             </tr>
             <tr>
                 <td>中性电极高频漏电</td>
@@ -116,9 +116,9 @@
             </tr>
             <tr>
                 <td>接触电阻监测</td>
-                <td id="spare1" colspan="2">□符合 □不符合</td>
+                <td id="spare1" colspan="2"></td>
                 <td colspan="2">声光报警功能</td>
-                <td id="spare2" colspan="3">□符合 □不符合</td>
+                <td id="spare2" colspan="3"></td>
             </tr>
         </table>
         <fieldset class="layui-elem-field layui-field-title">
@@ -143,7 +143,9 @@
     var thissjId = parseInt(sessionStorage['thissjId']);
     var thisId = parseInt(sessionStorage['thisId']);
     var thiseqId = parseInt(sessionStorage['thiseqId']);
+    var dqSb = sessionStorage['dqSb'];
     $(function(){
+        sessionStorage['ddSb'] = 1;
         $.ajax({
             url:"/gpdd/findByGpddid?gpddid="+ids,
             method:"GET",
@@ -151,35 +153,71 @@
             success:function(res){
                 console.log(res);
                 if(res.data != null && res.data != ""){
+                    // 阻抗
+                    $("#zk1").append("阻抗("+res.data.spare3+")欧");
+                    $("#zk2").append("阻抗("+res.data.spare4+")欧");
+                    $("#zk3").append("阻抗("+res.data.spare5+")欧");
+                    // 单极电切
                     $("#djdqValue1").append(res.data.djdqValue1);
                     $("#djdqValue2").append(res.data.djdqValue2);
                     $("#djdqValue3").append(res.data.djdqValue3);
                     $("#djdqValue4").append(res.data.djdqValue4);
+                    if(res.data.djdqValue1 >= 60 && res.data.djdqValue1 <= 90 && res.data.djdqValue2 >= 120 && res.data.djdqValue2 <= 180 && res.data.djdqValue3 >= 176 && res.data.djdqValue3 <= 264 && res.data.djdqValue4 >= 240 && res.data.djdqValue4 <= 360){
+                        $("#is1").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is1").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 单机电凝
                     $("#djdnValue1").append(res.data.djdnValue1);
                     $("#djdnValue2").append(res.data.djdnValue2);
                     $("#djdnValue3").append(res.data.djdnValue3);
                     $("#djdnValue4").append(res.data.djdnValue4);
+                    if(res.data.djdnValue1 >= 27 && res.data.djdnValue1 <= 33 && res.data.djdnValue2 >= 48 && res.data.djdnValue2 <= 72 && res.data.djdnValue3 >= 72 && res.data.djdnValue3 <= 108 && res.data.djdnValue4 >= 96 && res.data.djdnValue4 <= 144){
+                        $("#is2").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is2").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 双极电凝
                     $("#sjdnValue1").append(res.data.sjdnValue1);
                     $("#sjdnValue2").append(res.data.sjdnValue2);
                     $("#sjdnValue3").append(res.data.sjdnValue3);
                     $("#sjdnValue4").append(res.data.sjdnValue4);
+                    if(res.data.sjdnValue1 >= 10.4 && res.data.sjdnValue1 <= 15.6 && res.data.sjdnValue2 >= 20 && res.data.sjdnValue2 <= 30 && res.data.sjdnValue3 >= 30.4 && res.data.sjdnValue3 <= 45.6 && res.data.sjdnValue4 >= 40 && res.data.sjdnValue4 <= 60){
+                        $("#is3").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is3").append("<p style='color:red;'>不符合</p>")
+                    }
+                    //  单极模式
                     $("#ssldDjdq").append(res.data.ssldDjdq);
                     $("#ssldDjdn").append(res.data.ssldDjdn);
-                    $("#ssldSjdn").append(res.data.ssldSjdn);
                     $("#zxldDjdq").append(res.data.zxldDjdq);
                     $("#zxldDjdn").append(res.data.zxldDjdn);
+                    if(res.data.ssldDjdq > 0 && res.data.ssldDjdq <= 150 && res.data.ssldDjdn > 0 && res.data.ssldDjdn <= 150 && res.data.zxldDjdq > 0 && res.data.zxldDjdq <= 150 && res.data.zxldDjdn > 0 && res.data.zxldDjdn <= 150){
+                        $("#is4").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is4").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 双极模式
                     $("#zxldSjdn").append(res.data.zxldSjdn);
+                    $("#ssldSjdn").append(res.data.ssldSjdn);
+                    if(res.data.zxldSjdn > 0 && res.data.zxldSjdn <= 60 && res.data.ssldSjdn > 0 && res.data.ssldSjdn <= 60){
+                        $("#is5").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is5").append("<p style='color:red;'>不符合</p>")
+                    }
                     // 单选框
-                    if(res.data.spare1 === "1"){
+                    if(res.data.spare1 == 1){
                         $("#spare1").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#spare1").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.spare2 === "1"){
+                    if(res.data.spare2 == 1){
                         $("#spare2").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#spare2").append("<p style='color: red;'>不符合</p>");
                     }
+                }else{
+                    layer.msg("无数据");
                 }
             }
         })
@@ -228,7 +266,11 @@
                     if(res.state === 200){
                         layer.msg("上传成功，请耐心等待管理员审核");
                         setTimeout(function(){
-                            location.href="/control/home/waiting/check_info.html?id="+thiseqId;
+                            if(dqSb == 1){
+                                location.href="/control/home/home.html";
+                            }else{
+                                location.href="/control/home/waiting/check_info.html?id="+thiseqId;
+                            }
                         },1000)
                     }else{
                         layer.msg("上传失败");
@@ -242,11 +284,15 @@
         });
         // 修改
         $("#update").click(function(){
-            location.href="/control/home/waiting/write_info/write_endotherm_knife_info.html?id="+ids;
+            location.href="/control/home/waiting/update/write_endotherm_knife_info.html?id="+ids;
         });
         // 返回
         $("#back").click(function () {
-            location.href="/control/home/waiting/check_info.html?id="+thiseqId;
+            if(dqSb == 1){
+                location.href="/control/home/home.html";
+            }else{
+                location.href="/control/home/waiting/check_info.html?id="+thiseqId;
+            }
         })
     })
 </script>

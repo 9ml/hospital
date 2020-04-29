@@ -2,6 +2,7 @@ package com.litbo.hospitalzj.supplier.service.impl;
 
 
 import com.litbo.hospitalzj.supplier.entity.QyLx;
+import com.litbo.hospitalzj.supplier.entity.TBank;
 import com.litbo.hospitalzj.supplier.mapper.QyLxMapper;
 import com.litbo.hospitalzj.supplier.service.QyLxService;
 import com.litbo.hospitalzj.supplier.service.exception.InsertException;
@@ -42,5 +43,11 @@ public class QyLxServiceImpl implements QyLxService {
 	@Override
 	public void delete(Integer qyLxid) {
 		qyLxMapper.delete(qyLxid);
+	}
+
+	@Override
+	public List<TBank> findBank() {
+		return qyLxMapper.findBank();
+
 	}
 }

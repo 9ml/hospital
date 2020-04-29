@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>婴儿培养箱质量检测原始记录表</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/admin.css"/>
+    <script src="../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../../static/layui/layui.js"></script>
+    <style>
+        h2{
+            text-align: center;
+            margin-top: 30px;
+        }
+        td{
+            text-align: center;
+        }
+        .btn{
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 10px;">婴儿培养箱质量检测原始记录表</legend>
+        </fieldset>
+        <table class="layui-table">
+            <tr>
+                <td>Tx显示温度</td>
+                <td id="txWd1" style="width: 6%;">&nbsp;</td>
+                <td id="txWd2" style="width: 6%;">&nbsp;</td>
+                <td id="txWd3" style="width: 6%;">&nbsp;</td>
+                <td id="txWd4" style="width: 6%;">&nbsp;</td>
+                <td id="txWd5" style="width: 6%;">&nbsp;</td>
+                <td id="txWd6" style="width: 6%;">&nbsp;</td>
+                <td id="txWd7" style="width: 6%;">&nbsp;</td>
+                <td id="txWd8" style="width: 6%;">&nbsp;</td>
+                <td id="txWd9" style="width: 6%;">&nbsp;</td>
+                <td id="txWd10" style="width: 6%;">&nbsp;</td>
+                <td id="txWd11" style="width: 6%;">&nbsp;</td>
+                <td id="txWd12" style="width: 6%;">&nbsp;</td>
+                <td id="txWd13" style="width: 6%;">&nbsp;</td>
+                <td id="txWd14" style="width: 6%;">&nbsp;</td>
+                <td id="txWd15" style="width: 6%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>T5s 温度</td>
+                <td id="t5sWd1">&nbsp;</td>
+                <td id="t5sWd2">&nbsp;</td>
+                <td id="t5sWd3">&nbsp;</td>
+                <td id="t5sWd4">&nbsp;</td>
+                <td id="t5sWd5">&nbsp;</td>
+                <td id="t5sWd6">&nbsp;</td>
+                <td id="t5sWd7">&nbsp;</td>
+                <td id="t5sWd8">&nbsp;</td>
+                <td id="t5sWd9">&nbsp;</td>
+                <td id="t5sWd10">&nbsp;</td>
+                <td id="t5sWd11">&nbsp;</td>
+                <td id="t5sWd12">&nbsp;</td>
+                <td id="t5sWd13">&nbsp;</td>
+                <td id="t5sWd14">&nbsp;</td>
+                <td id="t5sWd15">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>控制温度 Tk(℃)</td>
+                <td id="kzwd" colspan="2">&nbsp;</td>
+                <td colspan="3">温度T1测量平均值T1a (℃)</td>
+                <td id="wdt1" colspan="2">&nbsp;</td>
+                <td colspan="3">温度T2测量平均值T2a (℃)</td>
+                <td id="wdt2" colspan="2">&nbsp;</td>
+                <td colspan="2">温度T3测量平均值T3a (℃)</td>
+                <td id="wdt3">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>显示温度平均值 Txa(℃)</td>
+                <td id="wdtxa" colspan="2">&nbsp;</td>
+                <td colspan="3">温度T4测量平均值T4a (℃)</td>
+                <td id="wdt4" colspan="2">&nbsp;</td>
+                <td colspan="3">温度T5测量平均值T5a (℃) (平均培养箱温度)</td>
+                <td id="wdt5" colspan="2">&nbsp;</td>
+                <td colspan="2">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td rowspan="2">温度偏差</td>
+                <td id="wdpc" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: |Txa-T5a| ≤0.8</td>
+                <td colspan="3" rowspan="2">均匀性</td>
+                <td id="jyx" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: |T1a/2a/3a/4a-T5a|max ≤0.8</td>
+            </tr>
+            <tr>
+                <td colspan="3">□符合  □不符合</td>
+                <td colspan="3">□符合  □不符合</td>
+            </tr>
+            <tr>
+                <td rowspan="2">波动度</td>
+                <td id="bdd" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: |T5s-T5a|max ≤0.5</td>
+                <td colspan="3" rowspan="2">温控偏差</td>
+                <td id="wkpc" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: |Tk-T5a| ≤1.5</td>
+            </tr>
+            <tr>
+                <td colspan="3">□符合  □不符合</td>
+                <td colspan="3">□符合  □不符合</td>
+            </tr>
+            <tr>
+                <td rowspan="2">超调量</td>
+                <td id="ctl" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: T5-36℃ ≤2</td>
+                <td colspan="3" rowspan="2">空气流速 (m/s)</td>
+                <td id="kqls" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">≤0.35</td>
+            </tr>
+            <tr>
+                <td colspan="3">□符合  □不符合</td>
+                <td colspan="3">□符合  □不符合</td>
+            </tr>
+            <tr>
+                <td rowspan="2">噪声（报警激活状态）</td>
+                <td id="zsbj" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差: ≤ 80dB</td>
+                <td colspan="3" rowspan="2">噪声（正常状态）</td>
+                <td id="zszc" colspan="3" rowspan="2">&nbsp;</td>
+                <td colspan="3">允许误差:≤60db</td>
+            </tr>
+            <tr>
+                <td colspan="3">□符合  □不符合</td>
+                <td colspan="3">□符合  □不符合</td>
+            </tr>
+            <tr>
+                <td colspan="16"><strong>接触温度</strong></td>
+            </tr>
+            <tr>
+                <td>金属部分</td>
+                <td id="jsbf" colspan="3">&nbsp;</td>
+                <td colspan="3">允许误差:≤40℃ □符合  □不符合</td>
+                <td colspan="3">床垫部分</td>
+                <td id="cdbf" colspan="3">&nbsp;</td>
+                <td colspan="3">允许误差:≤43℃ □符合  □不符合</td>
+            </tr>
+            <tr>
+                <td colspan="16"><strong>报警功能及其他参数检查</strong></td>
+            </tr>
+            <tr>
+                <td>湿度设置值</td>
+                <td id="sdszz" colspan="2">&nbsp;</td>
+                <td colspan="3">湿度测试值</td>
+                <td id="sdcsz" colspan="2">&nbsp;</td>
+                <td colspan="3">湿度偏差</td>
+                <td colspan="2">允许误差: ≤10%RH</td>
+                <td id="sdpc" colspan="3">□ 符合 □ 不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>断电报警</td>
+                <td id="ddbjResult" colspan="3">□符合  □不符合</td>
+                <td colspan="3">超温报警</td>
+                <td id="cwbjResult" colspan="3">□符合  □不符合</td>
+                <td colspan="3">风机报警</td>
+                <td id="fjbjResult" colspan="3">□符合  □不符合</td>
+            </tr>
+        </table>
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;">检测人信息</legend>
+        </fieldset>
+        <table class="layui-hide" id="testerInfo"></table>
+        <!--<div class="col-xs-12 btn">-->
+            <!--<a id="update" class="layui-btn">修改</a>-->
+            <!--<a id="back" class="layui-btn">暂不上传</a>-->
+            <!--<button id="upload" class="layui-btn layui-btn-normal">上传</button>-->
+        <!--</div>-->
+    </div>
+</div>
+<script type="text/html" id="toolbarDemo">
+    <div class="layui-btn-container">
+    </div>
+</script>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    var eqId = parseInt(sessionStorage['eqId']);
+    //Demo
+    layui.use(['table','layer','jquery','form'],function(){
+        var table = layui.table
+            , layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        $(function(){
+            $.ajax({
+                url:"/yqEq/findByEqIdAndJcyqId/" + eqId + "/"  + ids ,
+                method:"GET",
+                dataType:"JSON",
+                success:function(res){
+                    console.log(res);
+                    if(res.data != null && res.data != ""){
+                        // Tx显示温度
+                        $("#txWd1").append(res.data.txWd1);
+                        $("#txWd2").append(res.data.txWd2);
+                        $("#txWd3").append(res.data.txWd3);
+                        $("#txWd4").append(res.data.txWd4);
+                        $("#txWd5").append(res.data.txWd5);
+                        $("#txWd6").append(res.data.txWd6);
+                        $("#txWd7").append(res.data.txWd7);
+                        $("#txWd8").append(res.data.txWd8);
+                        $("#txWd9").append(res.data.txWd9);
+                        $("#txWd10").append(res.data.txWd10);
+                        $("#txWd11").append(res.data.txWd11);
+                        $("#txWd12").append(res.data.txWd12);
+                        $("#txWd13").append(res.data.txWd13);
+                        $("#txWd14").append(res.data.txWd14);
+                        $("#txWd15").append(res.data.txWd15);
+                        // T5s 温度
+                        $("#t5sWd1").append(res.data.t5sWd1);
+                        $("#t5sWd2").append(res.data.t5sWd2);
+                        $("#t5sWd3").append(res.data.t5sWd3);
+                        $("#t5sWd4").append(res.data.t5sWd4);
+                        $("#t5sWd5").append(res.data.t5sWd5);
+                        $("#t5sWd6").append(res.data.t5sWd6);
+                        $("#t5sWd7").append(res.data.t5sWd7);
+                        $("#t5sWd8").append(res.data.t5sWd8);
+                        $("#t5sWd9").append(res.data.t5sWd9);
+                        $("#t5sWd10").append(res.data.t5sWd10);
+                        $("#t5sWd11").append(res.data.t5sWd11);
+                        $("#t5sWd12").append(res.data.t5sWd12);
+                        $("#t5sWd13").append(res.data.t5sWd13);
+                        $("#t5sWd14").append(res.data.t5sWd14);
+                        $("#t5sWd15").append(res.data.t5sWd15);
+                        $("#kzwd").append(res.data.kzwd);
+                        $("#wdtxa").append(res.data.wdtxa);
+                        $("#wdt1").append(res.data.wdt1);
+                        $("#wdt2").append(res.data.wdt2);
+                        $("#wdt3").append(res.data.wdt3);
+                        $("#wdt4").append(res.data.wdt4);
+                        $("#wdt5").append(res.data.wdt5);
+                        $("#wdpc").append(res.data.wdpc);
+                        $("#jyx").append(res.data.jyx);
+                        $("#bdd").append(res.data.bdd);
+                        $("#wkpc").append(res.data.wkpc);
+                        $("#ctl").append(res.data.ctl);
+                        $("#kqls").append(res.data.kqls);
+                        $("#zsbj").append(res.data.zsbj);
+                        $("#zszc").append(res.data.zszc);
+                        $("#jsbf").append(res.data.jsbf);
+                        $("#cdbf").append(res.data.cdbf);
+                        $("#sdszz").append(res.data.sdszz);
+                        $("#sdcsz").append(res.data.sdcsz);
+                        // 单选框
+                        if(res.data.sdpc == 1){
+                            $("#sdpc").append("<p style='color: green;'>符合</p>");
+                        }else if(res.data.sdpc == 2){
+                            $("#sdpc").append("<p style='color: red;'>不符合</p>");
+                        }else{
+                            $("#sdpc").append("<p style='color: red;'>不适用</p>");
+                        }
+                        if(res.data.ddbjResult == 1){
+                            $("#ddbjResult").append("<p style='color: green;'>符合</p>");
+                        }else{
+                            $("#ddbjResult").append("<p style='color: red;'>不符合</p>");
+                        }
+                        if(res.data.cwbjResult == 1){
+                            $("#cwbjResult").append("<p style='color: green;'>符合</p>");
+                        }else{
+                            $("#cwbjResult").append("<p style='color: red;'>不符合</p>");
+                        }
+                        if(res.data.fjbjResult == 1){
+                            $("#fjbjResult").append("<p style='color: green;'>符合</p>");
+                        }else{
+                            $("#fjbjResult").append("<p style='color: red;'>不符合</p>");
+                        }
+                    }else{
+                        layer.msg("无数据");
+                    }
+                },
+                error:function(data){
+                    console.log(data);
+                    layer.msg("请稍后再试");
+                }
+            });
+        });
+        table.render({
+            elem:"#testerInfo",
+            cellMinWidth:100,
+            toolbar: '#toolbarDemo',
+            url:"/yqEq/findByEqIdAndJcyqId/" + eqId + "/"  + ids ,
+            method:"GET",
+            response: {
+                statusName: 'status'
+                ,statusCode: 200
+                ,msgName: 'hint'
+                ,countName: 'total'
+                ,dataName: 'data'
+            },
+            parseData:function(res){
+                console.log(res.data);
+                return{
+                    "status":200
+                    ,"msg":res.message
+                    ,"count":res.total
+                    ,"data":[res.data]
+                }
+            },
+            cols:[[
+                {field:'tester', title:'检测人',align:'center'},
+                {field:'testTime', title:'检测时间',align:'center'},
+                {field:'jcsm', title:'检测情况说明',align:'center'}
+            ]]
+        });
+        // 上传
+        $("#upload").click(function(){
+            $.ajax({
+                url:"/dqjc/updateState?yqEqId="+thissjId+"&userEqId="+thisId,
+                method:"POST",
+                success:function(res){
+                    if(res.state === 200){
+                        layer.msg("上传成功，请耐心等待管理员审核");
+                        setTimeout(function(){
+                            location.href="/control/home/home.html";
+                        },1000)
+                    }else{
+                        layer.msg("上传失败");
+                    }
+                },
+                error:function(data){
+                    layer.msg("上传失败,请稍后再试");
+                    console.log(data);
+                }
+            })
+        });
+        // 修改
+        $("#update").click(function(){
+            location.href="/control/home/update/write_electric_info.html?id="+ids;
+        });
+        // 返回
+        $("#back").click(function () {
+            location.href="/control/home/home.html";
+        })
+    })
+</script>
+</body>
+
+</html>

@@ -24,7 +24,6 @@ public class UserController extends BaseController {
             (@RequestParam("userName") String userName,
              @RequestParam("userPwd") String userPwd,
              HttpSession session) {
-        System.out.println(userName+userPwd);
         UserRoleVo data=userService.login(userName,userPwd);
         // 将相关信息存入到Session
         session.setAttribute("uid", data.getUserId());

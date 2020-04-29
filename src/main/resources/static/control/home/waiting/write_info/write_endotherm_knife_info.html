@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
     <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="endothem.js"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
@@ -51,96 +52,150 @@
                 <legend style="color: red;">输出功率 (W) —— 输出功率±20%、高频漏电流≤150 mA（单极）、高频漏电流≤60 mA（双极）</legend>
             </fieldset>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">单极电切</legend>
+                <legend style="color: red;">单极电切</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" name="spare3" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 75</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量功率A</label>
                 <div class="layui-input-block">
-                    <input type="text" name="djdqValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率B</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdqValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率C</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdqValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率D</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdqValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="djdqValue1" name="djdqValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is1"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">单极电凝</legend>
+                <legend style="color: #000;">设定功率 (W) —— 150</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率B</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue2" name="djdqValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is2"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 220</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率C</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue3" name="djdqValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is3"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 300</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率D</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue4" name="djdqValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is4"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">单极电凝</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" name="spare4" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 30</legend>
             </fieldset>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">测量功率A</label>
                 <div class="layui-input-block">
-                    <input type="text" name="djdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率B</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率C</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">测量功率D</label>
-                <div class="layui-input-block">
-                    <input type="text" name="djdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="djdnValue1" name="djdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is5"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">双极电凝</legend>
+                <legend style="color: #000;">设定功率 (W) —— 60</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率B</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue2" name="djdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is6"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 90</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率C</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue3" name="djdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is7"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 120</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率D</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue4" name="djdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is8"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">双极电凝</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" name="spare5" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 13</legend>
             </fieldset>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">测量功率A</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sjdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sjdnValue1" name="sjdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is9"></b>
                 </div>
             </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 25</legend>
+            </fieldset>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">测量功率B</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sjdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sjdnValue2" name="sjdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is10"></b>
                 </div>
             </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 38</legend>
+            </fieldset>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">测量功率C</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sjdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sjdnValue3" name="sjdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is11"></b>
                 </div>
             </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 50</legend>
+            </fieldset>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">测量功率D</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sjdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sjdnValue4" name="sjdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is12"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -152,15 +207,15 @@
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">单极电切</label>
                 <div class="layui-input-block">
-                    <input type="text" name="ssldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="ssldDjdq" name="ssldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
+                    <b id="is13"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">单极电凝</label>
                 <div class="layui-input-block">
-                    <input type="text" name="ssldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="ssldDjdn" name="ssldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
+                    <b id="is14"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -169,15 +224,15 @@
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">单极电切</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zxldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zxldDjdq" name="zxldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
+                    <b id="is15"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">单极电凝</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zxldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zxldDjdn" name="zxldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
+                    <b id="is16"></b>
                 </div>
             </div>
 
@@ -187,8 +242,8 @@
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">双极电凝</label>
                 <div class="layui-input-block">
-                    <input type="text" name="ssldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="ssldSjdn" name="ssldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
+                    <b id="is17"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -197,8 +252,8 @@
             <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">双极电凝</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zxldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zxldSjdn" name="zxldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
+                    <b id="is18"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">

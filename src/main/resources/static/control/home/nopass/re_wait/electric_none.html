@@ -128,7 +128,7 @@
                 if(res.data != null && res.data != ""){
                     // 电源电压
                     $("#dydyValue").append(res.data.dydyValue);
-                    if(res.data.dydyValue>198 && res.data.dydyValue<242){
+                    if(res.data.dydyValue>198 && res.data.dydyValue<242 || res.data.dydyValue == "OL"){
                         $("#dydyValues").append("<p style='color:green;'>符合</p>")
                     }else{
                         $("#dydyValues").append("<p style='color:red;'>不符合</p>")

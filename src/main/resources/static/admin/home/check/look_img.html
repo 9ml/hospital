@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>证书信息</title>
+    <link rel="stylesheet" type="text/css" href="../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../static/css/admin.css"/>
+    <script src="../../../static/layui/layui.js"></script>
+    <style>
+        .layui-elem-field{
+            width: 100%;
+            margin-top: 20px;
+            color: red;
+        }
+        .btn{
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>文件</legend>
+        </fieldset>
+        <img id="htFile" src="" alt="">
+        <div class="col-xs-12 btn">
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
+            <button type="button" class="layui-btn" id="upload" style="margin: 20px;">
+                <i class="layui-icon">&#xe67c;</i>校准更新
+            </button>
+            <a id="updown" class="layui-btn layui-btn-normal">下载</a>
+        </div>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    layui.use(['layer','jquery','upload'],function(){
+        var layer = layui.layer
+            , $ = layui.jquery
+            , upload = layui.upload;
+        var paths = "";
+        $(function(){
+            $.ajax({
+                url:"/wjsc/selectLast?type="+ids,
+                method:"GET",
+                dataType:"JSON",
+                success:function(res){
+                    console.log(res);
+                    paths = res.message;
+                    console.log(paths);
+                    $("#htFile").attr("src",res.message);
+                },
+                error:function(data){
+                    layer.msg("请稍后再试");
+                    console.log(data);
+                }
+            });
+        });
+        var uploadInst = upload.render({
+            elem: '#upload'
+            ,url: '/wjsc/insertJztp?type='+ids
+            ,done: function(res){
+                if(res.state === 200){
+                    layer.msg("更新成功");
+                    setTimeout(function(){
+                        location.href="/admin/home/check/look_img.html?id="+ids;
+                    },2000);
+                }else{
+                    layer.msg("网络异常");
+                }
+            }
+            ,error: function(){
+                layer.msg("网络异常，请稍后再试");
+            }
+        });
+        $("#updown").click(function(){
+            window.location.href="/wjsc/downloadFile?filePath="+paths;
+        });
+        $("#back").click(function(){
+            window.history.back();
+        });
+    })
+</script>
+</body>
+</html>

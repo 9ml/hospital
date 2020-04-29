@@ -2,6 +2,7 @@ package com.litbo.hospitalzj.supplier.service.impl;
 
 import com.litbo.hospitalzj.hospital.enums.EnumProcess;
 import com.litbo.hospitalzj.supplier.controller.ex.HtInfoIsNullException;
+import com.litbo.hospitalzj.supplier.entity.District;
 import com.litbo.hospitalzj.supplier.entity.EqInfo;
 import com.litbo.hospitalzj.supplier.entity.HtInfo;
 import com.litbo.hospitalzj.supplier.mapper.EqHtFjVoMapper;
@@ -13,6 +14,8 @@ import com.litbo.hospitalzj.supplier.vo.EqHtVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -62,7 +65,11 @@ public class HtInfoServiceImpl implements HtInfoService {
 	}
 	@Override
 	public void updateYzm(Integer htId, String htYzm, String htState) {
-		htInfoMapper.updateYzm(htId,htYzm,htState);
+
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String format = fmt.format(new Date());
+
+		htInfoMapper.updateYzm(htId,htYzm,htState, format);
 	}
 	@Override
 	public HtInfo select(Integer htId) {
@@ -98,7 +105,7 @@ public class HtInfoServiceImpl implements HtInfoService {
 
 	@Override
 	public int updateHtInfoState(Integer htId, String htState) {
-		return htInfoMapper.updateStateById(htId,htState);
+		return htInfoMapper.updateStateById(htId, htState);
 	}
 
 	@Override
@@ -144,4 +151,46 @@ public class HtInfoServiceImpl implements HtInfoService {
 	public int count(String htState) {
 		return htInfoMapper.count(htState);
 	}
+
+	@Override
+	public List<District> findProvinceByParentId(String parent) {
+		return htInfoMapper.findProvinceByParentId(parent);
+	}
+
+	@Override
+	public void saveqm(String htId, String img, Integer num) {
+		if(num == 1){
+			//保存签名并改状态
+			htInfoMapper.saveqm1(htId, img);
+		}else if(num ==2){
+			SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String format = fmt.format(new Date());
+			htInfoMapper.saveqm2(htId, img, format);
+		}else{
+			htInfoMapper.saveqm3(htId, img);
+		}
+
+
+	}
+
+	@Override
+	public void updateHtInfoStateAndTime(Integer htId, String format, String message) {
+		htInfoMapper.updateHtInfoStateAndTime(htId, format, message);
+	}
+
+	@Override
+	public void updateHtInfoStateAndwsTime(Integer htId, String format, String message) {
+		htInfoMapper.updateHtInfoStateAndwsTime(htId, format, message);
+	}
+
+	public List<HtInfo> findBySuMc(String suMc) {
+		return htInfoMapper.findBySuMc(suMc);
+	}
+
+	@Override
+	public void deleteById(String htId) {
+		htInfoMapper.deleteById(htId);
+	}
+
+
 }

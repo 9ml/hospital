@@ -14,6 +14,8 @@
     <script type="text/javascript" src="../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/js/data.js"></script>
+    <script src="../static/js/province.js"></script>
     <style>
         .layui-elem-field{
             width: 100%;
@@ -23,7 +25,6 @@
         }
         .layui-form{
             display: flex;
-            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
         }
@@ -40,31 +41,30 @@
         </fieldset>
         <div class="col-xs-12">
             <form class="layui-form layui-form-pane" action="">
-                <div class="layui-form-item col-md-4">
+                <div class="layui-form-item col-md-6">
                     <label class="layui-form-label"><span style="color: red;">*</span>企业名称</label>
                     <div class="layui-input-block">
                         <input type="text" name="suMc" class="layui-input" autocomplete="off" lay-verify="required">
                     </div>
                 </div>
-                <div class="layui-form-item col-md-4">
+                <div class="layui-form-item col-md-8">
                     <label class="layui-form-label">所在省份</label>
-                    <div class="layui-input-block">
-                        <!--<select id="sheng" name="suSf" lay-filter="test1" lay-search>-->
-                            <!--<option value=""></option>-->
-                        <!--</select>-->
-                        <input type="text" name="suSf" class="layui-input" autocomplete="off">
+                    <div class="layui-input-inline">
+                        <select name="suSf" id="suSf" lay-filter="suSf">
+                            <option value="">请选择省</option>
+                        </select>
                     </div>
-                </div>
-                <div class="layui-form-item col-md-4">
                     <label class="layui-form-label">所在城市</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="suCs" class="layui-input" autocomplete="off">
+                    <div class="layui-input-inline">
+                        <select name="suCs" id="suCs" lay-filter="suCs">
+                            <option value="">请选择市</option>
+                        </select>
                     </div>
-                </div>
-                <div class="layui-form-item col-md-4">
                     <label class="layui-form-label">所在区县</label>
-                    <div class="layui-input-block">
-                        <input type="text" name="suXq" class="layui-input" autocomplete="off">
+                    <div class="layui-input-inline">
+                        <select name="suXq" id="suXq" lay-filter="suXq">
+                            <option value="">请选择县/区</option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item col-md-4">
@@ -85,10 +85,18 @@
                         <input type="text" name="suFzr" class="layui-input" autocomplete="off">
                     </div>
                 </div>
+                <!--<div class="layui-form-item col-md-4">-->
+                    <!--<label class="layui-form-label"><span style="color: red;">*</span>开户银行</label>-->
+                    <!--<div class="layui-input-block">-->
+                        <!--<input type="text" name="suKhyh" class="layui-input" autocomplete="off" lay-verify="required">-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="layui-form-item col-md-4">
                     <label class="layui-form-label"><span style="color: red;">*</span>开户银行</label>
                     <div class="layui-input-block">
-                        <input type="text" name="suKhyh" class="layui-input" autocomplete="off" lay-verify="required">
+                        <select id="suKhyh" name="suKhyh" lay-verify="" lay-search>
+                            <option value=""></option>
+                        </select>
                     </div>
                 </div>
                 <div class="layui-form-item col-md-4">
@@ -112,7 +120,7 @@
                 <div class="layui-form-item col-md-4">
                     <label class="layui-form-label"><span style="color: red;">*</span>联系电话</label>
                     <div class="layui-input-block">
-                        <input type="text" name="suLxrdh" class="layui-input" autocomplete="off" lay-verify="required">
+                        <input type="text" name="suLxrdh" class="layui-input" autocomplete="off" lay-verify="phone">
                     </div>
                 </div>
                 <div class="layui-form-item col-md-4">
@@ -136,7 +144,7 @@
                 <div class="layui-form-item col-md-4">
                     <label class="layui-form-label"><span style="color: red;">*</span>公司邮箱</label>
                     <div class="layui-input-block">
-                        <input type="text" name="suEmail" class="layui-input" autocomplete="off" lay-verify="required">
+                        <input type="text" name="suEmail" class="layui-input" autocomplete="off" lay-verify="email">
                     </div>
                 </div>
                 <div class="layui-form-item col-md-4">
@@ -151,7 +159,7 @@
                         <input type="text" name="suWz" class="layui-input" autocomplete="off">
                     </div>
                 </div>
-                <div class="layui-form-item col-md-6">
+                <div class="layui-form-item col-md-8">
                     <label class="layui-form-label">备注</label>
                     <div class="layui-input-block">
                         <input type="text" name="bz" class="layui-input" autocomplete="off">
@@ -166,11 +174,39 @@
         </div>
     </div>
     <script>
+        $(function(){
+            // 所有银行字典
+            function qylxList(){
+                // 清空当前列表
+                $("#suKhyh").empty();
+                // 添加默认选项
+                var op = '<option value=""></option>';
+                $("#suKhyh").append(op);
+                // 发出ajax请求，并处理结果
+                $.ajax({
+                    url:"/qylx/bank",
+                    method: "GET",
+                    dataType: "JSON",
+                    async:false,
+                    "success":function(json){
+                        // 遍历加载新列表项
+                        var list = json.data;
+                        for (var i = 0; i < list.length; i++) {
+                            console.log(list[i].bName + " - " + list[i].bName);
+                            op = '<option value="' + list[i].bName + '">' + list[i].bName + '</option>';
+                            $("#suKhyh").append(op);
+                        }
+                    }
+                });
+            }
+            qylxList();
+        });
         layui.use(['jquery','layer','form','upload'],function(){
             var layer = layui.layer
             ,   upload = layui.upload
             ,   $ = layui.jquery
             ,   form = layui.form;
+
             form.on('submit(nextTap)', function(data){
                 console.log(data.field);
                 $.ajax({
@@ -181,12 +217,34 @@
                     success:function(res){
                     	console.log(res.state);
                         if(res.state === 200){
+                            sessionStorage['ids'] = res.data;
                             setTimeout(function(){
-                                location.href = "/supplier/register_b.html?id="+res.data;
+                                // location.href = "/supplier/register_b.html?id="+res.data;
+                                layer.open({
+                                    type: 1
+                                    ,title: "选择类型" //不显示标题栏
+                                    ,closeBtn: false
+                                    ,area: '300px;'
+                                    ,shade: 0.8
+                                    ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+                                    ,btn: ['三证合一', '旧版三证']
+                                    ,btnAlign: 'c'
+                                    ,moveType: 1 //拖拽模式，0或者1
+                                    ,content: '<div style="padding: 30px; line-height: 22px; background-color: snow; color: #000000; text-align:center; font-weight: 300;">请选择您要添加的证照信息类型</div>'
+                                    ,success: function(layero){
+                                        var btn = layero.find('.layui-layer-btn');
+                                        btn.find('.layui-layer-btn0').attr({
+                                            href: "/supplier/register_t.html"
+                                        });
+                                        btn.find('.layui-layer-btn1').attr({
+                                            href: "/supplier/register_n.html"
+                                        });
+                                    }
+                                });
                             }, 1000);
                             layer.msg("提交成功");
                         }else if(res.state === 603){
-                            layer.msg("213456789");
+                            layer.msg("此公司名称已存在，请确认后再试！");
                         }else{
                             layer.msg("提交失败");
                         }
@@ -198,7 +256,15 @@
                 });
                 return false;
             });
-        })
+        });
+        var defaults = {
+            s1: 'suSf',
+            s2: 'suCs',
+            s3: 'suXq',
+            v1: null,
+            v2: null,
+            v3: null
+        };
     </script>
 </body>
 </html>

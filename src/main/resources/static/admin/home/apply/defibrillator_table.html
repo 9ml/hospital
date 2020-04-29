@@ -37,7 +37,7 @@
         </fieldset>
         <table class="layui-table">
             <tr>
-                <td rowspan="6">释放能量(J)允许误差 ±15%或±4J (取最大值)</td>
+                <td rowspan="6">释放能量(J)允许误差 ±15%或±4J<br>(取最大值)</td>
                 <td>标称值</td>
                 <td colspan="3">测量值</td>
                 <td>误差</td>
@@ -47,13 +47,13 @@
                 <td>测试结果</td>
             </tr>
             <tr>
-                <td>最小能量值</td>
+                <td id="zxnl">最小能量值:&nbsp;&nbsp;</td>
                 <td id="sfnlValue1" colspan="3">&nbsp;</td>
                 <td id="sfnlWc1">&nbsp;</td>
                 <td>100</td>
                 <td id="sfnlValue4" colspan="3">&nbsp;</td>
                 <td id="sfnlWc4">&nbsp;</td>
-                <td rowspan="5">□符合□不符合</td>
+                <td rowspan="5" id="is1"></td>
             </tr>
             <tr>
                 <td>30</td>
@@ -67,7 +67,7 @@
                 <td>50</td>
                 <td id="sfnlValue3" colspan="3">&nbsp;</td>
                 <td id="sfnlWc3">&nbsp;</td>
-                <td>最大能量值</td>
+                <td id="zdnl">最大能量值:&nbsp;&nbsp;</td>
                 <td id="sfnlValue6" colspan="3">&nbsp;</td>
                 <td id="sfnlWc6">&nbsp;</td>
             </tr>
@@ -76,12 +76,12 @@
                 <td style="width: 7%;">前</td>
                 <td style="width: 7%;">中</td>
                 <td style="width: 7%;">后</td>
-                <td style="width: 9%;" rowspan="2">&nbsp;</td>
-                <td style="width: 9%;" rowspan="2">200</td>
+                <td id="sfnlWc7" style="width: 9%;" rowspan="2">&nbsp;</td>
+                <td id="zdnl2" style="width: 9%;" rowspan="2">最大能量值:</td>
                 <td style="width: 7%;">前</td>
                 <td style="width: 7%;">中</td>
                 <td style="width: 7%;">后</td>
-                <td id="sfnlWc7" style="width: 10%;" rowspan="2">&nbsp;</td>
+                <td id="sfnlWc8" style="width: 10%;" rowspan="2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="sfnlValue71">&nbsp;</td>
@@ -94,16 +94,16 @@
             <tr>
                 <td>充电时间(s)≤20s</td>
                 <td id="cdsjValue" colspan="3">&nbsp;</td>
-                <td colspan="3">□符合 □不符合</td>
+                <td id="is2" colspan="3"></td>
                 <td colspan="2">内部放电</td>
-                <td id="nbfdResult" colspan="3">□符合 □不符合</td>
+                <td id="nbfdResult" colspan="3"></td>
             </tr>
             <tr>
                 <td>同步模式</td>
-                <td id="tbmsCfresult" colspan="4">□有同步触发功能 □无同步触发功能</td>
+                <td id="tbmsCfresult" colspan="4"></td>
                 <td colspan="2">同步延迟时间（ms）:≤60ms</td>
                 <td id="tbmsSj" colspan="2">&nbsp;</td>
-                <td colspan="3">□符合 □不符合</td>
+                <td id="is3" colspan="3"></td>
             </tr>
             <tr>
                 <td rowspan="2">心率示值</td>
@@ -122,15 +122,15 @@
                 <td id="xlszValue3">&nbsp;</td>
                 <td id="xlszValue4" colspan="2">&nbsp;</td>
                 <td id="xlszValue5" colspan="2">&nbsp;</td>
-                <td>□符合 □不符合</td>
+                <td id="is4"></td>
             </tr>
             <tr>
                 <td>声光报警</td>
-                <td id="sgbjResult" colspan="2">□符合 □不符合</td>
+                <td id="sgbjResult" colspan="2"></td>
                 <td colspan="2">报警限检查</td>
-                <td id="bjxResult" colspan="2">□符合 □不符合</td>
+                <td id="bjxResult" colspan="2"></td>
                 <td colspan="3">静音检查</td>
-                <td id="jyResult" colspan="2">□符合 □不符合</td>
+                <td id="jyResult" colspan="2"></td>
             </tr>
             <tr>
                 <td>检测说明</td>
@@ -182,6 +182,8 @@
                 console.log(res);
                 idsa = res.data.ccyId;
                 if(res.data != null && res.data != ""){
+                    $("#zxnl").append(res.data.zxnl);
+                    $("#zdnl").append(res.data.zdnl);
                     $("#sfnlValue1").append(res.data.sfnlValue1);
                     $("#sfnlWc1").append(res.data.sfnlWc1);
                     $("#sfnlValue2").append(res.data.sfnlValue2);
@@ -194,20 +196,45 @@
                     $("#sfnlWc5").append(res.data.sfnlWc5);
                     $("#sfnlValue6").append(res.data.sfnlValue6);
                     $("#sfnlWc6").append(res.data.sfnlWc6);
-                    $("#sfnlWc7").append(res.data.sfnlWc7);
                     $("#sfnlValue71").append(res.data.sfnlValue71);
                     $("#sfnlValue72").append(res.data.sfnlValue72);
                     $("#sfnlValue73").append(res.data.sfnlValue73);
+                    $("#sfnlWc7").append(res.data.sfnlWc7);
                     $("#sfnlValue81").append(res.data.sfnlValue81);
                     $("#sfnlValue82").append(res.data.sfnlValue82);
                     $("#sfnlValue83").append(res.data.sfnlValue83);
+                    $("#sfnlWc8").append(res.data.sfnlWc8);
+                    $("#zdnl2").append(res.data.zdnl2);
+                    if(res.data.sfnlWc1 >= 0 && res.data.sfnlWc1 <= 4 && res.data.sfnlWc2 >= 0 && res.data.sfnlWc2 <= 4.5 && res.data.sfnlWc3 >= 0 && res.data.sfnlWc3 <= 7.5 && res.data.sfnlWc4 >= 0 && res.data.sfnlWc4 <= 15 && res.data.sfnlWc5 >= 0 && res.data.sfnlWc5 <= 30 && res.data.sfnlWc6 >= 0 && res.data.sfnlWc6 <= res.data.zdnl*0.15 && res.data.sfnlWc7 >= 0 && res.data.sfnlWc7 <= 4 && res.data.sfnlWc8 >= 0 && res.data.sfnlWc8 <= res.data.zdnl2*0.15){
+                        $("#is1").append("<p style='color:green;'>符合</p>");
+                    }else{
+                        $("#is1").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 充电时间
                     $("#cdsjValue").append(res.data.cdsjValue);
+                    if(res.data.cdsjValue > 0 && res.data.cdsjValue <= 20){
+                        $("#is2").append("<p style='color:green;'>符合</p>");
+                    }else{
+                        $("#is2").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 同步延迟时间
                     $("#tbmsSj").append(res.data.tbmsSj);
+                    if(res.data.tbmsSj > 0 && res.data.tbmsSj <= 60){
+                        $("#is3").append("<p style='color:green;'>符合</p>");
+                    }else{
+                        $("#is3").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 心率示值
                     $("#xlszValue1").append(res.data.xlszValue1);
                     $("#xlszValue2").append(res.data.xlszValue2);
                     $("#xlszValue3").append(res.data.xlszValue3);
                     $("#xlszValue4").append(res.data.xlszValue4);
                     $("#xlszValue5").append(res.data.xlszValue5);
+                    if(res.data.xlszValue1 >= 28 && res.data.xlszValue1 <= 32 && res.data.xlszValue2 >= 57 && res.data.xlszValue2 <= 63 && res.data.xlszValue3 >= 95 && res.data.xlszValue3 <= 105 && res.data.xlszValue4 >= 114 && res.data.xlszValue4 <= 126 && res.data.xlszValue5 >= 171 && res.data.xlszValue5 <= 189){
+                        $("#is4").append("<p style='color:green;'>符合</p>");
+                    }else{
+                        $("#is4").append("<p style='color:red;'>不符合</p>")
+                    }
                     // 单选
                     if(res.data.nbfdResult == 1){
                         $("#nbfdResult").append("<p style='color: green;'>符合</p>");
@@ -234,6 +261,8 @@
                     }else{
                         $("#jyResult").append("<p style='color: red;'>不符合</p>");
                     }
+                }else{
+                    layer.msg("无数据");
                 }
             }
         })

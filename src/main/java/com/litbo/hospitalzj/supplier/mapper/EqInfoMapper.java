@@ -1,8 +1,11 @@
 package com.litbo.hospitalzj.supplier.mapper;
 
 import com.litbo.hospitalzj.supplier.entity.EqInfo;
+import com.litbo.hospitalzj.supplier.entity.HtInfo;
 import com.litbo.hospitalzj.supplier.vo.SelHtEqVo;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -111,13 +114,13 @@ public interface EqInfoMapper {
 			"      eq_jx = #{eqJx,jdbcType=VARCHAR},\n" +
 			"      eq_qyrq = #{eqQyrq,jdbcType=VARCHAR},\n" +
 			"      eq_cfdd = #{eqCfdd,jdbcType=VARCHAR},\n" +
-			"      eq_bfjd = #{eqBfjd,jdbcType=VARCHAR}\n" +
-			"	   eq_qk=#{eqQk}"+
-			"    where eq_id = #{eqId,jdbcType=INTEGER}")
+			"      eq_bfjd = #{eqBfjd,jdbcType=VARCHAR},\n" +
+			"	   eq_qk = #{eqQk,jdbcType=VARCHAR}" +
+			" where eq_id = #{eqId,jdbcType=INTEGER}")
 	Integer updateInfo(EqInfo eqinfo);
 
-	@Update("update eq_info set eq_state = #{eqState,jdbcType=INTEGER} where ht_ids=#{htIds}")
-	Integer update(Integer htIds, Integer eqState);
+	@Update("update eq_info set eq_state = 1 where ht_ids=#{htIds,jdbcType=INTEGER}")
+	Integer update(Integer htIds);
 
 	@Select("select * from eq_info where eq_state=1")
 	List<EqInfo> selectByState();
@@ -160,4 +163,52 @@ public interface EqInfoMapper {
 	Integer updateEqQk(@Param("eqId") Integer eqId, @Param("eqQk") String eqQk);
 	@Select("select * from eq_info where eq_qk=#{eqQk}")
 	List<EqInfo> findByEqQk(String eqQk);
+
+
+	@Insert("insert into eq_info (eq_id, eq_mc, eq_dah, \n" +
+			"      eq_pm_id, eq_xh, eq_jldw_id, \n" +
+			"      eq_azdd, eq_bxq, eq_yt, \n" +
+			"      eq_price, eq_zczbh, eq_scbh, \n" +
+			"      eq_num, eq_totalprice, eq_ccdate, \n" +
+			"      eq_cscs, eq_gb, eq_bgbh, \n" +
+			"      eq_sh_fws, eq_sh_qddh, eq_sh_shjl, \n" +
+			"      eq_sh_jldh, eq_sh_lxr, eq_sh_lxrdh, \n" +
+			"      eq_state, eq_yzm, ht_ids, \n" +
+			"      eq_sh_lb, eq_syks, eq_jx, \n" +
+			"      eq_qyrq, eq_cfdd, eq_bfjd,eq_qk\n" +
+			"      )\n" +
+			"    values (#{eqId,jdbcType=INTEGER}, #{eqMc,jdbcType=VARCHAR}, #{eqDah,jdbcType=VARCHAR}, \n" +
+			"      #{eqPmId,jdbcType=VARCHAR}, #{eqXh,jdbcType=VARCHAR}, #{eqJldwId,jdbcType=VARCHAR}, \n" +
+			"      #{eqAzdd,jdbcType=VARCHAR}, #{eqBxq,jdbcType=VARCHAR}, #{eqYt,jdbcType=VARCHAR}, \n" +
+			"      #{eqPrice,jdbcType=DECIMAL}, #{eqZczbh,jdbcType=VARCHAR}, #{eqScbh,jdbcType=VARCHAR}, \n" +
+			"      #{eqNum,jdbcType=VARCHAR}, #{eqTotalprice,jdbcType=VARCHAR}, #{eqCcdate,jdbcType=VARCHAR}, \n" +
+			"      #{eqCscs,jdbcType=VARCHAR}, #{eqGb,jdbcType=VARCHAR}, #{eqBgbh,jdbcType=VARCHAR}, \n" +
+			"      #{eqShFws,jdbcType=VARCHAR}, #{eqShQddh,jdbcType=VARCHAR}, #{eqShShjl,jdbcType=VARCHAR}, \n" +
+			"      #{eqShJldh,jdbcType=VARCHAR}, #{eqShLxr,jdbcType=VARCHAR}, #{eqShLxrdh,jdbcType=VARCHAR}, \n" +
+			"      #{eqState,jdbcType=INTEGER}, #{eqYzm,jdbcType=VARCHAR}, #{htIds,jdbcType=INTEGER}, \n" +
+			"      #{eqShLb,jdbcType=VARCHAR}, #{eqSyks,jdbcType=VARCHAR}, #{eqJx,jdbcType=VARCHAR}, \n" +
+			"      #{eqQyrq,jdbcType=VARCHAR}, #{eqCfdd,jdbcType=VARCHAR}, #{eqBfjd,jdbcType=VARCHAR},\n" +
+			"      #{eqQk})")
+	void InsertBatEqInfo(EqInfo eqInfo);
+
+
+	@Select("select eq_id, eq_mc, eq_dah," +
+            "      eq_pm_id, eq_xh, eq_jldw_id, " +
+            "      eq_azdd, eq_bxq, eq_yt," +
+            "      eq_price, eq_zczbh, eq_scbh," +
+            "      count(*) as eq_num, eq_totalprice, eq_ccdate," +
+            "      eq_cscs, eq_gb, eq_bgbh, " +
+            "      eq_sh_fws, eq_sh_qddh, eq_sh_shjl, " +
+            "      eq_sh_jldh, eq_sh_lxr, eq_sh_lxrdh, " +
+            "      eq_state, eq_yzm, ht_ids," +
+            "      eq_sh_lb, eq_syks, eq_jx," +
+            "      eq_qyrq, eq_cfdd, eq_bfjd " +
+            " FROM eq_info e LEFT JOIN ht_info h ON e.ht_ids=h.ht_id WHERE e.ht_ids= #{htIds} GROUP BY e.eq_mc, e.eq_xh")
+	List<SelHtEqVo> selectGroupEqHtVo(Integer htIds);
+
+	@Select("select eq_ccdate, eq_scbh from eq_info where eq_mc=#{eqMc} and eq_xh=#{eqXh} and ht_ids = #{htIds}")
+	List<SelHtEqVo> selectRq(@Param("eqMc") String eqMc, @Param("eqXh") String eqXh, @Param("htIds") Integer htIds);
+
+	@Delete("delete from eq_info where eq_mc=#{eqMc} and eq_xh=#{eqXh} and ht_ids =#{htIds} ")
+	void deleteBat(@Param("eqMc") String eqMc,@Param("eqXh") String eqXh,@Param("htIds") Integer htIds);
 }

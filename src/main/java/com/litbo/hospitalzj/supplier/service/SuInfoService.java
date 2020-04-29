@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface SuInfoService {
-    void insert(SuInfo suInfo);
+    int insert(SuInfo suInfo);
     void delete(@Param("suId") Integer suId, @Param("isDelete") Integer isDelete);
     void update(SuInfo suInfo);
     void updateState(@Param("suId") Integer suId, @Param("state") Integer state);
@@ -20,5 +20,10 @@ public interface SuInfoService {
     List<SuInfo> findSuByState(Integer state);
     void updatePwd(@Param("suId") Integer suId, @Param("password") String password);
     public SuInfo login(String suMc, String password) throws UserNotFoundException, PasswordNotMatchException;
-    void sendEmail(Integer suId, String suMc, String email, String password);
+    void sendEmail(Integer suId, String email, String password, String subject, String text);
+    //根据id查数据
+    SuInfoAndZzInfo findSuinfoById(Integer suId);
+
+    //插入当前时间
+    void insertNowTime(String suId);
 }

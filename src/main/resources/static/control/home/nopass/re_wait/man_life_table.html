@@ -21,6 +21,9 @@
         td p{
             font-weight: bold;
         }
+        td{
+            text-align: center;
+        }
         .btn{
             width: 100%;
             margin-top: 50px;
@@ -37,14 +40,14 @@
         </fieldset>
         <table class="layui-table">
             <tr>
-                <th rowspan="2" scope="row">心率(次/min)</th>
-                <td>测试点</td>
-                <td>30</td>
-                <td>60</td>
-                <td>100</td>
-                <td>120</td>
-                <td>180</td>
-                <td> 允许误差： ± 5% </td>
+                <th style="text-align: center;width:15%;" rowspan="2" scope="row">心率(次/min)</th>
+                <td style="width: 10%;">测试点</td>
+                <td style="width: 10%;">30</td>
+                <td style="width: 10%;">60</td>
+                <td style="width: 10%;">100</td>
+                <td style="width: 10%;">120</td>
+                <td style="width: 10%;">180</td>
+                <td style="width: 15%;"> 允许误差： ± 5% </td>
             </tr>
             <tr>
                 <td>实测值</td>
@@ -56,7 +59,7 @@
                 <td id="xlValues"></td>
             </tr>
             <tr>
-                <th rowspan="2" scope="row">呼吸率(次/min)</th>
+                <th style="text-align: center;" rowspan="2" scope="row">呼吸率(次/min)</th>
                 <td>测试点</td>
                 <td>15</td>
                 <td>20</td>
@@ -75,7 +78,7 @@
                 <td id="hxlValues"></td>
             </tr>
             <tr>
-                <th rowspan="4" scope="row">无创血压(mmHg)</th>
+                <th style="text-align: center;" rowspan="4" scope="row">无创血压(mmHg)</th>
                 <td>测试点</td>
                 <td>75/45(55)</td>
                 <td>100/65(77)</td>
@@ -110,7 +113,7 @@
                 <td id="wcxyHValue35">&nbsp;</td>
             </tr>
             <tr>
-                <th rowspan="2" scope="row">血氧饱和度(%)</th>
+                <th style="text-align: center;" rowspan="2" scope="row">血氧饱和度(%)</th>
                 <td>测试点</td>
                 <td>85</td>
                 <td>88</td>
@@ -129,8 +132,7 @@
                 <td id="xybhdValues"></td>
             </tr>
             <tr>
-                <th rowspan="2" scope="row"><p>无创血压静态示值(mmHg)</p>
-                    <p>设定值150mmHg</p></th>
+                <th style="text-align: center;" rowspan="2" scope="row">无创血压静态示值(mmHg)<br>设定值150mmHg</th>
                 <td> 模拟器测量值 </td>
                 <td id="wcxyjtMnq">&nbsp;</td>
                 <td>允许误差： ± 4mmHg</td>
@@ -148,7 +150,7 @@
                 <td id="wcxyqmXlls"></td>
             </tr>
             <tr>
-                <th scope="row">声光报警</th>
+                <th style="text-align: center;" scope="row">声光报警</th>
                 <td id="sgbjResult" colspan="2"></td>
                 <td>报警限制</td>
                 <td id="bjxjcResult" colspan="2"></td>
@@ -239,7 +241,7 @@
                     $("#wcxyHValue35").append(res.data.wcxyHValue35+"/"+res.data.wcxyMValue35+"/"+res.data.wcxyLValue35);
                     var wcxyHValue5 = (Math.max(res.data.wcxyHValue15,res.data.wcxyHValue25,res.data.wcxyHValue35) - Math.min(res.data.wcxyHValue15,res.data.wcxyHValue25,res.data.wcxyHValue33));
                     var wcxyMValue5 = (Math.max(res.data.wcxyMValue15,res.data.wcxyMValue25,res.data.wcxyMValue35) - Math.min(res.data.wcxyMValue15,res.data.wcxyMValue25,res.data.wcxyMValue35));
-                    if(wcxyHValue1 != "" && wcxyHValue1 <= 8.5 && wcxyHValue2 != "" && wcxyHValue2 <= 8.5 && wcxyHValue3 != "" && wcxyHValue3 <= 8.5 && wcxyHValue4 != "" && wcxyHValue4 <= 8.5 && wcxyHValue5 != "" && wcxyHValue5 <= 8.5 && wcxyMValue1 != "" && wcxyMValue1 <= 8.5 && wcxyMValue2 != "" && wcxyMValue2 <= 8.5 && wcxyMValue3 != "" && wcxyMValue3 <= 8.5 && wcxyMValue4 != "" && wcxyMValue4 <= 8.5 && wcxyMValue5 != "" && wcxyMValue5 <= 8.5){
+                    if(wcxyHValue1 <= 8.5 && wcxyHValue2 <= 8.5 && wcxyHValue3 <= 8.5 && wcxyHValue4 <= 8.5 && wcxyHValue5 <= 8.5 && wcxyMValue1 <= 8.5 && wcxyMValue2 <= 8.5 && wcxyMValue3 <= 8.5 && wcxyMValue4 <= 8.5 && wcxyMValue5 <= 8.5){
                         $("#wcxyHValues").append("<p style='color:green;'>符合</p>");
                     }else{
                         $("#wcxyHValues").append("<p style='color:red;'>不符合</p>");

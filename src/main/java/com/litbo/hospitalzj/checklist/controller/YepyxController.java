@@ -15,6 +15,7 @@ import com.litbo.hospitalzj.zk.service.EqInfoService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -81,6 +82,17 @@ public class YepyxController extends BaseController {
         return new ResponseResult<>(200, x);
     }
 
+    //只根据id更新检测数据
+    @RequestMapping("/updataNow/{id}")
+    public ResponseResult updataNow(@PathVariable("id")Integer id,HttpServletRequest req){
+        Yepyx yepyx = CommonUtils.toBean(req.getParameterMap(), Yepyx.class);
+        yepyx.setPyxId(id);
+        //更新
+        yepyxService.update(yepyx);
+        return new ResponseResult(200, id);
+    }
+
+
     @RequestMapping("/updateYepyx")
     public ResponseResult updateYepyx(
             @RequestParam("eqId")String eqId,
@@ -90,7 +102,8 @@ public class YepyxController extends BaseController {
         Yepyx data = yepyxService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         Yepyx yepyx = CommonUtils.toBean(req.getParameterMap(), Yepyx.class);
         yepyx.setPyxId(data.getPyxId());
-
+        //更新
+        yepyxService.update(yepyx);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -101,9 +114,6 @@ public class YepyxController extends BaseController {
         if(num == 0){
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
-        //更新
-        //dqjcService.updateDqjc(dqjc);
-        yepyxService.update(yepyx);
         int[] x = {yepyx.getPyxId(), yqEqId, userEqId};
         return new ResponseResult<>(200, x);
     }

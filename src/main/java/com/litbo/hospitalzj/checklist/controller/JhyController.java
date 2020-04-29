@@ -2,6 +2,7 @@ package com.litbo.hospitalzj.checklist.controller;
 
 import com.litbo.hospitalzj.checklist.domain.Dcsjhy;
 import com.litbo.hospitalzj.checklist.domain.DcsjhyTemplate;
+import com.litbo.hospitalzj.checklist.domain.Hxj;
 import com.litbo.hospitalzj.checklist.service.DcsjhyService;
 import com.litbo.hospitalzj.checklist.utils.commons.CommonUtils;
 import com.litbo.hospitalzj.controller.BaseController;
@@ -16,6 +17,7 @@ import com.litbo.hospitalzj.zk.service.TabEqService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -133,8 +135,31 @@ public class JhyController extends BaseController {
 		table.setValue(2);
 		tabEqService.insert(table);
 		int[] x={dcsjhy.getDcid(),yqEqId};
-		return new ResponseResult<>(200, x);
+		return new ResponseResult<int[]>(200, x);
 	}
+
+
+	//只根据id更新检测数据
+	@RequestMapping("/updataNowMan/{id}")
+	public com.litbo.hospitalzj.util.ResponseResult updataNowMan(@PathVariable("id")Integer id, HttpServletRequest req){
+		Dcsjhy dcsjhy = CommonUtils.toBean(req.getParameterMap(), Dcsjhy.class);
+		dcsjhy.setDcid(id);
+		//更新
+		dcsjhyService.updateMen(dcsjhy);
+		return new ResponseResult(200, id);
+	}
+
+
+	//只根据id更新检测数据
+	@RequestMapping("/updataNowChild/{id}")
+	public com.litbo.hospitalzj.util.ResponseResult updataNowChild(@PathVariable("id")Integer id, HttpServletRequest req){
+		Dcsjhy dcsjhy = CommonUtils.toBean(req.getParameterMap(), Dcsjhy.class);
+		dcsjhy.setDcid(id);
+		//更新
+		dcsjhyService.updateChild(dcsjhy);
+		return new ResponseResult(200, id);
+	}
+
 
 	/**
 	 * 更新成人检测数据
@@ -152,6 +177,8 @@ public class JhyController extends BaseController {
 		Dcsjhy last = dcsjhyService.findByEqIdandJcyqIdLast("dcsjhy_m", eqId, jcyqId);
 		Dcsjhy dcsjhy = CommonUtils.toBean(req.getParameterMap(), Dcsjhy.class);
 		dcsjhy.setDcid(last.getDcid());
+		//更新
+		dcsjhyService.updateMen(dcsjhy);
 		//修改yq_eq 得state 和 type待上传
 		int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
 		yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -163,10 +190,8 @@ public class JhyController extends BaseController {
 
 			userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
 		}
-		//更新
-		dcsjhyService.updateMen(dcsjhy);
 		int[] x={dcsjhy.getDcid(),yqEqId,userEqId};
-		return new ResponseResult<>(200, x);
+		return new ResponseResult<int[]>(200, x);
 	}
 
 
@@ -204,7 +229,7 @@ public class JhyController extends BaseController {
 		table.setValue(1);
 		tabEqService.insert(table);
 		int[] x={dcsjhy.getDcid(),yqEqId, userEqId};
-		return new ResponseResult<>(200, x);
+		return new ResponseResult<int[]>(200, x);
 	}
 
 	/**
@@ -223,6 +248,8 @@ public class JhyController extends BaseController {
 		Dcsjhy last = dcsjhyService.findByEqIdandJcyqIdLast("dcsjhy_c", eqId, jcyqId);
 		Dcsjhy dcsjhy = CommonUtils.toBean(req.getParameterMap(), Dcsjhy.class);
 		dcsjhy.setDcid(last.getDcid());
+		//更新
+		dcsjhyService.updateChild(dcsjhy);
 		//修改yq_eq 得state 和 type
 		int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
 		yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -233,10 +260,9 @@ public class JhyController extends BaseController {
 		if(num == 0){
 			userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
 		}
-		//更新
-		dcsjhyService.updateChild(dcsjhy);
+
 		int[] x={dcsjhy.getDcid(),yqEqId, userEqId,userEqId};
-		return new ResponseResult<>(200, x);
+		return new ResponseResult<int[]>(200, x);
 	}
 
 	//成人

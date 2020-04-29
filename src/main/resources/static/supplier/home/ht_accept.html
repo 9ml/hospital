@@ -28,7 +28,7 @@
     <div class="col-xs-12">
         <form class="layui-form layui-form-pane" action="">
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
-                <legend style="color: red;">合同编号申请信息录入</legend>
+                <legend style="color: red;">仪器设备采购合同验收申请</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>供应商</label>
@@ -51,25 +51,31 @@
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>合同号</label>
                 <div class="layui-input-block">
-                    <input type="text" name="htHthao" placeholder="合同号" class="layui-input" autocomplete="off">
+                    <input type="text" name="htHthao" placeholder="合同号" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label"><span style="color: red;">*</span>招标编号</label>
+                <label class="layui-form-label">招标编号</label>
                 <div class="layui-input-block">
-                    <input type="text" name="htZhbhao" class="layui-input" placeholder="招标编号" autocomplete="off" lay-verify="required">
+                    <input type="text" name="htZhbhao" class="layui-input" placeholder="招标编号" autocomplete="off">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>邮箱</label>
                 <div class="layui-input-block">
-                    <input type="text" name="email" class="layui-input" placeholder="招标编号" autocomplete="off" lay-verify="required">
+                    <input type="text" name="email" class="layui-input" placeholder="邮箱" autocomplete="off" lay-verify="email">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">合同总金额</label>
-                <div class="layui-input-block">
+                <label class="layui-form-label"><span style="color: red;">*</span>合同总金额</label>
+                <div class="layui-input-block" style="display: flex;">
                     <input type="text" name="htZje" placeholder="合同总金额" class="layui-input" autocomplete="off" lay-verify="required">
+                    <div style="display: flex;align-items: center;justify-content: center;margin-left: 6%;">
+                        <span>元</span>
+                        <input type="radio" name="htJedw" value="元" checked>
+                        <span style="width: 30px;">美元</span>
+                        <input type="radio" name="htJedw" value="美元">
+                    </div>
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
@@ -94,7 +100,6 @@
                 <label class="layui-form-label">来源</label>
                 <div class="layui-input-block">
                     <select id="htLy" name="htLy" lay-verify="" lay-search>
-                        <option value=""></option>
                     </select>
                 </div>
             </div>
@@ -102,7 +107,6 @@
                 <label class="layui-form-label">采购方式</label>
                 <div class="layui-input-block">
                     <select id="htCgfs" name="htCgfs" lay-verify="" lay-search>
-                        <option value=""></option>
                     </select>
                 </div>
             </div>
@@ -117,7 +121,6 @@
                 <label class="layui-form-label">经费来源</label>
                 <div class="layui-input-block">
                     <select id="htJfly" name="htJfly" lay-verify="" lay-search>
-                        <option value=""></option>
                     </select>
                 </div>
             </div>
@@ -138,8 +141,8 @@
             // 清空当前列表
             $("#htLy").empty();
             // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htLy").append(op);
+            // var op = '<option value=""></option>';
+            // $("#htLy").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqly/allEqly",
@@ -163,8 +166,8 @@
             // 清空当前列表
             $("#htCgfs").empty();
             // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htCgfs").append(op);
+            // var op = '<option value=""></option>';
+            // $("#htCgfs").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqcg/allEqCgfs",
@@ -189,8 +192,8 @@
             // 清空当前列表
             $("#htSglb").empty();
             // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htSglb").append(op);
+            // var op = '<option value=""></option>';
+            // $("#htSglb").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqsglb/allEqSglb",
@@ -215,8 +218,8 @@
             // 清空当前列表
             $("#htJfly").empty();
             // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htJfly").append(op);
+            // var op = '<option value=""></option>';
+            // $("#htJfly").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqjf/allEqJfly",

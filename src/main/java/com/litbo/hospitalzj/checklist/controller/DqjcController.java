@@ -17,6 +17,7 @@ import com.litbo.hospitalzj.zk.service.EqInfoService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -65,6 +66,20 @@ public class DqjcController extends BaseController {
         return new ResponseResult<Void>(200);
     }
 
+
+    //只根据id更新检测数据
+    @RequestMapping("/updataNow/{id}")
+    public ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
+        Dqjc dqjc = CommonUtils.toBean(req.getParameterMap(), Dqjc.class);
+        dqjc.setDqjcid(id);
+        dqjc.setState(0);
+        //更新
+        dqjcService.updateDqjc(dqjc);
+        return new ResponseResult(200, id);
+    }
+
+
+
     /**
      * 插入模板表数据
      *
@@ -106,7 +121,7 @@ public class DqjcController extends BaseController {
         eqZjlsService.insert(eqZjls);
 
         int[] x = {dqjc.getDqjcid(), yqEqId};
-        return new ResponseResult<>(200, x);
+        return new ResponseResult<int[]>(200, x);
     }
 
 
@@ -119,6 +134,8 @@ public class DqjcController extends BaseController {
         Dqjc last1 = dqjcService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         Dqjc dqjc = CommonUtils.toBean(req.getParameterMap(), Dqjc.class);
         dqjc.setDqjcid(last1.getDqjcid());
+        //更新
+        dqjcService.updateDqjc(dqjc);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -131,12 +148,10 @@ public class DqjcController extends BaseController {
 
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
-
-        //更新
-        dqjcService.updateDqjc(dqjc);
         int[] x = {dqjc.getDqjcid(), yqEqId,userEqId};
-        return new ResponseResult<>(200, x);
+        return new ResponseResult<int[]>(200, x);
     }
+
 
 
     //查询电气检测表（最后一条）
@@ -192,9 +207,18 @@ public class DqjcController extends BaseController {
     //修改状态
     @RequestMapping("/updateState")
     public ResponseResult<Void> updateState(@RequestParam("yqEqId") Integer yqEqId, @RequestParam("userEqId") Integer userEqId) {
+        //根据设备id查此id与检测仪器的关联表
+        //如果此设备id关联的检测仪器有一个状态为待上传，那么此设备状态为待上传
+        //如果此设备id关联的检测仪器全部状态为已上传，那么此设备状态为已上传
         yqEqService.updateState(yqEqId, 0);
         yqEqService.updateType(yqEqId, EnumProcess2.IS_UPLOAD.getMessage());
-        userEqService.setEqState(userEqId, EnumProcess2.UNDER_REVIEW.getMessage());
+        //改为待审核之前判断一下yqeq是否有待上传记录
+        YqEq yqEq = yqEqService.findById(yqEqId);
+        //待上传的
+        List<YqEq> yqEqs = yqEqService.findByType(yqEq.getEqId(), EnumProcess2.TO_UPLOAD.getMessage());
+        if(yqEqs.size() == 0){
+            userEqService.setEqState(userEqId, EnumProcess2.UNDER_REVIEW.getMessage());
+        }
         return new ResponseResult<Void>(200);
     }
 

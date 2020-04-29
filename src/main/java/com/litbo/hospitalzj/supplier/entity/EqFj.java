@@ -15,6 +15,16 @@ public class EqFj {
 	private String eqFjsccs;
 	private String eqFjccbh;
 	private String bz;
+	private String eqFjccrq;
+
+	public String getEqFjccrq() {
+		return eqFjccrq;
+	}
+
+	public void setEqFjccrq(String eqFjccrq) {
+		this.eqFjccrq = eqFjccrq;
+	}
+
 	public Integer getEqFjId() {
 		return eqFjId;
 	}

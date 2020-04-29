@@ -76,6 +76,17 @@ public class ZzInfo {
 
     private String zzZzbz;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date nowTime;
+
+    public Date getNowTime() {
+        return nowTime;
+    }
+
+    public void setNowTime(Date nowTime) {
+        this.nowTime = nowTime;
+    }
+
     public String getZzZzyx() {
         return zzZzyx;
     }

@@ -64,7 +64,13 @@
                 <div class="layui-form-item col-md-5">
                     <label class="layui-form-label">出厂编号</label>
                     <div class="layui-input-block">
-                        <input type="text" name="eqFjccbh" class="layui-input" autocomplete="off">
+                        <input type="text" id="eqFjccbh" name="eqFjccbh" class="layui-input" autocomplete="off">
+                    </div>
+                </div>
+                <div class="layui-form-item col-md-5">
+                    <label class="layui-form-label">出厂日期</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="eqFjccrq" name="eqFjccrq" class="layui-input" autocomplete="off">
                     </div>
                 </div>
                 <div class="layui-form-item col-md-5">
@@ -75,7 +81,7 @@
                 </div>
                 <div class="inp layui-form-item col-md-12 col-xs-12">
                     <div class="layui-input-block">
-                        <button type="reset" class="layui-btn layui-btn-primary">返回</button>
+                        <a id="back" class="layui-btn layui-btn-primary">返回</a>
                         <button class="layui-btn layui-btn-normal" lay-submit lay-filter="nextTap">添加</button>
                     </div>
                 </div>
@@ -92,15 +98,23 @@
             ,   laydate = layui.laydate
             ,   layer = layui.layer
             ,   $ = layui.jquery;
-            laydate.render({
-                elem: '#date' //指定元素
+            $(function(){
+                $("#eqFjccbh").focus(function(){
+                    layer.tips('请根据设备数量依次填写每个设备的出厂编号，多个请用(英文逗号),隔开', '#eqFjccbh',{time:10000,maxWidth:500,});
+                });
+                $("#eqFjccrq").focus(function(){
+                    layer.tips('请根据设备数量依次填写每个设备的出厂日期，多个请用(英文逗号),隔开', '#eqFjccrq',{time:10000,maxWidth:500,});
+                });
             });
             var form = layui.form;
+            $("#back").click(function(){
+                window.history.back();
+            });
             //监听提交
             form.on('submit(nextTap)', function(data){
                 console.log(data.field);
                 $.ajax({
-                    url:"/eqfj/insert?eqIds="+ids,
+                    url:"/eqfj/insertBat?eqIds="+ids,
                     method:"POST",
                     data:data.field,
                     dataType:"JSON",

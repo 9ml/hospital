@@ -56,8 +56,14 @@
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label">合同总金额</label>
-                <div class="layui-input-block">
-                    <input id="htZje" type="text" name="htZje" placeholder="合同总金额" class="layui-input" autocomplete="off" lay-verify="required">
+                <div class="layui-input-block" style="display: flex;">
+                    <input type="text" id="htZje" name="htZje" placeholder="合同总金额" class="layui-input" autocomplete="off" lay-verify="required">
+                    <div style="display: flex;align-items: center;justify-content: center;margin-left: 6%;">
+                        <span>元</span>
+                        <input type="radio" name="htJedw" value="元" checked>
+                        <span style="width: 30px;">美元</span>
+                        <input type="radio" name="htJedw" value="美元">
+                    </div>
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
@@ -129,9 +135,6 @@
         function lyList(){
             // 清空当前列表
             $("#htLy").empty();
-            // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htLy").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqly/allEqly",
@@ -154,9 +157,6 @@
         function cgfsList(){
             // 清空当前列表
             $("#htCgfs").empty();
-            // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htCgfs").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqcg/allEqCgfs",
@@ -180,9 +180,6 @@
         function sglbList(){
             // 清空当前列表
             $("#htSglb").empty();
-            // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htSglb").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqsglb/allEqSglb",
@@ -206,9 +203,6 @@
         function jflyList(){
             // 清空当前列表
             $("#htJfly").empty();
-            // 添加默认选项
-            var op = '<option value=""></option>';
-            $("#htJfly").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqjf/allEqJfly",

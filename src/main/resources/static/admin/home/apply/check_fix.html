@@ -185,7 +185,6 @@
                     });
                 }
             }else if(obj.event === "hands2"){
-                alert(obj.data.jcyqName);
                 if(obj.data.jcyqName == "婴儿培养箱分析仪"){
                     location.href="/admin/home/apply/baby_table.html?id="+obj.data.jcyqId;
                 }else if(obj.data.jcyqName == "高频电刀分析仪"){
@@ -205,7 +204,23 @@
             var data = obj.data;
             //console.log(obj)
             if(obj.event === "hands"){
-                location.href="/admin/home/apply/electric_info.html?id="+obj.data.jcyqId;
+                $.ajax({
+                    url:"/dqjc/findByEqIdandJcyqIdLast1?eqId="+ids+"&jcyqId="+obj.data.jcyqId,
+                    method:"GET",
+                    dataType:"JSON",
+                    success:function(res){
+                        if(res.state === 200){
+                            if(res.data.hzldlZcZxbfValue == ""){
+                                location.href="/admin/home/apply/electric_cf.html?id="+obj.data.jcyqId;
+                            }else if(res.data.hzldlZcZxcfValue == ""){
+                                location.href="/admin/home/apply/electric_bf.html?id="+obj.data.jcyqId;
+                            }else{
+                                location.href="/admin/home/apply/electric_none.html?id="+obj.data.jcyqId;
+                            }
+                        }
+                    }
+                })
+                //location.href="/admin/home/apply/electric_info.html?id="+obj.data.jcyqId;
             }
         });
 		  $("#sbumitUp").click(function(){
@@ -217,6 +232,7 @@
                           layer.msg("审核结果保存成功");
                           setTimeout(function(){
                               location.href="/admin/home/check_apply.html";
+                              parent.location.reload();
                           },1000);
                       }else{
                           layer.msg("保存失败");

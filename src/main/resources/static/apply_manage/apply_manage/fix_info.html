@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>设备详细信息</title>
+    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
+    <script src="../../static/layui/layui.js"></script>
+    <style>
+        .layui-elem-field{
+            width: 100%;
+            margin-top: 20px;
+            color: red;
+        }
+        .btn{
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        td{
+            text-align: center;
+        }
+        td:nth-child(1),
+        td:nth-child(3),
+        td:nth-child(5){
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend>设备详细信息</legend>
+        </fieldset>
+        <table class="layui-table">
+            <tr>
+                <td style="width: 50%;"><span style="color: red;">*设备名称</span></td>
+                <td style="width: 50%;" id="eqMc">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*规格型号</span></td>
+                <td id="eqXh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*设备单价</span></td>
+                <td id="eqPrice">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*数量</span></td>
+                <td id="eqNum">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*使用科室</span></td>
+                <td id="eqSyks">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*设备用途</span></td>
+                <td id="eqYt">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>安装地点</td>
+                <td id="eqAzdd">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*生产厂商</span></td>
+                <td id="eqCscs">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*国别</span></td>
+                <td id="eqGb">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>海关进口货物报关单号</td>
+                <td id="eqBgbh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>出厂编号</td>
+                <td id="eqScbh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>出厂日期</td>
+                <td id="eqCcdate">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*保修期(月)</span></td>
+                <td id="eqBxq">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*售后服务机构</span></td>
+                <td id="eqShFws">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*售后座机</span></td>
+                <td id="eqShQddh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>售后经理</td>
+                <td id="eqShShjl">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>售后经理电话</td>
+                <td id="eqShJldh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*售后联系人</span></td>
+                <td id="eqShLxr">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*售后联系电话</span></td>
+                <td id="eqShLxrdh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*设备类别</span></td>
+                <td id="eqShLb">&nbsp;</td>
+            </tr>
+        </table>
+        <div class="col-xs-12 btn">
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
+            <a id="update" class="layui-btn layui-btn-normal">修改</a>
+        </div>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    var htId = parseInt(sessionStorage["htId"]);
+    var spdInfo = sessionStorage['sgh'];
+    //Demo
+    layui.use(['table','layer','jquery'],function(){
+        var table = layui.table
+            , layer = layui.layer
+            , $ = layui.jquery;
+        $(function(){
+            $.ajax({
+                url:"/eqInfo/selectGroup?eqId="+ids,
+                method:"GET",
+                dataType:"JSON",
+                success:function(res){
+                    if(res.data!="" && res.data!=null){
+                        $("#eqMc").append(res.data.eqMc);
+                        $("#eqXh").append(res.data.eqXh);
+                        $("#eqPrice").append(res.data.eqPrice);
+                        $("#eqNum").append(res.data.eqNum);
+                        $("#eqSyks").append(res.data.eqSyks);
+                        $("#eqYt").append(res.data.eqYt);
+                        $("#eqAzdd").append(res.data.eqAzdd);
+                        $("#eqCscs").append(res.data.eqCscs);
+                        $("#eqGb").append(res.data.eqGb);
+                        $("#eqBgbh").append(res.data.eqBgbh);
+                        $("#eqScbh").append(res.data.eqScbh);
+                        $("#eqCcdate").append(res.data.eqCcdate);
+                        $("#eqBxq").append(res.data.eqBxq);
+                        $("#eqShFws").append(res.data.eqShFws);
+                        $("#eqShQddh").append(res.data.eqShQddh);
+                        $("#eqShShjl").append(res.data.eqShShjl);
+                        $("#eqShJldh").append(res.data.eqShJldh);
+                        $("#eqShLxr").append(res.data.eqShLxr);
+                        $("#eqShLxrdh").append(res.data.eqShLxrdh);
+                        $("#eqShLb").append(res.data.eqShLb);
+                    }else{
+                        layer.msg("无数据");
+                    }
+                },
+                error:function(data){
+                    layer.msg("请稍后再试");
+                    console.log(data);
+                }
+            })
+        });
+        $("#back").click(function(){
+            if(spdInfo == "无"){
+                location.href="/apply_manage/apply_manage/check_ht_info.html?id="+htId;
+            }else{
+                location.href="/apply_manage/apply_manage/check_sg_info.html?id="+htId;
+            }
+        });
+        $("#update").click(function(){
+            location.href="/apply_manage/update/update_fix_info.html?id="+ids;
+        });
+    })
+</script>
+</body>
+</html>

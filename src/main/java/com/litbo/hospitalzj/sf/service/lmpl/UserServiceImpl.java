@@ -80,7 +80,6 @@ private UserMapper userMapper;
     public UserRoleVo login(String userName, String userPwd) {
         // 根据参数username查询用户数据
         UserRoleVo data = userMapper.findByName(userName);
-        System.out.println(data);
         // 判断用户数据是否为null
         if (data == null) {
             // 是：为null，用户名不存在，则抛出UserNotFoundException

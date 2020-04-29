@@ -96,6 +96,16 @@ public class YqEqServiceImpl implements YqEqService{
 		return yqEqMapper.findTotalNum(eqId);
 	}
 
+	@Override
+	public YqEq findById(Integer yqEqId) {
+		return yqEqMapper.findById(yqEqId);
+	}
+
+	@Override
+	public List<YqEq> findByType(String eqId, String type) {
+		return yqEqMapper.findByType(eqId, type);
+	}
+
 	/*@Override
 	public YqEq selectYqEq(Integer yqEqId) {
 		return yqEqMapper.selectYqEq(yqEqId);

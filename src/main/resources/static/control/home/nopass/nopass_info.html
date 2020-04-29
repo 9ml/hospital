@@ -179,19 +179,19 @@
             //console.log(obj)
             if(obj.event === "hands1"){
                 if(data.jcyqName == "生命体征模拟器"){
-                    location.href="/control/home/success/look/man_life.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/man_life.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪"){
-                    location.href="/control/home/success/look/injection_pump_man.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/injection_pump_man.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "婴儿培养箱分析仪"){
-                    location.href="/control/home/success/look/baby_table.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/baby_table.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "双通道注射泵分析仪"){
-                    location.href="/control/home/success/look/double_injection_pump.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/double_injection_pump.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "气流分析仪"){
-                    location.href="/control/home/success/look/breathing_machine.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/breathing_machine.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "除颤起搏分析仪"){
-                    location.href="/control/home/success/look/defibrillator_table.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/defibrillator_table.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "高频电刀分析仪"){
-                    location.href="/control/home/success/look/endotherm_knife.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/look/endotherm_knife.html?id="+obj.data.jcyqId;
                 }
             }else if(obj.event == "hands2"){
                 if(data.jcyqName == "生命体征模拟器"){
@@ -256,9 +256,39 @@
             var data = obj.data;
             //console.log(obj)
             if(obj.event === "hands1"){
-                location.href="/control/home/look_all/electric.html?id="+obj.data.jcyqId;
+                $.ajax({
+                    url:"/yqEq/findByEqIdAndJcyqId/" + ids + "/"  + obj.data.jcyqId,
+                    method:"GET",
+                    dataType:"JSON",
+                    success:function(res){
+                        if(res.state === 200){
+                            if(res.data.hzldlZcZxbfValue == ""){
+                                location.href="/control/home/look/electric_cf.html?id="+obj.data.jcyqId;
+                            }else if(res.data.hzldlZcZxcfValue == ""){
+                                location.href="/control/home/look/electric_bf.html?id="+obj.data.jcyqId;
+                            }else{
+                                location.href="/control/home/look/electric_none.html?id="+obj.data.jcyqId;
+                            }
+                        }
+                    }
+                });
             }else if(obj.event == "hands2"){
-                location.href="/control/home/nopass/re_check/write_electric_info.html?id="+obj.data.jcyqId;
+                $.ajax({
+                    url:"/yqEq/findByEqIdAndJcyqId/" + ids + "/"  + obj.data.jcyqId,
+                    method:"GET",
+                    dataType:"JSON",
+                    success:function(res){
+                        if(res.state === 200){
+                            if(res.data.hzldlZcZxbfValue == ""){
+                                location.href="/control/home/nopass/re_check/write_electric_cf.html?id="+obj.data.jcyqId;
+                            }else if(res.data.hzldlZcZxcfValue == ""){
+                                location.href="/control/home/nopass/re_check/write_electric_bf.html?id="+obj.data.jcyqId;
+                            }else{
+                                location.href="/control/home/nopass/re_check/write_electric_none.html?id="+obj.data.jcyqId;
+                            }
+                        }
+                    }
+                });
             }
         });
     });

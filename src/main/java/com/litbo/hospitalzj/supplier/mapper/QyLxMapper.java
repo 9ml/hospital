@@ -2,7 +2,9 @@ package com.litbo.hospitalzj.supplier.mapper;
 
 import com.litbo.hospitalzj.supplier.entity.EqCgfs;
 import com.litbo.hospitalzj.supplier.entity.QyLx;
+import com.litbo.hospitalzj.supplier.entity.TBank;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -38,4 +40,7 @@ public interface QyLxMapper {
 	List<QyLx> findByQyLxNameLike(@Param("qyLx") String qyLx);
 	@Delete("delete from qy_lx where qy_lxid = #{qyLxid}")
 	int delete(Integer qyLxid);
+
+	@Select("select * from t_bank")
+	List<TBank> findBank();
 }

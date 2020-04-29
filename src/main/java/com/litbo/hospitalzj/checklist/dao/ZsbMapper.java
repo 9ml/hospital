@@ -103,7 +103,7 @@ public interface ZsbMapper {
             "      #{pjll1,jdbcType=INTEGER}, #{llcsd2,jdbcType=INTEGER}, #{pjll2,jdbcType=INTEGER}, \n" +
             "      #{wc,jdbcType=INTEGER}, #{llcsResult,jdbcType=INTEGER}, #{zsbjcsll,jdbcType=INTEGER}, \n" +
             "      #{bjszH,jdbcType=INTEGER}, #{bjszM,jdbcType=INTEGER}, #{bjszL,jdbcType=INTEGER}, \n" +
-            "      #{bjsjH,jdbcType=INTEGER}, #{bjsjM,jdbcType=INTEGER}, #{bjsjL,jdbcType=INTEGER}, \n" +
+            "      #{bjsjH,jdbcType=VARCHAR}, #{bjsjM,jdbcType=VARCHAR}, #{bjsjL,jdbcType=VARCHAR}, \n" +
             "      #{bjylH,jdbcType=INTEGER}, #{bjylM,jdbcType=INTEGER}, #{bjylL,jdbcType=INTEGER}, \n" +
             "      #{zsbjWc1,jdbcType=INTEGER}, #{zsbjWc2,jdbcType=INTEGER}, #{zsbjResult,jdbcType=TINYINT}, \n" +
             "      #{zs,jdbcType=TINYINT}, #{sygbt,jdbcType=TINYINT}, #{dyxtk,jdbcType=TINYINT}, #{jjkp,jdbcType=TINYINT}, \n" +
@@ -130,9 +130,9 @@ public interface ZsbMapper {
             "      bjsz_h = #{bjszH,jdbcType=INTEGER},\n" +
             "      bjsz_m = #{bjszM,jdbcType=INTEGER},\n" +
             "      bjsz_l = #{bjszL,jdbcType=INTEGER},\n" +
-            "      bjsj_h = #{bjsjH,jdbcType=INTEGER},\n" +
-            "      bjsj_m = #{bjsjM,jdbcType=INTEGER},\n" +
-            "      bjsj_l = #{bjsjL,jdbcType=INTEGER},\n" +
+            "      bjsj_h = #{bjsjH,jdbcType=VARCHAR},\n" +
+            "      bjsj_m = #{bjsjM,jdbcType=VARCHAR},\n" +
+            "      bjsj_l = #{bjsjL,jdbcType=VARCHAR},\n" +
             "      bjyl_h = #{bjylH,jdbcType=INTEGER},\n" +
             "      bjyl_m = #{bjylM,jdbcType=INTEGER},\n" +
             "      bjyl_l = #{bjylL,jdbcType=INTEGER},\n" +
@@ -158,7 +158,7 @@ public interface ZsbMapper {
             "      #{pjll1,jdbcType=INTEGER}, #{llcsd2,jdbcType=INTEGER}, #{pjll2,jdbcType=INTEGER}, \n" +
             "      #{wc,jdbcType=INTEGER}, #{llcsResult,jdbcType=INTEGER}, #{zsbjcsll,jdbcType=INTEGER}, \n" +
             "      #{bjszH,jdbcType=INTEGER}, #{bjszM,jdbcType=INTEGER}, #{bjszL,jdbcType=INTEGER}, \n" +
-            "      #{bjsjH,jdbcType=INTEGER}, #{bjsjM,jdbcType=INTEGER}, #{bjsjL,jdbcType=INTEGER}, \n" +
+            "      #{bjsjH,jdbcType=VARCHAR}, #{bjsjM,jdbcType=VARCHAR}, #{bjsjL,jdbcType=VARCHAR}, \n" +
             "      #{bjylH,jdbcType=INTEGER}, #{bjylM,jdbcType=INTEGER}, #{bjylL,jdbcType=INTEGER}, \n" +
             "      #{zsbjWc1,jdbcType=INTEGER}, #{zsbjWc2,jdbcType=INTEGER}, #{zsbjResult,jdbcType=TINYINT}, \n" +
             "      #{zs,jdbcType=TINYINT}, #{sygbt,jdbcType=TINYINT}, #{dyxtk,jdbcType=TINYINT}, #{jjkp,jdbcType=TINYINT}, \n" +
@@ -185,9 +185,9 @@ public interface ZsbMapper {
             "      bjsz_h = #{bjszH,jdbcType=INTEGER},\n" +
             "      bjsz_m = #{bjszM,jdbcType=INTEGER},\n" +
             "      bjsz_l = #{bjszL,jdbcType=INTEGER},\n" +
-            "      bjsj_h = #{bjsjH,jdbcType=INTEGER},\n" +
-            "      bjsj_m = #{bjsjM,jdbcType=INTEGER},\n" +
-            "      bjsj_l = #{bjsjL,jdbcType=INTEGER},\n" +
+            "      bjsj_h = #{bjsjH,jdbcType=VARCHAR},\n" +
+            "      bjsj_m = #{bjsjM,jdbcType=VARCHAR},\n" +
+            "      bjsj_l = #{bjsjL,jdbcType=VARCHAR},\n" +
             "      bjyl_h = #{bjylH,jdbcType=INTEGER},\n" +
             "      bjyl_m = #{bjylM,jdbcType=INTEGER},\n" +
             "      bjyl_l = #{bjylL,jdbcType=INTEGER},\n" +
@@ -250,9 +250,9 @@ public interface ZsbMapper {
             "      bjsz_h1 = #{bjszH1,jdbcType=INTEGER},\n" +
             "      bjsz_m1 = #{bjszM1,jdbcType=INTEGER},\n" +
             "      bjsz_l1 = #{bjszL1,jdbcType=INTEGER},\n" +
-            "      bjsj_h1 = #{bjsjH1,jdbcType=INTEGER},\n" +
-            "      bjsj_m1 = #{bjsjM1,jdbcType=INTEGER},\n" +
-            "      bjsj_l1 = #{bjsjL1,jdbcType=INTEGER},\n" +
+            "      bjsj_h1 = #{bjsjH1,jdbcType=VARCHAR},\n" +
+            "      bjsj_m1 = #{bjsjM1,jdbcType=VARCHAR},\n" +
+            "      bjsj_l1 = #{bjsjL1,jdbcType=VARCHAR},\n" +
             "      bjyl_h1 = #{bjylH1,jdbcType=INTEGER},\n" +
             "      bjyl_m1 = #{bjylM1,jdbcType=INTEGER},\n" +
             "      bjyl_l1 = #{bjylL1,jdbcType=INTEGER},\n" +
@@ -275,9 +275,9 @@ public interface ZsbMapper {
             "      bjsz_h2 = #{bjszH2,jdbcType=INTEGER},\n" +
             "      bjsz_m2 = #{bjszM2,jdbcType=INTEGER},\n" +
             "      bjsz_l2 = #{bjszL2,jdbcType=INTEGER},\n" +
-            "      bjsj_h2 = #{bjsjH2,jdbcType=INTEGER},\n" +
-            "      bjsj_m2 = #{bjsjM2,jdbcType=INTEGER},\n" +
-            "      bjsj_l2 = #{bjsjL2,jdbcType=INTEGER},\n" +
+            "      bjsj_h2 = #{bjsjH2,jdbcType=VARCHAR},\n" +
+            "      bjsj_m2 = #{bjsjM2,jdbcType=VARCHAR},\n" +
+            "      bjsj_l2 = #{bjsjL2,jdbcType=VARCHAR},\n" +
             "      bjyl_h2 = #{bjylH2,jdbcType=INTEGER},\n" +
             "      bjyl_m2 = #{bjylM2,jdbcType=INTEGER},\n" +
             "      bjyl_l2 = #{bjylL2,jdbcType=INTEGER},\n" +

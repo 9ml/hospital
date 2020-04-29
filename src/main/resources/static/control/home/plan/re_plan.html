@@ -220,7 +220,8 @@
                     console.log(res.state);
                     if(res.state === 200){
                         setTimeout(function(){
-                            location.href="/control/home/on_plan.html"
+                            location.href="/control/home/on_plan.html";
+                            parent.location.reload();
                         },1000);
                         layer.msg("上报成功，请耐心等待管理员审核");
                     }else{

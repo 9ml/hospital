@@ -16,6 +16,7 @@ import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,6 +79,19 @@ public class HxjController extends BaseController {
         return new ResponseResult(200, x);
     }
 
+    //只根据id更新检测数据
+    @RequestMapping("/updataNow/{id}")
+    public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
+        Hxj hxj = CommonUtils.toBean(req.getParameterMap(), Hxj.class);
+        hxj.setHxjid(id);
+        //更新
+        hxjService.updateHxj(hxj);
+        return new com.litbo.hospitalzj.util.ResponseResult(200, id);
+    }
+
+
+
+
     //修改录入数据
     @RequestMapping("/updataHxj")
     public ResponseResult updataHxj(
@@ -88,6 +102,8 @@ public class HxjController extends BaseController {
         Hxj last1 = hxjService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         Hxj hxj = CommonUtils.toBean(req.getParameterMap(), Hxj.class);
         hxj.setHxjid(last1.getHxjid());
+        //更新
+        hxjService.updateHxj(hxj);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -101,8 +117,7 @@ public class HxjController extends BaseController {
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
 
-        //更新
-        hxjService.updateHxj(hxj);
+
         int[] x={hxj.getHxjid(),yqEqId,userEqId};
         return new ResponseResult(200, x);
     }

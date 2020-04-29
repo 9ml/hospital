@@ -41,7 +41,7 @@
             <tbody>
             <tr>
                 <td>设备品名</td>
-                <td id="eqPmId"></td>
+                <td id="eqMc"></td>
             </tr>
             <tr>
                 <td>规格型号</td>
@@ -137,12 +137,12 @@
             , $ = layui.jquery;
         $(function(){
             $.ajax({
-                url:"/eqfseq/selectById?eqFsid="+ids,
+                url:"/eqfseq/selectById2?eqFsid="+ids,
                 method:"GET",
                 dataType:"JSON",
                 success:function(res){
                     if(res.data!="" && res.data!=null){
-                        $("#eqPmId").append(res.data.eqPmId);
+                        $("#eqMc").append(res.data.eqMc);
                         $("#eqXh").append(res.data.eqXh);
                         $("#eqPrice").append(res.data.eqPrice);
                         $("#eqNum").append(res.data.eqNum);

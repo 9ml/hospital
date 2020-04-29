@@ -52,4 +52,14 @@ public interface EqInfoService {
 	List<EqInfo> findByEqQk(String eqQk);
 
 	Integer lastId();
+
+	void InsertBatEqInfo(EqInfo eqInfo);
+
+	List<SelHtEqVo> selectGroupEqHtVo(Integer htIds);
+
+    List<SelHtEqVo> selectGroupEqHtVo2(Integer htIds);
+
+	void deleteBat(EqInfo eqInfo);
+
+	EqInfo selectGroup(Integer eqId);
 }

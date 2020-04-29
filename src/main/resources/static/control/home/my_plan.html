@@ -175,6 +175,7 @@
                             layer.msg("确认成功，此年度计划已生效！");
                             setTimeout(function(){
                                 window.location.reload();
+                                parent.location.reload();
                             },1000);
                         }else{
                             layer.msg("确认失败");

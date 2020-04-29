@@ -16,6 +16,7 @@ import com.litbo.hospitalzj.zk.service.TabEqService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -122,6 +123,29 @@ public class ZsbController extends BaseController {
         return new ResponseResult<>(200,x);
     }
 
+
+    //只根据id更新检测数据
+    @RequestMapping("/updataNowChild/{id}")
+    public com.litbo.hospitalzj.util.ResponseResult updataNowChild(@PathVariable("id")Integer id, HttpServletRequest req){
+        SybC zsb_c = CommonUtils.toBean(req.getParameterMap(), SybC.class);
+        zsb_c.setId(id);
+        //更新
+        zsbService.updateChild(zsb_c);
+        return new com.litbo.hospitalzj.util.ResponseResult(200, id);
+    }
+
+
+    //只根据id更新检测数据
+    @RequestMapping("/updataNowMan/{id}")
+    public com.litbo.hospitalzj.util.ResponseResult updataNowMan(@PathVariable("id")Integer id, HttpServletRequest req){
+        SybC zsb_m = CommonUtils.toBean(req.getParameterMap(), SybC.class);
+        zsb_m.setId(id);
+        //更新
+        zsbService.updateMan(zsb_m);
+        return new com.litbo.hospitalzj.util.ResponseResult(200, id);
+    }
+
+
     @RequestMapping("/updateChild")
     public ResponseResult updateChild(
             @RequestParam("eqId")String eqId,
@@ -131,6 +155,8 @@ public class ZsbController extends BaseController {
         SybC zsb_m = zsbService.findByEqIdandJcyqIdLast("zsb_c", eqId, jcyqId);
         SybC sybC = CommonUtils.toBean(req.getParameterMap(), SybC.class);
         sybC.setId(zsb_m.getId());
+        //更新
+        zsbService.updateChild(sybC);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -141,9 +167,7 @@ public class ZsbController extends BaseController {
         if(num == 0){
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
-        //更新
-        //dqjcService.updateDqjc(dqjc);
-        zsbService.updateChild(sybC);
+
         long[] x={sybC.getId(),yqEqId,userEqId};
         return new ResponseResult<>(200,x);
     }
@@ -192,6 +216,8 @@ public class ZsbController extends BaseController {
         SybC zsb_m = zsbService.findByEqIdandJcyqIdLast("zsb_m", eqId, jcyqId);
         SybC sybC = CommonUtils.toBean(req.getParameterMap(), SybC.class);
         sybC.setId(zsb_m.getId());
+        //更新
+        zsbService.updateMan(sybC);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -202,9 +228,7 @@ public class ZsbController extends BaseController {
         if(num == 0){
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
-        //更新
-        //dqjcService.updateDqjc(dqjc);
-        zsbService.updateMan(sybC);
+
         long[] x={sybC.getId(),yqEqId,userEqId};
         return new ResponseResult<>(200,x);
     }

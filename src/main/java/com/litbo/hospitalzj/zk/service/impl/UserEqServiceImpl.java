@@ -144,6 +144,7 @@ public class UserEqServiceImpl implements UserEqService{
 			userEqMapper.setEqStateNotIs(userEqId,EnumProcess2.DETECTION_OF_AUDIT_NOT.getMessage());
 		}else{
 			userEqMapper.setEqStateNotIs(userEqId,EnumProcess2.DETECTION_OF_AUDIT_IS.getMessage());
+			yqEqMapper.updateAllType(jceqId, "初始值");
 			EqZjls data =new EqZjls();
 			data.setEqId(Integer.valueOf(jceqId));
 			data.setTestTime(new Date());

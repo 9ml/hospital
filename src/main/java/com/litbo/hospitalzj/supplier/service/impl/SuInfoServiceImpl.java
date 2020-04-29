@@ -8,16 +8,21 @@ import com.litbo.hospitalzj.supplier.service.exception.PasswordNotMatchException
 import com.litbo.hospitalzj.supplier.service.exception.UpdateException;
 import com.litbo.hospitalzj.supplier.service.exception.UserNotFoundException;
 import com.litbo.hospitalzj.supplier.vo.SuInfoAndZzInfo;
+import com.litbo.hospitalzj.util.MailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.MessagingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
+@Transactional
 public class SuInfoServiceImpl implements SuInfoService {
     @Autowired
     private SuInfoMapper suInfoMapper;
@@ -47,12 +52,17 @@ public class SuInfoServiceImpl implements SuInfoService {
         }
     }
     @Override
-    public void insert(SuInfo suInfo) {
+    public int insert(SuInfo suInfo) {
         SuInfo data=suInfoMapper.findSuByMc(suInfo.getSuMc());
         if(data!=null){
-            throw new InsertException("此公司已存在，请使用用户名，密码登陆");
+            return 1;
+            /*throw new RuntimeException("此公司已存在，请使用用户名，密码登陆");*/
         }
+        suInfo.setSuSf(suInfoMapper.findDictByCode(suInfo.getSuSf()));
+        suInfo.setSuCs(suInfoMapper.findDictByCode(suInfo.getSuCs()));
+        suInfo.setSuXq(suInfoMapper.findDictByCode(suInfo.getSuXq()));
         suInfoMapper.insert(suInfo);
+        return 0;
     }
 
     @Override
@@ -107,16 +117,32 @@ public class SuInfoServiceImpl implements SuInfoService {
 	 * 发送用户以及密码
 	 * @throws MessagingException
 	 */
-	@Override
-	public void sendEmail(Integer suId,String suMc,String email,String password){
-		SimpleMailMessage message = new SimpleMailMessage();
+	public void sendEmail(Integer suId,String email,String password
+            ,String subject, String text){
+		/*SimpleMailMessage message = new SimpleMailMessage();
 		message.setFrom(Sender);
+		message.setBcc();
 		message.setTo(email); 
-		message.setSubject("主题:南方医院账户密码验证");
-		message.setText("您的医院系统登录用户名是"+suMc+","
-				+ "登录密码是"+password+",请妥善管理！"
-				+ "如有遗失，请联系系统管理员，谢谢合作！！！");
+		message.setSubject(subject);
+		message.setText(text);*/
+        MailUtils.sendMail(email, text, subject);
+
+
         suInfoMapper.updatePwd(suId,password);
-		mailSender.send(message);
+
+		/*mailSender.send(message);*/
 	}
+
+    @Override
+    public SuInfoAndZzInfo findSuinfoById(Integer suId) {
+	    return suInfoMapper.findSuinfoById(suId);
+
+    }
+
+    @Override
+    public void insertNowTime(String suId) {
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String nowTime = fmt.format(new Date());
+        suInfoMapper.insertNowTime(suId, nowTime);
+    }
 }

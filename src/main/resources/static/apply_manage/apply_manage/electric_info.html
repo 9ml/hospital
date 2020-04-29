@@ -45,27 +45,90 @@
             </thead>
             <tbody>
             <tr>
-                <td>厂家安装报告</td>
+                <td>厂家安装调试报告</td>
                 <td>
-                    <a id="lookCjazbg" class="layui-btn layui-btn-normal">查看</a>
+                    <a id="ants" class="layui-btn layui-btn-normal">查看</a>
                 </td>
             </tr>
             <tr>
-                <td>延保协议、售后承诺</td>
+                <td>售后服务承诺书 / 保修证明或延保协议</td>
                 <td>
-                    <a id="lookYbxy" class="layui-btn layui-btn-normal">查看</a>
+                    <a id="shcn" class="layui-btn layui-btn-normal">查看</a>
                 </td>
             </tr>
             <tr>
-                <td>技术资料</td>
+                <td>设备操作使用技术资料</td>
                 <td>
-                    <a id="lookJszl" class="layui-btn layui-btn-normal">查看</a>
+                    <a id="czsyzl" class="layui-btn layui-btn-normal">查看</a>
                 </td>
             </tr>
             <tr>
-                <td>合格证/检测报告</td>
+                <td>设备维护维修技术资料</td>
                 <td>
-                    <a id="lookHgz" class="layui-btn layui-btn-normal">查看</a>
+                    <a id="whwxzl" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>产品合格证/出厂检测报告</td>
+                <td>
+                    <a id="hgz" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>廉洁购销合同</td>
+                <td>
+                    <a id="ljgx" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>培训登记表</td>
+                <td>
+                    <a id="pxfj" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>进口设备入境货物检验检疫证明</td>
+                <td>
+                    <a id="jksb" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>发票复印件</td>
+                <td>
+                    <a id="fpfy" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>(压力容器)特种承压设备检测研究院检测证明</td>
+                <td>
+                    <a id="ylrq" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>强检设备首检计量检测检定证书</td>
+                <td>
+                    <a id="qjsb" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>大型设备性能检测报告</td>
+                <td>
+                    <a id="dxxnjc" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>大型设备防护检测报告</td>
+                <td>
+                    <a id="dxfhjc" class="layui-btn layui-btn-normal">查看</a>
+                </td>
+            </tr>
+            <tr>
+                <td>设备维修线路图</td>
+                <td>
+                    <a id="wxxl" class="layui-btn layui-btn-normal">查看</a>
                 </td>
             </tr>
             </tbody>
@@ -84,22 +147,52 @@
     layui.use(['layer','jquery'],function(){
         var layer = layui.layer
             , $ = layui.jquery;
-        $("#lookCjazbg").click(function(){
+        $("#ants").click(function(){
             location.href="/apply_manage/file/electric_file.html?id="+1;
         });
-        $("#lookYbxy").click(function(){
+        $("#shcn").click(function(){
             location.href="/apply_manage/file/electric_file.html?id="+2;
         });
-        $("#lookJszl").click(function(){
+        $("#czsyzl").click(function(){
             location.href="/apply_manage/file/electric_file.html?id="+3;
         });
-        $("#lookHgz").click(function(){
+        $("#whwxzl").click(function(){
             location.href="/apply_manage/file/electric_file.html?id="+4;
+        });
+        $("#hgz").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+5;
+        });
+        $("#ljgx").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+6;
+        });
+        $("#pxfj").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+7;
+        });
+        $("#jksb").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+8;
+        });
+        $("#fpfy").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+9;
+        });
+        $("#ylrq").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+10;
+        });
+        $("#qjsb").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+11;
+        });
+        $("#dxxnjc").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+12;
+        });
+        $("#dxfhjc").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+13;
+        });
+        $("#wxxl").click(function(){
+            location.href="/apply_manage/file/electric_file.html?id="+14;
         });
         // 不同意
         $("#noPass").click(function(){
             $.ajax({
-                url:"?htId="+ids,
+                url:"/htInfo/ysbtg?htId="+ids,
                 method:"POST",
                 dataType:"JSON",
                 success:function(res){
@@ -118,14 +211,19 @@
         // 同意
         $("#pass").click(function(){
             $.ajax({
-                url:"?htId="+ids,
+                url:"/htInfo/yswc?htId="+ids,
                 method:"POST",
                 dataType:"JSON",
                 success:function(res){
                     if(res.state === 200){
                         layer.msg("同意成功，正在生成验收单");
                         setTimeout(function(){
-                            location.href="/apply_manage/apply_manage/apply_input.html?id="+ids;
+                            if(res.data == "1"){
+                                location.href="/apply_manage/apply_manage/apply_ht_table.html?id="+ids;
+                            }else{
+                                location.href="/apply_manage/apply_manage/apply_sg_table.html?id="+ids;
+                            }
+
                         },1000);
                     }else{
                         layer.msg("失败");

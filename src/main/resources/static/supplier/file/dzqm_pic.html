@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>电子签名图片</title>
+    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
+    <script src="../../static/layui/layui.js"></script>
+    <style>
+        .layui-elem-field{
+            width: 100%;
+            margin-top: 20px;
+        }
+        .btn{
+            margin-top: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        th,td{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: red;font-weight: bold;">电子签名图片</legend>
+        </fieldset>
+        <div style="text-align: center;">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;">供应商电子签名图片</legend>
+            </fieldset>
+            <img id="htGysqm" src="" alt="">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;">安装工程师电子签名图片</legend>
+            </fieldset>
+            <img id="htAzgcsqm" src="" alt="">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;">验收人员电子签名图片</legend>
+            </fieldset>
+            <img id="htYsrqm" src="" alt="">
+        </div>
+        <div class="col-xs-12 btn">
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
+        </div>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    layui.use(['layer','jquery'],function(){
+        var layer = layui.layer
+            , $ = layui.jquery;
+        $(function(){
+            $.ajax({
+                url:"/htInfo/selectOne?htId="+ids,
+                method:"GET",
+                dataType:"JSON",
+                success:function (res) {
+                    console.log(res);
+                    $("#htGysqm").attr("src",res.data.htGysqm);
+                    $("#htAzgcsqm").attr("src",res.data.htAzgcsqm);
+                    $("#htYsrqm").attr("src",res.data.htYsrqm);
+                },
+                error:function(data){
+                    layer.msg("请稍后再试");
+                    console.log(data);
+                }
+            });
+        });
+        $("#updown").click(function(){
+            window.location.href="/wjsc/downloadFile?filePath="+paths;
+        });
+        $("#back").click(function(){
+            window.history.back();
+        });
+    })
+</script>
+</body>
+</html>

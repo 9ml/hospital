@@ -47,6 +47,16 @@ public class SuInfo {
     
     private Integer state;
 
+    private String nowTime;
+
+    public String getNowTime() {
+        return nowTime;
+    }
+
+    public void setNowTime(String nowTime) {
+        this.nowTime = nowTime;
+    }
+
     public String getPassword() {
         return password;
     }

@@ -8,6 +8,7 @@ import com.litbo.hospitalzj.supplier.entity.SgdjHw;
 import com.litbo.hospitalzj.supplier.service.EqCsService;
 import com.litbo.hospitalzj.supplier.service.HtInfoService;
 import com.litbo.hospitalzj.supplier.service.SgdjHwService;
+import com.litbo.hospitalzj.util.MailUtils;
 import com.litbo.hospitalzj.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,12 +85,19 @@ public class AcceptController {
     @RequestMapping(value = "acceptHtInfoById",method = RequestMethod.POST)
     public ResponseResult AgreeHtInfoById(String view,Integer htId,String yy,String date,String htYsyDh){
         System.out.println("++++++++++++"+htYsyDh);
+        HtInfo htInfo = htInfoService.select(htId);
         if("同意".equals(view)){
             int res = htInfoService.agreeHtInfoById(htId,yy,date,htYsyDh);
+            String text = "您的验收申请已通过，预约验收时间为：  " + date +  "  请登录系统查询此合同的验证码并同意验收";
+            MailUtils.sendMail(htInfo.getEmail(), text, "南方医院验收申请通知");
+            return new ResponseResult<>(SUCCESS, res);
         }else {
             int res = htInfoService.refuseHtInfoById(htId,yy,date,htYsyDh);
+            String text = "您的验收申请未通过, 请登录系统查询此合同的验证码，查看未通过原因！可重新提交验收申请。";
+            MailUtils.sendMail(htInfo.getEmail(), text, "南方医院验收申请通知");
+            return new ResponseResult<>(SUCCESS, res);
         }
-        return new ResponseResult<>(SUCCESS);
+
     }
     @RequestMapping(value = "uploadFile",method = RequestMethod.POST)
     public ResponseResult uploadFile(Integer htIds, MultipartFile file){
@@ -99,7 +107,7 @@ public class AcceptController {
             return responseResult;
         }
         String path = FileUpload.upload("images/upload/",file);
-        System.out.println("QQQQQQQQQQQQQQQQQQQQQq"+path);
+        //System.out.println("QQQQQQQQQQQQQQQQQQQQQq"+path);
         SgdjHw sgdjHw = sgdjHwService.selectSgdjHw(htIds);
         if(sgdjHw!=null&&sgdjHw.getDjhwUrl().split(" ").length>7){
             ResponseResult responseResult = new ResponseResult();

@@ -15,4 +15,13 @@ public interface EqFseqService {
 
 	EqFseq selectById(Integer eqFsid);
 
+    List<EqFseq> selectEqFseqGroup(Integer eqIds);
+
+	void deleteBat(EqFseq eqFseq);
+
+    EqFseq selectById2(Integer eqFsid);
+
+	void update(EqFseq eqFseq);
+
+	List<EqFseq> selectByMcAndXh(Integer eqFsid, String eqMc, String eqXh);
 }

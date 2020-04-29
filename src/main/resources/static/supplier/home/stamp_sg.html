@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>验收单</title>
+    <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
+    <script src="../../static/layui/layui.js"></script>
+    <script src="../../static/js/jquery-1.4.4.min.js"></script>
+    <script src="../../static/js/jquery.jqprint-0.3.js"></script>
+    <style>
+        .layui-elem-field{
+            width: 100%;
+            margin-top: 20px;
+            color: red;
+        }
+        td{
+            text-align: center;
+        }
+        .btn{
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+        .manage legend{
+            font-size: 24px;
+            color: #000000;
+            font-weight: bold;
+        }
+        .bg{
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12" id="all">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #0C0C0C;font-size: 22px;text-align: center;">南方医科大学南方医院设备验收报告</legend>
+        </fieldset>
+        <table id="fsInfo" border="1px;">
+            <tr>
+              <td width="15%">医院自编资产号</td>
+              <td width="15%">&nbsp;</td>
+              <td width="15%">使用科室</td>
+              <td id="eqSyks" width="15%">&nbsp;</td>
+              <td width="15%">安装地点</td>
+              <td id="eqAzdd" width="15%">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>购置审批单号</td>
+              <td id="htGzspd">&nbsp;</td>
+              <td>设备类别</td>
+              <td id="eqShLb">&nbsp;</td>
+              <td>到货验收期</td>
+              <td id="htDhtime"></td>
+            </tr>
+            <tr>
+              <td>设备名称</td>
+              <td id="eqMc">&nbsp;</td>
+              <td>规格型号</td>
+              <td id="eqXh">&nbsp;</td>
+              <td>国别</td>
+              <td id="eqGb">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>设备单价</td>
+              <td id="eqPrice">&nbsp;</td>
+              <td>数量</td>
+              <td id="eqNum">&nbsp;</td>
+              <td>审定总价</td>
+              <td id="eqTotalprice">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>生产厂商</td>
+              <td id="eqCscs">&nbsp;</td>
+              <td>保修期(月)</td>
+              <td id="eqBxq">&nbsp;</td>
+              <td>售后服务机构</td>
+              <td id="eqShFws">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>供应商</td>
+              <td id="htGhsn">&nbsp;</td>
+              <td>供方联系人</td>
+              <td id="htGhslxr">&nbsp;</td>
+              <td>供方联系电话</td>
+              <td id="htGhsdh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td>售后联系人</td>
+                <td id="eqShLxr">&nbsp;</td>
+                <td>售后联系电话</td>
+                <td id="eqShLxrdh">&nbsp;</td>
+                <td>售后座机</td>
+                <td id="eqShQddh">&nbsp;</td>
+              </tr>
+            <tr>
+              <td>出厂编号</td>
+              <td id="eqScbh" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>出厂日期</td>
+              <td id="eqCcdate" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td style="font-weight: bold;" colspan="6">现场验收情况:</td>
+            </tr>
+            <tr>
+              <td>包装信息</td>
+              <td id="djhwBzxx" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>外包装</td>
+              <td id="djhwWbz" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>防倾斜标识</td>
+              <td id="djhwYsbs" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>设备外观</td>
+              <td id="djhwSbwg" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>随箱文件</td>
+              <td id="djhwSxwj" colspan="5">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>供应商代表</td>
+              <td>
+                  <img style="width: 100px;height: 50px;" id="htGysqm" src="" alt="">
+              </td>
+              <td>安装工程师</td>
+              <td>
+                  <img style="width: 100px;height: 50px;" id="htAzgcsqm" src="" alt="">
+              </td>
+              <td>科室接收人</td>
+              <td>
+                  <img style="width: 100px;height: 50px;" id="htYsrqm" src="" alt="">
+              </td>
+            </tr>
+            <!-- <tr class="hiddena">
+              <td style="font-weight: bold;" colspan="6">设备附件清单</td>
+            </tr>
+            <tr class="hiddena">
+              <td>附件名称</td>
+              <td id="eqFjmc">&nbsp;</td>
+              <td>附件型号</td>
+              <td id="eqFjxh">&nbsp;</td>
+              <td>附件数量</td>
+              <td id="eqFjsl">&nbsp;</td>
+            </tr>
+            <tr class="hiddena">
+              <td>生产厂商</td>
+              <td id="eqFjsccs" colspan="2">&nbsp;</td>
+              <td>出厂日期</td>
+              <td id="eqFjccrq" colspan="2">&nbsp;</td>
+            </tr>
+            <tr class="hiddena">
+              <td>附件出厂编号</td>
+              <td id="eqFjccbh" colspan="5">&nbsp;</td>
+            </tr>
+            <tr class="hiddenb">
+              <td style="font-weight: bold;" colspan="6">附属设备清单</td>
+            </tr>
+            <tr class="hiddenb">
+              <td>附属设备名称</td>
+              <td id="eqMcFs">&nbsp;</td>
+              <td>附属设备型号</td>
+              <td id="eqXhFs">&nbsp;</td>
+              <td>附属设备数量</td>
+              <td id="eqNumFs">&nbsp;</td>
+            </tr>
+            <tr class="hiddenb">
+              <td>生产厂商</td>
+              <td id="eqCscsFs" colspan="2">&nbsp;</td>
+              <td>出厂日期</td>
+              <td id="eqCcdateFs" colspan="2">&nbsp;</td>
+            </tr>
+            <tr class="hiddenb">
+              <td>附属设备出厂编号</td>
+              <td id="eqScbhFs" colspan="5">&nbsp;</td>
+            </tr> -->
+            <tr>
+              <td>设备培训情况：</td>
+              <td colspan="2">操作人员应用培训完成，能正常操作仪器；维修人员设备常见故障及基本维修培训完成。</td>
+              <td>厂家培训工程师：(签名)</td>
+              <td>&nbsp;</td>
+              <td style="text-align: left;">日期：</td>
+            </tr>
+            <tr>
+              <td>尚待解决问题：</td>
+              <td colspan="2">&nbsp;</td>
+              <td>使用科室验收主管：(签名)</td>
+              <td>&nbsp;</td>
+              <td style="text-align: left;">日期：</td>
+            </tr>
+            <tr>
+              <td rowspan="2">已上传电子附件：</td>
+              <td id="wjxx" colspan="2" rowspan="2"></td>
+              <td height="38">设备验收工程师：(签名)</td>
+              <td>&nbsp;</td>
+              <td style="text-align: left;">日期：</td>
+            </tr>
+            <tr>
+              <td>设备科验收审核：(签名)</td>
+              <td>&nbsp;</td>
+              <td style="text-align: left;">日期：</td>
+            </tr>
+            <tr>
+              <td>医院验收结果：</td>
+              <td colspan="2">&nbsp;</td>
+              <td>设备器材科主任：(签名)</td>
+              <td>&nbsp;</td>
+              <td style="text-align: left;">日期：</td>
+            </tr>
+            <tr>
+                <td style="font-size: 12px;" colspan="6">备注：此单相应工作完成后逐项填写；代理商凭此单办理出入库手续，不得遗失！（资料接收人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;日期：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;）</td>
+            </tr>
+          </table>
+    </div>
+    <div class="col-xs-12 btn">
+        <a id="back" class="layui-btn layui-btn-primary">返回</a>
+        <button id="print" class="layui-btn layui-btn-normal">打印</button>
+    </div>
+</div>
+<script>
+    $(function(){
+        $("#print").click(function(){
+            $("#all").jqprint();
+        });
+    });
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    //Demo
+    layui.use(['jquery','form','layer'], function(){
+        var $ = layui.jquery
+            , layer = layui.layer;
+        $(function(){
+            $.ajax({
+                url:"/htInfo/ysbg/"+ids,
+                method:"GET",
+                dataType:"JSON",
+                success:function(res){
+                    if(res.state === 200){
+                        // 合同信息
+                        $("#htGzspd").append(res.data[0].htGzspd);
+                        $("#htQytime").append(res.data[0].htQytime);
+                        $("#htDhtime").append(res.data[0].htDhtime);
+                        $("#htGhsn").append(res.data[0].htGhsn);
+                        $("#htGhslxr").append(res.data[0].htGhslxr);
+                        $("#htGhsdh").append(res.data[0].htGhsdh);
+                        $("#htZje").append(res.data[0].htZje + res.data[0].htJedw);
+                        // 电子签名图片
+                        $("#htGysqm").attr("src",res.data[0].htGysqm);
+                        $("#htAzgcsqm").attr("src",res.data[0].htAzgcsqm);
+                        $("#htYsrqm").attr("src",res.data[0].htYsrqm);
+                        // 设备信息
+                        $("#eqSyks").append(res.data[2][0].eqSyks);
+                        $("#eqAzdd").append(res.data[2][0].eqAzdd);
+                        $("#eqMc").append(res.data[2][0].eqMc);
+                        $("#eqXh").append(res.data[2][0].eqXh);
+                        $("#eqGb").append(res.data[2][0].eqGb);
+                        $("#eqPrice").append(res.data[2][0].eqPrice + res.data[0].htJedw);
+                        $("#eqNum").append(res.data[2][0].eqNum);
+                        $("#eqTotalprice").append(res.data[2][0].eqTotalprice);
+                        $("#eqCscs").append(res.data[2][0].eqCscs);
+                        $("#eqBxq").append(res.data[2][0].eqBxq + "月");
+                        $("#eqShFws").append(res.data[2][0].eqShFws);
+                        $("#eqShLxr").append(res.data[2][0].eqShLxr);
+                        $("#eqShLxrdh").append(res.data[2][0].eqShLxrdh);
+                        $("#eqShQddh").append(res.data[2][0].eqShQddh);
+                        $("#eqScbh").append(res.data[2][0].eqScbh);
+                        $("#eqCcdate").append(res.data[2][0].eqCcdate);
+                        // 到货登记信息
+                        $("#djhwBzxx").append(res.data[1].djhwBzxx);
+                        $("#djhwWbz").append(res.data[1].djhwWbz);
+                        $("#djhwYsbs").append(res.data[1].djhwYsbs);
+                        $("#djhwSbwg").append(res.data[1].djhwSbwg);
+                        $("#djhwSxwj").append(res.data[1].djhwSxwj);
+                        // 附件信息
+                        if(res.data[3][0][0].eqFjmc !== ""){
+                            var strA = "";
+                            for(var a = 0;a <= res.data[3][0].length;a++){
+                                strA += "<tr><td style='font-weight: bold;' colspan='6'>设备附件清单"+a+"</td></tr><td style='15%;'>附件名称</td><td style='15%;'>"+res.data[3][0][a].eqFjmc+"</td><td style='15%;'>附件型号</td><td style='15%;'>"+res.data[3][0][a].eqFjxh+"</td><td>附件数量</td><td>"+res.data[3][0][a].eqFjsl+"</td></tr><tr><td>生产厂商</td><td colspan='2'>="+res.data[3][0][a].eqFjsccs+"</td><td>出厂日期</td><td colspan='2'>"+res.data[3][0][a].eqFjccrq+"</td></tr><tr><td>附件出厂编号</td><td colspan='5'>"+res.data[3][0][a].eqFjccbh+"</td></tr>";
+                            }
+                            $("#fsInfo").append(strA);
+                        }else{
+                            $("#fsInfo").append("");
+                        }
+                        // $("#eqFjmc").append(res.data[3][0][0].eqFjmc);
+                        // $("#eqFjxh").append(res.data[3][0][0].eqFjxh);
+                        // $("#eqFjsl").append(res.data[3][0][0].eqFjsl);
+                        // $("#eqFjsccs").append(res.data[3][0][0].eqFjsccs);
+                        // $("#eqFjccrq").append(res.data[3][0][0].eqFjccrq);
+                        // $("#eqFjccbh").append(res.data[3][0][0].eqFjccbh);
+                        // 附属设备信息
+                        if(res.data[4][0][0].eqFjmc && res.data[4][0][0].eqFjmc !== ""){
+                            var strB = "";
+                            for(var b = 0;b <= res.data[4][0].length;b++){
+                                strB += "<tr><td style='font-weight: bold;' colspan='6'>设备附件清单"+b+"</td></tr><td style='15%;'>附属设备名称</td><td style='15%;'>"+res.data[4][0][b].eqMc+"</td><td style='15%;'>附属设备型号</td><td style='15%;'>"+res.data[4][0][b].eqXh+"</td><td style='15%;'>附属设备数量</td><td style='15%;'>"+res.data[4][0][b].eqNum+"</td></tr><tr><td>生产厂商</td><td colspan='2'>="+res.data[4][0][b].eqCscs+"</td><td>出厂日期</td><td colspan='2'>"+res.data[4][0][b].eqCcdate+"</td></tr><tr><td>附属设备出厂编号</td><td colspan='5'>"+res.data[4][0][b].eqScbh+"</td></tr>";
+                            }
+                            $("#fsInfo").append(strB);
+                        }else{
+                            $("#fsInfo").append("");
+                        }
+                        // $("#eqMcFs").append(res.data[4][0][0].eqMc);
+                        // $("#eqXhFs").append(res.data[4][0][0].eqXh);
+                        // $("#eqNumFs").append(res.data[4][0][0].eqNum);
+                        // $("#eqCscsFs").append(res.data[4][0][0].eqCscs);
+                        // $("#eqCcdateFs").append(res.data[4][0][0].eqCcdate);
+                        // $("#eqScbhFs").append(res.data[4][0][0].eqScbh);
+                        // 已上传文件信息
+                        // 合同文件信息
+                        if(!res.data[5][0] || res.data[5][0] !== ""){
+                            if(res.data[5][0].type == "1"){
+                                $("#wjxx").append("合同文件" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[5][1].type == "2"){
+                                $("#wjxx").append("中标通知书" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[5][2].type == "3"){
+                                $("#wjxx").append("医疗器械注册登记证" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[5][3].type == "4"){
+                                $("#wjxx").append("厂家授权证明书" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[5][4].type == "5"){
+                                $("#wjxx").append("海关进口货物报关单" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            // 完善资料文件信息
+                            if(res.data[6][0].type == "1"){
+                                $("#wjxx").append("厂家安装调试报告" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][1].type == "2"){
+                                $("#wjxx").append("售后服务承诺书 / 保修证明或延保协议" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][2].type == "3"){
+                                $("#wjxx").append("设备操作使用技术资料" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][3].type == "4"){
+                                $("#wjxx").append("设备维护维修技术资料" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][4].type == "5"){
+                                $("#wjxx").append("产品合格证/出厂检测报告" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+
+                            if(res.data[6][5].type == "6"){
+                                $("#wjxx").append("廉洁购销合同" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][6].type == "7"){
+                                $("#wjxx").append("培训登记表" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][7].type == "8"){
+                                $("#wjxx").append("进口设备入境货物检验检疫证明" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][8].type == "9"){
+                                $("#wjxx").append("发票复印件" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][9].type == "10"){
+                                $("#wjxx").append("(压力容器)特种承压设备检测研究院检测证明" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][10].type == "11"){
+                                $("#wjxx").append("强检设备首检计量检测检定证书" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][11].type == "12"){
+                                $("#wjxx").append("大型设备性能检测报告" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][12].type == "13"){
+                                $("#wjxx").append("大型设备防护检测报告" + "，");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                            if(res.data[6][13].type == "14"){
+                                $("#wjxx").append("设备维修线路图");
+                            }else{
+                                $("#wjxx").append("");
+                            }
+                        }else{
+                            $("#wjxx").append("无上传文件信息");
+                        }
+                    }else{
+                        layer.msg("获取数据失败");
+                    }
+                },
+                error:function(data){
+                    console.log(data);
+                    layer.msg("请稍后再试")
+                }
+            })
+        })
+    });
+</script>
+</body>
+</html>

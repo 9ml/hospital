@@ -38,60 +38,84 @@
         </fieldset>
         <table class="layui-table">
             <tr>
-                <td style="width: 16%;"><span style="color: red;">*设备名称</span></td>
-                <td id="eqMc" style="width: 16%;">&nbsp;</td>
-                <td style="width: 16%;"><span style="color: red;">*规格型号</span></td>
-                <td id="eqXh" style="width: 16%;">&nbsp;</td>
-                <td style="width: 16%;"><span style="color: red;">*设备单价</span></td>
-                <td id="eqPrice" style="width: 16%;">&nbsp;</td>
+                <td style="width: 50%;"><span style="color: red;">*设备名称</span></td>
+                <td style="width: 50%;" id="eqMc">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*规格型号</span></td>
+                <td id="eqXh">&nbsp;</td>
+            </tr>
+            <tr>
+                <td><span style="color: red;">*设备单价</span></td>
+                <td id="eqPrice">&nbsp;</td>
             </tr>
             <tr>
                 <td><span style="color: red;">*数量</span></td>
                 <td id="eqNum">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*使用科室</span></td>
                 <td id="eqSyks">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*设备用途</span></td>
                 <td id="eqYt">&nbsp;</td>
             </tr>
             <tr>
                 <td>安装地点</td>
                 <td id="eqAzdd">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*生产厂商</span></td>
                 <td id="eqCscs">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*国别</span></td>
                 <td id="eqGb">&nbsp;</td>
             </tr>
             <tr>
                 <td>海关进口货物报关单号</td>
                 <td id="eqBgbh">&nbsp;</td>
+            </tr>
+            <tr>
                 <td>出厂编号</td>
                 <td id="eqScbh">&nbsp;</td>
+            </tr>
+            <tr>
                 <td>出厂日期</td>
                 <td id="eqCcdate">&nbsp;</td>
             </tr>
             <tr>
                 <td><span style="color: red;">*保修期(月)</span></td>
                 <td id="eqBxq">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*售后服务机构</span></td>
                 <td id="eqShFws">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*售后座机</span></td>
                 <td id="eqShQddh">&nbsp;</td>
             </tr>
             <tr>
                 <td>售后经理</td>
                 <td id="eqShShjl">&nbsp;</td>
+            </tr>
+            <tr>
                 <td>售后经理电话</td>
                 <td id="eqShJldh">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*售后联系人</span></td>
                 <td id="eqShLxr">&nbsp;</td>
             </tr>
             <tr>
                 <td><span style="color: red;">*售后联系电话</span></td>
                 <td id="eqShLxrdh">&nbsp;</td>
+            </tr>
+            <tr>
                 <td><span style="color: red;">*设备类别</span></td>
                 <td id="eqShLb">&nbsp;</td>
-                <td></td>
-                <td>&nbsp;</td>
             </tr>
         </table>
         <div class="col-xs-12 btn">
@@ -110,7 +134,7 @@
             , $ = layui.jquery;
         $(function(){
             $.ajax({
-                url:"/eqInfo/select?eqId="+ids,
+                url:"/eqInfo/selectGroup?eqId="+ids,
                 method:"GET",
                 dataType:"JSON",
                 success:function(res){

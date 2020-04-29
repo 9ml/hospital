@@ -8,6 +8,7 @@ import com.litbo.hospitalzj.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,15 +24,17 @@ public class SgdjHwController extends BaseController{
 		return new ResponseResult<SgdjHw>(SUCCESS,all);
 	}
 	@RequestMapping(value = "/insert",method = RequestMethod.POST)
-	public ResponseResult<Void> insert(SgdjHw sgdjHw) {
-		sgdjHwService.InsertSgdjHw(sgdjHw);
-		return new ResponseResult<Void>(SUCCESS);
+	public ResponseResult<Integer> insert(SgdjHw sgdjHw, @RequestParam("htIds") Integer htids) {
+		sgdjHw.setHtIds(htids);
+		Integer integer = sgdjHwService.InsertSgdjHw(sgdjHw);
+		return new ResponseResult<Integer>(SUCCESS, integer);
 	}
 	@RequestMapping("/updateInfo")
 	public ResponseResult<Void> updateInfo(SgdjHw sgdjHw) {
 		System.out.println(sgdjHw.getDjhwSbwg());
 		System.out.println(sgdjHw.getDjhwSxwj());
 		sgdjHwService.updateInfo(sgdjHw);
+
 	/*	htinfoService.updateHtInfoState(sgdjHw.getHtIds(), EnumProcess.PERFECT_INFORMATION.getMessage());*/
 		return new ResponseResult<Void>(SUCCESS);
 	}

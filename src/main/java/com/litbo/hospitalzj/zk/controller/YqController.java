@@ -1,5 +1,6 @@
 package com.litbo.hospitalzj.zk.controller;
 
+import com.litbo.hospitalzj.checklist.utils.commons.CommonUtils;
 import com.litbo.hospitalzj.controller.BaseController;
 import com.litbo.hospitalzj.util.ResponseResult;
 import com.litbo.hospitalzj.zk.domian.EqInfo;
@@ -9,11 +10,9 @@ import com.litbo.hospitalzj.zk.service.NdjhService;
 import com.litbo.hospitalzj.zk.service.YqJxjlService;
 import com.litbo.hospitalzj.zk.service.YqService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
@@ -49,9 +48,20 @@ public class YqController extends BaseController{
 		List<Yq> data=yqService.findYqByYqNameLike(jcyqName);
 		return new ResponseResult<List<Yq>>(SUCCESS,data);
 	}
+
+	@RequestMapping("/add")
+	public ResponseResult<Void> add(HttpServletRequest request){
+		Yq yq = CommonUtils.toBean(request.getParameterMap(), Yq.class);
+		yq.setIsDelete(0);
+		yqService.insert(yq);
+		return new ResponseResult<Void>(SUCCESS);
+	}
+
+
 	//新增仪器
 	@RequestMapping("/insert")
-	public ResponseResult<Void> insert(Yq yq){
+	public ResponseResult<Void> insert(HttpServletRequest request){
+    	Yq yq = CommonUtils.toBean(request.getParameterMap(), Yq.class);
 		yq.setIsDelete(0);
 		yqService.insert(yq);
 		YqJxjl data=new YqJxjl();
@@ -81,8 +91,9 @@ public class YqController extends BaseController{
 	}
 	//修改仪器
 	@RequestMapping("/update")
-		public ResponseResult<Void> update(Yq yq){
-		
+		public ResponseResult<Void> update(String jcyqId, HttpServletRequest req){
+    	Yq yq = CommonUtils.toBean(req.getParameterMap(), Yq.class);
+    	yq.setJcyqId(jcyqId);
 		yqService.update(yq);
 		return new ResponseResult<Void>(SUCCESS);
 	}

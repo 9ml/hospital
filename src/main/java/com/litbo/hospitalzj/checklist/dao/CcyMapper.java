@@ -92,7 +92,7 @@ public interface CcyMapper {
             "      xlsz_test41, xlsz_test42, xlsz_test43, \n" +
             "      xlsz_value4, xlsz_test51, xlsz_test52, \n" +
             "      xlsz_test53, xlsz_value5, xlsz_result, \n" +
-            "      sgbj_result, bjx_result, jy_result\n" +
+            "      sgbj_result, bjx_result, jy_result, zxnl, zdnl, zdnl2\n" +
             "      )\n" +
             "    values (#{ccyId,jdbcType=INTEGER}, #{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=INTEGER}, \n" +
             "      #{tester,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{testTime,jdbcType=DATE}, \n" +
@@ -117,7 +117,8 @@ public interface CcyMapper {
             "      #{xlszTest41,jdbcType=INTEGER}, #{xlszTest42,jdbcType=INTEGER}, #{xlszTest43,jdbcType=INTEGER}, \n" +
             "      #{xlszValue4,jdbcType=VARCHAR}, #{xlszTest51,jdbcType=INTEGER}, #{xlszTest52,jdbcType=INTEGER}, \n" +
             "      #{xlszTest53,jdbcType=INTEGER}, #{xlszValue5,jdbcType=VARCHAR}, #{xlszResult,jdbcType=VARCHAR}, \n" +
-            "      #{sgbjResult,jdbcType=VARCHAR}, #{bjxResult,jdbcType=VARCHAR}, #{jyResult,jdbcType=VARCHAR}\n" +
+            "      #{sgbjResult,jdbcType=VARCHAR}, #{bjxResult,jdbcType=VARCHAR}, #{jyResult,jdbcType=VARCHAR}," +
+            "      #{zxnl,jdbcType=VARCHAR},#{zdnl,jdbcType=VARCHAR} ,#{zdnl2,jdbcType=VARCHAR}\n" +
             "      )")
     @Options(useGeneratedKeys = true, keyProperty = "ccyId", keyColumn = "ccy_id")
     public void save(Ccy ccy);
@@ -193,7 +194,10 @@ public interface CcyMapper {
             "      xlsz_result = #{xlszResult,jdbcType=VARCHAR},\n" +
             "      sgbj_result = #{sgbjResult,jdbcType=VARCHAR},\n" +
             "      bjx_result = #{bjxResult,jdbcType=VARCHAR},\n" +
-            "      jy_result = #{jyResult,jdbcType=VARCHAR}\n" +
+            "      jy_result = #{jyResult,jdbcType=VARCHAR},\n" +
+            "      zxnl = #{zxnl,jdbcType=VARCHAR},\n" +
+            "      zdnl = #{zdnl,jdbcType=VARCHAR}\n" +
+            "      zdnl2 = #{zdnl2,jdbcType=VARCHAR}\n" +
             "    where ccy_id = #{ccyId,jdbcType=INTEGER}")
     void updateCcy(Ccy ccy);
     //根据设备id查询设备检测表
@@ -206,7 +210,7 @@ public interface CcyMapper {
             "    tbms_ycsj, tbms_sj, tbms_result, xlsz_test11, xlsz_test12, xlsz_test13, xlsz_value1, \n" +
             "    xlsz_test21, xlsz_test22, xlsz_test23, xlsz_value2, xlsz_test31, xlsz_test32, xlsz_test33, \n" +
             "    xlsz_value3, xlsz_test41, xlsz_test42, xlsz_test43, xlsz_value4, xlsz_test51, xlsz_test52, \n" +
-            "    xlsz_test53, xlsz_value5, xlsz_result, sgbj_result, bjx_result, jy_result from ccy order by ccy_id desc limit 1 where eq_id = #{eqId}")
+            "    xlsz_test53, xlsz_value5, xlsz_result, sgbj_result, bjx_result, jy_result, zxnl,zxnl2, zdnl, zdnl2 from ccy order by ccy_id desc limit 1 where eq_id = #{eqId}")
     public Ccy findCcy(String eqId);
 
     //以id排序，查询最后一条记录

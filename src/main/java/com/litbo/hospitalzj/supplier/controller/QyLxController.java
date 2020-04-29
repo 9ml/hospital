@@ -2,6 +2,7 @@ package com.litbo.hospitalzj.supplier.controller;
 
 import com.litbo.hospitalzj.controller.BaseController;
 import com.litbo.hospitalzj.supplier.entity.QyLx;
+import com.litbo.hospitalzj.supplier.entity.TBank;
 import com.litbo.hospitalzj.supplier.service.QyLxService;
 import com.litbo.hospitalzj.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,14 @@ import java.util.List;
 public class QyLxController extends BaseController{
 	@Autowired
 	public QyLxService qyLxService;
-	
+
+
+	@RequestMapping("/bank")
+	public ResponseResult<List<TBank>> getBank() {
+		List<TBank> data=qyLxService.findBank();
+		return new ResponseResult<List<TBank>>(SUCCESS,data);
+	}
+
 	@RequestMapping("/insert")
 	public ResponseResult<Void> getByCode(QyLx qyLx) {
 		qyLxService.insert(qyLx);

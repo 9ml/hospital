@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
     <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="baby.js"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
@@ -50,429 +51,392 @@
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 1 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd1" placeholder="Tx显示温度 1" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd1" name="txWd1" placeholder="Tx显示温度 1" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd1" placeholder="T5s 温度 1" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd1" name="t5sWd1" placeholder="T5s 温度 1" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 2 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd2" placeholder="Tx显示温度 2" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd2" name="txWd2" placeholder="Tx显示温度 2" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd2" placeholder="T5s 温度 2" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd2" name="t5sWd2" placeholder="T5s 温度 2" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 3 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd3" placeholder="Tx显示温度 3" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd3" name="txWd3" placeholder="Tx显示温度 3" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd3" placeholder="T5s 温度 3" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd3" name="t5sWd3" placeholder="T5s 温度 3" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 4 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd4" placeholder="Tx显示温度 4" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd4" name="txWd4" placeholder="Tx显示温度 4" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd4" placeholder="T5s 温度 4" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd4" name="t5sWd4" placeholder="T5s 温度 4" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 5 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd5" placeholder="Tx显示温度 5" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd5" name="txWd5" placeholder="Tx显示温度 5" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd5" placeholder="T5s 温度 5" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd5" name="t5sWd5" placeholder="T5s 温度 5" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 6 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd6" placeholder="Tx显示温度 6" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd6" name="txWd6" placeholder="Tx显示温度 6" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd6" placeholder="T5s 温度 6" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd6" name="t5sWd6" placeholder="T5s 温度 6" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 7 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd7" placeholder="Tx显示温度 7" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd7" name="txWd7" placeholder="Tx显示温度 7" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd7" placeholder="T5s 温度 7" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd7" name="t5sWd7" placeholder="T5s 温度 7" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 8 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd8" placeholder="Tx显示温度 8" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd8" name="txWd8" placeholder="Tx显示温度 8" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd8" placeholder="T5s 温度 8" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd8" name="t5sWd8" placeholder="T5s 温度 8" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 9 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd9" placeholder="Tx显示温度 9" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd9" name="txWd9" placeholder="Tx显示温度 9" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd9" placeholder="T5s 温度 9" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd9" name="t5sWd9" placeholder="T5s 温度 9" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 10 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd10" placeholder="Tx显示温度 10" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd10" name="txWd10" placeholder="Tx显示温度 10" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd10" placeholder="T5s 温度 10" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd10" name="t5sWd10" placeholder="T5s 温度 10" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 11 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd11" placeholder="Tx显示温度 11" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd11" name="txWd11" placeholder="Tx显示温度 11" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd11" placeholder="T5s 温度 11" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd11" name="t5sWd11" placeholder="T5s 温度 11" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 12 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd12" placeholder="Tx显示温度 12" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd12" name="txWd12" placeholder="Tx显示温度 12" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd12" placeholder="T5s 温度 12" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd12" name="t5sWd12" placeholder="T5s 温度 12" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 13 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd13" placeholder="Tx显示温度 13" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd13" name="txWd13" placeholder="Tx显示温度 13" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd13" placeholder="T5s 温度 13" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd13" name="t5sWd13" placeholder="T5s 温度 13" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 14 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd14" placeholder="Tx显示温度 14" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd14" name="txWd14" placeholder="Tx显示温度 14" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd14" placeholder="T5s 温度 14" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd14" name="t5sWd14" placeholder="T5s 温度 14" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">第 15 组</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">Tx显示温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="txWd15" placeholder="Tx显示温度 15" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="txWd15" name="txWd15" placeholder="Tx显示温度 15" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">T5s 温度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="t5sWd15" placeholder="T5s 温度 15" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="t5sWd15" name="t5sWd15" placeholder="T5s 温度 15" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">控制温度 Tk(℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">控制温度 Tk(℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="kzwd" placeholder="控制温度 Tk(℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="kzwd" name="kzwd" placeholder="控制温度 Tk(℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">显示温度平均值Txa (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">显示温度平均值Txa (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdtxa" placeholder="显示温度平均值Txa (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdtxa" name="wdtxa" disabled placeholder="显示温度平均值Txa (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">温度T1测量平均值T1a (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">温度T1测量平均值T1a (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdt1" placeholder="温度T1测量平均值T1a (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdt1" name="wdt1" placeholder="温度T1测量平均值T1a (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">温度T2测量平均值T2a (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">温度T2测量平均值T2a (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdt2" placeholder="温度T2测量平均值T2a (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdt2" name="wdt2" placeholder="温度T2测量平均值T2a (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">温度T3测量平均值T3a (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">温度T3测量平均值T3a (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdt3" placeholder="温度T3测量平均值T3a (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdt3" name="wdt3" placeholder="温度T3测量平均值T3a (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">温度T4测量平均值T1a (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">温度T4测量平均值T4a (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdt4" placeholder="温度T4测量平均值T4a (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdt4" name="wdt4" placeholder="温度T4测量平均值T4a (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">温度T5测量平均值T5a (℃)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">温度T5测量平均值T5a (℃)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdt5" placeholder="温度T5测量平均值T5a (℃)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdt5" name="wdt5" disabled placeholder="温度T5测量平均值T5a (℃)" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">温度偏差</legend>
+                <legend style="color: red;">温度偏差 —— 允许误差:|Txa-T5a|≤0.8</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">温度偏差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wdpc" placeholder="温度偏差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wdpc" name="wdpc" disabled placeholder="温度偏差" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">均匀性</legend>
+                <legend style="color: red;">均匀性 —— 允许误差:|T1a/2a/3a/4a-T5a|max≤0.8</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">均匀性</label>
                 <div class="layui-input-block">
-                    <input type="text" name="jyx" placeholder="均匀性" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="jyx" name="jyx" disabled placeholder="均匀性" autocomplete="off" class="layui-input">
+                    <b id="wc2"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">波动度</legend>
+                <legend style="color: red;">波动度 —— 允许误差:|T5s-T5a|max≤0.5</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">波动度</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bdd" placeholder="波动度" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bdd" name="bdd" disabled placeholder="波动度" autocomplete="off" class="layui-input">
+                    <b id="wc3"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">温控偏差</legend>
+                <legend style="color: red;">温控偏差 —— 允许误差:|Tk-T5a|≤1.5</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">温控偏差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="wkpc" placeholder="温控偏差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="wkpc" name="wkpc" disabled placeholder="温控偏差" autocomplete="off" class="layui-input">
+                    <b id="wc4"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">超调量</legend>
+                <legend style="color: red;">超调量 —— 允许误差: T5-36℃≤2</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">超调量</label>
                 <div class="layui-input-block">
-                    <input type="text" name="ctl" placeholder="超调量" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="ctl" name="ctl" placeholder="超调量" autocomplete="off" class="layui-input">
+                    <b id="wc5"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">空气流速 (m/s)</legend>
+                <legend style="color: red;">空气流速 (m/s) —— ≤0.35</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">空气流速 (m/s)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="kqls" placeholder="空气流速 (m/s)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="kqls" name="kqls" placeholder="空气流速 (m/s)" autocomplete="off" class="layui-input">
+                    <b id="wc6"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">噪声 (报警激活状态)</legend>
+                <legend style="color: red;">噪声 (报警激活状态) —— 允许误差:≤80dB</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">噪声 (报警激活状态)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zsbj" placeholder="噪声 (报警激活状态)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zsbj" name="zsbj" placeholder="噪声 (报警激活状态)" autocomplete="off" class="layui-input">
+                    <b id="wc7"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">噪声 (正常状态)</legend>
+                <legend style="color: red;">噪声 (正常状态) —— 允许误差:≤60db</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">噪声 (正常状态)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="zszc" placeholder="噪声 (正常状态)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zszc" name="zszc" placeholder="噪声 (正常状态)" autocomplete="off" class="layui-input">
+                    <b id="wc8"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">接触温度</legend>
             </fieldset>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">金属部分</legend>
+                <legend style="color: #555555;">金属部分 —— 允许误差:≤40℃</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">金属部分</label>
                 <div class="layui-input-block">
-                    <input type="text" name="jsbf" placeholder="金属部分" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="jsbf" name="jsbf" placeholder="金属部分" autocomplete="off" class="layui-input">
+                    <b id="wc9"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">床垫部分</legend>
+                <legend style="color: #555555;">床垫部分 —— 允许误差:≤43℃</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">床垫部分</label>
                 <div class="layui-input-block">
-                    <input type="text" name="cdbf" placeholder="床垫部分" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="cdbf" name="cdbf" placeholder="床垫部分" autocomplete="off" class="layui-input">
+                    <b id="wc10"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -481,25 +445,24 @@
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">湿度设置值</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">湿度设置值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sdszz" placeholder="湿度设置值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sdszz" name="sdszz" placeholder="湿度设置值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">湿度测试值</legend>
+                <legend style="color: #555555;">湿度测试值 —— 湿度偏差允许误差: ≤10%RH</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">湿度测试值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sdcsz" placeholder="湿度测试值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sdcsz" name="sdcsz" placeholder="湿度测试值" autocomplete="off" class="layui-input">
+                    <b id="wc11"></b>
                 </div>
             </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">湿度偏差</legend>
+            <!-- <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">湿度偏差 —— 允许误差: ≤10%RH</legend>
             </fieldset>
             <div class="layui-form-item col-md-4">
                 <label class="layui-form-label">湿度偏差</label>
@@ -508,7 +471,7 @@
                     <input type="radio" name="sdpc" value="2" title="不符合">
                     <input type="radio" name="sdpc" value="0" title="不适用">
                 </div>
-            </div>
+            </div> -->
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">断电报警</legend>
             </fieldset>

@@ -1,7 +1,5 @@
 package com.litbo.hospitalzj.checklist.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class Dqjc {
@@ -13,19 +11,21 @@ public class Dqjc {
 
     private String tester;
 
-    private String auditor;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date shsjTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date testTime;
+
+    private String auditor;
+
+    private Date shsjTime;
+
+    private String shrJcjl;
 
     private String jcjl;
 
     private String jcsm;
 
-    private String dydy1;
-    
-    private String dydy2;
+    private Integer dydy1;
+
+    private Integer dydy2;
 
     private String dydyValue;
 
@@ -137,7 +137,7 @@ public class Dqjc {
 
     private Integer state;
 
-    private Byte spare2;
+    private Date shsj;
 
     private Byte spare3;
 
@@ -145,39 +145,7 @@ public class Dqjc {
 
     private Byte spare5;
 
-    private String shrJcjl;
-
-    public String getDydy1() {
-		return dydy1;
-	}
-
-	public void setDydy1(String dydy1) {
-		this.dydy1 = dydy1;
-	}
-
-	public String getDydy2() {
-		return dydy2;
-	}
-
-	public void setDydy2(String dydy2) {
-		this.dydy2 = dydy2;
-	}
-
-	public Date getShsjTime() {
-        return shsjTime;
-    }
-
-    public void setShsjTime(Date shsjTime) {
-        this.shsjTime = shsjTime;
-    }
-
-    public String getShrJcjl() {
-        return shrJcjl;
-    }
-
-    public void setShrJcjl(String shrJcjl) {
-        this.shrJcjl = shrJcjl;
-    }
+    private Byte spare2;
 
     public Integer getDqjcid() {
         return dqjcid;
@@ -211,6 +179,14 @@ public class Dqjc {
         this.tester = tester == null ? null : tester.trim();
     }
 
+    public Date getTestTime() {
+        return testTime;
+    }
+
+    public void setTestTime(Date testTime) {
+        this.testTime = testTime;
+    }
+
     public String getAuditor() {
         return auditor;
     }
@@ -219,12 +195,20 @@ public class Dqjc {
         this.auditor = auditor == null ? null : auditor.trim();
     }
 
-    public Date getTestTime() {
-        return testTime;
+    public Date getShsjTime() {
+        return shsjTime;
     }
 
-    public void setTestTime(Date testTime) {
-        this.testTime = testTime;
+    public void setShsjTime(Date shsjTime) {
+        this.shsjTime = shsjTime;
+    }
+
+    public String getShrJcjl() {
+        return shrJcjl;
+    }
+
+    public void setShrJcjl(String shrJcjl) {
+        this.shrJcjl = shrJcjl == null ? null : shrJcjl.trim();
     }
 
     public String getJcjl() {
@@ -243,12 +227,28 @@ public class Dqjc {
         this.jcsm = jcsm == null ? null : jcsm.trim();
     }
 
+    public Integer getDydy1() {
+        return dydy1;
+    }
+
+    public void setDydy1(Integer dydy1) {
+        this.dydy1 = dydy1;
+    }
+
+    public Integer getDydy2() {
+        return dydy2;
+    }
+
+    public void setDydy2(Integer dydy2) {
+        this.dydy2 = dydy2;
+    }
+
     public String getDydyValue() {
         return dydyValue;
     }
 
     public void setDydyValue(String dydyValue) {
-        this.dydyValue = dydyValue;
+        this.dydyValue = dydyValue == null ? null : dydyValue.trim();
     }
 
     public Byte getDydyResult() {
@@ -683,12 +683,12 @@ public class Dqjc {
         this.state = state;
     }
 
-    public Byte getSpare2() {
-        return spare2;
+    public Date getShsj() {
+        return shsj;
     }
 
-    public void setSpare2(Byte spare2) {
-        this.spare2 = spare2;
+    public void setShsj(Date shsj) {
+        this.shsj = shsj;
     }
 
     public Byte getSpare3() {
@@ -715,5 +715,11 @@ public class Dqjc {
         this.spare5 = spare5;
     }
 
+    public Byte getSpare2() {
+        return spare2;
+    }
 
+    public void setSpare2(Byte spare2) {
+        this.spare2 = spare2;
+    }
 }

@@ -46,6 +46,10 @@ public interface YqEqService {
 
 	Integer findTotalNum(String eqId);
 
+	YqEq findById(Integer yqEqId);
+
+	List<YqEq> findByType(String eqId, String 待上传);
+
 	//
    /* YqEq selectYqEq(Integer yqEqId);*/
 }

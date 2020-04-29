@@ -128,7 +128,7 @@
                 <td id="zzYysxrq">&nbsp;</td>
                 <td><span style="color: red;">*截止日期</span></td>
                 <td id="zzYyjzrq">&nbsp;</td>
-                <td>是否长期有限</td>
+                <td>是否长期有效</td>
                 <td id="zzYyyx">&nbsp;</td>
             </tr>
             <tr>
@@ -165,7 +165,7 @@
                 <td id="zzJysxrq">&nbsp;</td>
                 <td><span style="color: red;">*截止日期</span></td>
                 <td id="zzJyjzrq">&nbsp;</td>
-                <td>是否长期有限</td>
+                <td>是否长期有效</td>
                 <td id="zzJyyx">&nbsp;</td>
             </tr>
             <tr>
@@ -192,7 +192,7 @@
             <tr>
                 <td><span style="color: red;">*截止日期</span></td>
                 <td id="zzZzjzrq">&nbsp;</td>
-                <td>是否长期有限</td>
+                <td>是否长期有效</td>
                 <td id="zzZzyx">&nbsp;</td>
                 <td>机构地址</td>
                 <td id="zzZzdz">&nbsp;</td>
@@ -323,44 +323,52 @@
             $.ajax({
                 url:"/suinfo/updateStateIs?suId="+ids,
                 method:"POST",
-                dataType:"JSON",
-                success:function(res){
+                dataType:"JSON"
+               /* success:function(res){
+                    console.log(res);
                     if(res.state === 200){
-                        layer.msg("同意成功，请为供应商设置密码");
-                        setTimeout(function(){
-                            location.href="/apply_manage/supplier/set_user.html?id="+ids;
-                        },1000);
+                       console.log("成功")
                     }else{
-                        layer.msg("失败");
+                        console.log("失败")
                     }
                 },
                 error:function(data){
                     layer.msg("请稍后再试");
                     console.log(data);
-                }
-            })
+                }*/
+            });
+            layer.msg("同意审核成功，已将默认密码发送至此供应商邮箱！");
+            setTimeout(function(){
+                location.href="/apply_manage/home/supplier_check.html";
+                parent.location.reload();
+            },1000);
         });
         // 驳回
         $("#miss").click(function(){
             $.ajax({
                 url:"/suinfo/updateStateNot?suId="+ids,
                 method:"POST",
-                dataType:"JSON",
-                success:function(res){
+                dataType:"JSON"
+                /*success:function(res){
                     if(res.state === 200){
-                        layer.msg("注册申请驳回成功");
-                        setTimeout(function(){
-                           location.href="/apply_manage/home/supplier_check.html";
-                        },1000);
+                        console.log("成功")
+
                     }else{
-                        layer.msg("失败");
+                        console.log("失败")
                     }
                 },
+
+
                 error:function(data){
                     layer.msg("请稍后再试");
                     console.log(data);
-                }
-            })
+                }*/
+            });
+            layer.msg("注册申请驳回成功");
+            setTimeout(function(){
+                location.href="/apply_manage/home/supplier_check.html";
+                parent.location.reload();
+            },1000);
         });
         // 查看文件
         $("#lookYyzz").click(function(){

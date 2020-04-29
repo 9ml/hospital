@@ -22,6 +22,7 @@ public class EqLyController extends BaseController{
 	@Autowired
 	public EqLyService eqLyService;
 	
+
 	@RequestMapping("/{eqlyId}")
 	public ResponseResult<EqLy> getByCode(@PathVariable("eqlyId") Integer eqlyId) {
 		EqLy data=eqLyService.getById(eqlyId);

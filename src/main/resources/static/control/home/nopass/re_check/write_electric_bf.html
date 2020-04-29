@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>医疗设备通用电气安全检测数据</title>
+    <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
+    <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
+    <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-elem-field{
+            width: 100%;
+        }
+        .btn{
+            margin-top: 50px;
+        }
+        .layui-input-block{
+            display: flex;
+            align-items: center;
+        }
+        b{
+            padding-left: 30px;
+            width: 20%;
+        }
+        .is{
+            color: green;
+        }
+        .no{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <p style="height: 34px;width: 100%;line-height: 34px;background-color: lightyellow; text-align: center;"><span class="sign">***</span>请认真填写数据信息<span class="sign">***</span></p>
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="font-size: 22px;font-weight: bold;">医疗设备通用电气安全检测原始记录</legend>
+        </fieldset>
+        <form class="layui-form layui-form-pane" action="">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">电源部分</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">电源电压(V)</label>
+                <div class="layui-input-block">
+                    <input id="inp1" type="text" name="dydyValue" placeholder="电源电压(V)" autocomplete="off" class="layui-input">
+                    <b id="p1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">保护接地阻抗（mΩ）</label>
+                <div class="layui-input-block">
+                    <input id="inp2" type="text" name="jdzkValue"  placeholder="保护接地阻抗（mΩ）" autocomplete="off" class="layui-input">
+                    <b id="p2"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">绝缘阻抗(电源—外壳)(MΩ)</label>
+                <div class="layui-input-block">
+                    <input id="inp3" type="text" name="jyzkValue" placeholder="绝缘阻抗(电源—外壳)(MΩ)" autocomplete="off" class="layui-input">
+                    <b id="p3"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">对地漏电流（µA） —— 正常状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向</label>
+                <div class="layui-input-block">
+                    <input id="inp4" type="text" name="ddldlZcZxValue" placeholder="正向" autocomplete="off" class="layui-input">
+                    <b id="p4"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向</label>
+                <div class="layui-input-block">
+                    <input id="inp5" type="text" name="ddldlZcFxValue" placeholder="反向" autocomplete="off" class="layui-input">
+                    <b id="p5"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">对地漏电流（µA） —— 单一故障状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp6" type="text" name="ddldlDyZxdlValue" placeholder="正向断零" autocomplete="off" class="layui-input">
+                    <b id="p6"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp7" type="text" name="ddldlDyFxdlValue" placeholder="反向断零" autocomplete="off" class="layui-input">
+                    <b id="p7"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">外壳漏电流（µA） —— 正常状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向</label>
+                <div class="layui-input-block">
+                    <input id="inp8" type="text" name="wkldlZcZxValue" placeholder="正向" autocomplete="off" class="layui-input">
+                    <b id="p8"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向</label>
+                <div class="layui-input-block">
+                    <input id="inp9" type="text" name="wkldlZcFxValue" placeholder="反向" autocomplete="off" class="layui-input">
+                    <b id="p9"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">外壳漏电流（µA） —— 单一故障状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp10" type="text" name="wkldlDyZxdlValue" placeholder="正向断零" autocomplete="off" class="layui-input">
+                    <b id="p10"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp11" type="text" name="wkldlDyZxddValue" placeholder="正向断地" autocomplete="off" class="layui-input">
+                    <b id="p11"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp12" type="text" name="wkldlDyFxdlValue" placeholder="反向断零" autocomplete="off" class="layui-input">
+                    <b id="p12"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp13" type="text" name="wkldlDyFxddValue" placeholder="反向断地" autocomplete="off" class="layui-input">
+                    <b id="p13"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>应用端类型 —— B/BF型</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">患者漏电流（µA）—— 正常状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向</label>
+                <div class="layui-input-block">
+                    <input id="inp14" type="text" name="hzldlZcZxbfValue" placeholder="正向" autocomplete="off" class="layui-input">
+                    <b id="p14"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向</label>
+                <div class="layui-input-block">
+                    <input id="inp15" type="text" name="hzldlZcFxbfValue" placeholder="反向" autocomplete="off" class="layui-input">
+                    <b id="p15"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">患者漏电流（µA）—— 单一故障状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp16" type="text" name="hzldlDyZxdlbfValue" placeholder="正向断零" autocomplete="off" class="layui-input">
+                    <b id="p16"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp17" type="text" name="hzldlDyZxddbfValue" placeholder="正向断地" autocomplete="off" class="layui-input">
+                    <b id="p17"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp18" type="text" name="hzldlDyFxdlbfValue" placeholder="反向断零" autocomplete="off" class="layui-input">
+                    <b id="p18"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp19" type="text" name="hzldlDyFxddbfValue" placeholder="反向断地" autocomplete="off" class="layui-input">
+                    <b id="p19"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">患者辅助漏电流（µA）—— 正常状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向</label>
+                <div class="layui-input-block">
+                    <input id="inp20" type="text" name="hzfzldlZcZxbfValue" placeholder="正向" autocomplete="off" class="layui-input">
+                    <b id="p20"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向</label>
+                <div class="layui-input-block">
+                    <input id="inp21" type="text" name="hzfzldlZcFxbfValue" placeholder="反向" autocomplete="off" class="layui-input">
+                    <b id="p21"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">患者辅助漏电流（µA）—— 单一故障状态</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp22" type="text" name="hzfzldlDyZxdlbfValue" placeholder="正向断零" autocomplete="off" class="layui-input">
+                    <b id="p22"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">正向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp23" type="text" name="hzfzldlDyZxddbfValue" placeholder="正向断地" autocomplete="off" class="layui-input">
+                    <b id="p23"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断零</label>
+                <div class="layui-input-block">
+                    <input id="inp24" type="text" name="hzfzldlDyFxdlbfValue" placeholder="反向断零" autocomplete="off" class="layui-input">
+                    <b id="p24"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">反向断地</label>
+                <div class="layui-input-block">
+                    <input id="inp25" type="text" name="hzfzldlDyFxddbfValue" placeholder="反向断地" autocomplete="off" class="layui-input">
+                    <b id="p25"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;font-weight: bold;">检测人信息</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">检测人</label>
+                <div class="layui-input-block">
+                    <input id="isUser" type="text" disabled name="tester" required autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">检测时间</label>
+                <div class="layui-input-block">
+                    <input id="date" type="text" name="testTime" required autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text col-md-6">
+                <label class="layui-form-label">检测情况说明</label>
+                <div class="layui-input-block">
+                    <textarea name="jcsm" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item btn">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="saveAll">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    var eqId = parseInt(sessionStorage['eqId']);
+    var userName = sessionStorage["userName"];
+    $(function(){
+        $("#isUser").val(userName);
+        $("#inp1").focus(function () {
+            $("#p1").text("允许值（220±22）V");
+            $("#p1").removeClass("no").removeClass("is");
+        });
+        $("#inp1").blur(function () {
+            if($(this).val()>198 && $(this).val()<242 || $(this).val() == "OL"){
+                $("#p1").text("√ 符合");
+                $("#p1").removeClass("no").addClass("is");
+            }else{
+                $("#p1").text("× 不符合");
+                $("#p1").removeClass("is").addClass("no");
+            }
+        });
+        $("#inp2").focus(function () {
+            $("#p2").text("允许值 ≤200 mΩ");
+            $("#p2").removeClass("no").removeClass("is");
+        });
+        $("#inp2").blur(function () {
+            if($(this).val()<=200 && $(this).val()!=""){
+                $("#p2").text("√ 符合");
+                $("#p2").removeClass("no").addClass("is")
+            }else{
+                $("#p2").text("× 不符合");
+                $("#p2").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp3").focus(function () {
+            $("#p3").text("允许值 ≥10 MΩ");
+            $("#p3").removeClass("no").removeClass("is");
+        });
+        $("#inp3 ").blur(function () {
+            if($(this).val() >= 10){
+                $("#p3").text("√ 符合");
+                $("#p3").removeClass("no").addClass("is")
+            }else{
+                $("#p3").text("× 不符合");
+                $("#p3").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp4").focus(function () {
+            $("#p4").text("允许值 ≤500µA");
+            $("#p4").removeClass("no").removeClass("is");
+        });
+        $("#inp4 ").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p4").text("√ 符合");
+                $("#p4").removeClass("no").addClass("is")
+            }else{
+                $("#p4").text("× 不符合");
+                $("#p4").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp5").focus(function () {
+            $("#p5").text("允许值 ≤500µA");
+            $("#p5").removeClass("no").removeClass("is");
+        });
+        $("#inp5").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p5").text("√ 符合");
+                $("#p5").removeClass("no").addClass("is")
+            }else{
+                $("#p5").text("× 不符合");
+                $("#p5").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp6").focus(function () {
+            $("#p6").text("允许值 ≤1000µA");
+            $("#p6").removeClass("no").removeClass("is");
+        });
+        $("#inp6").blur(function () {
+            if($(this).val()<=1000 && $(this).val()!=""){
+                $("#p6").text("√ 符合");
+                $("#p6").removeClass("no").addClass("is")
+            }else{
+                $("#p6").text("× 不符合");
+                $("#p6").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp7").focus(function () {
+            $("#p7").text("允许值 ≤1000µA");
+            $("#p7").removeClass("no").removeClass("is");
+        });
+        $("#inp7").blur(function () {
+            if($(this).val()<=1000 && $(this).val()!=""){
+                $("#p7").text("√ 符合");
+                $("#p7").removeClass("no").addClass("is")
+            }else{
+                $("#p7").text("× 不符合");
+                $("#p7").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp8").focus(function () {
+            $("#p8").text("允许值 ≤100µA");
+            $("#p8").removeClass("no").removeClass("is");
+        });
+        $("#inp8").blur(function () {
+            if($(this).val()<=100 && $(this).val()!=""){
+                $("#p8").text("√ 符合");
+                $("#p8").removeClass("no").addClass("is")
+            }else{
+                $("#p8").text("× 不符合");
+                $("#p8").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp9").focus(function () {
+            $("#p9").text("允许值 ≤100µA");
+            $("#p9").removeClass("no").removeClass("is");
+        });
+        $("#inp9").blur(function () {
+            if($(this).val()<=100 && $(this).val()!=""){
+                $("#p9").text("√ 符合");
+                $("#p9").removeClass("no").addClass("is")
+            }else{
+                $("#p9").text("× 不符合");
+                $("#p9").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp10").focus(function () {
+            $("#p10").text("允许值 ≤500µA");
+            $("#p10").removeClass("no").removeClass("is");
+        });
+        $("#inp10").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p10").text("√ 符合");
+                $("#p10").removeClass("no").addClass("is")
+            }else{
+                $("#p10").text("× 不符合");
+                $("#p10").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp11").focus(function () {
+            $("#p11").text("允许值 ≤500µA");
+            $("#p11").removeClass("no").removeClass("is");
+        });
+        $("#inp11").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p11").text("√ 符合");
+                $("#p11").removeClass("no").addClass("is")
+            }else{
+                $("#p11").text("× 不符合");
+                $("#p11").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp12").focus(function () {
+            $("#p12").text("允许值 ≤500µA");
+            $("#p12").removeClass("no").removeClass("is");
+        });
+        $("#inp12").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p12").text("√ 符合");
+                $("#p12").removeClass("no").addClass("is")
+            }else{
+                $("#p12").text("× 不符合");
+                $("#p12").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp13").focus(function () {
+            $("#p13").text("允许值 ≤500µA");
+            $("#p13").removeClass("no").removeClass("is");
+        });
+        $("#inp13").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p13").text("√ 符合");
+                $("#p13").removeClass("no").addClass("is")
+            }else{
+                $("#p13").text("× 不符合");
+                $("#p13").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp14").focus(function () {
+            $("#p14").text("允许值 ≤100µA");
+            $("#p14").removeClass("no").removeClass("is");
+        });
+        $("#inp14").blur(function () {
+            if($(this).val()<=100 && $(this).val()!=""){
+                $("#p14").text("√ 符合");
+                $("#p14").removeClass("no").addClass("is")
+            }else{
+                $("#p14").text("× 不符合");
+                $("#p14").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp15").focus(function () {
+            $("#p15").text("允许值 ≤100µA");
+            $("#p15").removeClass("no").removeClass("is");
+        });
+        $("#inp15").blur(function () {
+            if($(this).val()<=100 && $(this).val()!=""){
+                $("#p15").text("√ 符合");
+                $("#p15").removeClass("no").addClass("is")
+            }else{
+                $("#p15").text("× 不符合");
+                $("#p15").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp16").focus(function () {
+            $("#p16").text("允许值 ≤500µA");
+            $("#p16").removeClass("no").removeClass("is");
+        });
+        $("#inp16").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p16").text("√ 符合");
+                $("#p16").removeClass("no").addClass("is")
+            }else{
+                $("#p16").text("× 不符合");
+                $("#p16").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp17").focus(function () {
+            $("#p17").text("允许值 ≤500µA");
+            $("#p17").removeClass("no").removeClass("is");
+        });
+        $("#inp17").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p17").text("√ 符合");
+                $("#p17").removeClass("no").addClass("is")
+            }else{
+                $("#p17").text("× 不符合");
+                $("#p17").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp18").focus(function () {
+            $("#p18").text("允许值 ≤500µA");
+            $("#p18").removeClass("no").removeClass("is");
+        });
+        $("#inp18").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p18").text("√ 符合");
+                $("#p18").removeClass("no").addClass("is")
+            }else{
+                $("#p18").text("× 不符合");
+                $("#p18").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp19").focus(function () {
+            $("#p19").text("允许值 ≤500µA");
+            $("#p19").removeClass("no").removeClass("is");
+        });
+        $("#inp19").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p19").text("√ 符合");
+                $("#p19").removeClass("no").addClass("is")
+            }else{
+                $("#p19").text("× 不符合");
+                $("#p19").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp20").focus(function () {
+            $("#p20").text("允许值 ≤500µA");
+            $("#p20").removeClass("no").removeClass("is");
+        });
+        $("#inp20").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p20").text("√ 符合");
+                $("#p20").removeClass("no").addClass("is")
+            }else{
+                $("#p20").text("× 不符合");
+                $("#p20").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp21").focus(function () {
+            $("#p21").text("允许值 ≤500µA");
+            $("#p21").removeClass("no").removeClass("is");
+        });
+        $("#inp21").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p21").text("√ 符合");
+                $("#p21").removeClass("no").addClass("is")
+            }else{
+                $("#p21").text("× 不符合");
+                $("#p21").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp22").focus(function () {
+            $("#p22").text("允许值 ≤500µA");
+            $("#p22").removeClass("no").removeClass("is");
+        });
+        $("#inp22").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p22").text("√ 符合");
+                $("#p22").removeClass("no").addClass("is")
+            }else{
+                $("#p22").text("× 不符合");
+                $("#p22").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp23").focus(function () {
+            $("#p23").text("允许值 ≤500µA");
+            $("#p23").removeClass("no").removeClass("is");
+        });
+        $("#inp23").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p23").text("√ 符合");
+                $("#p23").removeClass("no").addClass("is")
+            }else{
+                $("#p23").text("× 不符合");
+                $("#p23").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp24").focus(function () {
+            $("#p24").text("允许值 ≤500µA");
+            $("#p24").removeClass("no").removeClass("is");
+        });
+        $("#inp24").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p24").text("√ 符合");
+                $("#p24").removeClass("no").addClass("is")
+            }else{
+                $("#p24").text("× 不符合");
+                $("#p24").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp25").focus(function () {
+            $("#p25").text("允许值 ≤500µA");
+            $("#p25").removeClass("no").removeClass("is");
+        });
+        $("#inp25").blur(function () {
+            if($(this).val()<=500 && $(this).val()!=""){
+                $("#p25").text("√ 符合");
+                $("#p25").removeClass("no").addClass("is")
+            }else{
+                $("#p25").text("× 不符合");
+                $("#p25").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp26").focus(function () {
+            $("#p26").text("允许值 ≤10µA");
+            $("#p26").removeClass("no").removeClass("is");
+        });
+        $("#inp26").blur(function () {
+            if($(this).val()<=10 && $(this).val()!=""){
+                $("#p26").text("√ 符合");
+                $("#p26").removeClass("no").addClass("is")
+            }else{
+                $("#p26").text("× 不符合");
+                $("#p26").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp27").focus(function () {
+            $("#p27").text("允许值 ≤10µA");
+            $("#p27").removeClass("no").removeClass("is");
+        });
+        $("#inp27").blur(function () {
+            if($(this).val()<=10 && $(this).val()!=""){
+                $("#p27").text("√ 符合");
+                $("#p27").removeClass("no").addClass("is")
+            }else{
+                $("#p27").text("× 不符合");
+                $("#p27").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp28").focus(function () {
+            $("#p28").text("允许值 ≤50µA");
+            $("#p28").removeClass("no").removeClass("is");
+        });
+        $("#inp28").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p28").text("√ 符合");
+                $("#p28").removeClass("no").addClass("is")
+            }else{
+                $("#p28").text("× 不符合");
+                $("#p28").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp29").focus(function () {
+            $("#p29").text("允许值 ≤50µA");
+            $("#p29").removeClass("no").removeClass("is");
+        });
+        $("#inp29").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p29").text("√ 符合");
+                $("#p29").removeClass("no").addClass("is")
+            }else{
+                $("#p29").text("× 不符合");
+                $("#p29").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp30").focus(function () {
+            $("#p30").text("允许值 ≤50µA");
+            $("#p30").removeClass("no").removeClass("is");
+        });
+        $("#inp30").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p30").text("√ 符合");
+                $("#p30").removeClass("no").addClass("is")
+            }else{
+                $("#p30").text("× 不符合");
+                $("#p30").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp31").focus(function () {
+            $("#p31").text("允许值 ≤50µA");
+            $("#p31").removeClass("no").removeClass("is");
+        });
+        $("#inp31").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p31").text("√ 符合");
+                $("#p31").removeClass("no").addClass("is")
+            }else{
+                $("#p31").text("× 不符合");
+                $("#p31").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp32").focus(function () {
+            $("#p32").text("允许值 ≤10µA");
+            $("#p32").removeClass("no").removeClass("is");
+        });
+        $("#inp32").blur(function () {
+            if($(this).val()<=10 && $(this).val()!=""){
+                $("#p32").text("√ 符合");
+                $("#p32").removeClass("no").addClass("is")
+            }else{
+                $("#p32").text("× 不符合");
+                $("#p32").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp33").focus(function () {
+            $("#p33").text("允许值 ≤10µA");
+            $("#p33").removeClass("no").removeClass("is");
+        });
+        $("#inp33").blur(function () {
+            if($(this).val()<=10 && $(this).val()!=""){
+                $("#p33").text("√ 符合");
+                $("#p33").removeClass("no").addClass("is")
+            }else{
+                $("#p33").text("× 不符合");
+                $("#p33").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp34").focus(function () {
+            $("#p34").text("允许值 ≤50µA");
+            $("#p34").removeClass("no").removeClass("is");
+        });
+        $("#inp34").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p34").text("√ 符合");
+                $("#p34").removeClass("no").addClass("is")
+            }else{
+                $("#p34").text("× 不符合");
+                $("#p34").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp35").focus(function () {
+            $("#p35").text("允许值 ≤50µA");
+            $("#p35").removeClass("no").removeClass("is");
+        });
+        $("#inp35").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p35").text("√ 符合");
+                $("#p35").removeClass("no").addClass("is")
+            }else{
+                $("#p35").text("× 不符合");
+                $("#p35").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp36").focus(function () {
+            $("#p36").text("允许值 ≤50µA");
+            $("#p36").removeClass("no").removeClass("is");
+        });
+        $("#inp36").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p36").text("√ 符合");
+                $("#p36").removeClass("no").addClass("is")
+            }else{
+                $("#p36").text("× 不符合");
+                $("#p36").removeClass("is").addClass("no")
+            }
+        });
+        $("#inp37").focus(function () {
+            $("#p37").text("允许值 ≤50µA");
+            $("#p37").removeClass("no").removeClass("is");
+        });
+        $("#inp37").blur(function () {
+            if($(this).val()<=50 && $(this).val()!=""){
+                $("#p37").text("√ 符合");
+                $("#p37").removeClass("no").addClass("is")
+            }else{
+                $("#p37").text("× 不符合");
+                $("#p37").removeClass("is").addClass("no")
+            }
+        });
+    });
+    //Demo
+    layui.use(['form','jquery','layer','laydate','element'],function(){
+        var form = layui.form
+            ,$ = layui.jquery
+            ,layer = layui.layer
+            ,element = layui.element
+            ,laydate = layui.laydate;
+        laydate.render({
+            elem:"#date"
+        });
+        form.on("submit(saveAll)",function(data){
+            console.log(data.field);
+            $.ajax({
+                url:"/dqjc/updataDqjc?eqId="+eqId+"&jcyqId="+ids,
+                method:"POST",
+                data:data.field,
+                dataType:"JSON",
+                success:function(res){
+                    if(res.state === 200){
+                        sessionStorage["yqeqId"] = res.data[1];
+                        sessionStorage["userEqId"] = res.data[2];
+                        setTimeout(function(){
+                            location.href = "/control/home/nopass/re_wait/electric_bf.html?id="+res.data[0];
+                        },1000);
+                        layer.msg("保存成功,正在生成表格");
+                    }else{
+                        layer.msg("提交失败");
+                    }
+                },
+                error:function(data){
+                    layer.msg("请稍后再试");
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

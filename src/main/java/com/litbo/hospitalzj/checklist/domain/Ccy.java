@@ -99,43 +99,43 @@ public class Ccy {
 
     private String tbmsResult;
 
-    private Integer xlszTest11;
+    private String xlszTest11;
 
-    private Integer xlszTest12;
+    private String xlszTest12;
 
-    private Integer xlszTest13;
+    private String xlszTest13;
 
     private String xlszValue1;
 
-    private Integer xlszTest21;
+    private String xlszTest21;
 
-    private Integer xlszTest22;
+    private String xlszTest22;
 
-    private Integer xlszTest23;
+    private String xlszTest23;
 
     private String xlszValue2;
 
-    private Integer xlszTest31;
+    private String xlszTest31;
 
-    private Integer xlszTest32;
+    private String xlszTest32;
 
-    private Integer xlszTest33;
+    private String xlszTest33;
 
     private String xlszValue3;
 
-    private Integer xlszTest41;
+    private String xlszTest41;
 
-    private Integer xlszTest42;
+    private String xlszTest42;
 
-    private Integer xlszTest43;
+    private String xlszTest43;
 
     private String xlszValue4;
 
-    private Integer xlszTest51;
+    private String xlszTest51;
 
-    private Integer xlszTest52;
+    private String xlszTest52;
 
-    private Integer xlszTest53;
+    private String xlszTest53;
 
     private String xlszValue5;
 
@@ -146,6 +146,20 @@ public class Ccy {
     private String bjxResult;
 
     private String jyResult;
+
+    private String zxnl;
+
+    private String zdnl;
+
+    private String zdnl2;
+
+    public String getZdnl2() {
+        return zdnl2;
+    }
+
+    public void setZdnl2(String zdnl2) {
+        this.zdnl2 = zdnl2;
+    }
 
     public Integer getCcyId() {
         return ccyId;
@@ -531,28 +545,28 @@ public class Ccy {
         this.tbmsResult = tbmsResult == null ? null : tbmsResult.trim();
     }
 
-    public Integer getXlszTest11() {
+    public String getXlszTest11() {
         return xlszTest11;
     }
 
-    public void setXlszTest11(Integer xlszTest11) {
-        this.xlszTest11 = xlszTest11;
+    public void setXlszTest11(String xlszTest11) {
+        this.xlszTest11 = xlszTest11 == null ? null : xlszTest11.trim();
     }
 
-    public Integer getXlszTest12() {
+    public String getXlszTest12() {
         return xlszTest12;
     }
 
-    public void setXlszTest12(Integer xlszTest12) {
-        this.xlszTest12 = xlszTest12;
+    public void setXlszTest12(String xlszTest12) {
+        this.xlszTest12 = xlszTest12 == null ? null : xlszTest12.trim();
     }
 
-    public Integer getXlszTest13() {
+    public String getXlszTest13() {
         return xlszTest13;
     }
 
-    public void setXlszTest13(Integer xlszTest13) {
-        this.xlszTest13 = xlszTest13;
+    public void setXlszTest13(String xlszTest13) {
+        this.xlszTest13 = xlszTest13 == null ? null : xlszTest13.trim();
     }
 
     public String getXlszValue1() {
@@ -563,28 +577,28 @@ public class Ccy {
         this.xlszValue1 = xlszValue1 == null ? null : xlszValue1.trim();
     }
 
-    public Integer getXlszTest21() {
+    public String getXlszTest21() {
         return xlszTest21;
     }
 
-    public void setXlszTest21(Integer xlszTest21) {
-        this.xlszTest21 = xlszTest21;
+    public void setXlszTest21(String xlszTest21) {
+        this.xlszTest21 = xlszTest21 == null ? null : xlszTest21.trim();
     }
 
-    public Integer getXlszTest22() {
+    public String getXlszTest22() {
         return xlszTest22;
     }
 
-    public void setXlszTest22(Integer xlszTest22) {
-        this.xlszTest22 = xlszTest22;
+    public void setXlszTest22(String xlszTest22) {
+        this.xlszTest22 = xlszTest22 == null ? null : xlszTest22.trim();
     }
 
-    public Integer getXlszTest23() {
+    public String getXlszTest23() {
         return xlszTest23;
     }
 
-    public void setXlszTest23(Integer xlszTest23) {
-        this.xlszTest23 = xlszTest23;
+    public void setXlszTest23(String xlszTest23) {
+        this.xlszTest23 = xlszTest23 == null ? null : xlszTest23.trim();
     }
 
     public String getXlszValue2() {
@@ -595,28 +609,28 @@ public class Ccy {
         this.xlszValue2 = xlszValue2 == null ? null : xlszValue2.trim();
     }
 
-    public Integer getXlszTest31() {
+    public String getXlszTest31() {
         return xlszTest31;
     }
 
-    public void setXlszTest31(Integer xlszTest31) {
-        this.xlszTest31 = xlszTest31;
+    public void setXlszTest31(String xlszTest31) {
+        this.xlszTest31 = xlszTest31 == null ? null : xlszTest31.trim();
     }
 
-    public Integer getXlszTest32() {
+    public String getXlszTest32() {
         return xlszTest32;
     }
 
-    public void setXlszTest32(Integer xlszTest32) {
-        this.xlszTest32 = xlszTest32;
+    public void setXlszTest32(String xlszTest32) {
+        this.xlszTest32 = xlszTest32 == null ? null : xlszTest32.trim();
     }
 
-    public Integer getXlszTest33() {
+    public String getXlszTest33() {
         return xlszTest33;
     }
 
-    public void setXlszTest33(Integer xlszTest33) {
-        this.xlszTest33 = xlszTest33;
+    public void setXlszTest33(String xlszTest33) {
+        this.xlszTest33 = xlszTest33 == null ? null : xlszTest33.trim();
     }
 
     public String getXlszValue3() {
@@ -627,28 +641,28 @@ public class Ccy {
         this.xlszValue3 = xlszValue3 == null ? null : xlszValue3.trim();
     }
 
-    public Integer getXlszTest41() {
+    public String getXlszTest41() {
         return xlszTest41;
     }
 
-    public void setXlszTest41(Integer xlszTest41) {
-        this.xlszTest41 = xlszTest41;
+    public void setXlszTest41(String xlszTest41) {
+        this.xlszTest41 = xlszTest41 == null ? null : xlszTest41.trim();
     }
 
-    public Integer getXlszTest42() {
+    public String getXlszTest42() {
         return xlszTest42;
     }
 
-    public void setXlszTest42(Integer xlszTest42) {
-        this.xlszTest42 = xlszTest42;
+    public void setXlszTest42(String xlszTest42) {
+        this.xlszTest42 = xlszTest42 == null ? null : xlszTest42.trim();
     }
 
-    public Integer getXlszTest43() {
+    public String getXlszTest43() {
         return xlszTest43;
     }
 
-    public void setXlszTest43(Integer xlszTest43) {
-        this.xlszTest43 = xlszTest43;
+    public void setXlszTest43(String xlszTest43) {
+        this.xlszTest43 = xlszTest43 == null ? null : xlszTest43.trim();
     }
 
     public String getXlszValue4() {
@@ -659,28 +673,28 @@ public class Ccy {
         this.xlszValue4 = xlszValue4 == null ? null : xlszValue4.trim();
     }
 
-    public Integer getXlszTest51() {
+    public String getXlszTest51() {
         return xlszTest51;
     }
 
-    public void setXlszTest51(Integer xlszTest51) {
-        this.xlszTest51 = xlszTest51;
+    public void setXlszTest51(String xlszTest51) {
+        this.xlszTest51 = xlszTest51 == null ? null : xlszTest51.trim();
     }
 
-    public Integer getXlszTest52() {
+    public String getXlszTest52() {
         return xlszTest52;
     }
 
-    public void setXlszTest52(Integer xlszTest52) {
-        this.xlszTest52 = xlszTest52;
+    public void setXlszTest52(String xlszTest52) {
+        this.xlszTest52 = xlszTest52 == null ? null : xlszTest52.trim();
     }
 
-    public Integer getXlszTest53() {
+    public String getXlszTest53() {
         return xlszTest53;
     }
 
-    public void setXlszTest53(Integer xlszTest53) {
-        this.xlszTest53 = xlszTest53;
+    public void setXlszTest53(String xlszTest53) {
+        this.xlszTest53 = xlszTest53 == null ? null : xlszTest53.trim();
     }
 
     public String getXlszValue5() {
@@ -721,5 +735,21 @@ public class Ccy {
 
     public void setJyResult(String jyResult) {
         this.jyResult = jyResult == null ? null : jyResult.trim();
+    }
+
+    public String getZxnl() {
+        return zxnl;
+    }
+
+    public void setZxnl(String zxnl) {
+        this.zxnl = zxnl == null ? null : zxnl.trim();
+    }
+
+    public String getZdnl() {
+        return zdnl;
+    }
+
+    public void setZdnl(String zdnl) {
+        this.zdnl = zdnl == null ? null : zdnl.trim();
     }
 }

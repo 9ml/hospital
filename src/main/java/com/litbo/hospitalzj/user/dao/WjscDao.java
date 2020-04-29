@@ -19,4 +19,10 @@ public interface WjscDao {
 
     @Select("Select * from wjsc where source_type=#{sourceType} and source_id=#{sourceId} and type=#{type}")
     List<Wjsc> select(@Param("sourceType") Integer sourceType, @Param("sourceId") Integer sourceId, @Param("type") Integer type);
+
+    @Select("select * from wjsc where source_type=#{sourceType} and source_id=#{sourceId}")
+    List<Wjsc> selectByType(@Param("sourceType") int sourceType, @Param("sourceId") Integer sourceId);
+
+    @Select("select * from wjsc where source_type=#{sourceType} and source_id=#{sourceId} and type=#{type} order by id desc limit 1 ")
+    Wjsc selectLast(@Param("sourceType") int sourceType, @Param("sourceId")int sourceId, @Param("type") String type);
 }

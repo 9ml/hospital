@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
     <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="defibrillator.js"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
@@ -53,165 +54,172 @@
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">最小能量值</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">最小能量值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zxnl" name="zxnl" placeholder="最小能量值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue1" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue1" name="sfnlValue1" placeholder="测量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc1" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc1" disabled name="sfnlWc1" placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">30</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue2" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue2" name="sfnlValue2" placeholder="测量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc2" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc2" disabled name="sfnlWc2" placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc2"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">50</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue3" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue3" name="sfnlValue3" placeholder="测量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc3" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">标称值 —— <span class="sign">20</span></legend>
-            </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">测量值(前)</label>
-                <div class="layui-input-block">
-                    <input type="text" name="sfnlValue71" placeholder="测量值(前)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">测量值(中)</label>
-                <div class="layui-input-block">
-                    <input type="text" name="sfnlValue72" placeholder="测量值(中)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">测量值(后)</label>
-                <div class="layui-input-block">
-                    <input type="text" name="sfnlValue73" placeholder="测量值(后)" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">误差</label>
-                <div class="layui-input-block">
-                    <input type="text" name="sfnlWc7" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc3" disabled name="sfnlWc3" placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc3"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">100</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue4" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue4" name="sfnlValue4" placeholder="测量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc4" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc4" name="sfnlWc4" disabled placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc5"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">200</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue5" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue5" name="sfnlValue5" placeholder="测量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc5" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc5" name="sfnlWc5" disabled placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc6"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                    <legend style="color: #555555;">标称值 —— <span class="sign">最大能量值</span></legend>
+                </fieldset>
+                <div class="layui-form-item col-md-5 col-xs-12">
+                    <label class="layui-form-label">最大能量值</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="zdnl" name="zdnl" placeholder="最大能量值" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item col-md-5 col-xs-12">
+                    <label class="layui-form-label">测量值</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="sfnlValue6" name="sfnlValue6" placeholder="测量值" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item col-md-6 col-xs-12">
+                    <label class="layui-form-label">误差</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="sfnlWc6" disabled name="sfnlWc6" placeholder="误差" autocomplete="off" class="layui-input">
+                        <b id="wc4"></b>
+                    </div>
+                </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">标称值 —— <span class="sign">20</span></legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测量值(前)</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sfnlValue71" name="sfnlValue71" placeholder="测量值(前) 2s" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测量值(中)</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sfnlValue72" name="sfnlValue72" placeholder="测量值(中) 30s" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测量值(后)</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sfnlValue73" name="sfnlValue73" placeholder="测量值(后) 50s" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sfnlWc7" name="sfnlWc7" disabled placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc7"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">标称值 —— <span class="sign">最大能量值</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">测量值</label>
+            <!-- // 最大能量值 -->
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">最大能量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue6" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="zdnl2" name="zdnl2" placeholder="最大能量值" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">误差</label>
-                <div class="layui-input-block">
-                    <input type="text" name="sfnlWc6" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">标称值 —— <span class="sign">200</span></legend>
-            </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值(前)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue81" placeholder="测量值(前)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue81" name="sfnlValue81" placeholder="测量值(前) 2s" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值(中)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue82" placeholder="测量值(中)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue82" name="sfnlValue82" placeholder="测量值(中) 30s" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">测量值(后)</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlValue83" placeholder="测量值(后)" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlValue83" name="sfnlValue83" placeholder="测量值(后) 50s" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">误差</label>
                 <div class="layui-input-block">
-                    <input type="text" name="sfnlWc8" placeholder="误差" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="sfnlWc8" name="sfnlWc8" disabled placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc8"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -220,8 +228,8 @@
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">充电时间</label>
                 <div class="layui-input-block">
-                    <input type="text" name="cdsjValue" placeholder="充电时间" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="cdsjValue" name="cdsjValue" placeholder="充电时间(s)" autocomplete="off" class="layui-input">
+                    <b id="wc9"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -245,66 +253,66 @@
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">同步延迟时间 (ms)</legend>
+                <legend style="color: red;">同步延迟时间 (ms) ≤60ms</legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">同步延迟时间</label>
                 <div class="layui-input-block">
-                    <input type="text" name="tbmsSj" placeholder="同步延迟时间" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="tbmsSj" name="tbmsSj" placeholder="同步延迟时间(ms)" autocomplete="off" class="layui-input">
+                    <b id="wc10"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">心率示值</legend>
             </fieldset>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">设定值 —— <span class="sign">30</span></legend>
+                <legend style="color: #555555;">设定值 —— <span class="sign">30(28～32)</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlszValue1" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="xlszValue1" name="xlszValue1" placeholder="测量值" autocomplete="off" class="layui-input">
+                    <b id="xl1"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">设定值 —— <span class="sign">60</span></legend>
+                <legend style="color: #555555;">设定值 —— <span class="sign">60(57～63)</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlszValue2" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="xlszValue2" name="xlszValue2" placeholder="测量值" autocomplete="off" class="layui-input">
+                    <b id="xl2"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">设定值 —— <span class="sign">100</span></legend>
+                <legend style="color: #555555;">设定值 —— <span class="sign">100(95～105)</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlszValue3" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="xlszValue3" name="xlszValue3" placeholder="测量值" autocomplete="off" class="layui-input">
+                    <b id="xl3"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">设定值 —— <span class="sign">120</span></legend>
+                <legend style="color: #555555;">设定值 —— <span class="sign">120(114～126)</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlszValue4" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="xlszValue4" name="xlszValue4" placeholder="测量值" autocomplete="off" class="layui-input">
+                    <b id="xl4"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">设定值 —— <span class="sign">180</span></legend>
+                <legend style="color: #555555;">设定值 —— <span class="sign">180(171～189)</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">测量值</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlszValue5" placeholder="测量值" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="xlszValue5" name="xlszValue5" placeholder="测量值" autocomplete="off" class="layui-input">
+                    <b id="xl5"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">

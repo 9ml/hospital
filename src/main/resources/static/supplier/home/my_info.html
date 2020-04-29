@@ -5,7 +5,7 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>供应商注册信息审核</title>
+    <title>供应商详细信息</title>
     <link rel="stylesheet" type="text/css" href="../../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../../static/css/admin.css"/>
     <!--[if IE 8]>
@@ -231,9 +231,6 @@
             </tr>
             </tbody>
         </table>
-        <div class="col-xs-12 btn">
-            <a id="update" class="layui-btn layui-btn-normal">修改信息</a>
-        </div>
     </div>
 </div>
 <script>
@@ -322,9 +319,6 @@
         $("#lookJyxk").click(function(){
             location.href="/supplier/file/file_info.html?id="+2;
         });
-        $("#update").click(function(){
-            layer.msg("111");
-        })
     });
 </script>
 </body>

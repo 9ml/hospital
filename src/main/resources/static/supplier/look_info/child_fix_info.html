@@ -57,7 +57,7 @@
             elem:"#childInfo",
             cellMinWidth:100,
             toolbar: '#toolbarDemo',
-            url:"/eqfseq/selectInfo?eqIds="+ids,
+            url:"/eqfseq/selectInfoGroup?eqIds="+ids,
             method:"GET",
             response:{
                 statusName: 'status'
@@ -76,7 +76,7 @@
                 }
             },
             cols:[[
-                {field:'eqPmId', title:'设备品名',align:'center'},
+                {field:'eqMc', title:'设备名称',align:'center'},
                 {field:'eqXh', title:'规格型号',align:'center'},
                 {field:'eqPrice', title:'设备单价',align:'center'},
                 {field:'eqNum', title:'数量',align:'center'},

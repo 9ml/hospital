@@ -37,8 +37,11 @@ public interface GpddMapper {
             "      sjdn_wc = #{sjdnWc,jdbcType=INTEGER},\n" +
             "      djgpld_wc = #{djgpldWc,jdbcType=INTEGER},\n" +
             "      sjgpld_wc = #{sjgpldWc,jdbcType=INTEGER},\n" +
-            "      spare1 = #{spare1,jdbcType=TINYINT},\n" +
-            "      spare2 = #{spare2,jdbcType=TINYINT}\n" +
+            "      spare1 = #{spare1,jdbcType=VARCHAR},\n" +
+            "      spare2 = #{spare2,jdbcType=VARCHAR}\n" +
+            "      spare3 = #{spare3,jdbcType=INTEGER}\n" +
+            "      spare4 = #{spare4,jdbcType=INTEGER}\n" +
+            "      spare5 = #{spare5,jdbcType=INTEGER}\n" +
             "    where gpdd_template_id = #{gpddTemplateId,jdbcType=INTEGER}")
     int updateGpddTemplate(GpddTemplate gpddTemplate);
     //插入模板表数据
@@ -58,8 +61,8 @@ public interface GpddMapper {
             "      #{sjdqTest2,jdbcType=DOUBLE}, #{sjdqTest3,jdbcType=DOUBLE}, #{sjdqTest4,jdbcType=DOUBLE}, \n" +
             "      #{sjdqWc,jdbcType=INTEGER}, #{sjdnTest1,jdbcType=DOUBLE}, #{sjdnTest2,jdbcType=DOUBLE}, \n" +
             "      #{sjdnTest3,jdbcType=DOUBLE}, #{sjdnTest4,jdbcType=DOUBLE}, #{sjdnWc,jdbcType=INTEGER}, \n" +
-            "      #{djgpldWc,jdbcType=INTEGER}, #{sjgpldWc,jdbcType=INTEGER}, #{spare1,jdbcType=TINYINT}, \n" +
-            "      #{spare2,jdbcType=TINYINT})")
+            "      #{djgpldWc,jdbcType=INTEGER}, #{sjgpldWc,jdbcType=INTEGER}, #{spare1,jdbcType=VARCHAR}, \n" +
+            "      #{spare2,jdbcType=VARCHAR})")
     int insert(GpddTemplate gpddTemplate);
 
     //保存
@@ -88,8 +91,8 @@ public interface GpddMapper {
             "      #{zxldDjdn,jdbcType=DOUBLE}, #{djgpldWc,jdbcType=INTEGER}, #{djgpldResult,jdbcType=TINYINT}, \n" +
             "      #{ssldSjdq,jdbcType=DOUBLE}, #{ssldSjdn,jdbcType=DOUBLE}, #{zxldSjdq,jdbcType=DOUBLE}, \n" +
             "      #{zxldSjdn,jdbcType=DOUBLE}, #{sjgpldWc,jdbcType=INTEGER}, #{sjgpldResult,jdbcType=TINYINT}, \n" +
-            "      #{spare1,jdbcType=TINYINT}, #{spare2,jdbcType=TINYINT}, #{spare3,jdbcType=TINYINT}, \n" +
-            "      #{spare4,jdbcType=TINYINT}, #{spare5,jdbcType=TINYINT})")
+            "      #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, #{spare3,jdbcType=INTEGER}, \n" +
+            "      #{spare4,jdbcType=INTEGER}, #{spare5,jdbcType=INTEGER})")
     @Options(useGeneratedKeys = true, keyProperty = "gpddid", keyColumn = "gpddid")
     void save(Gpdd gpdd);
     //修改数据
@@ -154,11 +157,11 @@ public interface GpddMapper {
             "      zxld_sjdn = #{zxldSjdn,jdbcType=DOUBLE},\n" +
             "      sjgpld_wc = #{sjgpldWc,jdbcType=INTEGER},\n" +
             "      sjgpld_result = #{sjgpldResult,jdbcType=TINYINT},\n" +
-            "      spare1 = #{spare1,jdbcType=TINYINT},\n" +
-            "      spare2 = #{spare2,jdbcType=TINYINT},\n" +
-            "      spare3 = #{spare3,jdbcType=TINYINT},\n" +
-            "      spare4 = #{spare4,jdbcType=TINYINT},\n" +
-            "      spare5 = #{spare5,jdbcType=TINYINT}\n" +
+            "      spare1 = #{spare1,jdbcType=VARCHAR},\n" +
+            "      spare2 = #{spare2,jdbcType=VARCHAR},\n" +
+            "      spare3 = #{spare3,jdbcType=INTEGER},\n" +
+            "      spare4 = #{spare4,jdbcType=INTEGER},\n" +
+            "      spare5 = #{spare5,jdbcType=INTEGER}\n" +
             "    where gpddid = #{gpddid,jdbcType=INTEGER}")
     void updateGpdd(Gpdd gpdd);
     //根据设备id查询检测表婴儿培养箱

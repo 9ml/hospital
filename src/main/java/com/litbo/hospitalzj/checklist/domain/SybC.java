@@ -1,39 +1,21 @@
 package com.litbo.hospitalzj.checklist.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class SybC {
-    private Long id;
+    private Integer id;
 
     private Integer jcyqId;
 
-    private Integer eqId;
-
-    private String tester;
-
-    private String auditor;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private Date testTime;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-
-
-
+    private Double eqId;
 
     private String shrJcjl;
 
-    public String getShrJcjl() {
-        return shrJcjl;
-    }
+    private String tester;
 
-    public void setShrJcjl(String shrJcjl) {
-        this.shrJcjl = shrJcjl;
-    }
+    private Date testTime;
 
-
+    private String auditor;
 
     private Date shsjTime;
 
@@ -41,41 +23,41 @@ public class SybC {
 
     private String jcsm;
 
-    private Integer llcsd1;
+    private Double llcsd1;
 
-    private Integer pjll1;
+    private Double pjll1;
 
-    private Integer llcsd2;
+    private Double llcsd2;
 
-    private Integer pjll2;
+    private Double pjll2;
 
-    private Integer wc;
+    private Double wc;
 
-    private Integer llcsResult;
+    private Double llcsResult;
 
-    private Integer zsbjcsll;
+    private Double zsbjcsll;
 
-    private Integer bjszH;
+    private Double bjszH;
 
-    private Integer bjszM;
+    private Double bjszM;
 
-    private Integer bjszL;
+    private Double bjszL;
 
-    private Integer bjsjH;
+    private String bjsjH;
 
-    private Integer bjsjM;
+    private String bjsjM;
 
-    private Integer bjsjL;
+    private String bjsjL;
 
-    private Integer bjylH;
+    private Double bjylH;
 
-    private Integer bjylM;
+    private Double bjylM;
 
-    private Integer bjylL;
+    private Double bjylL;
 
-    private Integer zsbjWc1;
+    private Double zsbjWc1;
 
-    private Integer zsbjWc2;
+    private Double zsbjWc2;
 
     private Byte zsbjResult;
 
@@ -91,19 +73,12 @@ public class SybC {
 
     private Byte kmbj;
 
-    public Date getShsjTime() {
-        return shsjTime;
-    }
 
-    public void setShsjTime(Date shsjTime) {
-        this.shsjTime = shsjTime;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -115,12 +90,20 @@ public class SybC {
         this.jcyqId = jcyqId;
     }
 
-    public Integer getEqId() {
+    public Double getEqId() {
         return eqId;
     }
 
-    public void setEqId(Integer eqId) {
+    public void setEqId(Double eqId) {
         this.eqId = eqId;
+    }
+
+    public String getShrJcjl() {
+        return shrJcjl;
+    }
+
+    public void setShrJcjl(String shrJcjl) {
+        this.shrJcjl = shrJcjl == null ? null : shrJcjl.trim();
     }
 
     public String getTester() {
@@ -131,6 +114,14 @@ public class SybC {
         this.tester = tester == null ? null : tester.trim();
     }
 
+    public Date getTestTime() {
+        return testTime;
+    }
+
+    public void setTestTime(Date testTime) {
+        this.testTime = testTime;
+    }
+
     public String getAuditor() {
         return auditor;
     }
@@ -139,12 +130,12 @@ public class SybC {
         this.auditor = auditor == null ? null : auditor.trim();
     }
 
-    public Date getTestTime() {
-        return testTime;
+    public Date getShsjTime() {
+        return shsjTime;
     }
 
-    public void setTestTime(Date testTime) {
-        this.testTime = testTime;
+    public void setShsjTime(Date shsjTime) {
+        this.shsjTime = shsjTime;
     }
 
     public String getJcjl() {
@@ -163,147 +154,147 @@ public class SybC {
         this.jcsm = jcsm == null ? null : jcsm.trim();
     }
 
-    public Integer getLlcsd1() {
+    public Double getLlcsd1() {
         return llcsd1;
     }
 
-    public void setLlcsd1(Integer llcsd1) {
+    public void setLlcsd1(Double llcsd1) {
         this.llcsd1 = llcsd1;
     }
 
-    public Integer getPjll1() {
+    public Double getPjll1() {
         return pjll1;
     }
 
-    public void setPjll1(Integer pjll1) {
+    public void setPjll1(Double pjll1) {
         this.pjll1 = pjll1;
     }
 
-    public Integer getLlcsd2() {
+    public Double getLlcsd2() {
         return llcsd2;
     }
 
-    public void setLlcsd2(Integer llcsd2) {
+    public void setLlcsd2(Double llcsd2) {
         this.llcsd2 = llcsd2;
     }
 
-    public Integer getPjll2() {
+    public Double getPjll2() {
         return pjll2;
     }
 
-    public void setPjll2(Integer pjll2) {
+    public void setPjll2(Double pjll2) {
         this.pjll2 = pjll2;
     }
 
-    public Integer getWc() {
+    public Double getWc() {
         return wc;
     }
 
-    public void setWc(Integer wc) {
+    public void setWc(Double wc) {
         this.wc = wc;
     }
 
-    public Integer getLlcsResult() {
+    public Double getLlcsResult() {
         return llcsResult;
     }
 
-    public void setLlcsResult(Integer llcsResult) {
+    public void setLlcsResult(Double llcsResult) {
         this.llcsResult = llcsResult;
     }
 
-    public Integer getZsbjcsll() {
+    public Double getZsbjcsll() {
         return zsbjcsll;
     }
 
-    public void setZsbjcsll(Integer zsbjcsll) {
+    public void setZsbjcsll(Double zsbjcsll) {
         this.zsbjcsll = zsbjcsll;
     }
 
-    public Integer getBjszH() {
+    public Double getBjszH() {
         return bjszH;
     }
 
-    public void setBjszH(Integer bjszH) {
+    public void setBjszH(Double bjszH) {
         this.bjszH = bjszH;
     }
 
-    public Integer getBjszM() {
+    public Double getBjszM() {
         return bjszM;
     }
 
-    public void setBjszM(Integer bjszM) {
+    public void setBjszM(Double bjszM) {
         this.bjszM = bjszM;
     }
 
-    public Integer getBjszL() {
+    public Double getBjszL() {
         return bjszL;
     }
 
-    public void setBjszL(Integer bjszL) {
+    public void setBjszL(Double bjszL) {
         this.bjszL = bjszL;
     }
 
-    public Integer getBjsjH() {
+    public String getBjsjH() {
         return bjsjH;
     }
 
-    public void setBjsjH(Integer bjsjH) {
+    public void setBjsjH(String bjsjH) {
         this.bjsjH = bjsjH;
     }
 
-    public Integer getBjsjM() {
+    public String getBjsjM() {
         return bjsjM;
     }
 
-    public void setBjsjM(Integer bjsjM) {
+    public void setBjsjM(String bjsjM) {
         this.bjsjM = bjsjM;
     }
 
-    public Integer getBjsjL() {
+    public String getBjsjL() {
         return bjsjL;
     }
 
-    public void setBjsjL(Integer bjsjL) {
+    public void setBjsjL(String bjsjL) {
         this.bjsjL = bjsjL;
     }
 
-    public Integer getBjylH() {
+    public Double getBjylH() {
         return bjylH;
     }
 
-    public void setBjylH(Integer bjylH) {
+    public void setBjylH(Double bjylH) {
         this.bjylH = bjylH;
     }
 
-    public Integer getBjylM() {
+    public Double getBjylM() {
         return bjylM;
     }
 
-    public void setBjylM(Integer bjylM) {
+    public void setBjylM(Double bjylM) {
         this.bjylM = bjylM;
     }
 
-    public Integer getBjylL() {
+    public Double getBjylL() {
         return bjylL;
     }
 
-    public void setBjylL(Integer bjylL) {
+    public void setBjylL(Double bjylL) {
         this.bjylL = bjylL;
     }
 
-    public Integer getZsbjWc1() {
+    public Double getZsbjWc1() {
         return zsbjWc1;
     }
 
-    public void setZsbjWc1(Integer zsbjWc1) {
+    public void setZsbjWc1(Double zsbjWc1) {
         this.zsbjWc1 = zsbjWc1;
     }
 
-    public Integer getZsbjWc2() {
+    public Double getZsbjWc2() {
         return zsbjWc2;
     }
 
-    public void setZsbjWc2(Integer zsbjWc2) {
+    public void setZsbjWc2(Double zsbjWc2) {
         this.zsbjWc2 = zsbjWc2;
     }
 

@@ -15,6 +15,7 @@ import com.litbo.hospitalzj.zk.service.EqInfoService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -73,7 +74,18 @@ public class GpddController extends BaseController {
         eqZjls.setEqDah(eqById.getEqDah());
         eqZjlsService.insert(eqZjls);
         int[] x = {gpdd.getGpddid(), yqEqId};
-        return new ResponseResult<>(200, x);
+        return new ResponseResult<int[]>(200, x);
+    }
+
+
+    //只根据id更新检测数据
+    @RequestMapping("/updataNow/{id}")
+    public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
+        Gpdd gpdd = CommonUtils.toBean(req.getParameterMap(), Gpdd.class);
+        gpdd.setGpddid(id);
+        //更新
+        gpddService.updateGpdd(gpdd);
+        return new com.litbo.hospitalzj.util.ResponseResult(200, id);
     }
 
     @RequestMapping("/updataGpdd")
@@ -85,6 +97,8 @@ public class GpddController extends BaseController {
         Gpdd last1 = gpddService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         Gpdd gpdd = CommonUtils.toBean(req.getParameterMap(), Gpdd.class);
         gpdd.setGpddid(last1.getGpddid());
+        //更新
+        gpddService.updateGpdd(gpdd);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -96,11 +110,9 @@ public class GpddController extends BaseController {
 
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
-        //更新
-        //dqjcService.updateDqjc(dqjc);
-        gpddService.updateGpdd(gpdd);
+
         int[] x = {gpdd.getGpddid(), yqEqId,userEqId};
-        return new ResponseResult<>(200, x);
+        return new ResponseResult<int[]>(200, x);
     }
 
 

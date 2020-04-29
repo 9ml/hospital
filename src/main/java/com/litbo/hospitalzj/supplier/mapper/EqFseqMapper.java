@@ -83,4 +83,62 @@ public interface EqFseqMapper {
 	EqFseq selectById(Integer eqFsid);
 	@Delete("delete from eq_fseq where eq_fsid=#{eqFsid}")
 	Integer delete(Integer eqFsid);
+
+	@Select("select * from eq_fseq where eq_ids = #{eqIds} group by eq_mc, eq_xh")
+    List<EqFseq> selectEqFjGroup(Integer eqIds);
+
+    @Select("select eq_ccdate, eq_scbh from eq_fseq where eq_mc=#{eqMc} and eq_xh=#{eqXh} and eq_ids =#{eqIds}")
+	List<EqFseq> selectEqFjByRq(@Param("eqMc") String eqMc,@Param("eqXh") String eqXh, @Param("eqIds") String eqIds);
+
+    @Delete("delete from eq_fseq where eq_ids = #{eqIds} and eq_mc = #{eqMc} and eq_xh = #{eqXh}")
+	void deleteBat(@Param("eqIds") String eqIds, @Param("eqMc") String eqMc,@Param("eqXh") String eqXh);
+
+    @Delete("delete from eq_fseq where eq_ids = #{eqId}")
+	void deleteByEqId(Integer eqId);
+
+
+
+
+	@Update(" update eq_fseq\n" +
+			"    set eq_ids = #{eqIds,jdbcType=VARCHAR},\n" +
+			"      eq_mc = #{eqMc,jdbcType=VARCHAR},\n" +
+			"      eq_dah = #{eqDah,jdbcType=VARCHAR},\n" +
+			"      eq_pm_id = #{eqPmId,jdbcType=VARCHAR},\n" +
+			"      eq_xh = #{eqXh,jdbcType=VARCHAR},\n" +
+			"      eq_jldw_id = #{eqJldwId,jdbcType=VARCHAR},\n" +
+			"      eq_azdd = #{eqAzdd,jdbcType=VARCHAR},\n" +
+			"      eq_bxq = #{eqBxq,jdbcType=VARCHAR},\n" +
+			"      eq_yt = #{eqYt,jdbcType=VARCHAR},\n" +
+			"      eq_price = #{eqPrice,jdbcType=DECIMAL},\n" +
+			"      eq_zczbh = #{eqZczbh,jdbcType=VARCHAR},\n" +
+			"      eq_scbh = #{eqScbh,jdbcType=VARCHAR},\n" +
+			"      eq_num = #{eqNum,jdbcType=VARCHAR},\n" +
+			"      eq_totalprice = #{eqTotalprice,jdbcType=VARCHAR},\n" +
+			"      eq_ccdate = #{eqCcdate,jdbcType=VARCHAR},\n" +
+			"      eq_cscs = #{eqCscs,jdbcType=VARCHAR},\n" +
+			"      eq_gb = #{eqGb,jdbcType=VARCHAR},\n" +
+			"      eq_bgbh = #{eqBgbh,jdbcType=VARCHAR},\n" +
+			"      eq_sh_fws = #{eqShFws,jdbcType=VARCHAR},\n" +
+			"      eq_sh_qddh = #{eqShQddh,jdbcType=VARCHAR},\n" +
+			"      eq_sh_shjl = #{eqShShjl,jdbcType=VARCHAR},\n" +
+			"      eq_sh_jldh = #{eqShJldh,jdbcType=VARCHAR},\n" +
+			"      eq_sh_lxr = #{eqShLxr,jdbcType=VARCHAR},\n" +
+			"      eq_sh_lxrdh = #{eqShLxrdh,jdbcType=VARCHAR},\n" +
+			"      eq_state = #{eqState,jdbcType=INTEGER},\n" +
+			"      eq_yzm = #{eqYzm,jdbcType=VARCHAR},\n" +
+			"      eq_sh_lb = #{eqShLb,jdbcType=VARCHAR},\n" +
+			"      ht_ids = #{htIds,jdbcType=INTEGER},\n" +
+			"      eq_syks = #{eqSyks,jdbcType=VARCHAR},\n" +
+			"      eq_jx = #{eqJx,jdbcType=VARCHAR},\n" +
+			"      eq_qyrq = #{eqQyrq,jdbcType=VARCHAR},\n" +
+			"      eq_cfdd = #{eqCfdd,jdbcType=VARCHAR},\n" +
+			"      eq_bfjd = #{eqBfjd,jdbcType=VARCHAR}\n" +
+			"    where eq_fsid = #{eqFsid,jdbcType=INTEGER}")
+	Integer update(EqFseq eqFseq);
+
+
+
+
+	@Select("select * from eq_fseq where eq_ids=#{eqIds} and eq_mc=#{eqMc} and eq_xh = #{eqXh}")
+	List<EqFseq> selectByMcAndXh(@Param("eqIds") Integer eqIds, @Param("eqMc")String eqMc, @Param("eqXh")String eqXh);
 }

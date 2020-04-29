@@ -22,6 +22,7 @@ public class HtLcController extends BaseController{
 	@Autowired
 	public HtLcService htLcService;
 
+
 	@RequestMapping("/insert")
 	public ResponseResult<Void> insertHtLc(@Param("htId") Integer  htId , @Param("htCldz") String htCldz, @Param("htClsj") Date htClsj) {
 		htLcService.InsertHtLc(htId,htCldz, htClsj);

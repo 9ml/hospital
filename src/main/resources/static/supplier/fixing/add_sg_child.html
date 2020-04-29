@@ -37,14 +37,15 @@
                 <legend>附属设备信息录入</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label"><span style="color: red;">*</span>设备品名</label>
+                <label class="layui-form-label"><span style="color: red;">*</span>设备名称</label>
                 <div class="layui-input-block">
-                    <select id="eqPmId" name="eqPmId" lay-verify="" lay-search>
-                        <option value="">请选择</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
+                    <!--<select id="eqPmId" name="eqMc" lay-verify="" lay-search>-->
+                    <!--<option value="">请选择</option>-->
+                    <!--<option value="1">1</option>-->
+                    <!--<option value="2">2</option>-->
+                    <!--<option value="3">3</option>-->
+                    <!--</select>-->
+                    <input type="text" name="eqMc" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
@@ -70,9 +71,6 @@
                 <div class="layui-input-block">
                     <select id="eqSyks" name="eqSyks" lay-verify="" lay-search>
                         <option value="">请选择</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
                     </select>
                 </div>
             </div>
@@ -81,9 +79,6 @@
                 <div class="layui-input-block">
                     <select id="eqYt" name="eqYt" lay-verify="required">
                         <option value=""></option>
-                        <option value="0">1</option>
-                        <option value="1">2</option>
-                        <option value="2">3</option>
                     </select>
                 </div>
             </div>
@@ -102,25 +97,25 @@
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>国别</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqGb" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" id="eqGb" name="eqGb" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label"><span style="color: red;">*</span>海关进口货物报关单号</label>
+            <div id="hiddens" class="layui-form-item col-md-5">
+                <label class="layui-form-label">海关进口货物报关单号</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqBgbh" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" name="eqBgbh" placeholder="海关进口货物报关单号" class="layui-input" autocomplete="off">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>出厂编号</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqScbh" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" id="eqScbh" name="eqScbh" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>出厂日期</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqCcdate" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" id="eqCcdate" name="eqCcdate" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
@@ -132,7 +127,7 @@
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>售后服务机构</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqShFws" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" name="eqShFws" placeholder="售后服务机构" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
@@ -150,27 +145,26 @@
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label">售后经理电话</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqShJldh" class="layui-input" autocomplete="off">
+                    <input type="text" name="eqShJldh" placeholder="售后经理电话" class="layui-input" autocomplete="off">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>售后联系人</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqShLxr" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" name="eqShLxr" placeholder="售后联系人" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label"><span style="color: red;">*</span>售后联系电话</label>
                 <div class="layui-input-block">
-                    <input type="text" name="eqShLxrdh" class="layui-input" autocomplete="off" lay-verify="required">
+                    <input type="text" name="eqShLxrdh" placeholder="售后联系电话" class="layui-input" autocomplete="off" lay-verify="required">
                 </div>
             </div>
-            <div class="layui-form-item">
+            <div class="layui-form-item col-md-5">
                 <label class="layui-form-label">设备类别</label>
-                <div class="layui-input-block">
-                    <input type="radio" name="eqShLb" value="计量设备" title="计量设备">
-                    <input type="radio" name="eqShLb" value="发射设备" title="发射设备">
-                    <input type="radio" name="eqShLb" value="无" title="无">
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="checkbox" name="eqShLb" value="计量设备" title="计量设备">
+                    <input type="checkbox" name="eqShLb" value="放射设备" title="放射设备">
                 </div>
             </div>
             <div class="inp layui-form-item">
@@ -242,10 +236,10 @@
         // 设备用途字典
         function sbytList(){
             // 清空当前列表
-            $("#htSbyt").empty();
+            $("#eqYt").empty();
             // 添加默认选项
             var op = '<option value=""></option>';
-            $("#htSbyt").append(op);
+            $("#eqYt").append(op);
             // 发出ajax请求，并处理结果
             $.ajax({
                 url:"/eqyt/allEqYt",
@@ -259,12 +253,19 @@
                     for (var i = 0; i < list.length; i++) {
                         console.log(list[i].eqytId + " - " + list[i].eqytName);
                         op = '<option value="' + list[i].eqytName + '">' + list[i].eqytName + '</option>';
-                        $("#htSbyt").append(op);
+                        $("#eqYt").append(op);
                     }
                 }
             });
         }
         sbytList();
+        $("#eqGb").blur(function(){
+            if($("#eqGb").val() == "中国"){
+                $("#hiddens").css("display","none");
+            }else{
+                $("#hiddens").css("display","block");
+            }
+        });
     });
     //Demo
     layui.use(['element','laydate','form','layer','jquery'], function(){
@@ -272,8 +273,13 @@
             ,   laydate = layui.laydate
             ,   layer = layui.layer
             ,   $ = layui.jquery;
-        laydate.render({
-            elem: '#date' //指定元素
+        $(function(){
+            $("#eqScbh").focus(function(){
+                layer.tips('请根据设备数量依次填写每个设备的出厂编号，多个请用(英文逗号),隔开', '#eqScbh',{time:10000,maxWidth:500,});
+            });
+            $("#eqCcdate").focus(function(){
+                layer.tips('请根据设备数量依次填写每个设备的出厂日期，多个请用(英文逗号),隔开', '#eqCcdate',{time:10000,maxWidth:500,});
+            });
         });
         var form = layui.form;
         //监听提交

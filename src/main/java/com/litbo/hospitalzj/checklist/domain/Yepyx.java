@@ -1,7 +1,5 @@
 package com.litbo.hospitalzj.checklist.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class Yepyx {
@@ -13,15 +11,13 @@ public class Yepyx {
 
     private String tester;
 
-    private String auditor;
-
-    private String shrJcjl;
-
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date testTime;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private String auditor;
+
     private Date shsjTime;
+
+    private String shrJcjl;
 
     private String jcjl;
 
@@ -177,14 +173,6 @@ public class Yepyx {
 
     private Byte fjbjResult;
 
-    public Date getShsjTime() {
-        return shsjTime;
-    }
-
-    public void setShsjTime(Date shsjTime) {
-        this.shsjTime = shsjTime;
-    }
-
     public Integer getPyxId() {
         return pyxId;
     }
@@ -217,6 +205,14 @@ public class Yepyx {
         this.tester = tester == null ? null : tester.trim();
     }
 
+    public Date getTestTime() {
+        return testTime;
+    }
+
+    public void setTestTime(Date testTime) {
+        this.testTime = testTime;
+    }
+
     public String getAuditor() {
         return auditor;
     }
@@ -225,20 +221,20 @@ public class Yepyx {
         this.auditor = auditor == null ? null : auditor.trim();
     }
 
+    public Date getShsjTime() {
+        return shsjTime;
+    }
+
+    public void setShsjTime(Date shsjTime) {
+        this.shsjTime = shsjTime;
+    }
+
     public String getShrJcjl() {
         return shrJcjl;
     }
 
     public void setShrJcjl(String shrJcjl) {
         this.shrJcjl = shrJcjl == null ? null : shrJcjl.trim();
-    }
-
-    public Date getTestTime() {
-        return testTime;
-    }
-
-    public void setTestTime(Date testTime) {
-        this.testTime = testTime;
     }
 
     public String getJcjl() {

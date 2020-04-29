@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>高频电刀质量检测原始记录</title>
+    <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
+    <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
+    <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../write_info/endothem.js"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <style>
+        .layui-elem-field{
+            width: 100%;
+        }
+        .btn{
+            text-align: center;
+            margin-top: 70px;
+            margin-bottom: 40px;
+        }
+        .layui-input-block{
+            display: flex;
+            align-items: center;
+        }
+        b{
+            padding-left: 30px;
+            width: 20%;
+        }
+        .is{
+            color: green;
+        }
+        .no{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <p style="height: 34px;width: 100%;line-height: 34px;background-color: lightyellow; text-align: center;"><span class="sign">***</span>请谨慎核对数据信息<span class="sign">***</span></p>
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="font-size: 22px;font-weight: bold;">高频电刀质量检测原始记录</legend>
+        </fieldset>
+        <form class="layui-form layui-form-pane" action="">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">输出功率 (W) —— 输出功率±20%、高频漏电流≤150 mA（单极）、高频漏电流≤60 mA（双极）</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">单极电切</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" id="spare3" name="spare3" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 75</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">测量功率A</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue1" name="djdqValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is1"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 150</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率B</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue2" name="djdqValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is2"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 220</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率C</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue3" name="djdqValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is3"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 300</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率D</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdqValue4" name="djdqValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is4"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">单极电凝</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" id="spare4" name="spare4" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 30</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率A</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue1" name="djdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is5"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 60</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率B</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue2" name="djdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is6"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 90</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率C</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue3" name="djdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is7"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 120</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率D</label>
+                <div class="layui-input-block">
+                    <input type="text" id="djdnValue4" name="djdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is8"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">双极电凝</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">阻抗（欧）</label>
+                <div class="layui-input-block">
+                    <input type="text" id="spare5" name="spare5" placeholder="阻抗（欧）" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 13</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率A</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sjdnValue1" name="sjdnValue1" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is9"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 25</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率B</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sjdnValue2" name="sjdnValue2" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is10"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 38</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率C</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sjdnValue3" name="sjdnValue3" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is11"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000;">设定功率 (W) —— 50</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">测量功率D</label>
+                <div class="layui-input-block">
+                    <input type="text" id="sjdnValue4" name="sjdnValue4" placeholder="测量功率(W)" autocomplete="off" class="layui-input">
+                    <b id="is12"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">高频漏电 (mA)</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">单极模式 —— 手术电极高频漏电</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">单极电切</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ssldDjdq" name="ssldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
+                    <b id="is13"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">单极电凝</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ssldDjdn" name="ssldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
+                    <b id="is14"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">单极模式 —— 中性电极高频漏电</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">单极电切</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zxldDjdq" name="zxldDjdq" placeholder="单极电切" autocomplete="off" class="layui-input">
+                    <b id="is15"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">单极电凝</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zxldDjdn" name="zxldDjdn" placeholder="单极电凝" autocomplete="off" class="layui-input">
+                    <b id="is16"></b>
+                </div>
+            </div>
+
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">双极模式 —— 电极 1 </legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">双极电凝</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ssldSjdn" name="ssldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
+                    <b id="is17"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">双极模式 —— 电极 2 </legend>
+            </fieldset>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">双极电凝</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zxldSjdn" name="zxldSjdn" placeholder="双极电凝" autocomplete="off" class="layui-input">
+                    <b id="is18"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">接触电阻监测</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">接触电阻监测</label>
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="radio" name="spare1" value="1" title="符合" checked>
+                    <input type="radio" name="spare1" value="2" title="不符合">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">声光报警功能</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">声光报警功能</label>
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="radio" name="spare2" value="1" title="符合" checked>
+                    <input type="radio" name="spare2" value="2" title="不符合">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;font-weight: bold;">检测人信息</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">检测人</label>
+                <div class="layui-input-block">
+                    <input id="isUser" type="text" disabled name="tester" required autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">检测时间</label>
+                <div class="layui-input-block">
+                    <input id="date" type="text" name="testTime" required autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text col-md-6">
+                <label class="layui-form-label">检测情况说明</label>
+                <div class="layui-input-block">
+                    <textarea id="jcsm" name="jcsm" placeholder="请输入内容" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item btn">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveAll">保存</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+     // 获取上个页面传递的类型
+     var type = window.location.search;
+    var ids = parseInt(type.split("=")[1]);
+    // sessionStorage["thisjcyqId"]=ids;
+    var thisjcyqId = parseInt(sessionStorage['thisjcyqId']);
+    var thiseqId = parseInt(sessionStorage['thiseqId']);
+    $(function(){
+        $.ajax({
+            url:"/gpdd/findByGpddid?gpddid="+ids,
+            method:"GET",
+            dataType:"JSON",
+            success:function(res){
+                console.log(res);
+                if(res.data != null && res.data != ""){
+                    $("#spare3").val(res.data.spare3);
+                    $("#djdqValue1").val(res.data.djdqValue1);
+                    $("#djdqValue2").val(res.data.djdqValue2);
+                    $("#djdqValue3").val(res.data.djdqValue3);
+                    $("#djdqValue4").val(res.data.djdqValue4);
+                    $("#spare4").val(res.data.spare4);
+                    $("#djdnValue1").val(res.data.djdnValue1);
+                    $("#djdnValue2").val(res.data.djdnValue2);
+                    $("#djdnValue3").val(res.data.djdnValue3);
+                    $("#djdnValue4").val(res.data.djdnValue4);
+                    $("#spare5").val(res.data.spare5);
+                    $("#sjdnValue1").val(res.data.sjdnValue1);
+                    $("#sjdnValue2").val(res.data.sjdnValue2);
+                    $("#sjdnValue3").val(res.data.sjdnValue3);
+                    $("#sjdnValue4").val(res.data.sjdnValue4);
+                    $("#ssldDjdq").val(res.data.ssldDjdq);
+                    $("#ssldDjdn").val(res.data.ssldDjdn);
+                    $("#zxldDjdq").val(res.data.zxldDjdq);
+                    $("#zxldDjdn").val(res.data.zxldDjdn);
+                    $("#ssldSjdn").val(res.data.ssldSjdn);
+                    $("#zxldSjdn").val(res.data.zxldSjdn);
+                    // 检测人
+                    $("#isUser").val(res.data.tester);
+                    $("#date").val(res.data.testTime);
+                    $("#jcsm").val(res.data.jcsm);
+                }
+            }
+        })
+    });
+     //Demo
+     layui.use(['element','jquery','form','layer','laydate'], function(){
+        var element = layui.element
+            ,   $ = layui.jquery
+            ,   form = layui.form
+            ,   layer = layui.layer
+            ,   laydate = layui.laydate;
+        laydate.render({
+            elem:"#date"
+        });
+        form.on('submit(saveAll)',function (data) {
+            console.log(data.field);
+            $.ajax({
+                url:"/gpdd/updataNow/" + ids,
+                method:"POST",
+                data:data.field,
+                dataType:"JSON",
+                success:function (res) {
+                    if(res.state === 200){
+                        setTimeout(function(){
+                            location.href = "/control/home/waiting/wait_info/endotherm_knife.html?id="+ids;
+                        },1000);
+                        layer.msg("修改成功,正在生成表格");
+                    }else{
+                        layer.msg("提交失败");
+                    }
+                },
+                error:function (data) {
+                    layer.msg("提交失败");
+                    console.log(data);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

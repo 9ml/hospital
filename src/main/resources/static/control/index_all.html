@@ -191,49 +191,6 @@
 <script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
 <script src="../static/js/main.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    // var dsbNum = "";
-    // var wtgNum = "";
-    // // 待上报数量
-    // $.ajax({
-    //     url:"/userpm/dsbCount",
-    //     method:"GET",
-    //     dataType:"JSON",
-    //     success:function(res){
-    //         dsbNum = res.data;
-    //         if(res.data != null && res.data != ""){
-    //             $("#noPass").append(res.data);
-    //         }else{
-    //             $("#noPass").css("display","none");
-    //         }
-    //     },
-    //     error:function(){
-    //         alert("服务器故障")
-    //     }
-    // });
-    // // 未通过数量
-    // $.ajax({
-    //     url:"/ndjh/btgCount",
-    //     method:"GET",
-    //     dataType:"JSON",
-    //     success:function(res){
-    //         wtgNum = res.data;
-    //         if(res.data != null && res.data != ""){
-    //             $("#noPass").append(res.data);
-    //         }else{
-    //             $("#noPass").css("display","none");
-    //         }
-    //     },
-    //     error:function () {
-    //         alert("服务器故障")
-    //     }
-    // });
-    // if(dsbNum + wtgNum != "" && dsbNum+wtgNum != null){
-    //     $("#ndjhNum").append(dsbNum+wtgNum);
-    //     $("#sbNum").append(dsbNum+wtgNum);
-    // }else{
-    //     $("#ndjhNum").css("display","none");
-    //     $("#sbNum").css("display","none");
-    // }
     // 年度计划总数量
     $.ajax({
         url:"/ndjh/totalCount",
@@ -247,7 +204,7 @@
             }
         },
         error:function(){
-            alert("服务器故障");
+            alert("获取数据异常，请重新登录");
         }
     });
     // 年度计划待确认数量
@@ -263,7 +220,7 @@
             }
         },
         error:function(){
-            alert("服务器故障");
+            console.log("获取数据异常，请重新登录");
         }
     });
     // 年度计划待上报数量
@@ -279,7 +236,7 @@
             }
         },
         error:function(){
-            alert("服务器故障");
+            console.log("获取数据异常，请重新登录");
         }
     });
     // 年度计划审核未通过数量
@@ -295,7 +252,7 @@
             }
         },
         error:function(){
-            alert("服务器故障");
+            console.log("获取数据异常，请重新登录");
         }
     });
     // 检测不通过数量
@@ -311,7 +268,7 @@
             }
         },
         error:function(){
-            alert("服务器故障");
+            console.log("获取数据异常，请重新登录");
         }
     });
     // 分配的故障设备数量
@@ -327,7 +284,7 @@
             }
         },
         error:function () {
-            alert("服务器故障")
+            console.log("获取数据异常，请重新登录")
         }
     });
     // 所分配新设备数量
@@ -343,7 +300,7 @@
             }
         },
         error:function () {
-            alert("服务器故障")
+            console.log("获取数据异常，请重新登录")
         }
     });
     // 检测不通过数量
@@ -359,7 +316,7 @@
             }
         },
         error:function () {
-            alert("服务器故障")
+            console.log("获取数据异常，请重新登录")
         }
     });
     // 分配的故障设备数量
@@ -375,7 +332,7 @@
             }
         },
         error:function () {
-            alert("服务器故障")
+            console.log("获取数据异常，请重新登录")
         }
     });
     // 所分配新设备数量
@@ -391,7 +348,7 @@
             }
         },
         error:function () {
-            alert("服务器故障")
+            console.log("获取数据异常，请重新登录")
         }
     });
     layui.use(['element','layer','jquery'],function(){

@@ -53,7 +53,7 @@
         table.render({
             elem:"#childFixInfo"
             ,cellMinWidth: 100
-            ,url:"/eqfseq/selectInfo?eqIds="+ids
+            ,url:"/eqfseq/selectInfoGroup?eqIds="+ids
             ,method:"GET"
             ,response: {
                 statusName: 'status' //规定数据状态的字段名称，默认：code
@@ -73,7 +73,7 @@
             },
             // page:true,
             cols:[[
-                {field:'eqPmId', title:'设备品名',align:'center'},
+                {field:'eqMc', title:'设备名称',align:'center'},
                 {field:'eqXh', title:'规格型号',align:'center'},
                 {field:'eqPrice', title:'设备单价',align:'center'},
                 {field:'eqNum', title:'数量',align:'center'},
@@ -104,7 +104,7 @@
                     obj.del();
                     // layer.close(index);
                     $.ajax({
-                        url:"/eqfseq/delete?eqFsid="+obj.data.eqFsid,
+                        url:"/eqfseq/deleteBat?eqFsid="+obj.data.eqFsid,
                         success:function(res){
                             if(res.state === 200){
                                 layer.msg("删除成功");

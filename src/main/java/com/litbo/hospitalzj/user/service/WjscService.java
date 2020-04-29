@@ -10,4 +10,8 @@ public interface WjscService {
     void insert(Wjsc wjsc);
     void delete(Integer id);
     List<Wjsc> select(@Param("sourceType") Integer sourceType, @Param("sourceId") Integer sourceId, @Param("type") Integer type);
+
+    List<Wjsc> selectByType(Integer i, Integer sourceId);
+
+    Wjsc selectLast(int sourceType, int sourceId, String type);
 }

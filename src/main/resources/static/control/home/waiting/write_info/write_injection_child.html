@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
     <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+    <script src="injection_child.js"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
@@ -56,8 +57,8 @@
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">平均流量</label>
                 <div class="layui-input-block">
-                    <input type="text" name="pjll1" placeholder="平均流量" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="pjll1" name="pjll1" placeholder="平均流量" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -66,8 +67,8 @@
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">平均流量</label>
                 <div class="layui-input-block">
-                    <input type="text" name="pjll2" placeholder="平均流量" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="pjll2" name="pjll2" placeholder="平均流量" autocomplete="off" class="layui-input">
+                    <b id="wc2"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -76,49 +77,43 @@
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">阻塞报警设置值 —— <span class="sign">产品说明书</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">H</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjszH" placeholder="H" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjszH" name="bjszH" placeholder="H" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">M</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjszM" placeholder="M" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjszM" name="bjszM" placeholder="M" autocomplete="off" class="layui-input">
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">L</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjszL" placeholder="L" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjszL" name="bjszL" placeholder="L" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">报警时间 —— <span class="sign">min</span></legend>
             </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">H</label>
                 <div class="layui-input-block">
                     <input type="text" name="bjsjH" placeholder="H" autocomplete="off" class="layui-input">
-                    <b></b>
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">M</label>
                 <div class="layui-input-block">
                     <input type="text" name="bjsjM" placeholder="M" autocomplete="off" class="layui-input">
-                    <b></b>
                 </div>
             </div>
-            <div class="layui-form-item col-md-6 col-xs-12">
+            <div class="layui-form-item col-md-5 col-xs-12">
                 <label class="layui-form-label">L</label>
                 <div class="layui-input-block">
                     <input type="text" name="bjsjL" placeholder="L" autocomplete="off" class="layui-input">
-                    <b></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -127,22 +122,22 @@
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">H</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjylH" placeholder="H" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjylH" name="bjylH" placeholder="H" autocomplete="off" class="layui-input">
+                    <b id="wc3"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">M</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjylM" placeholder="M" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjylM" name="bjylM" placeholder="M" autocomplete="off" class="layui-input">
+                    <b id="wc4"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
                 <label class="layui-form-label">L</label>
                 <div class="layui-input-block">
-                    <input type="text" name="bjylL" placeholder="L" autocomplete="off" class="layui-input">
-                    <b></b>
+                    <input type="text" id="bjylL" name="bjylL" placeholder="L" autocomplete="off" class="layui-input">
+                    <b id="wc5"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">

@@ -47,9 +47,9 @@ public class GpddTemplate {
 
     private Integer sjgpldWc;
 
-    private Byte spare1;
+    private String spare1;
 
-    private Byte spare2;
+    private String spare2;
 
     public Integer getGpddTemplateId() {
         return gpddTemplateId;
@@ -235,19 +235,19 @@ public class GpddTemplate {
         this.sjgpldWc = sjgpldWc;
     }
 
-    public Byte getSpare1() {
+    public String getSpare1() {
         return spare1;
     }
 
-    public void setSpare1(Byte spare1) {
+    public void setSpare1(String spare1) {
         this.spare1 = spare1;
     }
 
-    public Byte getSpare2() {
+    public String getSpare2() {
         return spare2;
     }
 
-    public void setSpare2(Byte spare2) {
+    public void setSpare2(String spare2) {
         this.spare2 = spare2;
     }
 }

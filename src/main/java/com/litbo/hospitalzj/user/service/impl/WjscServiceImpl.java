@@ -11,8 +11,13 @@ import java.util.List;
 //文件上传业务层
 @Service
 public class WjscServiceImpl implements WjscService {
+    private final WjscDao wjscDao;
+
     @Autowired
-    private WjscDao wjscDao;
+    public WjscServiceImpl(WjscDao wjscDao) {
+        this.wjscDao = wjscDao;
+    }
+
     @Override
     public void insert(Wjsc wjsc) {
         wjscDao.insert(wjsc);
@@ -28,5 +33,15 @@ public class WjscServiceImpl implements WjscService {
     @Override
     public List<Wjsc> select(Integer sourceType, Integer sourceId, Integer type) {
         return wjscDao.select(sourceType, sourceId, type);
+    }
+
+    @Override
+    public List<Wjsc> selectByType(Integer sourceType, Integer sourceId) {
+        return wjscDao.selectByType(sourceType, sourceId);
+    }
+
+    @Override
+    public Wjsc selectLast(int sourceType, int sourceId, String type) {
+        return wjscDao.selectLast(sourceType, sourceId,type);
     }
 }

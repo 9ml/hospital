@@ -54,7 +54,7 @@
       elem:"#enclosureInfo",
       cellMinWidth:100,
       toolbar: '#toolbarDemo',
-      url:"/eqfj/selectInfo?eqIds="+ids,
+      url:"/eqfj/selectInfoGroup?eqIds="+ids,
       method:"GET",
       response: {
           statusName: 'status'
@@ -73,7 +73,6 @@
           }
         },
         cols:[[
-          {field:'id', title:'ID',fixed: 'left', unresize: true, sort: true,align:'center'},
           {field:'eqFjmc', title:'附件名称',align:'center'},
           {field:'eqFjxh', title:'型号',align:'center'},
           {field:'eqFjsl', title:'数量',align:'center'},

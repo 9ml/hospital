@@ -144,13 +144,13 @@
           <div class="layui-form-item col-md-5">
             <label class="layui-form-label">预约验收时间</label>
             <div class="layui-input-block">
-              <input type="text" id="date" name="date" required  lay-verify="required" placeholder="预约验收时间" autocomplete="off" class="layui-input">
+              <input type="text" id="date" name="date" required placeholder="预约验收时间" autocomplete="off" class="layui-input">
             </div>
           </div>
         <div class="layui-form-item col-md-5">
             <label class="layui-form-label">联系电话</label>
             <div class="layui-input-block">
-                <input type="text" name="htYsyDh" required  lay-verify="required" placeholder="验收联系电话" autocomplete="off" class="layui-input">
+                <input type="text" name="htYsyDh" required placeholder="验收联系电话" autocomplete="off" class="layui-input">
             </div>
         </div>
           <div class="layui-form-item layui-form-text col-md-8">
@@ -221,15 +221,14 @@
       });
     laydate.render({
       elem:"#date",
-      type:"datetime",
-      range: '至'
+      type:"datetime"
     });
     // 设备信息
     table.render({
       elem:"#fixingInfo",
       cellMinWidth:100,
       toolbar: '#toolbarDemo',
-      url:"/eqInfo/selectEqHt?htIds="+ids,
+      url:"/eqInfo/selectGroupEqInfo2?htIds="+ids,
       method:"GET",
       response:{
           statusName: 'status'
@@ -320,10 +319,7 @@
       dataType:"JSON",
       success:function(res){
         if(res.state === 200){
-          setTimeout(function(){
-              location.href="/apply_manage/home/not_manage.html";
-          },1000);
-          layer.msg("提交成功");
+            console.log(res.data)
         }else{
           layer.msg("提交失败");
         }
@@ -332,6 +328,11 @@
           layer.msg("提交失败,请稍后再试");
       }
     });
+    layer.msg("提交成功,已将审核结果通知此供应商。");
+    setTimeout(function(){
+      location.href="/apply_manage/home/not_manage.html";
+      parent.location.reload();
+    },2000);
     return false;
   });
       // 查看合同文件

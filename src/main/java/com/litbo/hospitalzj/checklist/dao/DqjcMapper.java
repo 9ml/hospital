@@ -157,9 +157,7 @@ public interface DqjcMapper {
 	void updateShrJcjy(@Param("dqjcid") Integer dqjcid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor, @Param("shsjTime") Date shsjTime);
 
 	//TODO 电器更新
-	@Update("update dqjc\n" +
-			"    set " +
-			"      jcyq_id = #{jcyqId,jdbcType=INTEGER},\n" +
+	@Update("update dqjc set jcyq_id = #{jcyqId,jdbcType=INTEGER},\n" +
 			"      eq_id = #{eqId,jdbcType=INTEGER},\n" +
 			"      tester = #{tester,jdbcType=VARCHAR},\n" +
 			"      test_time = #{testTime,jdbcType=TIMESTAMP},\n" +

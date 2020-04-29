@@ -51,7 +51,7 @@
                 <a href="javascript:void(0);" data-url="./home/not_manage.html" data-id="24" data-text="待验收管理"><i class="fas  fa-clipboard"></i>待验收管理<span id="acceptNum" class="layui-badge"></span></a>
             </li>
             <li class="layui-nav-item" shiro:haspermission="" name="a">
-                <a href="javascript:;"><i class="fas fa-clipboard"></i>验收管理</a>
+                <a href="javascript:;"><i class="fas fa-clipboard"></i>验收管理<span id="ysNum" class="layui-badge"></span></a>
                 <dl class="layui-nav-child">
                     <dd>
                         <a href="javascript:void(0);" data-url="./home/apply_manage.html" data-id="25" data-text="到货登记"><i class="layui-icon layui-icon-circle-dot"></i>到货登记<span id="applyNum" class="layui-badge"></span></a>
@@ -233,6 +233,22 @@
                 $("#applyNum").append(res.data);
             }else{
                 $("#applyNum").css("display","none");
+            }
+        },
+        error:function () {
+            layer.msg("请稍后再试");
+        }
+    });
+    // 验收管理总数量
+    $.ajax({
+        url:"/htInfo/countTyysAndDdshys",
+        method:"GET",
+        dataType:"JSON",
+        success:function(res){
+            if(res.data != null && res.data != ""){
+                $("#ysNum").append(res.data);
+            }else{
+                $("#ysNum").css("display","none");
             }
         },
         error:function () {

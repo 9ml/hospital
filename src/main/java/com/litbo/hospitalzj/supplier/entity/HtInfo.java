@@ -27,20 +27,65 @@ public class HtInfo {
 	private String htJfly;
 	private String htZje;
 	private String htYsyDh;
-	private String htFile3;
-	private String htFile4;
-	private String htFile5;
+
+	private String htGysqm;
+	private String htAzgcsqm;
+	private String htYsrqm;
+
 	private String htState;
 	private String htYzm;
 	private String htYssj;
 	private String htYsbz;
-	
-	public String getHtFile5() {
-		return htFile5;
+	private String nowTime;
+	private String htJedw;
+
+	private String tyysTime;
+	private String wszlTime;
+
+
+	public String getTyysTime() {
+		return tyysTime;
 	}
-	public void setHtFile5(String htFile5) {
-		this.htFile5 = htFile5;
+
+	public void setTyysTime(String tyysTime) {
+		this.tyysTime = tyysTime;
 	}
+
+	public String getWszlTime() {
+		return wszlTime;
+	}
+
+	public void setWszlTime(String wszlTime) {
+		this.wszlTime = wszlTime;
+	}
+
+	public String getHtJedw() {
+		return htJedw;
+	}
+
+	public void setHtJedw(String htJedw) {
+		this.htJedw = htJedw;
+	}
+
+	private String azgcsqmTime;
+
+	public String getAzgcsqmTime() {
+		return azgcsqmTime;
+	}
+
+	public void setAzgcsqmTime(String azgcsqmTime) {
+		this.azgcsqmTime = azgcsqmTime;
+	}
+
+	public String getNowTime() {
+		return nowTime;
+	}
+
+	public void setNowTime(String nowTime) {
+		this.nowTime = nowTime;
+	}
+
+
 	public String getHtYssj() {
 		return htYssj;
 	}
@@ -68,7 +113,7 @@ public class HtInfo {
 		this.htGzspd = htGzspd;
 	}
 	private Integer sbcsId;
-	
+
 	public Integer getSbcsId() {
 		return sbcsId;
 	}
@@ -132,7 +177,7 @@ public class HtInfo {
 	public void setHtBz(String htBz) {
 		this.htBz = htBz;
 	}
-	
+
 	public String getHtQytime() {
 		return htQytime;
 	}
@@ -210,17 +255,28 @@ public class HtInfo {
 		this.htYsyDh = htYsyDh;
 	}
 
-	public String getHtFile3() {
-		return htFile3;
+	public String getHtGysqm() {
+		return htGysqm;
 	}
-	public void setHtFile3(String htFile3) {
-		this.htFile3 = htFile3;
+
+	public void setHtGysqm(String htGysqm) {
+		this.htGysqm = htGysqm;
 	}
-	public String getHtFile4() {
-		return htFile4;
+
+	public String getHtAzgcsqm() {
+		return htAzgcsqm;
 	}
-	public void setHtFile4(String htFile4) {
-		this.htFile4 = htFile4;
+
+	public void setHtAzgcsqm(String htAzgcsqm) {
+		this.htAzgcsqm = htAzgcsqm;
+	}
+
+	public String getHtYsrqm() {
+		return htYsrqm;
+	}
+
+	public void setHtYsrqm(String htYsrqm) {
+		this.htYsrqm = htYsrqm;
 	}
 
 	@Override
@@ -247,13 +303,14 @@ public class HtInfo {
 				", htJfly='" + htJfly + '\'' +
 				", htZje='" + htZje + '\'' +
 				", htYsyDh='" + htYsyDh + '\'' +
-				", htFile3='" + htFile3 + '\'' +
-				", htFile4='" + htFile4 + '\'' +
-				", htFile5='" + htFile5 + '\'' +
+				", htGysqm='" + htGysqm + '\'' +
+				", htAzgcsqm='" + htAzgcsqm + '\'' +
+				", htYsrqm='" + htYsrqm + '\'' +
 				", htState='" + htState + '\'' +
 				", htYzm='" + htYzm + '\'' +
 				", htYssj='" + htYssj + '\'' +
 				", htYsbz='" + htYsbz + '\'' +
+				", nowTime='" + nowTime + '\'' +
 				", sbcsId=" + sbcsId +
 				'}';
 	}

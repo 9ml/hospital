@@ -47,7 +47,7 @@
                 <td colspan="3">平均流量</td>
                 <td id="pjll1" colspan="3">&nbsp;</td>
                 <td id="pjll2" colspan="3">&nbsp;</td>
-                <td>符合    不符合</td>
+                <td id="is1"></td>
             </tr>
             <tr>
                 <td rowspan="3">阻塞报警检测<br/>测试流量：25ml/h</td>
@@ -66,7 +66,7 @@
                 <td>H</td>
                 <td>M</td>
                 <td>L</td>
-                <td rowspan="2">符合  不符合</td>
+                <td id="is2" rowspan="2"></td>
             </tr>
             <tr>
                 <td id="bjszH">&nbsp;</td>
@@ -82,19 +82,19 @@
             <tr>
                 <td rowspan="3">报警系统检测</td>
                 <td colspan="3">堵塞</td>
-                <td id="zs" colspan="3">符合  不符合  不适用</td>
+                <td id="zs" colspan="3"></td>
                 <td colspan="3">即将空瓶</td>
-                <td id="jjkp">符合  不符合  不适用</td>
+                <td id="jjkp"></td>
             </tr>
             <tr>
                 <td colspan="3">输液管路安装不妥</td>
-                <td id="sygbt" colspan="3">符合  不符合  不适用</td>
+                <td id="sygbt" colspan="3"></td>
                 <td colspan="3">开门报警</td>
-                <td id="kmbj">符合  不符合  不适用</td>
+                <td id="kmbj"></td>
             </tr>
             <tr>
                 <td colspan="3">电源线脱开</td>
-                <td id="dyxtk" colspan="3">符合  不符合  不适用</td>
+                <td id="dyxtk" colspan="3"></td>
                 <td colspan="3"></td>
                 <td></td>
             </tr>
@@ -144,8 +144,15 @@
             	idsa = res.data.id;
                 console.log(res);
                 if(res.data != null && res.data != ""){
+                    // 流量检测
                     $("#pjll1").append(res.data.pjll1);
                     $("#pjll2").append(res.data.pjll2);
+                    if(res.data.pjll1 >= 4.5 && res.data.pjll1 <= 5.5 && res.data.pjll2 >= 22.5 && res.data.pjll2 <= 27.5){
+                        $("#is1").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is1").append("<p style='color:red;'>不符合</p>")
+                    }
+                    // 阻塞报警检测
                     $("#bjszH").append(res.data.bjszH);
                     $("#bjszM").append(res.data.bjszM);
                     $("#bjszL").append(res.data.bjszL);
@@ -155,32 +162,39 @@
                     $("#bjylH").append(res.data.bjylH);
                     $("#bjylM").append(res.data.bjylM);
                     $("#bjylL").append(res.data.bjylL);
+                    if(res.data.bjylH >= (res.data.bjszH - res.data.bjszH * 0.2) && res.data.bjylH <= (res.data.bjszH + res.data.bjszH * 0.2) && res.data.bjylM >= (res.data.bjszM - res.data.bjszM * 0.2) && res.data.bjylM <= (res.data.bjszM + res.data.bjszM * 0.2) && res.data.bjylL >= 200 && res.data.bjylL <= 400){
+                        $("#is2").append("<p style='color:green;'>符合</p>")
+                    }else{
+                        $("#is2").append("<p style='color:red;'>不符合</p>")
+                    }
                     // 单选
-                    if(res.data.zs === 1){
+                    if(res.data.zs == 1){
                         $("#zs").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#zs").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.jjkp === 1){
+                    if(res.data.jjkp == 1){
                         $("#jjkp").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#jjkp").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.sygbt === 1){
+                    if(res.data.sygbt == 1){
                         $("#sygbt").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#sygbt").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.dyxtk === 1){
+                    if(res.data.dyxtk == 1){
                         $("#dyxtk").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#dyxtk").append("<p style='color: red;'>不符合</p>");
                     }
-                    if(res.data.kmbj === 1){
+                    if(res.data.kmbj == 1){
                         $("#kmbj").append("<p style='color: green;'>符合</p>");
                     }else{
                         $("#kmbj").append("<p style='color: red;'>不符合</p>");
                     }
+                }else{
+                    layer.msg("无数据");
                 }
             }
         })

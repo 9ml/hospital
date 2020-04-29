@@ -5,7 +5,11 @@ import com.litbo.hospitalzj.quality.mapper.EqPmMapper;
 import com.litbo.hospitalzj.quality.mapper.EqXeqMapper;
 import com.litbo.hospitalzj.supplier.controller.ex.EqInfoIsNullException;
 import com.litbo.hospitalzj.supplier.entity.EqInfo;
+import com.litbo.hospitalzj.supplier.mapper.EqFjMapper;
+import com.litbo.hospitalzj.supplier.mapper.EqFseqMapper;
 import com.litbo.hospitalzj.supplier.mapper.EqInfoMapper;
+import com.litbo.hospitalzj.supplier.service.EqFjService;
+import com.litbo.hospitalzj.supplier.service.EqFseqService;
 import com.litbo.hospitalzj.supplier.service.EqInfoService;
 import com.litbo.hospitalzj.supplier.service.exception.InsertException;
 import com.litbo.hospitalzj.supplier.vo.SelHtEqVo;
@@ -23,21 +27,94 @@ public class EqInfoServiceImpl implements EqInfoService {
 	public EqXeqMapper eqXeqMapper;
 	@Autowired
 	public EqPmMapper eqPmMapper;
+	@Autowired
+	public EqFjMapper eqFjMapper;
+	@Autowired
+	public EqFseqMapper eqFseqMapper;
 
 	@Override
 	public Integer InsertEqInfo(EqInfo eqInfo) {
-		EqInfo data=eqInfoMapper.selectByName(eqInfo.getEqMc());
+		/*EqInfo data=eqInfoMapper.selectByName(eqInfo.getEqMc());
 		if(data!=null){
 			throw new InsertException("设备信息已存在");
-		}
+		}*/
 		eqInfoMapper.insertEqInfo(eqInfo);
 		return eqInfo.getEqId();
 	}
+
+	public void InsertBatEqInfo(EqInfo eqInfo) {
+		eqInfoMapper.InsertBatEqInfo(eqInfo);
+	}
+
+	public List<SelHtEqVo> selectGroupEqHtVo(Integer htIds) {
+		List<SelHtEqVo> data=eqInfoMapper.selectGroupEqHtVo(htIds);
+		if(data==null) {
+			throw new EqInfoIsNullException("设备信息为空，需要请添加");
+		}
+		return data;
+	}
+
+	public List<SelHtEqVo> selectGroupEqHtVo2(Integer htIds) {
+		List<SelHtEqVo> data=eqInfoMapper.selectGroupEqHtVo(htIds);
+		//e.eq_mc, e.eq_xh
+		for (SelHtEqVo suinfo : data) {
+			List<SelHtEqVo> suinfos = eqInfoMapper.selectRq(suinfo.getEqMc(), suinfo.getEqXh(), htIds);
+			StringBuffer bh = new StringBuffer();
+			StringBuffer rq = new StringBuffer();
+			int i = 1;
+			for (SelHtEqVo selHtEqVo : suinfos) {
+				if(i < suinfos.size()){
+					bh.append(selHtEqVo.getEqScbh()).append(",");
+					rq.append(selHtEqVo.getEqCcdate()).append(",");
+				}else{
+					bh.append(selHtEqVo.getEqScbh());
+					rq.append(selHtEqVo.getEqCcdate());
+
+				}
+				i++;
+			}
+			suinfo.setEqScbh(bh.toString());
+			suinfo.setEqCcdate(rq.toString());
+			suinfo.setEqNum(String.valueOf(suinfos.size()));
+		}
+		return data;
+	}
+
 	@Override
+	public void deleteBat(EqInfo eqInfo) {
+		eqInfoMapper.deleteBat(eqInfo.getEqMc(), eqInfo.getEqXh(), eqInfo.getHtIds());
+		eqFjMapper.deleteByEqId(eqInfo.getEqId());
+		eqFseqMapper.deleteByEqId(eqInfo.getEqId());
+	}
+
+	public EqInfo selectGroup(Integer eqId) {
+		EqInfo eqInfo = eqInfoMapper.selectByEqId(eqId);
+		List<SelHtEqVo> suinfos = eqInfoMapper.selectRq(eqInfo.getEqMc(), eqInfo.getEqXh(), eqInfo.getHtIds());
+		StringBuffer bh = new StringBuffer();
+		StringBuffer rq = new StringBuffer();
+		int i = 1;
+		for (SelHtEqVo selHtEqVo : suinfos) {
+			if(i < suinfos.size()){
+				bh.append(selHtEqVo.getEqScbh()).append(",");
+				rq.append(selHtEqVo.getEqCcdate()).append(",");
+			}else{
+				bh.append(selHtEqVo.getEqScbh());
+				rq.append(selHtEqVo.getEqCcdate());
+			}
+			i++;
+		}
+		eqInfo.setEqScbh(bh.toString());
+		eqInfo.setEqCcdate(rq.toString());
+		eqInfo.setEqNum(String.valueOf(suinfos.size()));
+		return eqInfo;
+	}
+
+
 	public void updateInfo(EqInfo eqInfo) {
+
 		eqInfoMapper.updateInfo(eqInfo);
 	}
-	@Override
+
 	public List<EqInfo> selectEqInfo(Integer htIds) {
 		List<EqInfo> data=eqInfoMapper.selectEqinfo(htIds);
 		if(data==null) {
@@ -130,6 +207,8 @@ public class EqInfoServiceImpl implements EqInfoService {
 	public Integer lastId() {
 		return eqInfoMapper.lastId();
 	}
+
+
 
 
 	@Override

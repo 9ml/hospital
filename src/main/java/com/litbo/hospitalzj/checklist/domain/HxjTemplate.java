@@ -65,7 +65,7 @@ public class HxjTemplate {
 
     private Integer hqmZdwc2;
 
-    private Integer dybj;
+   /* private Integer dybj;
 
     private Integer yqndsx;
 
@@ -79,7 +79,7 @@ public class HxjTemplate {
 
     private Integer fztql;
 
-    private Integer ajgn;
+    private Integer ajgn;*/
 
     private Integer bz;
 
@@ -341,7 +341,7 @@ public class HxjTemplate {
         this.hqmZdwc2 = hqmZdwc2;
     }
 
-    public Integer getDybj() {
+   /* public Integer getDybj() {
         return dybj;
     }
 
@@ -403,7 +403,7 @@ public class HxjTemplate {
 
     public void setAjgn(Integer ajgn) {
         this.ajgn = ajgn;
-    }
+    }*/
 
     public Integer getBz() {
         return bz;

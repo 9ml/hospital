@@ -73,6 +73,12 @@ public interface YqEqMapper {
     @Select("select count(*) from yq_eq where eq_id=#{eqId} and state = 2")
     Integer findTotalNum(String eqId);
 
+    @Select("select * from yq_eq where id = #{yqEqId}")
+    YqEq findById(Integer yqEqId);
+
+    @Select("select * from yq_eq where eq_id = #{eqId} and type = #{type}")
+    List<YqEq> findByType(@Param("eqId") String eqId, @Param("type") String type);
+
     /*@Select("select * from yq_eq where id = #{yqEqId}")
     YqEq selectYqEq(Integer yqEqId);*/
 }

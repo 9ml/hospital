@@ -64,7 +64,7 @@ public interface SybMapper {
             "      #{pjll1,jdbcType=INTEGER}, #{llcsd2,jdbcType=INTEGER}, #{pjll2,jdbcType=INTEGER}, \n" +
             "      #{wc,jdbcType=INTEGER}, #{llcsResult,jdbcType=INTEGER}, #{zsbjcsll,jdbcType=INTEGER}, \n" +
             "      #{bjszH,jdbcType=INTEGER}, #{bjszM,jdbcType=INTEGER}, #{bjszL,jdbcType=INTEGER}, \n" +
-            "      #{bjsjH,jdbcType=INTEGER}, #{bjsjM,jdbcType=INTEGER}, #{bjsjL,jdbcType=INTEGER}, \n" +
+            "      #{bjsjH,jdbcType=VARCHAR}, #{bjsjM,jdbcType=VARCHAR}, #{bjsjL,jdbcType=VARCHAR}, \n" +
             "      #{bjylH,jdbcType=INTEGER}, #{bjylM,jdbcType=INTEGER}, #{bjylL,jdbcType=INTEGER}, \n" +
             "      #{zsbjWc1,jdbcType=INTEGER}, #{zsbjWc2,jdbcType=INTEGER}, #{zsbjResult,jdbcType=TINYINT}, \n" +
             "      #{zs,jdbcType=TINYINT}, #{sygbt,jdbcType=TINYINT}, #{dyxtk,jdbcType=TINYINT}, #{jjkp,jdbcType=TINYINT}, \n" +
@@ -89,9 +89,9 @@ public interface SybMapper {
             "      bjsz_h = #{bjszH,jdbcType=INTEGER},\n" +
             "      bjsz_m = #{bjszM,jdbcType=INTEGER},\n" +
             "      bjsz_l = #{bjszL,jdbcType=INTEGER},\n" +
-            "      bjsj_h = #{bjsjH,jdbcType=INTEGER},\n" +
-            "      bjsj_m = #{bjsjM,jdbcType=INTEGER},\n" +
-            "      bjsj_l = #{bjsjL,jdbcType=INTEGER},\n" +
+            "      bjsj_h = #{bjsjH,jdbcType=VARCHAR},\n" +
+            "      bjsj_m = #{bjsjM,jdbcType=VARCHAR},\n" +
+            "      bjsj_l = #{bjsjL,jdbcType=VARCHAR},\n" +
             "      bjyl_h = #{bjylH,jdbcType=INTEGER},\n" +
             "      bjyl_m = #{bjylM,jdbcType=INTEGER},\n" +
             "      bjyl_l = #{bjylL,jdbcType=INTEGER},\n" +
@@ -116,7 +116,7 @@ public interface SybMapper {
             "      #{pjll1,jdbcType=INTEGER}, #{llcsd2,jdbcType=INTEGER}, #{pjll2,jdbcType=INTEGER}, \n" +
             "      #{wc,jdbcType=INTEGER}, #{llcsResult,jdbcType=INTEGER}, #{zsbjcsll,jdbcType=INTEGER}, \n" +
             "      #{bjszH,jdbcType=INTEGER}, #{bjszM,jdbcType=INTEGER}, #{bjszL,jdbcType=INTEGER}, \n" +
-            "      #{bjsjH,jdbcType=INTEGER}, #{bjsjM,jdbcType=INTEGER}, #{bjsjL,jdbcType=INTEGER}, \n" +
+            "      #{bjsjH,jdbcType=VARCHAR}, #{bjsjM,jdbcType=VARCHAR}, #{bjsjL,jdbcType=VARCHAR}, \n" +
             "      #{bjylH,jdbcType=INTEGER}, #{bjylM,jdbcType=INTEGER}, #{bjylL,jdbcType=INTEGER}, \n" +
             "      #{zsbjWc1,jdbcType=INTEGER}, #{zsbjWc2,jdbcType=INTEGER}, #{zsbjResult,jdbcType=TINYINT}, \n" +
             "      #{zs,jdbcType=TINYINT}, #{sygbt,jdbcType=TINYINT}, #{dyxtk,jdbcType=TINYINT}, #{jjkp,jdbcType=TINYINT}, \n" +
@@ -143,9 +143,9 @@ public interface SybMapper {
             "      bjsz_h = #{bjszH,jdbcType=INTEGER},\n" +
             "      bjsz_m = #{bjszM,jdbcType=INTEGER},\n" +
             "      bjsz_l = #{bjszL,jdbcType=INTEGER},\n" +
-            "      bjsj_h = #{bjsjH,jdbcType=INTEGER},\n" +
-            "      bjsj_m = #{bjsjM,jdbcType=INTEGER},\n" +
-            "      bjsj_l = #{bjsjL,jdbcType=INTEGER},\n" +
+            "      bjsj_h = #{bjsjH,jdbcType=VARCHAR},\n" +
+            "      bjsj_m = #{bjsjM,jdbcType=VARCHAR},\n" +
+            "      bjsj_l = #{bjsjL,jdbcType=VARCHAR},\n" +
             "      bjyl_h = #{bjylH,jdbcType=INTEGER},\n" +
             "      bjyl_m = #{bjylM,jdbcType=INTEGER},\n" +
             "      bjyl_l = #{bjylL,jdbcType=INTEGER},\n" +

@@ -178,19 +178,19 @@
             //console.log(obj)
             if(obj.event === "hands"){
                 if(data.jcyqName == "生命体征模拟器"){
-                    location.href="/control/home/look_all/man_life.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/man_life.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪"){
-                    location.href="/control/home/look_all/injection_pump_man.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/injection_pump_man.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "婴儿培养箱分析仪"){
-                    location.href="/control/home/look_all/baby_table.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/baby_table.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "双通道注射泵分析仪"){
-                    location.href="/control/home/look_all/double_injection_pump.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/double_injection_pump.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "气流分析仪"){
-                    location.href="/control/home/look_all/breathing_machine.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/breathing_machine.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "除颤起搏分析仪"){
-                    location.href="/control/home/look_all/defibrillator_table.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/defibrillator_table.html?id="+obj.data.jcyqId;
                 }else if(data.jcyqName == "高频电刀分析仪"){
-                    location.href="/control/home/look_all/endotherm_knife.html?id="+obj.data.jcyqId;
+                    location.href="/control/home/upload/up_each/endotherm_knife.html?id="+obj.data.jcyqId;
                 }
             }
         });
@@ -198,7 +198,22 @@
             var data = obj.data;
             //console.log(obj)
             if(obj.event === "hands"){
-                location.href="/control/home/look_all/electric.html?id="+obj.data.jcyqId;
+                $.ajax({
+                    url:"/yqEq/findByEqIdAndJcyqId/" + ids + "/"  + obj.data.jcyqId,
+                    method:"GET",
+                    dataType:"JSON",
+                    success:function(res){
+                        if(res.state === 200){
+                            if(res.data.hzldlZcZxbfValue == ""){
+                                location.href="/control/home/upload/up_each/electric_cf.html?id="+obj.data.jcyqId;
+                            }else if(res.data.hzldlZcZxcfValue == ""){
+                                location.href="/control/home/upload/up_each/electric_bf.html?id="+obj.data.jcyqId;
+                            }else{
+                                location.href="/control/home/upload/up_each/electric_none.html?id="+obj.data.jcyqId;
+                            }
+                        }
+                    }
+                });
             }
         });
     });

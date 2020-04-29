@@ -101,6 +101,9 @@
             </tr>
             </tbody>
         </table>
+        <div style="text-align:center;margin-top:20px;">
+            <button id="updateHt" class="layui-btn">修改</button>
+        </div>
         <fieldset class="layui-elem-field layui-field-title">
             <legend>设备信息</legend>
         </fieldset>
@@ -150,7 +153,7 @@
             </tbody>
         </table>
         <div class="col-xs-12 btn">
-            <a id="jumDdhdj" class="layui-btn layui-btn-normal">到货登记</a>
+            <a id="jumDdhdj" class="layui-btn layui-btn-normal">三方签名</a>
         </div>
     </div>
 </div>
@@ -181,7 +184,9 @@
                 method:"GET",
                 dataType:"JSON",
                 success:function(res){
+                    console.log(res);
                     if(res.data != "" && res.data != ""){
+                        sessionStorage['sgh'] = res.data.htGzspd;
                         $("#htGhsn").append(res.data.htGhsn);
                         $("#htGhslxr").append(res.data.htGhslxr);
                         $("#htGhsdh").append(res.data.htGhsdh);
@@ -206,16 +211,15 @@
             })
         });
         laydate.render({
-            elem:"#date",
-            type:"datetime",
-            range: '至'
+            elem:"#datetime",
+            type:"datetime"
         });
         // 设备信息
         table.render({
             elem:"#fixingInfo",
             cellMinWidth:100,
             toolbar: '#toolbarDemo',
-            url:"/eqInfo/selectEqHt?htIds="+ids,
+            url:"/eqInfo/selectGroupEqInfo2?htIds="+ids,
             method:"GET",
             response:{
                 statusName: 'status'
@@ -285,16 +289,19 @@
                 {field: 'picture', title: '图片', width: 150,templet:'<div><img src="{{ d.picture }}"></div>'},
             ]]
         });
+        $("#updateHt").click(function(){
+            location.href="/apply_manage/update/update_ht_info.html?id="+ids;
+        });
         //监听行工具事件
         table.on('tool(handle)', function(obj){
             var data = obj.data;
             //console.log(obj)
             if(obj.event === 'lookMore'){
-                location.href="/apply_manage/not_manage/fix_info.html?id="+obj.data.eqId;
+                location.href="/apply_manage/apply_manage/fix_info.html?id="+obj.data.eqId;
             }else if(obj.event === 'lookFssb'){
-                location.href="/apply_manage/not_manage/child_fix_info.html?id="+obj.data.eqId;
+                location.href="/apply_manage/apply_manage/child_fix_info.html?id="+obj.data.eqId;
             }else if(obj.event === 'lookFj'){
-                location.href="/apply_manage/not_manage/enclosure_info.html?id="+obj.data.eqId;
+                location.href="/apply_manage/apply_manage/fj_info.html?id="+obj.data.eqId;
             }
         });
         // 查看合同文件
@@ -318,22 +325,10 @@
             location.href="/apply_manage/file/ht_accept_file.html?id="+5;
         });
         $("#jumDdhdj").click(function(){
-            $.ajax({
-                url:"/sgdjhw/insert?htIds="+ids,
-                method:"POST",
-                dataType:"JSON",
-                success:function(res){
-                    if(res.state ===200){
-                        location.href="/apply_manage/apply_manage/arrival_info.html?htIds="+ids;
-                    }else{
-                        layer.msg("失败");
-                    }
-                },
-                error:function(data){
-                    layer.msg("请稍后再试");
-                    console.log(data);
-                }
-            });
+            layer.msg("审核通过，将进行电子签名。");
+            setTimeout(function(){
+                location.href="/apply_manage/apply_manage/ele_gysqm.html?id="+ids;
+            },1000);
         });
     })
 </script>
