@@ -30,7 +30,7 @@ window.onload = function(){
         $("#p3").removeClass("no").removeClass("is");
     });
     $("#inp3 ").blur(function () {
-        if($(this).val() >= 10  || $(this).val() == "OL"){
+        if($(this).val() >= 10){
             $("#p3").text("√ 符合");
             $("#p3").removeClass("no").addClass("is")
         }else{
