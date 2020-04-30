@@ -99,7 +99,7 @@ public class CcyController extends BaseController {
     public ResponseResult saveDq(@RequestParam(value = "eqId") String eqId,
                                  @RequestParam(value = "jcyqId") String jcyqId,
                                  @RequestParam(value = "userEqId") Integer userEqId,
-                                 HttpSession session, HttpServletRequest req) {
+                                  HttpServletRequest req) {
         Ccy ccy = CommonUtils.toBean(req.getParameterMap(), Ccy.class);
         EqZjls eqZjls = CommonUtils.toBean(req.getParameterMap(), EqZjls.class);
         int yqEqId = yqEqService.insertBatch(eqId, jcyqId);

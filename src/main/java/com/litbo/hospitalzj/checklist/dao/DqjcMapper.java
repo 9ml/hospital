@@ -83,7 +83,7 @@ public interface DqjcMapper {
 			"      #{tester,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR},#{shsjTime}, #{testTime,jdbcType=TIMESTAMP}, \n" +
 			"      #{shrJcjl,jdbcType=VARCHAR},#{jcjl,jdbcType=VARCHAR}, #{jcsm,jdbcType=VARCHAR}, #{dydy1},#{dydy2}, #{dydyValue,jdbcType=DOUBLE}, \n" +
 			"      #{dydyResult,jdbcType=TINYINT}, #{jdzk,jdbcType=DOUBLE}, #{jdzkValue,jdbcType=DOUBLE}, \n" +
-			"      #{jdzkResult,jdbcType=TINYINT}, #{jyzk,jdbcType=DOUBLE}, #{jyzkValue,jdbcType=DOUBLE}, \n" +
+			"      #{jdzkResult,jdbcType=TINYINT}, #{jyzk,jdbcType=DOUBLE}, #{jyzkValue,jdbcType=VARCHAR}, \n" +
 			"      #{jyzkResult,jdbcType=TINYINT}, #{ddldlZc,jdbcType=DOUBLE}, #{ddldlZcZxValue,jdbcType=DOUBLE}, \n" +
 			"      #{ddldlZcFxValue,jdbcType=DOUBLE}, #{ddldlZcResult,jdbcType=TINYINT}, #{ddldlDy,jdbcType=DOUBLE}, \n" +
 			"      #{ddldlDyZxdlValue,jdbcType=DOUBLE}, #{ddldlDyFxdlValue,jdbcType=DOUBLE}, #{ddldlDyResult,jdbcType=TINYINT}, \n" +
@@ -174,7 +174,7 @@ public interface DqjcMapper {
 			"      jdzk_value = #{jdzkValue,jdbcType=DOUBLE},\n" +
 			"      jdzk_result = #{jdzkResult,jdbcType=TINYINT},\n" +
 			"      jyzk = #{jyzk,jdbcType=DOUBLE},\n" +
-			"      jyzk_value = #{jyzkValue,jdbcType=DOUBLE},\n" +
+			"      jyzk_value = #{jyzkValue,jdbcType=VARCHAR},\n" +
 			"      jyzk_result = #{jyzkResult,jdbcType=TINYINT},\n" +
 			"      ddldl_zc = #{ddldlZc,jdbcType=DOUBLE},\n" +
 			"      ddldl_zc_zx_value = #{ddldlZcZxValue,jdbcType=DOUBLE},\n" +

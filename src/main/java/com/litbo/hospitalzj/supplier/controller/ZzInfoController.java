@@ -6,6 +6,7 @@ import com.litbo.hospitalzj.supplier.service.SuInfoService;
 import com.litbo.hospitalzj.supplier.service.ZzInfoService;
 import com.litbo.hospitalzj.util.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,11 +28,19 @@ public class ZzInfoController extends BaseController {
         return new ResponseResult<Void>(SUCCESS);
     }
     @RequestMapping("/insert")
+    @Transactional
     public ResponseResult<Void> insert(@RequestParam("suId")String suId,  ZzInfo zzInfo) {
-        System.out.println(zzInfo);
-        zzInfoService.insert(zzInfo);
-        suInfoService.insertNowTime(suId);
-        suInfoService.updateState(Integer.parseInt(suId), 0);
-        return new ResponseResult<Void>(SUCCESS);
+        try{
+            System.out.println(zzInfo);
+            zzInfoService.insert(zzInfo);
+            suInfoService.insertNowTime(suId);
+            suInfoService.updateState(Integer.parseInt(suId), 0);
+            return new ResponseResult<Void>(SUCCESS);
+        }catch (Exception e){
+            e.printStackTrace();
+            return new ResponseResult<>(ERROR);
+        }
+
+
     }
 }
