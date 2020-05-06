@@ -5,6 +5,7 @@ import com.litbo.hospitalzj.supplier.entity.SuInfo;
 import com.litbo.hospitalzj.supplier.service.SuInfoService;
 import com.litbo.hospitalzj.supplier.vo.SuInfoAndZzInfo;
 import com.litbo.hospitalzj.util.ResponseResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/suinfo")
+@Slf4j
 public class SuInfoController extends BaseController {
     @Autowired
     private SuInfoService suInfoService;
@@ -50,13 +52,21 @@ public class SuInfoController extends BaseController {
 
     @RequestMapping("/insert")
     public ResponseResult<Integer> insert(SuInfo suInfo) {
-        suInfo.setIsDelete(0);
-        suInfo.setState(4);
-        int insert = suInfoService.insert(suInfo);
-        if(insert == 1){
-            return new ResponseResult<>(603, "该公司名称已存在！");
+        try{
+            suInfo.setIsDelete(0);
+            suInfo.setState(4);
+            int insert = suInfoService.insert(suInfo);
+            if(insert == 1){
+                return new ResponseResult<>(603, "该公司名称已存在！");
+            }
+            return new ResponseResult<Integer>(SUCCESS, suInfo.getSuId());
+        }catch (Exception e){
+            e.printStackTrace();
+            log.error(suInfo.toString());
+            log.error(e.getMessage());
+            return new ResponseResult<>(ERROR,"服务器异常");
         }
-        return new ResponseResult<Integer>(SUCCESS, suInfo.getSuId());
+
     }
 
     @RequestMapping("/delete")

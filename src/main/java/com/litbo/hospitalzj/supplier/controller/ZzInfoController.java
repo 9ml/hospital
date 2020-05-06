@@ -5,12 +5,14 @@ import com.litbo.hospitalzj.supplier.entity.ZzInfo;
 import com.litbo.hospitalzj.supplier.service.SuInfoService;
 import com.litbo.hospitalzj.supplier.service.ZzInfoService;
 import com.litbo.hospitalzj.util.ResponseResult;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/zzinfo")
+@Slf4j
 public class ZzInfoController extends BaseController {
     @Autowired
     private ZzInfoService zzInfoService;
@@ -38,6 +40,8 @@ public class ZzInfoController extends BaseController {
             return new ResponseResult<Void>(SUCCESS);
         }catch (Exception e){
             e.printStackTrace();
+            log.error(zzInfo.toString());
+            log.error(e.getMessage());
             return new ResponseResult<>(ERROR);
         }
 
