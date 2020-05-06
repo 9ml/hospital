@@ -11,50 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 
 @Component
 public class MiniInterceptor implements HandlerInterceptor {
-	
+
 	/**
 	 * 拦截请求，在controller调用之前
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
-                             Object arg2) throws Exception {
+							 Object arg2) throws Exception {
 
 
-		String[] paths = request.getServletPath().split("/");
-		String path ;
-		if(paths.length>=1)
-			path = paths[1];
-		else path = "/";
-		System.out.println("------------------"+request.getServletPath()+":"+path+"--------------------------------------");
-		if(path.equals("control")||path.equals("/")){
-			if(request.getSession().getAttribute("uid")==null){
-				response.sendRedirect("/login.html");
-				return false;
-			}
-			String uid  = request.getSession().getAttribute("uid").toString();
-			if(StringUtils.isEmpty(uid)){
-				response.sendRedirect("/login.html");
-				return false;
-			}
-		}else {
-			if(request.getSession().getAttribute("suId")==null){
-				response.sendRedirect("/userlogin.html");
-				return false;
-			}
-			String uid  = request.getSession().getAttribute("suId").toString();
-			if(StringUtils.isEmpty(uid)){
-				response.sendRedirect("/userlogin.html");
-				return false;
-			}
+//		System.out.println("------------------"+request.getServletPath()+":"+path+"--------------------------------------");
+
+		Object uid = request.getSession().getAttribute("uid");
+		Object suId = request.getSession().getAttribute("suId");
+		if (uid == null && suId == null){
+			response.sendRedirect("/login.html");
+			return false;
 		}
-
-		/**
-		 * 返回 false：请求被拦截，返回
-		 * 返回 true ：请求OK，可以继续执行，放行
-		 */
 		return true;
+
+
+
+
+	/**
+	 * 返回 false：请求被拦截，返回
+	 * 返回 true ：请求OK，可以继续执行，放行
+	 */
+
+
 	}
-	
 
 	
 	/**
