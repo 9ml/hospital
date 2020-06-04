@@ -14,4 +14,6 @@ public interface CodeMapper {
     Integer deleteAllCodeByEmail(String email);
     @Select("select * from code where  su_email = #{suEmail} and code = #{code}")
     Code findCodeAndEmail(String suEmail, String code);
+    @Delete("delete from code")
+    Integer deleteAllCode();
 }
