@@ -145,4 +145,21 @@ public class SuInfoServiceImpl implements SuInfoService {
         String nowTime = fmt.format(new Date());
         suInfoMapper.insertNowTime(suId, nowTime);
     }
+
+    @Override
+    public void sendCodeMail(String email, String subject, String text) {
+
+        MailUtils.sendMail(email, text, subject);
+    }
+
+    @Override
+    public Integer isExistByEmail(String suEmail) {
+
+        return suInfoMapper.isExistByEmail(suEmail);
+    }
+
+    @Override
+    public Integer updatePwdByEmail(String suEmail, String password) {
+        return suInfoMapper.updatePwdByEmail(suEmail,password);
+    }
 }

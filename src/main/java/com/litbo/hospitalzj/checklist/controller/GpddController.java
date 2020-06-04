@@ -66,6 +66,9 @@ public class GpddController extends BaseController {
         int yqEqId = yqEqService.insertBatch(eqId, jcyqId);
         yqEqService.updateType(yqEqId, EnumProcess2.TO_UPLOAD.getMessage());
         //修改状态为待上传
+
+//        String userId = req.getAttribute("uid").toString();
+//        userEqService.insertBatchByJcEqid(userId,jcyqId,)
         userEqService.setEqState(userEqId, EnumProcess2.TO_UPLOAD.getMessage());
         gpddService.save(gpdd);
         EqZjls eqZjls = CommonUtils.toBean(req.getParameterMap(), EqZjls.class);
@@ -74,6 +77,7 @@ public class GpddController extends BaseController {
         eqZjls.setEqDah(eqById.getEqDah());
         eqZjlsService.insert(eqZjls);
         int[] x = {gpdd.getGpddid(), yqEqId};
+//        return new ResponseResult<>(200, x);
         return new ResponseResult<int[]>(200, x);
     }
 

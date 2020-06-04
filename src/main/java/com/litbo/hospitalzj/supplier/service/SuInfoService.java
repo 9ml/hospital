@@ -26,4 +26,10 @@ public interface SuInfoService {
 
     //插入当前时间
     void insertNowTime(String suId);
+
+    void sendCodeMail(String suEmail, String subject, String text);
+
+    Integer isExistByEmail(String suEmail);
+
+    Integer updatePwdByEmail(String suEmail, String password);
 }

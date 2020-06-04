@@ -80,4 +80,8 @@ public interface SuInfoMapper {
 
     @Update("update su_info set now_time = #{nowTime} where su_id = #{suId}")
     void insertNowTime(@Param("suId") String suId, @Param("nowTime") String nowTime);
+    @Select("select su_id from su_info where su_email = #{suEmail}")
+    Integer isExistByEmail(String suEmail);
+    @Update("update su_info set password = #{password} where su_email = #{suEmail}")
+    Integer updatePwdByEmail(String suEmail, String password);
 }

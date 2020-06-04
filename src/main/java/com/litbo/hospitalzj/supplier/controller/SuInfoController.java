@@ -1,12 +1,15 @@
 package com.litbo.hospitalzj.supplier.controller;
 
 import com.litbo.hospitalzj.controller.BaseController;
+import com.litbo.hospitalzj.sf.entity.Code;
 import com.litbo.hospitalzj.supplier.entity.SuInfo;
+import com.litbo.hospitalzj.supplier.service.CodeService;
 import com.litbo.hospitalzj.supplier.service.SuInfoService;
 import com.litbo.hospitalzj.supplier.vo.SuInfoAndZzInfo;
 import com.litbo.hospitalzj.util.ResponseResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/suinfo")
@@ -21,7 +25,8 @@ import java.util.List;
 public class SuInfoController extends BaseController {
     @Autowired
     private SuInfoService suInfoService;
-
+    @Autowired
+    private CodeService codeService;
     @RequestMapping("/login")
     public ResponseResult<SuInfo> handleLogin(
             @RequestParam("username") String suMc,
@@ -36,7 +41,43 @@ public class SuInfoController extends BaseController {
         // 返回
         return new ResponseResult<>(SUCCESS, user);
     }
+    @Transactional
+    @RequestMapping("/updatePassword")
+    public ResponseResult updatePassword(String suEmail,String code ,String password){
+        Code res = codeService.findCodeAndEmail(suEmail,code);
+        if(res == null){
+            return new ResponseResult<>(ERROR, "验证码错误");
+        }
+        suInfoService.updatePwdByEmail(suEmail,password);
+        return new ResponseResult<>(SUCCESS, "修改成功！");
+    }
+    @Transactional
+    @RequestMapping("/forget")
+    public ResponseResult forget(String suEmail){
+        Integer res = suInfoService.isExistByEmail(suEmail);
+        if(res!=null){
+            String subject = "主题:南方医院账户验证码";
+            String verifyCode = String.valueOf(new Random().nextInt(899999) + 100000);
+            String text = "您的医院系统登录用户名是" + suEmail + "," + "验证码是"
+                    + verifyCode + ",请妥善管理！如何自己没进行修改密码操作，则忽略本条信息，谢谢合作！！！";
+            try {
+                Code code = new Code();
+                code.setCode(verifyCode);
+                code.setSuEmail(suEmail);
+                codeService.deleteAllCodeByEmail(suEmail);
+                codeService.insertCode(code);
+                suInfoService.sendCodeMail(suEmail, subject, text);
+                return new ResponseResult<>(SUCCESS);
+            }catch (Exception e){
+                return new ResponseResult<>(ERROR);
+            }
+        }else {
+            return new ResponseResult(ERROR,"该邮箱不存在");
+        }
 
+
+
+    }
     @RequestMapping("/one")
     public ResponseResult<SuInfoAndZzInfo> getByCode(HttpSession session) {
         Integer suId = getUidFromSession(session);

@@ -30,6 +30,7 @@ public class UserController extends BaseController {
         session.setAttribute("userName", data.getUserName());
         return new ResponseResult<User>(SUCCESS,data.getRoleName());
     }
+
     @RequestMapping("/{userId}")
     public ResponseResult<UserRoleVo> getByCode(@PathVariable("userId") String userId) {
         UserRoleVo data=userService.select(userId);
