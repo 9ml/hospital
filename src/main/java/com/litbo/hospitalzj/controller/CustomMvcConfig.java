@@ -16,7 +16,7 @@ public class CustomMvcConfig implements WebMvcConfigurer {
          excludePathPatterns 用户排除拦截*/
         registry.addInterceptor(new MiniInterceptor()).addPathPatterns("/**")
                 .excludePathPatterns("/login.html","/userlogin.html","/qylx/**","/jglx/all","/zzinfo/insert",
-                        "/suinfo/forget",
+                        "/suinfo/forget","/suinfo/updatePassword",
                         "/suinfo/login","/suinfo/insert","/user/login","/wjsc/**"
                        ,"/static/**","/supplier/**");
     }

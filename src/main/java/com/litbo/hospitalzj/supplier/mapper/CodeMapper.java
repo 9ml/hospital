@@ -1,10 +1,7 @@
 package com.litbo.hospitalzj.supplier.mapper;
 
 import com.litbo.hospitalzj.sf.entity.Code;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface CodeMapper {
@@ -13,7 +10,7 @@ public interface CodeMapper {
     @Delete("delete from code where su_email = #{email}")
     Integer deleteAllCodeByEmail(String email);
     @Select("select * from code where  su_email = #{suEmail} and code = #{code}")
-    Code findCodeAndEmail(String suEmail, String code);
+    Code findCodeAndEmail(@Param("suEmail") String suEmail, @Param("code") String code);
     @Delete("delete from code")
     Integer deleteAllCode();
 }

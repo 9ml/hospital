@@ -67,12 +67,12 @@ public class SuInfoController extends BaseController {
                 codeService.deleteAllCodeByEmail(suEmail);
                 codeService.insertCode(code);
                 suInfoService.sendCodeMail(suEmail, subject, text);
-                return new ResponseResult<>(SUCCESS);
+                return new ResponseResult<>(ERROR);
             }catch (Exception e){
                 return new ResponseResult<>(ERROR);
             }
         }else {
-            return new ResponseResult(ERROR,"该邮箱不存在");
+            return new ResponseResult(SUCCESS,"该邮箱不存在");
         }
 
 

@@ -83,5 +83,5 @@ public interface SuInfoMapper {
     @Select("select su_id from su_info where su_email = #{suEmail}")
     Integer isExistByEmail(String suEmail);
     @Update("update su_info set password = #{password} where su_email = #{suEmail}")
-    Integer updatePwdByEmail(String suEmail, String password);
+    Integer updatePwdByEmail(@Param("suEmail") String suEmail, @Param("password") String password);
 }
