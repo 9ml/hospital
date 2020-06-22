@@ -122,15 +122,16 @@ public class WjscController extends BaseController {
 
     //文件下载
     @RequestMapping("/downloadFile")
-    private ResponseResult<Void> downloadFile(@RequestParam("filePath") String filePath, HttpServletResponse response, HttpSession session) throws FileNotFoundException, IllegalStateException {
-        File path = new File(ResourceUtils.getURL("classpath:").getPath());
-        System.out.println(path);
-        if (!path.exists()) path = new File("");
-        File upload = new File(path.getAbsolutePath(), "static" + File.separator);
-        System.out.println(upload);
-        if (!upload.exists()) upload.mkdirs();
-        String path1 = upload.getAbsolutePath() + filePath;
+    private ResponseResult<Void> downloadFile(@RequestParam("filePath") String filePath, HttpServletResponse response) throws FileNotFoundException, IllegalStateException {
+//        File path = new File(ResourceUtils.getURL("classpath:").getPath());
+//        System.out.println(path);
+//        if (!path.exists()) path = new File("");
+//        File upload = new File(path.getAbsolutePath(), "static" + File.separator);
+//        System.out.println(upload);
+//        if (!upload.exists()) upload.mkdirs();
+        String path1 = System.getProperty("user.dir") + filePath;
         System.out.println(path1);
+
         FileDownLoad.downloadFile1(response, path1, filePath);
         return null;
     }
