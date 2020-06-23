@@ -3,13 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>修改密码</title>
     <link rel="stylesheet" type="text/css" href="../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/login.css"/>
+    <script src="../static/js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <style type="text/css">
-        .registerItem{
+        .registerItem {
             width: 100%;
             height: 30px;
             margin-top: 10px;
@@ -17,22 +19,25 @@
             align-items: center;
             justify-content: space-between;
         }
-        .registerItem a{
+
+        .registerItem a {
             color: blue;
         }
-		.layui-form-item{
-			position: relative;
-		}
-		.get-code{
-			height: 20px;
-			color: blue;
-			position: absolute;
-			right: 10px;
-			top: 50%;
-			margin-top: -10px;
-			z-index: 99;
-			cursor: pointer;
-		}
+
+        .layui-form-item {
+            position: relative;
+        }
+
+        .get-code {
+            height: 20px;
+            color: blue;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            margin-top: -10px;
+            z-index: 99;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -43,20 +48,25 @@
             <h3 style="color:#000;">修改密码</h3>
             <form class="layui-form">
                 <div class="layui-form-item">
-                    <input id="uEmail" type="text" name="suEmail" lay-verify="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                    <input id="uEmail" type="text" name="suEmail" lay-verify="email" placeholder="请输入邮箱"
+                           autocomplete="off" class="layui-input">
                 </div>
-				<div class="layui-form-item">
-				    <input id="user" type="text" name="code" lay-verify="required" placeholder="请输入验证码" autocomplete="off" class="layui-input">
-					<div class="get-code" id="getCode">
-						获取验证码
-					</div>
-				</div>
                 <div class="layui-form-item">
-                    <input type="password" name="password" lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                    <input id="user" type="text" name="code" lay-verify="required" placeholder="请输入验证码"
+                           autocomplete="off" class="layui-input">
+                    <div class="get-code" id="getCode">
+                        获取验证码
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <input type="password" name="password" lay-verify="required" placeholder="请输入新密码" autocomplete="off"
+                           class="layui-input">
                 </div>
                 <div class="layui-form-item m-login-btn">
                     <div class="layui-inline subBut">
-                        <button class="layui-btn layui-btn-normal btn" lay-submit lay-filter="sureUpdate" id="check-btn">确认修改</button>
+                        <button class="layui-btn layui-btn-normal btn" lay-submit lay-filter="sureUpdate"
+                                id="check-btn">确认修改
+                        </button>
                     </div>
                 </div>
                 <div class="div-logo">
@@ -68,57 +78,89 @@
     </div>
 </div>
 <script type="text/javascript">
-    layui.use(['form','jquery','layer'], function () {
+    /**
+     * 验证码获取时间间隔
+     */
+    var isWaitForNextVerify = false;
+    var waitTime = 60;
+
+    /**
+     * 前端验证码倒计时功能
+     */
+    function verifyTimerTask() {
+        $("#getCode").data("timer", waitTime);
+        var task = function () {
+            var timer = window.setTimeout(function () {
+                var time = $("#getCode").data("timer");
+                if (time > 1) {
+                    isWaitForNextVerify = true;
+                    $("#getCode").data("timer", time - 1).html((time - 1) + "s后重新获取验证码");
+                } else {
+                    isWaitForNextVerify = false;
+                    $("#getCode").data("timer", time - 1).html("获取验证码");
+                    clearTimeout(timer);
+                }
+                task();
+            }, 1000);
+        }
+        task();
+    }
+
+    layui.use(['form', 'jquery', 'layer'], function () {
         var form = layui.form
-        ,   $ = layui.jquery
-        ,   layer = layui.layer
-		,	myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
-		$("#getCode").click(function(){
-			let uEmail = $("#uEmail").val().trim()
-			if(!uEmail){
-				layer.msg('邮箱不能为空');
-				return false;
-			}else if(!(myReg.test(uEmail))){
-				layer.msg('邮箱格式不正确');
-				return false;
-			}
-			$.ajax({
-			    url:"/suinfo/forget",
-			    method:"POST",
-			    data:{
-					suEmail : uEmail
-				},
-			    dataType:"JSON",
-			    success:function(res){
-			        if(res.state === 200){
-			            layer.msg("发送成功，请注意查收");
-			        }
-			    },
-			    error:function(data){
-			        layer.msg("发送失败,请稍后再试");
-			        console.log(data);
-			    }
-			});
-		});
-        form.on("submit(sureUpdate)",function(data){
+            , $ = layui.jquery
+            , layer = layui.layer
+            , myReg = /^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+        $("#getCode").click(function () {
+            let uEmail = $("#uEmail").val().trim()
+            if (!uEmail) {
+                layer.msg('邮箱不能为空');
+                return false;
+            } else if (!(myReg.test(uEmail))) {
+                layer.msg('邮箱格式不正确');
+                return false;
+            }
+            if (isWaitForNextVerify) {
+                return;
+            }
+            verifyTimerTask();
+            $.ajax({
+                url: "/suinfo/forget",
+                method: "POST",
+                data: {
+                    suEmail: uEmail
+                },
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
+                        layer.msg("发送成功，请注意查收");
+                    }
+                },
+                error: function (data) {
+                    layer.msg("发送失败,请稍后再试");
+                    console.log(data);
+                }
+            });
+        });
+        form.on("submit(sureUpdate)", function (data) {
             console.log(data.field);
             sessionStorage["supplierName"] = data.field.username;
             $.ajax({
-                url:"/suinfo/updatePassword",
-                method:"POST",
-                data:data.field,
-                dataType:"JSON",
-                success:function(res){
-                    if(res.state === 200){
+                url: "/suinfo/updatePassword",
+                method: "POST",
+                data: data.field,
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
                         setTimeout(function () {
                             location.href = "../userlogin.html";
                         }, 1000);
                         layer.msg("修改成功")
-                    }else{
+                    } else {
                         layer.msg(res.msg);
                     }
                 },
-                error:function(data){
+                error: function (data) {
                     layer.msg("修改失败,请稍后再试");
                     console.log(data);
                 }
