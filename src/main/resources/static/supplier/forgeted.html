@@ -83,6 +83,27 @@
      */
     var isWaitForNextVerify = false;
     var waitTime = 60;
+    var timer;
+
+    /**
+     * 清除定时器
+     */
+    function clearTimer() {
+        if (!timer) {
+            return;
+        }
+        clearTimeout(timer);
+        timer = null;
+    }
+
+    /**
+     * 重置验证码功能
+     */
+    function resetVerify() {
+        isWaitForNextVerify = false;
+        $("#getCode").html("获取验证码");
+        clearTimer();
+    }
 
     /**
      * 前端验证码倒计时功能
@@ -90,17 +111,17 @@
     function verifyTimerTask() {
         $("#getCode").data("timer", waitTime);
         var task = function () {
-            var timer = window.setTimeout(function () {
+            timer = window.setTimeout(function () {
                 var time = $("#getCode").data("timer");
                 if (time > 1) {
                     isWaitForNextVerify = true;
                     $("#getCode").data("timer", time - 1).html((time - 1) + "s后重新获取验证码");
+                    task();
                 } else {
                     isWaitForNextVerify = false;
-                    $("#getCode").data("timer", time - 1).html("获取验证码");
-                    clearTimeout(timer);
+                    $("#getCode").html("获取验证码");
+                    clearTimer();
                 }
-                task();
             }, 1000);
         }
         task();
@@ -132,12 +153,16 @@
                 },
                 dataType: "JSON",
                 success: function (res) {
-                    if (res.state === 200) {
+                    if (res.state === 200 && !res.message) {
                         layer.msg("发送成功，请注意查收");
+                    } else {
+                        layer.msg(res.message);
+                        resetVerify();
                     }
                 },
                 error: function (data) {
                     layer.msg("发送失败,请稍后再试");
+                    resetVerify();
                     console.log(data);
                 }
             });
@@ -157,7 +182,7 @@
                         }, 1000);
                         layer.msg("修改成功")
                     } else {
-                        layer.msg(res.msg);
+                        layer.msg(res.message);
                     }
                 },
                 error: function (data) {
