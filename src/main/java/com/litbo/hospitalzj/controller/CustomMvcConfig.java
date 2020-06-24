@@ -19,13 +19,16 @@ public class CustomMvcConfig implements WebMvcConfigurer {
                 .excludePathPatterns("/login.html","/userlogin.html","/qylx/**","/jglx/all","/zzinfo/insert",
                         "/suinfo/forget","/suinfo/updatePassword",
                         "/suinfo/login","/suinfo/insert","/user/login","/wjsc/**"
-                       ,"/static/**","/supplier/**","/static_fileimages/**");
+                       ,"/static/**","/supplier/**","/static_file/**","/zdhtml/**");
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static_fileimages/**")
-                .addResourceLocations("file:" + System.getProperty("user.dir") + "/static_fileimages/");
+        registry.addResourceHandler("/static_file/**")
+                .addResourceLocations("file:" + System.getProperty("user.dir") + "/static_file/");
+
+        registry.addResourceHandler("/zdhtml/**")
+                .addResourceLocations("file:" + System.getProperty("user.dir") + "/zdhtml/");
 
     }
 

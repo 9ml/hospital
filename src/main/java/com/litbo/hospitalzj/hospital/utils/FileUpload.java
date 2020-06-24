@@ -3,6 +3,7 @@ package com.litbo.hospitalzj.hospital.utils;
 import com.litbo.hospitalzj.supplier.controller.ex.FileEmptyException;
 import com.litbo.hospitalzj.supplier.controller.ex.FileSizeOutOfLimitException;
 import com.litbo.hospitalzj.supplier.controller.ex.FileTypeNotSupportException;
+import com.litbo.hospitalzj.util.PoiWordToHtml;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.util.IOUtils;
 import org.springframework.util.ResourceUtils;
@@ -75,6 +76,20 @@ public class FileUpload {
 
             return null;
         }
+        String lastName = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
+
+        try {
+            if(lastName.equals(".doc")||lastName.equals(".DOC")) {
+                PoiWordToHtml.Word2003ToHtml(filePath + uploadPathDB);
+            }else if(lastName.equals(".docx")||lastName.equals(".DOCX")){
+                PoiWordToHtml.PoiWord07ToHtml(filePath + uploadPathDB);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
         return uploadPathDB;
     }
 
@@ -114,7 +129,7 @@ public class FileUpload {
             throw new FileSizeOutOfLimitException("上传失败！文件过大");
         }
         // TODO 检查文件类型 > file.getContentType()
-        return upload("images/upload",file);
+        return upload("",file);
 //        /*if (FILE_CONTENT_TYPES.contains(
 //                file.getContentType())) {
 //            // 抛出异常：文件类型限制
