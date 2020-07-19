@@ -70,7 +70,7 @@ public interface DcsjhyMapper {
 //            "      wcxyqm_sd = #{wcxyqmSd},\n" +
 //            "      wcxyqm_xll_wc = #{wcxyqmXllWc}\n" +
 //            "    where dc_templateid = #{dcTemplateid}")
-    @Update("update dcsjhy_template_m\n" +
+    @Update("update dcsjhy_template_m\n set" +
             "      xl_test1 = #{xlTest1,jdbcType=INTEGER},\n" +
             "      xl_test2 = #{xlTest2,jdbcType=INTEGER},\n" +
             "      xl_test3 = #{xlTest3,jdbcType=INTEGER},\n" +
@@ -104,12 +104,12 @@ public interface DcsjhyMapper {
             "      wcdtxy_wc = #{wcdtxyWc,jdbcType=VARCHAR},\n" +
             "      qmxjc_wc = #{qmxjcWc,jdbcType=VARCHAR},\n" +
             "      qmxjc_yld_test1 = #{qmxjcYldTest1,jdbcType=INTEGER},\n" +
-            "      qmxjc_yld_test2 = #{qmxjcYldTest2,jdbcType=INTEGER}   "+
+            "      qmxjc_yld_test2 = #{qmxjcYldTest2,jdbcType=INTEGER}   " +
             "    where dc_templateid = #{dcTemplateid}")
     int updateM(DcsjhyTemplate dcsjhyTemplate);
 
     //成人
-    @Update("update dcsjhy_template_c\n" +
+    @Update("update dcsjhy_template_c\n set" +
             "      xl_test1 = #{xlTest1,jdbcType=INTEGER},\n" +
             "      xl_test2 = #{xlTest2,jdbcType=INTEGER},\n" +
             "      xl_test3 = #{xlTest3,jdbcType=INTEGER},\n" +
@@ -143,7 +143,7 @@ public interface DcsjhyMapper {
             "      wcdtxy_wc = #{wcdtxyWc,jdbcType=VARCHAR},\n" +
             "      qmxjc_wc = #{qmxjcWc,jdbcType=VARCHAR},\n" +
             "      qmxjc_yld_test1 = #{qmxjcYldTest1,jdbcType=INTEGER},\n" +
-            "      qmxjc_yld_test2 = #{qmxjcYldTest2,jdbcType=INTEGER}   "+
+            "      qmxjc_yld_test2 = #{qmxjcYldTest2,jdbcType=INTEGER}   " +
             "    where dc_templateid = #{dcTemplateid}")
     int updateC(DcsjhyTemplate dcsjhyTemplate);
 

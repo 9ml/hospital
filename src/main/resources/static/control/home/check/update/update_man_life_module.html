@@ -14,20 +14,23 @@
     <![endif]-->
     <script src="../../../../static/layui/layui.js"></script>
     <style>
-        .btn{
+        .btn {
             width: 100%;
             margin-top: 50px;
             margin-bottom: 30px;
             text-align: center;
         }
-        .layui-elem-field{
+
+        .layui-elem-field {
             width: 100%;
         }
-        .layui-input-block{
+
+        .layui-input-block {
             display: flex;
             align-items: center;
         }
-        b{
+
+        b {
             padding-left: 30px;
             width: 60%;
         }
@@ -44,234 +47,225 @@
                 <legend style="color: red;">心率 (次/min)</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点1</label>
+                <label class="layui-form-label">设定值1</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlTest1" id="xlTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="xlTest1" id="xlTest1" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点2</label>
+                <label class="layui-form-label">设定值2</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xlTest2" id="xlTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="xlTest2" id="xlTest2" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点3</label>
+                <label class="layui-form-label">设定值3</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xlTest3" name="xlTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xlTest3" name="xlTest3" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点4</label>
+                <label class="layui-form-label">设定值4</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xlTest4" name="xlTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xlTest4" name="xlTest4" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点5</label>
+                <label class="layui-form-label">设定值5</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xlTest5" name="xlTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xlTest5" name="xlTest5" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">允许误差</label>
+                <label class="layui-form-label">设定值6</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xlWc" name="xlWc" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">呼吸率 (次/min)</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点1</label>
-                <div class="layui-input-block">
-                    <input type="text" name="hxlTest1" id="hxlTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点2</label>
-                <div class="layui-input-block">
-                    <input type="text" name="hxlTest2" id="hxlTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点3</label>
-                <div class="layui-input-block">
-                    <input type="text" id="hxlTest3" name="hxlTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点4</label>
-                <div class="layui-input-block">
-                    <input type="text" id="hxlTest4" name="hxlTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点5</label>
-                <div class="layui-input-block">
-                    <input type="text" id="hxlTest5" name="hxlTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xlTest6" name="xlTest6" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label">允许误差</label>
                 <div class="layui-input-block">
-                    <input type="text" id="hxlWc" name="hxlWc" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xlWc" name="xlWc" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">无创血压 (mmHg)</legend>
-            </fieldset>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">测试点1</legend>
+                <legend style="color: red;">呼吸频率 (次/min)</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">高压值</label>
+                <label class="layui-form-label">设定值1</label>
                 <div class="layui-input-block">
-                    <input type="text" id="gy1" name="wcxyHTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="hxlTest1" id="hxlTest1" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">低压值</label>
+                <label class="layui-form-label">设定值2</label>
                 <div class="layui-input-block">
-                    <input type="text" id="dy1" name="wcxyLTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="hxlTest2" id="hxlTest2" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">平均压值</label>
+                <label class="layui-form-label">设定值3</label>
                 <div class="layui-input-block">
-                    <input type="text" id="pj1" name="wcxyMTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">测试点2</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">高压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="gy2" name="wcxyHTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="hxlTest3" name="hxlTest3" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">低压值</label>
+                <label class="layui-form-label">设定值4</label>
                 <div class="layui-input-block">
-                    <input type="text" id="dy2" name="wcxyLTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="hxlTest4" name="hxlTest4" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">平均压值</label>
+                <label class="layui-form-label">设定值5</label>
                 <div class="layui-input-block">
-                    <input type="text" id="pj2" name="wcxyMTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">测试点3</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">高压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="gy3" name="wcxyHTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="hxlTest5" name="hxlTest5" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">低压值</label>
+                <label class="layui-form-label">设定值6</label>
                 <div class="layui-input-block">
-                    <input type="text" id="dy3" name="wcxyLTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="hxlTest6" name="hxlTest6" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">平均压值</label>
+                <label class="layui-form-label">允许误差</label>
                 <div class="layui-input-block">
-                    <input type="text" id="pj3" name="wcxyMTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">测试点4</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">高压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="gy4" name="wcxyHTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">低压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="dy4" name="wcxyLTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">平均压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="pj4" name="wcxyMTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">测试点5</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">高压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="gy5" name="wcxyHTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">低压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="dy5" name="wcxyLTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">平均压值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="pj5" name="wcxyMTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">重复性误差 —— 3次收缩压/舒张压最大值与最小值之差</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">误差值</label>
-                <div class="layui-input-block">
-                    <input type="text" id="wcxyWc" name="wcxyWc" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="hxlWc" name="hxlWc" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">血氧饱和度(%)</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点1</label>
+                <label class="layui-form-label">设定值1</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xybhdTest1" id="xybhdTest1" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="xybhdTest1" id="xybhdTest1" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点2</label>
+                <label class="layui-form-label">设定值2</label>
                 <div class="layui-input-block">
-                    <input type="text" name="xybhdTest2" id="xybhdTest2" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" name="xybhdTest2" id="xybhdTest2" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点3</label>
+                <label class="layui-form-label">设定值3</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xybhdTest3" name="xybhdTest3" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xybhdTest3" name="xybhdTest3" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点4</label>
+                <label class="layui-form-label">设定值4</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xybhdTest4" name="xybhdTest4" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xybhdTest4" name="xybhdTest4" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试点5</label>
+                <label class="layui-form-label">设定值5</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xybhdTest5" name="xybhdTest5" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xybhdTest5" name="xybhdTest5" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
                 <label class="layui-form-label">允许误差</label>
                 <div class="layui-input-block">
-                    <input type="text" id="xybhdWc" name="xybhdWc" required  lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="xybhdWc" name="xybhdWc" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">无创血压静态示值误差 (mmHg)</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">设定值1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyJtTest1" name="wcxyJtTest1" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">设定值2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyJtTest2" name="wcxyJtTest2" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">设定值3</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyJtTest3" name="wcxyJtTest3" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">设定值4</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyJtTest4" name="wcxyJtTest4" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">设定值5</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyJtTest5" name="wcxyJtTest5" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">首次检测</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxyScWc" name="wcxyScWc" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">使用中检测</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcxySyzWc" name="wcxySyzWc" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">无创动态血压重复性 (mmHg)</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">设定值</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">高压值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcdtxySdzTest1" name="wcdtxySdzTest1" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">低压值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcdtxySdzTest2" name="wcdtxySdzTest2" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">心率</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcdtxyXl" name="wcdtxyXl" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">允许误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="wcdtxyWc" name="wcdtxyWc" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">气密性检测</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">压力点1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="qmxjcYldTest1" name="qmxjcYldTest1" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">压力点2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="qmxjcYldTest2" name="qmxjcYldTest2" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">允许误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="qmxjcWc" name="qmxjcWc" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item btn">
@@ -284,24 +278,25 @@
 </div>
 <script>
     var ids = "";
-    layui.use(['layer','jquery','form'],function(){
+    layui.use(['layer', 'jquery', 'form'], function () {
         var layer = layui.layer
-            ,$ = layui.jquery
-            ,form = layui.form;
-        $(function(){
+            , $ = layui.jquery
+            , form = layui.form;
+        $(function () {
             $.ajax({
-                url:"/jhy/findTemplateMan",
-                method:"GET",
-                dataType:"JSON",
-                success:function (res) {
+                url: "/jhy/findTemplateMan",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
                     console.log(res);
-                    if(res.data !== "" && res.data !== null){
+                    if (res.data !== "" && res.data !== null) {
                         ids = res.data.dcTemplateid;
                         $("#xlTest1").val(res.data.xlTest1);
                         $("#xlTest2").val(res.data.xlTest2);
                         $("#xlTest3").val(res.data.xlTest3);
                         $("#xlTest4").val(res.data.xlTest4);
                         $("#xlTest5").val(res.data.xlTest5);
+                        $("#xlTest6").val(res.data.xlTest6);
                         $("#xlWc").val(res.data.xlWc);
 
                         $("#hxlTest1").val(res.data.hxlTest1);
@@ -309,24 +304,9 @@
                         $("#hxlTest3").val(res.data.hxlTest3);
                         $("#hxlTest4").val(res.data.hxlTest4);
                         $("#hxlTest5").val(res.data.hxlTest5);
+                        $("#hxlTest6").val(res.data.hxlTest6);
                         $("#hxlWc").val(res.data.hxlWc);
 
-                        $("#gy1").val(res.data.wcxyHTest1);
-                        $("#dy1").val(res.data.wcxyLTest1);
-                        $("#pj1").val(res.data.wcxyMTest1);
-                        $("#gy2").val(res.data.wcxyHTest2);
-                        $("#dy2").val(res.data.wcxyLTest2);
-                        $("#pj2").val(res.data.wcxyMTest2);
-                        $("#gy3").val(res.data.wcxyHTest3);
-                        $("#dy3").val(res.data.wcxyLTest3);
-                        $("#pj3").val(res.data.wcxyMTest3);
-                        $("#gy4").val(res.data.wcxyHTest4);
-                        $("#dy4").val(res.data.wcxyLTest4);
-                        $("#pj4").val(res.data.wcxyMTest4);
-                        $("#gy5").val(res.data.wcxyHTest5);
-                        $("#dy5").val(res.data.wcxyLTest5);
-                        $("#pj5").val(res.data.wcxyMTest5);
-                        $("#wcxyWc").val(res.data.wcxyWc);
 
                         $("#xybhdTest1").val(res.data.xybhdTest1);
                         $("#xybhdTest2").val(res.data.xybhdTest2);
@@ -334,32 +314,49 @@
                         $("#xybhdTest4").val(res.data.xybhdTest4);
                         $("#xybhdTest5").val(res.data.xybhdTest5);
                         $("#xybhdWc").val(res.data.xybhdWc);
-                    }else{
+
+                        $("#wcxyJtTest1").val(res.data.wcxyJtTest1);
+                        $("#wcxyJtTest2").val(res.data.wcxyJtTest2);
+                        $("#wcxyJtTest3").val(res.data.wcxyJtTest3);
+                        $("#wcxyJtTest4").val(res.data.wcxyJtTest4);
+                        $("#wcxyJtTest5").val(res.data.wcxyJtTest5);
+                        $("#wcxySyzWc").val(res.data.wcxySyzWc);
+                        $("#wcxyScWc").val(res.data.wcxyScWc);
+
+                        $("#wcdtxySdzTest1").val(res.data.wcdtxySdzTest1);
+                        $("#wcdtxySdzTest2").val(res.data.wcdtxySdzTest2);
+                        $("#wcdtxyXl").val(res.data.wcdtxyXl);
+                        $("#wcdtxyWc").val(res.data.wcdtxyWc);
+
+                        $("#qmxjcYldTest1").val(res.data.qmxjcYldTest1);
+                        $("#qmxjcYldTest2").val(res.data.qmxjcYldTest2);
+                        $("#qmxjcWc").val(res.data.qmxjcWc);
+                    } else {
                         layer.msg("无数据");
                     }
                 },
-                error:function(data){
+                error: function (data) {
                     console.log(data);
                     layer.msg("请稍后再试");
                 }
             });
         });
         // 保存
-        form.on("submit(saveUpdate)",function(data){
+        form.on("submit(saveUpdate)", function (data) {
             console.log(data.field);
             $.ajax({
-                url:"/jhy/updateM?dcTemplateid="+ids,
-                method:"POST",
-                data:data.field,
-                dataType:"JSON",
-                success:function (res){
-                    if(res.state === 200){
+                url: "/jhy/updateM?dcTemplateid=" + ids,
+                method: "POST",
+                data: data.field,
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
                         layer.msg("修改成功");
-                    }else{
+                    } else {
                         layer.msg("修改失败");
                     }
                 },
-                error:function(data){
+                error: function (data) {
                     console.log(data);
                     layer.msg("请稍后再试");
                 }
