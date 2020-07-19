@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/hxj")
 public interface HxjService {
     //查询模板值
-    HxjTemplate findTemplate();
+    HxjTemplate findTemplate(Integer type);
 
     //修改模板值
     void updateHxjTemplate(HxjTemplate hxjTemplate);
@@ -36,7 +36,7 @@ public interface HxjService {
     List<Hxj> findByEqIdandJcyqId(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
     //查询所有
-    List<Hxj> findAll();
+    List<Hxj> findAll(Integer type);
 
     /**
      * 根据iD状态查询

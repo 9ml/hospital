@@ -42,8 +42,8 @@ public class HxjController extends BaseController {
     private EqInfoService eqInfoService;
     //查询模板值
     @RequestMapping("/findTemplate")
-    public ResponseResult<HxjTemplate> findTemplate(){
-        return new ResponseResult<HxjTemplate>(200, hxjService.findTemplate());
+    public ResponseResult<HxjTemplate> findTemplate(@RequestParam(defaultValue = "0") Integer type){
+        return new ResponseResult<HxjTemplate>(200, hxjService.findTemplate(type));
     }
     //修改模板值
     @RequestMapping("/updateTemplate")
@@ -149,8 +149,8 @@ public class HxjController extends BaseController {
     }
     //查询所有
     @RequestMapping("/findAll")
-    public ResponseResult<List<Hxj>> findAll(){
-        List<Hxj> data=hxjService.findAll();
+    public ResponseResult<List<Hxj>> findAll(@RequestParam(defaultValue = "0") Integer type){
+        List<Hxj> data=hxjService.findAll(type);
         return new ResponseResult<List<Hxj>>(200,data);
     }
     /**
