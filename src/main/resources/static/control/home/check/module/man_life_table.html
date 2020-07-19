@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>心电监护仪数据表格</title>
     <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
@@ -14,14 +15,16 @@
     <![endif]-->
     <script src="../../../../static/layui/layui.js"></script>
     <style>
-        h2{
+        h2 {
             text-align: center;
             margin-top: 30px;
         }
-        td p{
+
+        td p {
             font-weight: bold;
         }
-        .btn{
+
+        .btn {
             width: 100%;
             margin-top: 50px;
             margin-bottom: 30px;
@@ -33,68 +36,25 @@
 <div class="layui-row">
     <div class="col-xs-12">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">多参数监护仪质量检测原始记录表(成人)</legend>
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">
+                多参数监护仪质量检测原始记录表(成人)
+            </legend>
         </fieldset>
         <table class="layui-table">
             <tr>
                 <th rowspan="2" scope="row">心率(次/min)</th>
-                <td>测试点</td>
+                <td>设定值</td>
                 <td id="xlTest1"><!--30--></td>
                 <td id="xlTest2"><!--60--></td>
                 <td id="xlTest3"><!--100--></td>
                 <td id="xlTest4"><!--120--></td>
                 <td id="xlTest5"><!--180--></td>
-                <td id="xlWc"> <!--允许误差： ± 5%--> </td>
+                <td id="xlTest6"><!--200--></td>
+                <td id="xlWc" rowspan="2"> <!--允许误差： ± 5%--> </td>
             </tr>
             <tr>
-                <td>实测值</td>
+                <td>显示值</td>
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th rowspan="2" scope="row">呼吸率(次/min)</th>
-                <td>测试点</td>
-                <td id="hxlTest1"><!--15--></td>
-                <td id="hxlTest2"><!--20--></td>
-                <td id="hxlTest3"><!--40--></td>
-                <td id="hxlTest4"><!--60--></td>
-                <td id="hxlTest5"><!--80--></td>
-                <td> <!--允许误差： ± 5% --></td>
-            </tr>
-            <tr>
-                <td>实测值</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td></td>
-            </tr>
-            <tr>
-                <th rowspan="4" scope="row">无创血压(mmHg)</th>
-                <td>测试点</td>
-                <td id="wcxyHTest1"><!--75/45(55)--></td>
-                <td id="wcxyHTest2"><!--100/65(77)--></td>
-                <td id="wcxyHTest3"><!--120/80(93)--></td>
-                <td id="wcxyHTest4"><!--150/100(117)--></td>
-                <td id="wcxyHTest5"><!--180/120(140)--></td>
-                <td id="wcxyWc" rowspan="1"><!--1.重复性误差：（3次收缩压/舒张压最大值与最小值之差） ≤ 8.5mmHg --></td>
-            </tr>
-            <tr>
-                <td>实测值1</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td rowspan="3"></td>
-            </tr>
-            <tr>
-                <td>实测值2</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -102,7 +62,19 @@
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>实测值3</td>
+                <th rowspan="2" scope="row">呼吸频率(次/min)</th>
+                <td>设定值</td>
+                <td id="hxlTest1"><!--8--></td>
+                <td id="hxlTest2"><!--15--></td>
+                <td id="hxlTest3"><!--20--></td>
+                <td id="hxlTest4"><!--40--></td>
+                <td id="hxlTest5"><!--60--></td>
+                <td id="hxlTest6"><!--80--></td>
+                <td id="hxlWc" rowspan="2"> <!--允许误差： ± 5% --></td>
+            </tr>
+            <tr>
+                <td>显示值</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -111,16 +83,17 @@
             </tr>
             <tr>
                 <th rowspan="2" scope="row">血氧饱和度(%)</th>
-                <td>测试点</td>
-                <td id="xybhdTest1"><!--85--></td>
-                <td id="xybhdTest2"><!--88--></td>
-                <td id="xybhdTest3"><!--95--></td>
-                <td id="xybhdTest4"><!--98--></td>
+                <td>设定值</td>
+                <td id="xybhdTest1"><!--70--></td>
+                <td id="xybhdTest2"><!--80--></td>
+                <td id="xybhdTest3"><!--90--></td>
+                <td id="xybhdTest4"><!--95--></td>
                 <td id="xybhdTest5"><!--100--></td>
-                <td id="xybhdWc"> <!--允许误差： ± 3% --></td>
+                <td></td>
+                <td id="xybhdWc" rowspan="2"> <!--允许误差： ± 3% --></td>
             </tr>
             <tr>
-                <td>实测值</td>
+                <td>显示值</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -129,31 +102,85 @@
                 <td></td>
             </tr>
             <tr>
-                <th id="wcxyjtSd"rowspan="2" scope="row"><p>无创血压静态示值(mmHg)</p>
-                    <p>设定值150mmHg</p></th>
-                <td> 模拟器测量值 </td>
-                <td>&nbsp;</td>
-                <td id="wcxyjtWc">允许误差： ± 4mmHg</td>
-                <td rowspan="2"> 无创血压气密性</td>
-                <td> 设定值 </td>
-                <td id="wcxyqmSd">250</td>
-                <td id="wcxyqmXllWc"> 泄漏率 ≤ 6mmHg/min </td>
+                <th id="wcxyjtSd" rowspan="4" scope="row"><p>无创血压静态示值误差(mmHg)</p></th>
+                <td>设定值</td>
+                <td id="wcxyjtTest1"><!--10--></td>
+                <td id="wcxyjtTest2"><!--50--></td>
+                <td id="wcxyjtTest3"><!--100--></td>
+                <td id="wcxyjtTest4"><!--150--></td>
+                <td id="wcxyjtTest5"><!--250--></td>
+                <td></td>
+                <td id="wcxyjtWc" rowspan="4"><!--允许误差： 首次检测:±3mmHg 使用中检测:±4mmHg --></td>
             </tr>
             <tr>
-                <td> 监护仪测量值 </td>
+                <td>显示值1</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td></td>
-                <td> 泄露率测量值 </td>
+            </tr>
+            <tr>
+                <td>显示值2</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td></td>
+            </tr>
+            <tr>
+                <td>平均值</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td></td>
+            </tr>
+            <tr>
+                <th rowspan="2" scope="row">无创动态血压重复性(mmHg)</th>
+                <td>设定值</td>
+                <td scope="col" colspan="5"><span id="wcdtxySdzTest1"></span>mmHg/<span id="wcdtxySdzTest2"></span>mmHg，心率：<span id="wcdtxyXl"></span>次/min<!--75/45(55)--></td>
+                <td rowspan="1">五次显示值最大值与最小值差值</td>
+                <td rowspan="2" id="wcdtxyWc"></td>
+            </tr>
+            <tr>
+                <td>5次显示值</td>
+                <td>1:</td>
+                <td>2:</td>
+                <td>3:</td>
+                <td>4:</td>
+                <td>5:</td>
+                <td>收缩压(R收)：<span style="display: inline-block;width:50px;"></span>舒张压(R舒)：</td>
+            </tr>
+            <tr>
+                <th rowspan="3" scope="row">气密性检测</th>
+                <td>压力点</td>
+                <td colspan="3" id="qmxjcYldTest1"></td>
+                <td colspan="3" id="qmxjcYldTest2"></td>
+                <td rowspan="3" id="qmxjcWc"></td>
+            </tr>
+            <tr>
+                <td colspan="1">压力示值</td>
+                <td colspan="1">1min（P1min）:</td>
+                <td colspan="2">5min（P5min）:</td>
+                <td colspan="1">1min（P1min）:</td>
+                <td colspan="2">5min（P5min）:</td>
+            </tr>
+            <tr>
+                <td colspan="1">气密性数值</td>
+                <td colspan="3"></td>
+                <td colspan="3"></td>
             </tr>
             <tr>
                 <th scope="row">声光报警</th>
                 <td id="sgbjResult" colspan="2"></td>
-                <td>报警限制</td>
+                <td>报警限检查</td>
                 <td id="bjxjcResult" colspan="2"></td>
                 <td>静音检查</td>
-                <td id="jyjcResult"></td>
+                <td id="jyjcResult" colspan="2"></td>
             </tr>
         </table>
         <div class="col-xs-12 btn">
@@ -164,54 +191,69 @@
 </div>
 <script>
     //Demo
-    layui.use(['table','layer','jquery'],function(){
+    layui.use(['table', 'layer', 'jquery'], function () {
         var table = layui.table
             , layer = layui.layer
             , $ = layui.jquery;
-        $(function(){
+        $(function () {
             $.ajax({
-                url:"/jhy/findTemplateMan",
-                method:"GET",
-                dataType:"JSON",
-                success:function(res){
+                url: "/jhy/findTemplateMan",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
                     console.log(res);
-                    if(res.data != null && res.data != ""){
+                    if (res.data != null && res.data != "") {
+                        //心率
                         $("#xlTest1").append(res.data.xlTest1);
                         $("#xlTest2").append(res.data.xlTest2);
                         $("#xlTest3").append(res.data.xlTest3);
                         $("#xlTest4").append(res.data.xlTest4);
                         $("#xlTest5").append(res.data.xlTest5);
-                        $("#xlWc").append("允许误差： ± "+res.data.xlWc);
+                        $("#xlTest6").append(res.data.xlTest6);
+                        $("#xlWc").append("允许误差： ± " + res.data.xlWc);
+                        //呼吸频率
                         $("#hxlTest1").append(res.data.hxlTest1);
                         $("#hxlTest2").append(res.data.hxlTest2);
                         $("#hxlTest3").append(res.data.hxlTest3);
                         $("#hxlTest4").append(res.data.hxlTest4);
                         $("#hxlTest5").append(res.data.hxlTest5);
-                        $("#hxlWc").append("允许误差： ±"+res.data.hxlWc);
-                        $("#wcxyHTest1").append(res.data.wcxyHTest1+"/"+res.data.wcxyLTest1+"("+res.data.wcxyMTest1+")");
-                        $("#wcxyHTest2").append(res.data.wcxyHTest2+"/"+res.data.wcxyLTest2+"("+res.data.wcxyMTest2+")");
-                        $("#wcxyHTest3").append(res.data.wcxyHTest3+"/"+res.data.wcxyLTest3+"("+res.data.wcxyMTest3+")");
-                        $("#wcxyHTest4").append(res.data.wcxyHTest4+"/"+res.data.wcxyLTest4+"("+res.data.wcxyMTest4+")");
-                        $("#wcxyHTest5").append(res.data.wcxyHTest5+"/"+res.data.wcxyLTest5+"("+res.data.wcxyMTest5+")");
-                        $("#wcxyWc").append("重复性误差:(3次收缩压/舒张压最大值与最小值之差) ≤ "+res.data.wcxyWc +"mmHg");
+                        $("#hxlTest6").append(res.data.hxlTest6);
+                        $("#hxlWc").append("允许误差： ±" + res.data.hxlWc);
+                        //血氧饱和度
                         $("#xybhdTest1").append(res.data.xybhdTest1);
                         $("#xybhdTest2").append(res.data.xybhdTest2);
                         $("#xybhdTest3").append(res.data.xybhdTest3);
                         $("#xybhdTest4").append(res.data.xybhdTest4);
                         $("#xybhdTest5").append(res.data.xybhdTest5);
-                        $("#xybhdWc").append("允许误差： ± "+res.data.xybhdWc +"%");
-                    }else{
+                        $("#xybhdWc").append("允许误差： ± " + res.data.xybhdWc + "%");
+                        //无创血压静态
+                        $("#wcxyjtTest1").append(res.data.wcxyJtTest1);
+                        $("#wcxyjtTest2").append(res.data.wcxyJtTest2);
+                        $("#wcxyjtTest3").append(res.data.wcxyJtTest3);
+                        $("#wcxyjtTest4").append(res.data.wcxyJtTest4);
+                        $("#wcxyjtTest5").append(res.data.wcxyJtTest5);
+                        $("#wcxyjtWc").append("允许误差： 首次检测:±" + res.data.wcxyScWc + "mmHg 使用中检测:±" + res.data.wcxySyzWc + "mmHg");
+                        //无创动态血压
+                        $("#wcdtxySdzTest1").append(res.data.wcdtxySdzTest1);
+                        $("#wcdtxySdzTest2").append(res.data.wcdtxySdzTest2);
+                        $("#wcdtxyXl").append(res.data.wcdtxyXl);
+                        $("#wcdtxyWc").append(res.data.wcdtxyWc + "mmHg");
+                        //气密性
+                        $("#qmxjcYldTest1").append(res.data.qmxjcYldTest1 + "mmHg");
+                        $("#qmxjcYldTest2").append(res.data.qmxjcYldTest2 + "mmHg");
+                        $("#qmxjcWc").append("允许误差：" + res.data.qmxjcWc + "mmHg/min");
+                    } else {
                         layer.msg("无数据");
                     }
                 }
             });
         });
-     	// 修改
-        $("#update").click(function(){
-            location.href="/control/home/check/update/update_man_life_module.html";
+        // 修改
+        $("#update").click(function () {
+            location.href = "/control/home/check/update/update_man_life_module.html";
         });
         // 返回
-        $("#back").click(function(){
+        $("#back").click(function () {
             window.history.back();
         });
     });
