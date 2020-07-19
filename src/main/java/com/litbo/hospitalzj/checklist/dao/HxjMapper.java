@@ -11,8 +11,8 @@ import java.util.List;
 public interface HxjMapper {
 
     //查询模板值
-    @Select("select * from hxj_template order by hxj_template_id desc limit 1")
-    HxjTemplate findTemplate();
+    @Select("select * from hxj_template where type = #{type} order by hxj_template_id desc limit 1")
+    HxjTemplate findTemplate(Integer type);
 
     //修改模板值
     @Update("update hxj_template\n" +
@@ -72,7 +72,7 @@ public interface HxjMapper {
             "      hqm1, hqm2, hqm3, hqm_zdwc1, \n" +
             "      hqm_zdwc2, dybj, yqndsx, \n" +
             "      qybj, zxbj, qdyl, brhl, \n" +
-            "      fztql, ajgn, bz, bz1\n" +
+            "      fztql, ajgn, bz, bz1,type\n" +
             "      )\n" +
             "    values (#{hxjTemplateId,jdbcType=INTEGER}, #{bhjdzkYx,jdbcType=INTEGER}, #{jykzYx,jdbcType=INTEGER}, \n" +
             "      #{ddldZYx,jdbcType=INTEGER}, #{ddldDYx,jdbcType=INTEGER}, #{wkldZYx,jdbcType=INTEGER}, \n" +
@@ -86,7 +86,7 @@ public interface HxjMapper {
             "      #{hqm1,jdbcType=INTEGER}, #{hqm2,jdbcType=INTEGER}, #{hqm3,jdbcType=INTEGER}, #{hqmZdwc1,jdbcType=INTEGER}, \n" +
             "      #{hqmZdwc2,jdbcType=INTEGER}, #{dybj,jdbcType=INTEGER}, #{yqndsx,jdbcType=INTEGER}, \n" +
             "      #{qybj,jdbcType=INTEGER}, #{zxbj,jdbcType=INTEGER}, #{qdyl,jdbcType=INTEGER}, #{brhl,jdbcType=INTEGER}, \n" +
-            "      #{fztql,jdbcType=INTEGER}, #{ajgn,jdbcType=INTEGER}, #{bz,jdbcType=INTEGER}, #{bz1,jdbcType=INTEGER}\n" +
+            "      #{fztql,jdbcType=INTEGER}, #{ajgn,jdbcType=INTEGER}, #{bz,jdbcType=INTEGER}, #{bz1,jdbcType=INTEGER},#{type,jdbcType=INTEGER}\n" +
             "      )")
     int insertHxjTemplate(HxjTemplate hxjTemplate);
 
@@ -159,7 +159,7 @@ public interface HxjMapper {
             "      hqm3_swc, hqm_zdwc1, hqm_zdwc2, \n" +
             "      hqm_result, dybj, yqndsx, \n" +
             "      qybj, zxbj, qdyl, brhl, \n" +
-            "      fztql, ajgn, bz, bz1\n" +
+            "      fztql, ajgn, bz, bz1,type\n" +
             "      )\n" +
             "    values (#{hxjid,jdbcType=INTEGER}, #{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=INTEGER}, \n" +
             "      #{tester,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{shsjTime,jdbcType=TIMESTAMP}, \n" +
@@ -229,7 +229,7 @@ public interface HxjMapper {
             "      #{hqm3Swc,jdbcType=INTEGER}, #{hqmZdwc1,jdbcType=INTEGER}, #{hqmZdwc2,jdbcType=INTEGER}, \n" +
             "      #{hqmResult,jdbcType=INTEGER}, #{dybj,jdbcType=INTEGER}, #{yqndsx,jdbcType=INTEGER}, \n" +
             "      #{qybj,jdbcType=INTEGER}, #{zxbj,jdbcType=INTEGER}, #{qdyl,jdbcType=INTEGER}, #{brhl,jdbcType=INTEGER}, \n" +
-            "      #{fztql,jdbcType=INTEGER}, #{ajgn,jdbcType=INTEGER}, #{bz,jdbcType=INTEGER}, #{bz1,jdbcType=INTEGER}\n" +
+            "      #{fztql,jdbcType=INTEGER}, #{ajgn,jdbcType=INTEGER}, #{bz,jdbcType=INTEGER}, #{bz1,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}\n" +
             "      )")
     @Options(useGeneratedKeys = true, keyProperty = "hxjid", keyColumn = "hxjid")
     void save(Hxj hxj);
@@ -445,8 +445,8 @@ public interface HxjMapper {
         "    where hxjid = #{hxjid,jdbcType=INTEGER}")
     void updateHxj(Hxj hxj);
     //根据电气检测设备id查询设备检测表
-    @Select("select * from hxj order by hxjid desc limit 1 where eq_id = #{eqId}")
-    public Hxj findHxj(String eqId);
+    @Select("select * from hxj  order by hxjid desc limit 1 where eq_id = #{eqId}")
+    public Hxj findHxj(@Param("eqId") String eqId);
 
     /*//以id排序，查询最后一条记录
     @Select("select * from dqjc order by dqjcid desc limit 1")
@@ -462,8 +462,8 @@ public interface HxjMapper {
     List<Hxj> findByEqIdandJcyqId(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
     //查询所有
-    @Select("select * from Hxj")
-    List<Hxj> findAll();
+    @Select("select * from Hxj where type = #{type}")
+    List<Hxj> findAll(@Param("type")Integer type);
 
     /**
      * 删除电器数据

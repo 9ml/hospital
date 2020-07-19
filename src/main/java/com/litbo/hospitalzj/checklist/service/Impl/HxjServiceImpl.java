@@ -4,6 +4,7 @@ import com.litbo.hospitalzj.checklist.dao.HxjMapper;
 import com.litbo.hospitalzj.checklist.domain.Hxj;
 import com.litbo.hospitalzj.checklist.domain.HxjTemplate;
 import com.litbo.hospitalzj.checklist.service.HxjService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,8 @@ public class HxjServiceImpl implements HxjService {
 
     //查询模板值
     @Override
-    public HxjTemplate findTemplate(){
-        return hxjMapper.findTemplate();
+    public HxjTemplate findTemplate(Integer type){
+        return hxjMapper.findTemplate(type);
     }
     //修改模板值
     @Override
@@ -33,8 +34,8 @@ public class HxjServiceImpl implements HxjService {
     }
 
     //查询所有呼吸机检测数据
-    public List<Hxj> findAll(){
-        return hxjMapper.findAll();
+    public List<Hxj> findAll(Integer type){
+        return hxjMapper.findAll( type);
     }
 
     @Override
@@ -49,13 +50,13 @@ public class HxjServiceImpl implements HxjService {
 
     //保存呼吸机检测数据
     public void save(Hxj hxj){
-        BeanUtils.copyProperties(hxjMapper.findTemplate(), hxj);
+        BeanUtils.copyProperties(hxjMapper.findTemplate(hxj.getType()), hxj);
         hxjMapper.save(hxj);
     }
 
     @Override
     public void updateHxj(Hxj hxj) {
-        BeanUtils.copyProperties(hxjMapper.findTemplate(), hxj);
+        BeanUtils.copyProperties(hxjMapper.findTemplate(hxj.getType()), hxj);
         hxjMapper.updateHxj(hxj);
     }
 
