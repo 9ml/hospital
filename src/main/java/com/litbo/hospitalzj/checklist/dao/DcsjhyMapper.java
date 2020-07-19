@@ -28,154 +28,186 @@ public interface DcsjhyMapper {
     public DcsjhyTemplate findTemplateById(@Param("dcTemplateid") Integer dcTemplateid, @Param("tableName") String tableName);
 
     //修改模板表数据
+//    @Update("update dcsjhy_template_m\n" +
+//            "    set xl_test1 = #{xlTest1},\n" +
+//            "      xl_test2 = #{xlTest2},\n" +
+//            "      xl_test3 = #{xlTest3},\n" +
+//            "      xl_test4 = #{xlTest4},\n" +
+//            "      xl_test5 = #{xlTest5},\n" +
+//            "      xl_test6 = #{xlTest6},\n" +
+//            "      xl_wc = #{xlWc},\n" +
+//            "      hxl_test1 = #{hxlTest1},\n" +
+//            "      hxl_test2 = #{hxlTest2},\n" +
+//            "      hxl_test3 = #{hxlTest3},\n" +
+//            "      hxl_test4 = #{hxlTest4},\n" +
+//            "      hxl_test5 = #{hxlTest5},\n" +
+//            "      hxl_test6 = #{hxlTest6},\n" +
+//            "      hxl_wc = #{hxlWc},\n" +
+//            "      xybhd_test1 = #{xybhdTest1},\n" +
+//            "      xybhd_test2 = #{xybhdTest2},\n" +
+//            "      xybhd_test3 = #{xybhdTest3},\n" +
+//            "      xybhd_test4 = #{xybhdTest4},\n" +
+//            "      xybhd_test5 = #{xybhdTest5},\n" +
+//            "      xybhd_wc = #{xybhdWc},\n" +
+//            "      wcxy_h_test1 = #{wcxyHTest1},\n" +
+//            "      wcxy_l_test1 = #{wcxyLTest1},\n" +
+//            "      wcxy_m_test1 = #{wcxyMTest1},\n" +
+//            "      wcxy_h_test2 = #{wcxyHTest2},\n" +
+//            "      wcxy_l_test2 = #{wcxyLTest2},\n" +
+//            "      wcxy_m_test2 = #{wcxyMTest2},\n" +
+//            "      wcxy_h_test3 = #{wcxyHTest3},\n" +
+//            "      wcxy_l_test3 = #{wcxyLTest3},\n" +
+//            "      wcxy_m_test3 = #{wcxyMTest3},\n" +
+//            "      wcxy_h_test4 = #{wcxyHTest4},\n" +
+//            "      wcxy_l_test4 = #{wcxyLTest4},\n" +
+//            "      wcxy_m_test4 = #{wcxyMTest4},\n" +
+//            "      wcxy_h_test5 = #{wcxyHTest5},\n" +
+//            "      wcxy_l_test5 = #{wcxyLTest5},\n" +
+//            "      wcxy_m_test5 = #{wcxyMTest5},\n" +
+//            "      wcxy_wc = #{wcxyWc},\n" +
+//            "      wcxyjt_sd = #{wcxyjtSd},\n" +
+//            "      wcxyjt_wc = #{wcxyjtWc},\n" +
+//            "      wcxyqm_sd = #{wcxyqmSd},\n" +
+//            "      wcxyqm_xll_wc = #{wcxyqmXllWc}\n" +
+//            "    where dc_templateid = #{dcTemplateid}")
     @Update("update dcsjhy_template_m\n" +
-            "    set xl_test1 = #{xlTest1},\n" +
-            "      xl_test2 = #{xlTest2},\n" +
-            "      xl_test3 = #{xlTest3},\n" +
-            "      xl_test4 = #{xlTest4},\n" +
-            "      xl_test5 = #{xlTest5},\n" +
-            "      xl_wc = #{xlWc},\n" +
-            "      hxl_test1 = #{hxlTest1},\n" +
-            "      hxl_test2 = #{hxlTest2},\n" +
-            "      hxl_test3 = #{hxlTest3},\n" +
-            "      hxl_test4 = #{hxlTest4},\n" +
-            "      hxl_test5 = #{hxlTest5},\n" +
-            "      hxl_wc = #{hxlWc},\n" +
-            "      xybhd_test1 = #{xybhdTest1},\n" +
-            "      xybhd_test2 = #{xybhdTest2},\n" +
-            "      xybhd_test3 = #{xybhdTest3},\n" +
-            "      xybhd_test4 = #{xybhdTest4},\n" +
-            "      xybhd_test5 = #{xybhdTest5},\n" +
-            "      xybhd_wc = #{xybhdWc},\n" +
-            "      wcxy_h_test1 = #{wcxyHTest1},\n" +
-            "      wcxy_l_test1 = #{wcxyLTest1},\n" +
-            "      wcxy_m_test1 = #{wcxyMTest1},\n" +
-            "      wcxy_h_test2 = #{wcxyHTest2},\n" +
-            "      wcxy_l_test2 = #{wcxyLTest2},\n" +
-            "      wcxy_m_test2 = #{wcxyMTest2},\n" +
-            "      wcxy_h_test3 = #{wcxyHTest3},\n" +
-            "      wcxy_l_test3 = #{wcxyLTest3},\n" +
-            "      wcxy_m_test3 = #{wcxyMTest3},\n" +
-            "      wcxy_h_test4 = #{wcxyHTest4},\n" +
-            "      wcxy_l_test4 = #{wcxyLTest4},\n" +
-            "      wcxy_m_test4 = #{wcxyMTest4},\n" +
-            "      wcxy_h_test5 = #{wcxyHTest5},\n" +
-            "      wcxy_l_test5 = #{wcxyLTest5},\n" +
-            "      wcxy_m_test5 = #{wcxyMTest5},\n" +
-            "      wcxy_wc = #{wcxyWc},\n" +
-            "      wcxyjt_sd = #{wcxyjtSd},\n" +
-            "      wcxyjt_wc = #{wcxyjtWc},\n" +
-            "      wcxyqm_sd = #{wcxyqmSd},\n" +
-            "      wcxyqm_xll_wc = #{wcxyqmXllWc}\n" +
+            "      xl_test1 = #{record.xlTest1,jdbcType=INTEGER},\n" +
+            "      xl_test2 = #{record.xlTest2,jdbcType=INTEGER},\n" +
+            "      xl_test3 = #{record.xlTest3,jdbcType=INTEGER},\n" +
+            "      xl_test4 = #{record.xlTest4,jdbcType=INTEGER},\n" +
+            "      xl_test5 = #{record.xlTest5,jdbcType=INTEGER},\n" +
+            "      xl_test6 = #{record.xlTest6,jdbcType=INTEGER},\n" +
+            "      xl_wc = #{record.xlWc,jdbcType=VARCHAR},\n" +
+            "      hxl_test1 = #{record.hxlTest1,jdbcType=INTEGER},\n" +
+            "      hxl_test2 = #{record.hxlTest2,jdbcType=INTEGER},\n" +
+            "      hxl_test3 = #{record.hxlTest3,jdbcType=INTEGER},\n" +
+            "      hxl_test4 = #{record.hxlTest4,jdbcType=INTEGER},\n" +
+            "      hxl_test5 = #{record.hxlTest5,jdbcType=INTEGER},\n" +
+            "      hxl_test6 = #{record.hxlTest6,jdbcType=INTEGER},\n" +
+            "      hxl_wc = #{record.hxlWc,jdbcType=VARCHAR},\n" +
+            "      xybhd_test1 = #{record.xybhdTest1,jdbcType=INTEGER},\n" +
+            "      xybhd_test2 = #{record.xybhdTest2,jdbcType=INTEGER},\n" +
+            "      xybhd_test3 = #{record.xybhdTest3,jdbcType=INTEGER},\n" +
+            "      xybhd_test4 = #{record.xybhdTest4,jdbcType=INTEGER},\n" +
+            "      xybhd_test5 = #{record.xybhdTest5,jdbcType=INTEGER},\n" +
+            "      xybhd_wc = #{record.xybhdWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_jt_test1 = #{record.wcxyJtTest1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test2 = #{record.wcxyJtTest2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test3 = #{record.wcxyJtTest3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test4 = #{record.wcxyJtTest4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test5 = #{record.wcxyJtTest5,jdbcType=INTEGER},\n" +
+            "      wcxy_syz_wc = #{record.wcxySyzWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_sc_wc = #{record.wcxyScWc,jdbcType=VARCHAR},\n" +
+            "      wcdtxy_sdz_test1 = #{record.wcdtxySdzTest1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test2 = #{record.wcdtxySdzTest2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_xl = #{record.wcdtxyXl,jdbcType=INTEGER},\n" +
+            "      wcdtxy_wc = #{record.wcdtxyWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_wc = #{record.qmxjcWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_yld_test1 = #{record.qmxjcYldTest1,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test2 = #{record.qmxjcYldTest2,jdbcType=INTEGER}   "+
             "    where dc_templateid = #{dcTemplateid}")
     int updateM(DcsjhyTemplate dcsjhyTemplate);
 
     //成人
     @Update("update dcsjhy_template_c\n" +
-            "    set xl_test1 = #{xlTest1},\n" +
-            "      xl_test2 = #{xlTest2},\n" +
-            "      xl_test3 = #{xlTest3},\n" +
-            "      xl_test4 = #{xlTest4},\n" +
-            "      xl_test5 = #{xlTest5},\n" +
-            "      xl_wc = #{xlWc},\n" +
-            "      hxl_test1 = #{hxlTest1},\n" +
-            "      hxl_test2 = #{hxlTest2},\n" +
-            "      hxl_test3 = #{hxlTest3},\n" +
-            "      hxl_test4 = #{hxlTest4},\n" +
-            "      hxl_test5 = #{hxlTest5},\n" +
-            "      hxl_wc = #{hxlWc},\n" +
-            "      xybhd_test1 = #{xybhdTest1},\n" +
-            "      xybhd_test2 = #{xybhdTest2},\n" +
-            "      xybhd_test3 = #{xybhdTest3},\n" +
-            "      xybhd_test4 = #{xybhdTest4},\n" +
-            "      xybhd_test5 = #{xybhdTest5},\n" +
-            "      xybhd_wc = #{xybhdWc},\n" +
-            "      wcxy_h_test1 = #{wcxyHTest1},\n" +
-            "      wcxy_l_test1 = #{wcxyLTest1},\n" +
-            "      wcxy_m_test1 = #{wcxyMTest1},\n" +
-            "      wcxy_h_test2 = #{wcxyHTest2},\n" +
-            "      wcxy_l_test2 = #{wcxyLTest2},\n" +
-            "      wcxy_m_test2 = #{wcxyMTest2},\n" +
-            "      wcxy_h_test3 = #{wcxyHTest3},\n" +
-            "      wcxy_l_test3 = #{wcxyLTest3},\n" +
-            "      wcxy_m_test3 = #{wcxyMTest3},\n" +
-            "      wcxy_h_test4 = #{wcxyHTest4},\n" +
-            "      wcxy_l_test4 = #{wcxyLTest4},\n" +
-            "      wcxy_m_test4 = #{wcxyMTest4},\n" +
-            "      wcxy_h_test5 = #{wcxyHTest5},\n" +
-            "      wcxy_l_test5 = #{wcxyLTest5},\n" +
-            "      wcxy_m_test5 = #{wcxyMTest5},\n" +
-            "      wcxy_wc = #{wcxyWc},\n" +
-            "      wcxyjt_sd = #{wcxyjtSd},\n" +
-            "      wcxyjt_wc = #{wcxyjtWc},\n" +
-            "      wcxyqm_sd = #{wcxyqmSd},\n" +
-            "      wcxyqm_xll_wc = #{wcxyqmXllWc}\n" +
+            "      xl_test1 = #{record.xlTest1,jdbcType=INTEGER},\n" +
+            "      xl_test2 = #{record.xlTest2,jdbcType=INTEGER},\n" +
+            "      xl_test3 = #{record.xlTest3,jdbcType=INTEGER},\n" +
+            "      xl_test4 = #{record.xlTest4,jdbcType=INTEGER},\n" +
+            "      xl_test5 = #{record.xlTest5,jdbcType=INTEGER},\n" +
+            "      xl_test6 = #{record.xlTest6,jdbcType=INTEGER},\n" +
+            "      xl_wc = #{record.xlWc,jdbcType=VARCHAR},\n" +
+            "      hxl_test1 = #{record.hxlTest1,jdbcType=INTEGER},\n" +
+            "      hxl_test2 = #{record.hxlTest2,jdbcType=INTEGER},\n" +
+            "      hxl_test3 = #{record.hxlTest3,jdbcType=INTEGER},\n" +
+            "      hxl_test4 = #{record.hxlTest4,jdbcType=INTEGER},\n" +
+            "      hxl_test5 = #{record.hxlTest5,jdbcType=INTEGER},\n" +
+            "      hxl_test6 = #{record.hxlTest6,jdbcType=INTEGER},\n" +
+            "      hxl_wc = #{record.hxlWc,jdbcType=VARCHAR},\n" +
+            "      xybhd_test1 = #{record.xybhdTest1,jdbcType=INTEGER},\n" +
+            "      xybhd_test2 = #{record.xybhdTest2,jdbcType=INTEGER},\n" +
+            "      xybhd_test3 = #{record.xybhdTest3,jdbcType=INTEGER},\n" +
+            "      xybhd_test4 = #{record.xybhdTest4,jdbcType=INTEGER},\n" +
+            "      xybhd_test5 = #{record.xybhdTest5,jdbcType=INTEGER},\n" +
+            "      xybhd_wc = #{record.xybhdWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_jt_test1 = #{record.wcxyJtTest1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test2 = #{record.wcxyJtTest2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test3 = #{record.wcxyJtTest3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test4 = #{record.wcxyJtTest4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test5 = #{record.wcxyJtTest5,jdbcType=INTEGER},\n" +
+            "      wcxy_syz_wc = #{record.wcxySyzWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_sc_wc = #{record.wcxyScWc,jdbcType=VARCHAR},\n" +
+            "      wcdtxy_sdz_test1 = #{record.wcdtxySdzTest1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test2 = #{record.wcdtxySdzTest2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_xl = #{record.wcdtxyXl,jdbcType=INTEGER},\n" +
+            "      wcdtxy_wc = #{record.wcdtxyWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_wc = #{record.qmxjcWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_yld_test1 = #{record.qmxjcYldTest1,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test2 = #{record.qmxjcYldTest2,jdbcType=INTEGER}   "+
             "    where dc_templateid = #{dcTemplateid}")
     int updateC(DcsjhyTemplate dcsjhyTemplate);
 
     //插入模板表数据
-    @Insert(" insert into dcsjhy_template_m (dc_templateid, xl_test1, xl_test2, \n" +
+    @Insert(" insert into dcsjhy_template_m (xl_test1, xl_test2, \n" +
             "      xl_test3, xl_test4, xl_test5, \n" +
-            "      xl_wc, hxl_test1, hxl_test2, \n" +
-            "      hxl_test3, hxl_test4, hxl_test5, \n" +
-            "      hxl_wc, xybhd_test1, xybhd_test2, \n" +
-            "      xybhd_test3, xybhd_test4, xybhd_test5, \n" +
-            "      xybhd_wc, wcxy_h_test1, wcxy_l_test1, \n" +
-            "      wcxy_m_test1, wcxy_h_test2, wcxy_l_test2, \n" +
-            "      wcxy_m_test2, wcxy_h_test3, wcxy_l_test3, \n" +
-            "      wcxy_m_test3, wcxy_h_test4, wcxy_l_test4, \n" +
-            "      wcxy_m_test4, wcxy_h_test5, wcxy_l_test5, \n" +
-            "      wcxy_m_test5, wcxy_wc, wcxyjt_sd, \n" +
-            "      wcxyjt_wc, wcxyqm_sd, wcxyqm_xll_wc\n" +
+            "      xl_test6, xl_wc, hxl_test1, \n" +
+            "      hxl_test2, hxl_test3, hxl_test4, \n" +
+            "      hxl_test5, hxl_test6, hxl_wc, \n" +
+            "      xybhd_test1, xybhd_test2, xybhd_test3, \n" +
+            "      xybhd_test4, xybhd_test5, xybhd_wc, \n" +
+            "      wcxy_jt_test1, wcxy_jt_test2, wcxy_jt_test3, \n" +
+            "      wcxy_jt_test4, wcxy_jt_test5, wcxy_syz_wc, \n" +
+            "      wcxy_sc_wc, wcdtxy_sdz_test1, wcdtxy_sdz_test2, \n" +
+            "      wcdtxy_xl, wcdtxy_wc, qmxjc_wc, \n" +
+            "      qmxjc_yld_test1, qmxjc_yld_test2" +
             "      )\n" +
-            "    values (#{dcTemplateid}, #{xlTest1}, #{xlTest2}, \n" +
-            "      #{xlTest3}, #{xlTest4}, #{xlTest5}, \n" +
-            "      #{xlWc}, #{hxlTest1}, #{hxlTest2}, \n" +
-            "      #{hxlTest3}, #{hxlTest4}, #{hxlTest5}, \n" +
-            "      #{hxlWc}, #{xybhdTest1}, #{xybhdTest2}, \n" +
-            "      #{xybhdTest3}, #{xybhdTest4}, #{xybhdTest5}, \n" +
-            "      #{xybhdWc}, #{wcxyHTest1}, #{wcxyLTest1}, \n" +
-            "      #{wcxyMTest1}, #{wcxyHTest2}, #{wcxyLTest2}, \n" +
-            "      #{wcxyMTest2}, #{wcxyHTest3}, #{wcxyLTest3}, \n" +
-            "      #{wcxyMTest3}, #{wcxyHTest4}, #{wcxyLTest4}, \n" +
-            "      #{wcxyMTest4}, #{wcxyHTest5}, #{wcxyLTest5}, \n" +
-            "      #{wcxyMTest5}, #{wcxyWc}, #{wcxyjtSd}, \n" +
-            "      #{wcxyjtWc}, #{wcxyqmSd}, #{wcxyqmXllWc}\n" +
+            "    values ( #{xlTest1,jdbcType=INTEGER}, #{xlTest2,jdbcType=INTEGER}, \n" +
+            "      #{xlTest3,jdbcType=INTEGER}, #{xlTest4,jdbcType=INTEGER}, #{xlTest5,jdbcType=INTEGER}, \n" +
+            "      #{xlTest6,jdbcType=INTEGER}, #{xlWc,jdbcType=VARCHAR}, #{hxlTest1,jdbcType=INTEGER}, \n" +
+            "      #{hxlTest2,jdbcType=INTEGER}, #{hxlTest3,jdbcType=INTEGER}, #{hxlTest4,jdbcType=INTEGER}, \n" +
+            "      #{hxlTest5,jdbcType=INTEGER}, #{hxlTest6,jdbcType=INTEGER}, #{hxlWc,jdbcType=VARCHAR}, \n" +
+            "      #{xybhdTest1,jdbcType=INTEGER}, #{xybhdTest2,jdbcType=INTEGER}, #{xybhdTest3,jdbcType=INTEGER}, \n" +
+            "      #{xybhdTest4,jdbcType=INTEGER}, #{xybhdTest5,jdbcType=INTEGER}, #{xybhdWc,jdbcType=VARCHAR}, \n" +
+            "      #{wcxyJtTest1,jdbcType=INTEGER}, #{wcxyJtTest2,jdbcType=INTEGER}, #{wcxyJtTest3,jdbcType=INTEGER}, \n" +
+            "      #{wcxyJtTest4,jdbcType=INTEGER}, #{wcxyJtTest5,jdbcType=INTEGER}, #{wcxySyzWc,jdbcType=VARCHAR}, \n" +
+            "      #{wcxyScWc,jdbcType=VARCHAR}, #{wcdtxySdzTest1,jdbcType=INTEGER}, #{wcdtxySdzTest2,jdbcType=INTEGER}, \n" +
+            "      #{wcdtxyXl,jdbcType=INTEGER}, #{wcdtxyWc,jdbcType=VARCHAR}, #{qmxjcWc,jdbcType=VARCHAR}, \n" +
+            "      #{qmxjcYldTest1,jdbcType=INTEGER}, #{qmxjcYldTest2,jdbcType=INTEGER}" +
             "      )")
+    @Options(useGeneratedKeys = true, keyProperty = "dcTemplateid", keyColumn = "dc_templateid")
     int insertM(DcsjhyTemplate dcsjhyTemplate);
 
-    @Insert(" insert into dcsjhy_template_c (dc_templateid, xl_test1, xl_test2, \n" +
+    @Insert(" insert into dcsjhy_template_c ( xl_test1, xl_test2, \n" +
             "      xl_test3, xl_test4, xl_test5, \n" +
-            "      xl_wc, hxl_test1, hxl_test2, \n" +
-            "      hxl_test3, hxl_test4, hxl_test5, \n" +
-            "      hxl_wc, xybhd_test1, xybhd_test2, \n" +
-            "      xybhd_test3, xybhd_test4, xybhd_test5, \n" +
-            "      xybhd_wc, wcxy_h_test1, wcxy_l_test1, \n" +
-            "      wcxy_m_test1, wcxy_h_test2, wcxy_l_test2, \n" +
-            "      wcxy_m_test2, wcxy_h_test3, wcxy_l_test3, \n" +
-            "      wcxy_m_test3, wcxy_h_test4, wcxy_l_test4, \n" +
-            "      wcxy_m_test4, wcxy_h_test5, wcxy_l_test5, \n" +
-            "      wcxy_m_test5, wcxy_wc, wcxyjt_sd, \n" +
-            "      wcxyjt_wc, wcxyqm_sd, wcxyqm_xll_wc\n" +
+            "      xl_test6, xl_wc, hxl_test1, \n" +
+            "      hxl_test2, hxl_test3, hxl_test4, \n" +
+            "      hxl_test5, hxl_test6, hxl_wc, \n" +
+            "      xybhd_test1, xybhd_test2, xybhd_test3, \n" +
+            "      xybhd_test4, xybhd_test5, xybhd_wc, \n" +
+            "      wcxy_jt_test1, wcxy_jt_test2, wcxy_jt_test3, \n" +
+            "      wcxy_jt_test4, wcxy_jt_test5, wcxy_syz_wc, \n" +
+            "      wcxy_sc_wc, wcdtxy_sdz_test1, wcdtxy_sdz_test2, \n" +
+            "      wcdtxy_xl, wcdtxy_wc, qmxjc_wc, \n" +
+            "      qmxjc_yld_test1, qmxjc_yld_test2" +
             "      )\n" +
-            "    values (#{dcTemplateid}, #{xlTest1}, #{xlTest2}, \n" +
-            "      #{xlTest3}, #{xlTest4}, #{xlTest5}, \n" +
-            "      #{xlWc}, #{hxlTest1}, #{hxlTest2}, \n" +
-            "      #{hxlTest3}, #{hxlTest4}, #{hxlTest5}, \n" +
-            "      #{hxlWc}, #{xybhdTest1}, #{xybhdTest2}, \n" +
-            "      #{xybhdTest3}, #{xybhdTest4}, #{xybhdTest5}, \n" +
-            "      #{xybhdWc}, #{wcxyHTest1}, #{wcxyLTest1}, \n" +
-            "      #{wcxyMTest1}, #{wcxyHTest2}, #{wcxyLTest2}, \n" +
-            "      #{wcxyMTest2}, #{wcxyHTest3}, #{wcxyLTest3}, \n" +
-            "      #{wcxyMTest3}, #{wcxyHTest4}, #{wcxyLTest4}, \n" +
-            "      #{wcxyMTest4}, #{wcxyHTest5}, #{wcxyLTest5}, \n" +
-            "      #{wcxyMTest5}, #{wcxyWc}, #{wcxyjtSd}, \n" +
-            "      #{wcxyjtWc}, #{wcxyqmSd}, #{wcxyqmXllWc}\n" +
+            "    values ( #{xlTest1,jdbcType=INTEGER}, #{xlTest2,jdbcType=INTEGER}, \n" +
+            "      #{xlTest3,jdbcType=INTEGER}, #{xlTest4,jdbcType=INTEGER}, #{xlTest5,jdbcType=INTEGER}, \n" +
+            "      #{xlTest6,jdbcType=INTEGER}, #{xlWc,jdbcType=VARCHAR}, #{hxlTest1,jdbcType=INTEGER}, \n" +
+            "      #{hxlTest2,jdbcType=INTEGER}, #{hxlTest3,jdbcType=INTEGER}, #{hxlTest4,jdbcType=INTEGER}, \n" +
+            "      #{hxlTest5,jdbcType=INTEGER}, #{hxlTest6,jdbcType=INTEGER}, #{hxlWc,jdbcType=VARCHAR}, \n" +
+            "      #{xybhdTest1,jdbcType=INTEGER}, #{xybhdTest2,jdbcType=INTEGER}, #{xybhdTest3,jdbcType=INTEGER}, \n" +
+            "      #{xybhdTest4,jdbcType=INTEGER}, #{xybhdTest5,jdbcType=INTEGER}, #{xybhdWc,jdbcType=VARCHAR}, \n" +
+            "      #{wcxyJtTest1,jdbcType=INTEGER}, #{wcxyJtTest2,jdbcType=INTEGER}, #{wcxyJtTest3,jdbcType=INTEGER}, \n" +
+            "      #{wcxyJtTest4,jdbcType=INTEGER}, #{wcxyJtTest5,jdbcType=INTEGER}, #{wcxySyzWc,jdbcType=VARCHAR}, \n" +
+            "      #{wcxyScWc,jdbcType=VARCHAR}, #{wcdtxySdzTest1,jdbcType=INTEGER}, #{wcdtxySdzTest2,jdbcType=INTEGER}, \n" +
+            "      #{wcdtxyXl,jdbcType=INTEGER}, #{wcdtxyWc,jdbcType=VARCHAR}, #{qmxjcWc,jdbcType=VARCHAR}, \n" +
+            "      #{qmxjcYldTest1,jdbcType=INTEGER}, #{qmxjcYldTest2,jdbcType=INTEGER}" +
             "      )")
+    @Options(useGeneratedKeys = true, keyProperty = "dcTemplateid", keyColumn = "dc_templateid")
     int insertC(DcsjhyTemplate dcsjhyTemplate);
 
     //保存多参数监护仪检测表(成人)
-    @Insert("insert into dcsjhy_m (dcid, jcyq_id, eq_id,tester, auditor,shsj_time, test_time,shr_jcjl,jcjl, jcsm, xl_test1,                         "
+    @Insert("insert into dcsjhy_m ( jcyq_id, eq_id,tester, auditor,shsj_time, test_time,shr_jcjl,jcjl, jcsm, xl_test1,                         "
             + "xl_test2, xl_test3, xl_test4, xl_test5, xl_value1, xl_value2,  xl_value3, xl_value4, xl_value5,                         "
             + "xl_wc, xl_result, hxl_test1,  hxl_test2, hxl_test3, hxl_test4, hxl_test5, hxl_value1, hxl_value2,                       "
             + "hxl_value3, hxl_value4, hxl_value5, hxl_wc, hxl_result, xybhd_test1,xybhd_test2, xybhd_test3, xybhd_test4,              "
@@ -192,7 +224,7 @@ public interface DcsjhyMapper {
             + "wcxy_m_value33, wcxy_l_value33, wcxy_h_value34, wcxy_m_value34, wcxy_l_value34, wcxy_h_value35,                         "
             + "wcxy_m_value35, wcxy_l_value35, wcxy_wc, wcxy_result, wcxyjt_sd, wcxyjt_mnq, wcxyjt_jhy, wcxyjt_wc, wcxyjt_result,      "
             + "wcxyqm_sd, wcxyqm_xll, wcxyqm_wc,  wcxyqm_result, sgbj_result, bjxjc_result, jyjc_result, state, spare2,  spare3)      "
-            + "values (#{dcid}, #{jcyqId}, #{eqId},                                 "
+            + "values (#{jcyqId}, #{eqId},                                 "
             + "#{tester}, #{auditor}, #{shsjTime},#{testTime},                                "
             + "#{shrJcjl},#{jcjl}, #{jcsm}, #{xlTest1},                                        "
             + "#{xlTest2}, #{xlTest3}, #{xlTest4},                                  "
@@ -237,133 +269,111 @@ public interface DcsjhyMapper {
     public void saveMan(Dcsjhy dcsjhy);
 
     @Update("update dcsjhy_m\n" +
-            "    set jcyq_id = #{jcyqId},\n" +
-            "      eq_id = #{eqId},\n" +
-            "      tester = #{tester},\n" +
-            "      test_time = #{testTime},\n" +
-            "      auditor = #{auditor},\n" +
-            "      shsj_time = #{shsjTime},\n" +
-            "      shr_jcjl = #{shrJcjl},\n" +
-            "      jcjl = #{jcjl},\n" +
-            "      jcsm = #{jcsm},\n" +
-            "      xl_test1 = #{xlTest1},\n" +
-            "      xl_test2 = #{xlTest2},\n" +
-            "      xl_test3 = #{xlTest3},\n" +
-            "      xl_test4 = #{xlTest4},\n" +
-            "      xl_test5 = #{xlTest5},\n" +
-            "      xl_value1 = #{xlValue1},\n" +
-            "      xl_value2 = #{xlValue2},\n" +
-            "      xl_value3 = #{xlValue3},\n" +
-            "      xl_value4 = #{xlValue4},\n" +
-            "      xl_value5 = #{xlValue5},\n" +
-            "      xl_wc = #{xlWc},\n" +
-            "      xl_result = #{xlResult},\n" +
-            "      hxl_test1 = #{hxlTest1},\n" +
-            "      hxl_test2 = #{hxlTest2},\n" +
-            "      hxl_test3 = #{hxlTest3},\n" +
-            "      hxl_test4 = #{hxlTest4},\n" +
-            "      hxl_test5 = #{hxlTest5},\n" +
-            "      hxl_value1 = #{hxlValue1},\n" +
-            "      hxl_value2 = #{hxlValue2},\n" +
-            "      hxl_value3 = #{hxlValue3},\n" +
-            "      hxl_value4 = #{hxlValue4},\n" +
-            "      hxl_value5 = #{hxlValue5},\n" +
-            "      hxl_wc = #{hxlWc},\n" +
-            "      hxl_result = #{hxlResult},\n" +
-            "      xybhd_test1 = #{xybhdTest1},\n" +
-            "      xybhd_test2 = #{xybhdTest2},\n" +
-            "      xybhd_test3 = #{xybhdTest3},\n" +
-            "      xybhd_test4 = #{xybhdTest4},\n" +
-            "      xybhd_test5 = #{xybhdTest5},\n" +
-            "      xybhd_value1 = #{xybhdValue1},\n" +
-            "      xybhd_value2 = #{xybhdValue2},\n" +
-            "      xybhd_value3 = #{xybhdValue3},\n" +
-            "      xybhd_value4 = #{xybhdValue4},\n" +
-            "      xybhd_value5 = #{xybhdValue5},\n" +
-            "      xybhd_wc = #{xybhdWc},\n" +
-            "      xybhd_result = #{xybhdResult},\n" +
-            "      wcxy_h_test1 = #{wcxyHTest1},\n" +
-            "      wcxy_m_test1 = #{wcxyMTest1},\n" +
-            "      wcxy_l_test1 = #{wcxyLTest1},\n" +
-            "      wcxy_h_test2 = #{wcxyHTest2},\n" +
-            "      wcxy_m_test2 = #{wcxyMTest2},\n" +
-            "      wcxy_l_test2 = #{wcxyLTest2},\n" +
-            "      wcxy_h_test3 = #{wcxyHTest3},\n" +
-            "      wcxy_m_test3 = #{wcxyMTest3},\n" +
-            "      wcxy_l_test3 = #{wcxyLTest3},\n" +
-            "      wcxy_h_test4 = #{wcxyHTest4},\n" +
-            "      wcxy_m_test4 = #{wcxyMTest4},\n" +
-            "      wcxy_l_test4 = #{wcxyLTest4},\n" +
-            "      wcxy_h_test5 = #{wcxyHTest5},\n" +
-            "      wcxy_m_test5 = #{wcxyMTest5},\n" +
-            "      wcxy_l_test5 = #{wcxyLTest5},\n" +
-            "      wcxy_h_value11 = #{wcxyHValue11},\n" +
-            "      wcxy_m_value11 = #{wcxyMValue11},\n" +
-            "      wcxy_l_value11 = #{wcxyLValue11},\n" +
-            "      wcxy_h_value12 = #{wcxyHValue12},\n" +
-            "      wcxy_m_value12 = #{wcxyMValue12},\n" +
-            "      wcxy_l_value12 = #{wcxyLValue12},\n" +
-            "      wcxy_h_value13 = #{wcxyHValue13},\n" +
-            "      wcxy_m_value13 = #{wcxyMValue13},\n" +
-            "      wcxy_l_value13 = #{wcxyLValue13},\n" +
-            "      wcxy_h_value14 = #{wcxyHValue14},\n" +
-            "      wcxy_m_value14 = #{wcxyMValue14},\n" +
-            "      wcxy_l_value14 = #{wcxyLValue14},\n" +
-            "      wcxy_h_value15 = #{wcxyHValue15},\n" +
-            "      wcxy_m_value15 = #{wcxyMValue15},\n" +
-            "      wcxy_l_value15 = #{wcxyLValue15},\n" +
-            "      wcxy_h_value21 = #{wcxyHValue21},\n" +
-            "      wcxy_m_value21 = #{wcxyMValue21},\n" +
-            "      wcxy_l_value21 = #{wcxyLValue21},\n" +
-            "      wcxy_h_value22 = #{wcxyHValue22},\n" +
-            "      wcxy_m_value22 = #{wcxyMValue22},\n" +
-            "      wcxy_l_value22 = #{wcxyLValue22},\n" +
-            "      wcxy_h_value23 = #{wcxyHValue23},\n" +
-            "      wcxy_m_value23 = #{wcxyMValue23},\n" +
-            "      wcxy_l_value23 = #{wcxyLValue23},\n" +
-            "      wcxy_h_value24 = #{wcxyHValue24},\n" +
-            "      wcxy_m_value24 = #{wcxyMValue24},\n" +
-            "      wcxy_l_value24 = #{wcxyLValue24},\n" +
-            "      wcxy_h_value25 = #{wcxyHValue25},\n" +
-            "      wcxy_m_value25 = #{wcxyMValue25},\n" +
-            "      wcxy_l_value25 = #{wcxyLValue25},\n" +
-            "      wcxy_h_value31 = #{wcxyHValue31},\n" +
-            "      wcxy_m_value31 = #{wcxyMValue31},\n" +
-            "      wcxy_l_value31 = #{wcxyLValue31},\n" +
-            "      wcxy_h_value32 = #{wcxyHValue32},\n" +
-            "      wcxy_m_value32 = #{wcxyMValue32},\n" +
-            "      wcxy_l_value32 = #{wcxyLValue32},\n" +
-            "      wcxy_h_value33 = #{wcxyHValue33},\n" +
-            "      wcxy_m_value33 = #{wcxyMValue33},\n" +
-            "      wcxy_l_value33 = #{wcxyLValue33},\n" +
-            "      wcxy_h_value34 = #{wcxyHValue34},\n" +
-            "      wcxy_m_value34 = #{wcxyMValue34},\n" +
-            "      wcxy_l_value34 = #{wcxyLValue34},\n" +
-            "      wcxy_h_value35 = #{wcxyHValue35},\n" +
-            "      wcxy_m_value35 = #{wcxyMValue35},\n" +
-            "      wcxy_l_value35 = #{wcxyLValue35},\n" +
-            "      wcxy_wc = #{wcxyWc},\n" +
-            "      wcxy_result = #{wcxyResult},\n" +
-            "      wcxyjt_sd = #{wcxyjtSd},\n" +
-            "      wcxyjt_mnq = #{wcxyjtMnq},\n" +
-            "      wcxyjt_jhy = #{wcxyjtJhy},\n" +
-            "      wcxyjt_wc = #{wcxyjtWc},\n" +
-            "      wcxyjt_result = #{wcxyjtResult},\n" +
-            "      wcxyqm_sd = #{wcxyqmSd},\n" +
-            "      wcxyqm_xll = #{wcxyqmXll},\n" +
-            "      wcxyqm_wc = #{wcxyqmWc},\n" +
-            "      wcxyqm_result = #{wcxyqmResult},\n" +
-            "      sgbj_result = #{sgbjResult},\n" +
-            "      bjxjc_result = #{bjxjcResult},\n" +
-            "      jyjc_result = #{jyjcResult},\n" +
-            "      state = #{state},\n" +
-            "      spare2 = #{spare2},\n" +
-            "      spare3 = #{spare3}\n" +
+            "    set jcyq_id = #{record.jcyqId,jdbcType=INTEGER},\n" +
+            "      eq_id = #{record.eqId,jdbcType=INTEGER},\n" +
+            "      tester = #{record.tester,jdbcType=VARCHAR},\n" +
+            "      test_time = #{record.testTime,jdbcType=TIMESTAMP},\n" +
+            "      auditor = #{record.auditor,jdbcType=VARCHAR},\n" +
+            "      shr_jcjl = #{record.shrJcjl,jdbcType=VARCHAR},\n" +
+            "      shsj_time = #{record.shsjTime,jdbcType=TIMESTAMP},\n" +
+            "      jcjl = #{record.jcjl,jdbcType=VARCHAR},\n" +
+            "      jcsm = #{record.jcsm,jdbcType=VARCHAR},\n" +
+            "      xl_test1 = #{record.xlTest1,jdbcType=INTEGER},\n" +
+            "      xl_test2 = #{record.xlTest2,jdbcType=INTEGER},\n" +
+            "      xl_test3 = #{record.xlTest3,jdbcType=INTEGER},\n" +
+            "      xl_test4 = #{record.xlTest4,jdbcType=INTEGER},\n" +
+            "      xl_test5 = #{record.xlTest5,jdbcType=INTEGER},\n" +
+            "      xl_test6 = #{record.xlTest6,jdbcType=INTEGER},\n" +
+            "      xl_value1 = #{record.xlValue1,jdbcType=INTEGER},\n" +
+            "      xl_value2 = #{record.xlValue2,jdbcType=INTEGER},\n" +
+            "      xl_value3 = #{record.xlValue3,jdbcType=INTEGER},\n" +
+            "      xl_value4 = #{record.xlValue4,jdbcType=INTEGER},\n" +
+            "      xl_value5 = #{record.xlValue5,jdbcType=INTEGER},\n" +
+            "      xl_value6 = #{record.xlValue6,jdbcType=INTEGER},\n" +
+            "      xl_wc = #{record.xlWc,jdbcType=VARCHAR},\n" +
+            "      xl_result = #{record.xlResult,jdbcType=TINYINT},\n" +
+            "      hxl_test1 = #{record.hxlTest1,jdbcType=INTEGER},\n" +
+            "      hxl_test2 = #{record.hxlTest2,jdbcType=INTEGER},\n" +
+            "      hxl_test3 = #{record.hxlTest3,jdbcType=INTEGER},\n" +
+            "      hxl_test4 = #{record.hxlTest4,jdbcType=INTEGER},\n" +
+            "      hxl_test5 = #{record.hxlTest5,jdbcType=INTEGER},\n" +
+            "      hxl_test6 = #{record.hxlTest6,jdbcType=INTEGER},\n" +
+            "      hxl_value1 = #{record.hxlValue1,jdbcType=INTEGER},\n" +
+            "      hxl_value2 = #{record.hxlValue2,jdbcType=INTEGER},\n" +
+            "      hxl_value3 = #{record.hxlValue3,jdbcType=INTEGER},\n" +
+            "      hxl_value4 = #{record.hxlValue4,jdbcType=INTEGER},\n" +
+            "      hxl_value5 = #{record.hxlValue5,jdbcType=INTEGER},\n" +
+            "      hxl_value6 = #{record.hxlValue6,jdbcType=INTEGER},\n" +
+            "      hxl_wc = #{record.hxlWc,jdbcType=VARCHAR},\n" +
+            "      hxl_result = #{record.hxlResult,jdbcType=TINYINT},\n" +
+            "      xybhd_test1 = #{record.xybhdTest1,jdbcType=INTEGER},\n" +
+            "      xybhd_test2 = #{record.xybhdTest2,jdbcType=INTEGER},\n" +
+            "      xybhd_test3 = #{record.xybhdTest3,jdbcType=INTEGER},\n" +
+            "      xybhd_test4 = #{record.xybhdTest4,jdbcType=INTEGER},\n" +
+            "      xybhd_test5 = #{record.xybhdTest5,jdbcType=INTEGER},\n" +
+            "      xybhd_value1 = #{record.xybhdValue1,jdbcType=INTEGER},\n" +
+            "      xybhd_value2 = #{record.xybhdValue2,jdbcType=INTEGER},\n" +
+            "      xybhd_value3 = #{record.xybhdValue3,jdbcType=INTEGER},\n" +
+            "      xybhd_value4 = #{record.xybhdValue4,jdbcType=INTEGER},\n" +
+            "      xybhd_value5 = #{record.xybhdValue5,jdbcType=INTEGER},\n" +
+            "      xybhd_wc = #{record.xybhdWc,jdbcType=VARCHAR},\n" +
+            "      xybhd_result = #{record.xybhdResult,jdbcType=TINYINT},\n" +
+            "      wcxy_jt_test1 = #{record.wcxyJtTest1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test2 = #{record.wcxyJtTest2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test3 = #{record.wcxyJtTest3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test4 = #{record.wcxyJtTest4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test5 = #{record.wcxyJtTest5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value1 = #{record.wcxyJtXsz1Value1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value2 = #{record.wcxyJtXsz1Value2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value3 = #{record.wcxyJtXsz1Value3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value4 = #{record.wcxyJtXsz1Value4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value5 = #{record.wcxyJtXsz1Value5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value1 = #{record.wcxyJtXsz2Value1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value2 = #{record.wcxyJtXsz2Value2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value3 = #{record.wcxyJtXsz2Value3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value4 = #{record.wcxyJtXsz2Value4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value5 = #{record.wcxyJtXsz2Value5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value1 = #{record.wcxyJtPjzValue1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value2 = #{record.wcxyJtPjzValue2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value3 = #{record.wcxyJtPjzValue3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value4 = #{record.wcxyJtPjzValue4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value5 = #{record.wcxyJtPjzValue5,jdbcType=INTEGER},\n" +
+            "      wcxy_syz_wc = #{record.wcxySyzWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_sc_wc = #{record.wcxyScWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_jt_result = #{record.wcxyJtResult,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test1 = #{record.wcdtxySdzTest1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test2 = #{record.wcdtxySdzTest2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_xl = #{record.wcdtxyXl,jdbcType=INTEGER},\n" +
+            "      wcdtxy_wc = #{record.wcdtxyWc,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value1 = #{record.wcdtxyValue1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value2 = #{record.wcdtxyValue2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value3 = #{record.wcdtxyValue3,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value4 = #{record.wcdtxyValue4,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value5 = #{record.wcdtxyValue5,jdbcType=INTEGER},\n" +
+            "      wcdtxy_ssy_value = #{record.wcdtxySsyValue,jdbcType=INTEGER},\n" +
+            "      wcdtxy_szy_value = #{record.wcdtxySzyValue,jdbcType=INTEGER},\n" +
+            "      wcdtxy_result = #{record.wcdtxyResult,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test1 = #{record.qmxjcYldTest1,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test2 = #{record.qmxjcYldTest2,jdbcType=INTEGER},\n" +
+            "      qmxjc_wc = #{record.qmxjcWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_ylsz_value1 = #{record.qmxjcYlszValue1,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value2 = #{record.qmxjcYlszValue2,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value3 = #{record.qmxjcYlszValue3,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value4 = #{record.qmxjcYlszValue4,jdbcType=INTEGER},\n" +
+            "      qmxjc_qmxsz_value1 = #{record.qmxjcQmxszValue1,jdbcType=INTEGER},\n" +
+            "      qmxjc_qmxsz_value2 = #{record.qmxjcQmxszValue2,jdbcType=INTEGER},\n" +
+            "      qmxjc_result = #{record.qmxjcResult,jdbcType=INTEGER},\n" +
+            "      sgbj_result = #{record.sgbjResult,jdbcType=INTEGER},\n" +
+            "      bjxjc_result = #{record.bjxjcResult,jdbcType=INTEGER},\n" +
+            "      jyjc_result = #{record.jyjcResult,jdbcType=INTEGER},\n" +
+            "      state = #{record.state,jdbcType=VARCHAR},\n" +
+            "      spare2 = #{record.spare2,jdbcType=VARCHAR},\n" +
+            "      spare3 = #{record.spare3,jdbcType=VARCHAR}" +
             "    where dcid = #{dcid}")
     public void updateMen(Dcsjhy dcsjhy);
 
     //保存多参数监护仪检测表(幼儿)
-    @Insert("insert into dcsjhy_c (dcid, jcyq_id, eq_id,tester, auditor, shsj_time,test_time,shr_jcjl, jcjl, jcsm, xl_test1,                         "
+    @Insert("insert into dcsjhy_c (jcyq_id, eq_id,tester, auditor, shsj_time,test_time,shr_jcjl, jcjl, jcsm, xl_test1,                         "
             + "xl_test2, xl_test3, xl_test4, xl_test5, xl_value1, xl_value2,  xl_value3, xl_value4, xl_value5,                         "
             + "xl_wc, xl_result, hxl_test1,  hxl_test2, hxl_test3, hxl_test4, hxl_test5, hxl_value1, hxl_value2,                       "
             + "hxl_value3, hxl_value4, hxl_value5, hxl_wc, hxl_result, xybhd_test1,xybhd_test2, xybhd_test3, xybhd_test4,              "
@@ -380,7 +390,7 @@ public interface DcsjhyMapper {
             + "wcxy_m_value33, wcxy_l_value33, wcxy_h_value34, wcxy_m_value34, wcxy_l_value34, wcxy_h_value35,                         "
             + "wcxy_m_value35, wcxy_l_value35, wcxy_wc, wcxy_result, wcxyjt_sd, wcxyjt_mnq, wcxyjt_jhy, wcxyjt_wc, wcxyjt_result,      "
             + "wcxyqm_sd, wcxyqm_xll, wcxyqm_wc,  wcxyqm_result, sgbj_result, bjxjc_result, jyjc_result, state, spare2,  spare3)      "
-            + "values (#{dcid}, #{jcyqId}, #{eqId},                                 "
+            + "values ( #{jcyqId}, #{eqId},                                 "
             + "#{tester}, #{auditor}, #{shsjTime},#{testTime},                                "
             + "#{shrJcjl},#{jcjl}, #{jcsm}, #{xlTest1},                                        "
             + "#{xlTest2}, #{xlTest3}, #{xlTest4},                                  "
@@ -425,128 +435,106 @@ public interface DcsjhyMapper {
     public void saveChild(Dcsjhy dcsjhy);
 
     @Update("update dcsjhy_c\n" +
-            "    set jcyq_id = #{jcyqId},\n" +
-            "      eq_id = #{eqId},\n" +
-            "      tester = #{tester},\n" +
-            "      test_time = #{testTime},\n" +
-            "      auditor = #{auditor},\n" +
-            "      shsj_time = #{shsjTime},\n" +
-            "      shr_jcjl = #{shrJcjl},\n" +
-            "      jcjl = #{jcjl},\n" +
-            "      jcsm = #{jcsm},\n" +
-            "      xl_test1 = #{xlTest1},\n" +
-            "      xl_test2 = #{xlTest2},\n" +
-            "      xl_test3 = #{xlTest3},\n" +
-            "      xl_test4 = #{xlTest4},\n" +
-            "      xl_test5 = #{xlTest5},\n" +
-            "      xl_value1 = #{xlValue1},\n" +
-            "      xl_value2 = #{xlValue2},\n" +
-            "      xl_value3 = #{xlValue3},\n" +
-            "      xl_value4 = #{xlValue4},\n" +
-            "      xl_value5 = #{xlValue5},\n" +
-            "      xl_wc = #{xlWc},\n" +
-            "      xl_result = #{xlResult},\n" +
-            "      hxl_test1 = #{hxlTest1},\n" +
-            "      hxl_test2 = #{hxlTest2},\n" +
-            "      hxl_test3 = #{hxlTest3},\n" +
-            "      hxl_test4 = #{hxlTest4},\n" +
-            "      hxl_test5 = #{hxlTest5},\n" +
-            "      hxl_value1 = #{hxlValue1},\n" +
-            "      hxl_value2 = #{hxlValue2},\n" +
-            "      hxl_value3 = #{hxlValue3},\n" +
-            "      hxl_value4 = #{hxlValue4},\n" +
-            "      hxl_value5 = #{hxlValue5},\n" +
-            "      hxl_wc = #{hxlWc},\n" +
-            "      hxl_result = #{hxlResult},\n" +
-            "      xybhd_test1 = #{xybhdTest1},\n" +
-            "      xybhd_test2 = #{xybhdTest2},\n" +
-            "      xybhd_test3 = #{xybhdTest3},\n" +
-            "      xybhd_test4 = #{xybhdTest4},\n" +
-            "      xybhd_test5 = #{xybhdTest5},\n" +
-            "      xybhd_value1 = #{xybhdValue1},\n" +
-            "      xybhd_value2 = #{xybhdValue2},\n" +
-            "      xybhd_value3 = #{xybhdValue3},\n" +
-            "      xybhd_value4 = #{xybhdValue4},\n" +
-            "      xybhd_value5 = #{xybhdValue5},\n" +
-            "      xybhd_wc = #{xybhdWc},\n" +
-            "      xybhd_result = #{xybhdResult},\n" +
-            "      wcxy_h_test1 = #{wcxyHTest1},\n" +
-            "      wcxy_m_test1 = #{wcxyMTest1},\n" +
-            "      wcxy_l_test1 = #{wcxyLTest1},\n" +
-            "      wcxy_h_test2 = #{wcxyHTest2},\n" +
-            "      wcxy_m_test2 = #{wcxyMTest2},\n" +
-            "      wcxy_l_test2 = #{wcxyLTest2},\n" +
-            "      wcxy_h_test3 = #{wcxyHTest3},\n" +
-            "      wcxy_m_test3 = #{wcxyMTest3},\n" +
-            "      wcxy_l_test3 = #{wcxyLTest3},\n" +
-            "      wcxy_h_test4 = #{wcxyHTest4},\n" +
-            "      wcxy_m_test4 = #{wcxyMTest4},\n" +
-            "      wcxy_l_test4 = #{wcxyLTest4},\n" +
-            "      wcxy_h_test5 = #{wcxyHTest5},\n" +
-            "      wcxy_m_test5 = #{wcxyMTest5},\n" +
-            "      wcxy_l_test5 = #{wcxyLTest5},\n" +
-            "      wcxy_h_value11 = #{wcxyHValue11},\n" +
-            "      wcxy_m_value11 = #{wcxyMValue11},\n" +
-            "      wcxy_l_value11 = #{wcxyLValue11},\n" +
-            "      wcxy_h_value12 = #{wcxyHValue12},\n" +
-            "      wcxy_m_value12 = #{wcxyMValue12},\n" +
-            "      wcxy_l_value12 = #{wcxyLValue12},\n" +
-            "      wcxy_h_value13 = #{wcxyHValue13},\n" +
-            "      wcxy_m_value13 = #{wcxyMValue13},\n" +
-            "      wcxy_l_value13 = #{wcxyLValue13},\n" +
-            "      wcxy_h_value14 = #{wcxyHValue14},\n" +
-            "      wcxy_m_value14 = #{wcxyMValue14},\n" +
-            "      wcxy_l_value14 = #{wcxyLValue14},\n" +
-            "      wcxy_h_value15 = #{wcxyHValue15},\n" +
-            "      wcxy_m_value15 = #{wcxyMValue15},\n" +
-            "      wcxy_l_value15 = #{wcxyLValue15},\n" +
-            "      wcxy_h_value21 = #{wcxyHValue21},\n" +
-            "      wcxy_m_value21 = #{wcxyMValue21},\n" +
-            "      wcxy_l_value21 = #{wcxyLValue21},\n" +
-            "      wcxy_h_value22 = #{wcxyHValue22},\n" +
-            "      wcxy_m_value22 = #{wcxyMValue22},\n" +
-            "      wcxy_l_value22 = #{wcxyLValue22},\n" +
-            "      wcxy_h_value23 = #{wcxyHValue23},\n" +
-            "      wcxy_m_value23 = #{wcxyMValue23},\n" +
-            "      wcxy_l_value23 = #{wcxyLValue23},\n" +
-            "      wcxy_h_value24 = #{wcxyHValue24},\n" +
-            "      wcxy_m_value24 = #{wcxyMValue24},\n" +
-            "      wcxy_l_value24 = #{wcxyLValue24},\n" +
-            "      wcxy_h_value25 = #{wcxyHValue25},\n" +
-            "      wcxy_m_value25 = #{wcxyMValue25},\n" +
-            "      wcxy_l_value25 = #{wcxyLValue25},\n" +
-            "      wcxy_h_value31 = #{wcxyHValue31},\n" +
-            "      wcxy_m_value31 = #{wcxyMValue31},\n" +
-            "      wcxy_l_value31 = #{wcxyLValue31},\n" +
-            "      wcxy_h_value32 = #{wcxyHValue32},\n" +
-            "      wcxy_m_value32 = #{wcxyMValue32},\n" +
-            "      wcxy_l_value32 = #{wcxyLValue32},\n" +
-            "      wcxy_h_value33 = #{wcxyHValue33},\n" +
-            "      wcxy_m_value33 = #{wcxyMValue33},\n" +
-            "      wcxy_l_value33 = #{wcxyLValue33},\n" +
-            "      wcxy_h_value34 = #{wcxyHValue34},\n" +
-            "      wcxy_m_value34 = #{wcxyMValue34},\n" +
-            "      wcxy_l_value34 = #{wcxyLValue34},\n" +
-            "      wcxy_h_value35 = #{wcxyHValue35},\n" +
-            "      wcxy_m_value35 = #{wcxyMValue35},\n" +
-            "      wcxy_l_value35 = #{wcxyLValue35},\n" +
-            "      wcxy_wc = #{wcxyWc},\n" +
-            "      wcxy_result = #{wcxyResult},\n" +
-            "      wcxyjt_sd = #{wcxyjtSd},\n" +
-            "      wcxyjt_mnq = #{wcxyjtMnq},\n" +
-            "      wcxyjt_jhy = #{wcxyjtJhy},\n" +
-            "      wcxyjt_wc = #{wcxyjtWc},\n" +
-            "      wcxyjt_result = #{wcxyjtResult},\n" +
-            "      wcxyqm_sd = #{wcxyqmSd},\n" +
-            "      wcxyqm_xll = #{wcxyqmXll},\n" +
-            "      wcxyqm_wc = #{wcxyqmWc},\n" +
-            "      wcxyqm_result = #{wcxyqmResult},\n" +
-            "      sgbj_result = #{sgbjResult},\n" +
-            "      bjxjc_result = #{bjxjcResult},\n" +
-            "      jyjc_result = #{jyjcResult},\n" +
-            "      state = #{state},\n" +
-            "      spare2 = #{spare2},\n" +
-            "      spare3 = #{spare3}\n" +
+            "    set jcyq_id = #{record.jcyqId,jdbcType=INTEGER},\n" +
+            "      eq_id = #{record.eqId,jdbcType=INTEGER},\n" +
+            "      tester = #{record.tester,jdbcType=VARCHAR},\n" +
+            "      test_time = #{record.testTime,jdbcType=TIMESTAMP},\n" +
+            "      auditor = #{record.auditor,jdbcType=VARCHAR},\n" +
+            "      shr_jcjl = #{record.shrJcjl,jdbcType=VARCHAR},\n" +
+            "      shsj_time = #{record.shsjTime,jdbcType=TIMESTAMP},\n" +
+            "      jcjl = #{record.jcjl,jdbcType=VARCHAR},\n" +
+            "      jcsm = #{record.jcsm,jdbcType=VARCHAR},\n" +
+            "      xl_test1 = #{record.xlTest1,jdbcType=INTEGER},\n" +
+            "      xl_test2 = #{record.xlTest2,jdbcType=INTEGER},\n" +
+            "      xl_test3 = #{record.xlTest3,jdbcType=INTEGER},\n" +
+            "      xl_test4 = #{record.xlTest4,jdbcType=INTEGER},\n" +
+            "      xl_test5 = #{record.xlTest5,jdbcType=INTEGER},\n" +
+            "      xl_test6 = #{record.xlTest6,jdbcType=INTEGER},\n" +
+            "      xl_value1 = #{record.xlValue1,jdbcType=INTEGER},\n" +
+            "      xl_value2 = #{record.xlValue2,jdbcType=INTEGER},\n" +
+            "      xl_value3 = #{record.xlValue3,jdbcType=INTEGER},\n" +
+            "      xl_value4 = #{record.xlValue4,jdbcType=INTEGER},\n" +
+            "      xl_value5 = #{record.xlValue5,jdbcType=INTEGER},\n" +
+            "      xl_value6 = #{record.xlValue6,jdbcType=INTEGER},\n" +
+            "      xl_wc = #{record.xlWc,jdbcType=VARCHAR},\n" +
+            "      xl_result = #{record.xlResult,jdbcType=TINYINT},\n" +
+            "      hxl_test1 = #{record.hxlTest1,jdbcType=INTEGER},\n" +
+            "      hxl_test2 = #{record.hxlTest2,jdbcType=INTEGER},\n" +
+            "      hxl_test3 = #{record.hxlTest3,jdbcType=INTEGER},\n" +
+            "      hxl_test4 = #{record.hxlTest4,jdbcType=INTEGER},\n" +
+            "      hxl_test5 = #{record.hxlTest5,jdbcType=INTEGER},\n" +
+            "      hxl_test6 = #{record.hxlTest6,jdbcType=INTEGER},\n" +
+            "      hxl_value1 = #{record.hxlValue1,jdbcType=INTEGER},\n" +
+            "      hxl_value2 = #{record.hxlValue2,jdbcType=INTEGER},\n" +
+            "      hxl_value3 = #{record.hxlValue3,jdbcType=INTEGER},\n" +
+            "      hxl_value4 = #{record.hxlValue4,jdbcType=INTEGER},\n" +
+            "      hxl_value5 = #{record.hxlValue5,jdbcType=INTEGER},\n" +
+            "      hxl_value6 = #{record.hxlValue6,jdbcType=INTEGER},\n" +
+            "      hxl_wc = #{record.hxlWc,jdbcType=VARCHAR},\n" +
+            "      hxl_result = #{record.hxlResult,jdbcType=TINYINT},\n" +
+            "      xybhd_test1 = #{record.xybhdTest1,jdbcType=INTEGER},\n" +
+            "      xybhd_test2 = #{record.xybhdTest2,jdbcType=INTEGER},\n" +
+            "      xybhd_test3 = #{record.xybhdTest3,jdbcType=INTEGER},\n" +
+            "      xybhd_test4 = #{record.xybhdTest4,jdbcType=INTEGER},\n" +
+            "      xybhd_test5 = #{record.xybhdTest5,jdbcType=INTEGER},\n" +
+            "      xybhd_value1 = #{record.xybhdValue1,jdbcType=INTEGER},\n" +
+            "      xybhd_value2 = #{record.xybhdValue2,jdbcType=INTEGER},\n" +
+            "      xybhd_value3 = #{record.xybhdValue3,jdbcType=INTEGER},\n" +
+            "      xybhd_value4 = #{record.xybhdValue4,jdbcType=INTEGER},\n" +
+            "      xybhd_value5 = #{record.xybhdValue5,jdbcType=INTEGER},\n" +
+            "      xybhd_wc = #{record.xybhdWc,jdbcType=VARCHAR},\n" +
+            "      xybhd_result = #{record.xybhdResult,jdbcType=TINYINT},\n" +
+            "      wcxy_jt_test1 = #{record.wcxyJtTest1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test2 = #{record.wcxyJtTest2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test3 = #{record.wcxyJtTest3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test4 = #{record.wcxyJtTest4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_test5 = #{record.wcxyJtTest5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value1 = #{record.wcxyJtXsz1Value1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value2 = #{record.wcxyJtXsz1Value2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value3 = #{record.wcxyJtXsz1Value3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value4 = #{record.wcxyJtXsz1Value4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz1_value5 = #{record.wcxyJtXsz1Value5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value1 = #{record.wcxyJtXsz2Value1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value2 = #{record.wcxyJtXsz2Value2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value3 = #{record.wcxyJtXsz2Value3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value4 = #{record.wcxyJtXsz2Value4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_xsz2_value5 = #{record.wcxyJtXsz2Value5,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value1 = #{record.wcxyJtPjzValue1,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value2 = #{record.wcxyJtPjzValue2,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value3 = #{record.wcxyJtPjzValue3,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value4 = #{record.wcxyJtPjzValue4,jdbcType=INTEGER},\n" +
+            "      wcxy_jt_pjz_value5 = #{record.wcxyJtPjzValue5,jdbcType=INTEGER},\n" +
+            "      wcxy_syz_wc = #{record.wcxySyzWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_sc_wc = #{record.wcxyScWc,jdbcType=VARCHAR},\n" +
+            "      wcxy_jt_result = #{record.wcxyJtResult,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test1 = #{record.wcdtxySdzTest1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_sdz_test2 = #{record.wcdtxySdzTest2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_xl = #{record.wcdtxyXl,jdbcType=INTEGER},\n" +
+            "      wcdtxy_wc = #{record.wcdtxyWc,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value1 = #{record.wcdtxyValue1,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value2 = #{record.wcdtxyValue2,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value3 = #{record.wcdtxyValue3,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value4 = #{record.wcdtxyValue4,jdbcType=INTEGER},\n" +
+            "      wcdtxy_value5 = #{record.wcdtxyValue5,jdbcType=INTEGER},\n" +
+            "      wcdtxy_ssy_value = #{record.wcdtxySsyValue,jdbcType=INTEGER},\n" +
+            "      wcdtxy_szy_value = #{record.wcdtxySzyValue,jdbcType=INTEGER},\n" +
+            "      wcdtxy_result = #{record.wcdtxyResult,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test1 = #{record.qmxjcYldTest1,jdbcType=INTEGER},\n" +
+            "      qmxjc_yld_test2 = #{record.qmxjcYldTest2,jdbcType=INTEGER},\n" +
+            "      qmxjc_wc = #{record.qmxjcWc,jdbcType=VARCHAR},\n" +
+            "      qmxjc_ylsz_value1 = #{record.qmxjcYlszValue1,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value2 = #{record.qmxjcYlszValue2,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value3 = #{record.qmxjcYlszValue3,jdbcType=INTEGER},\n" +
+            "      qmxjc_ylsz_value4 = #{record.qmxjcYlszValue4,jdbcType=INTEGER},\n" +
+            "      qmxjc_qmxsz_value1 = #{record.qmxjcQmxszValue1,jdbcType=INTEGER},\n" +
+            "      qmxjc_qmxsz_value2 = #{record.qmxjcQmxszValue2,jdbcType=INTEGER},\n" +
+            "      qmxjc_result = #{record.qmxjcResult,jdbcType=INTEGER},\n" +
+            "      sgbj_result = #{record.sgbjResult,jdbcType=INTEGER},\n" +
+            "      bjxjc_result = #{record.bjxjcResult,jdbcType=INTEGER},\n" +
+            "      jyjc_result = #{record.jyjcResult,jdbcType=INTEGER},\n" +
+            "      state = #{record.state,jdbcType=VARCHAR},\n" +
+            "      spare2 = #{record.spare2,jdbcType=VARCHAR},\n" +
+            "      spare3 = #{record.spare3,jdbcType=VARCHAR}" +
             "    where dcid = #{dcid}")
     public void updateChild(Dcsjhy dcsjhy);
 

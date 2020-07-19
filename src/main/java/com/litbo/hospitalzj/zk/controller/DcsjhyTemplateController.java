@@ -22,8 +22,7 @@ public class DcsjhyTemplateController {
 		DcsjhyTemplate dt=new DcsjhyTemplate();
 		dt.setDcTemplateid(UUID.randomUUID().toString());
 		dt.setXlTest1(20);
-		dt.setXlWc(10);
-		int a=2/0;
+		dt.setXlWc("10");
 		dcsjhyTemplateService.insert(dt);
 		return "success";
 	}
