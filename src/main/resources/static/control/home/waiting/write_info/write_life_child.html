@@ -16,26 +16,31 @@
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <style>
-        .layui-elem-field{
+        .layui-elem-field {
             width: 100%;
         }
-        .btn{
+
+        .btn {
             text-align: center;
             margin-top: 70px;
             margin-bottom: 40px;
         }
-        .layui-input-block{
+
+        .layui-input-block {
             display: flex;
             align-items: center;
         }
-        b{
+
+        b {
             padding-left: 30px;
             width: 20%;
         }
-        .is{
+
+        .is {
             color: green;
         }
-        .no{
+
+        .no {
             color: red;
         }
     </style>
@@ -52,535 +57,365 @@
                 <legend style="color: red;">心率 (次/min)</legend>
             </fieldset>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值1</label>
+                <label class="layui-form-label">显示值1</label>
                 <div class="layui-input-block">
-                    <input id="Cinp1" type="text" name="xlValue1" placeholder="测试点为30" autocomplete="off" class="layui-input">
-                    <b id="Cp1"></b>
+                    <input id="Minp1" type="text" name="xlValue1" data-default="30" placeholder="设定值为30" autocomplete="off" class="layui-input">
+                    <b id="Mp1" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值2</label>
+                <label class="layui-form-label">显示值2</label>
                 <div class="layui-input-block">
-                    <input id="Cinp2" type="text" name="xlValue2" placeholder="测试点为60" autocomplete="off" class="layui-input">
-                    <b id="Cp2"></b>
+                    <input id="Minp2" type="text" name="xlValue2" data-default="60" placeholder="设定值为60" autocomplete="off" class="layui-input">
+                    <b id="Mp2" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值3</label>
+                <label class="layui-form-label">显示值3</label>
                 <div class="layui-input-block">
-                    <input id="Cinp3" type="text" name="xlValue3" placeholder="测试点为100" autocomplete="off" class="layui-input">
-                    <b id="Cp3"></b>
+                    <input id="Minp3" type="text" name="xlValue3" data-default="120" placeholder="设定值为120" autocomplete="off" class="layui-input">
+                    <b id="Mp3" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值4</label>
+                <label class="layui-form-label">显示值4</label>
                 <div class="layui-input-block">
-                    <input id="Cinp4" type="text" name="xlValue4" placeholder="测试点为120" autocomplete="off" class="layui-input">
-                    <b id="Cp4"></b>
+                    <input id="Minp4" type="text" name="xlValue4" data-default="180" placeholder="设定值为180" autocomplete="off" class="layui-input">
+                    <b id="Mp4" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值5</label>
+                <label class="layui-form-label">显示值5</label>
                 <div class="layui-input-block">
-                    <input id="Cinp5" type="text" name="xlValue5" placeholder="测试点为180" autocomplete="off" class="layui-input">
-                    <b id="Cp5"></b>
+                    <input id="Minp5" type="text" name="xlValue5" data-default="200" placeholder="设定值为200" autocomplete="off" class="layui-input">
+                    <b id="Mp5" class="Mp"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值6</label>
+                <div class="layui-input-block">
+                    <input id="Minp6" type="text" name="xlValue6" data-default="250" placeholder="设定值为250" autocomplete="off" class="layui-input">
+                    <b id="Mp6" class="Mp"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">呼吸率 (次/min)</legend>
+                <legend style="color: red;">呼吸频率 (次/min)</legend>
             </fieldset>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值1</label>
+                <label class="layui-form-label">显示值1</label>
                 <div class="layui-input-block">
-                    <input id="Cinp6" type="text" name="hxlValue1" placeholder="测试点为15" autocomplete="off" class="layui-input">
-                    <b id="Cp6"></b>
+                    <input id="Minp7" type="text" name="hxlValue1" data-default="8" placeholder="设定值为8" autocomplete="off" class="layui-input">
+                    <b id="Mp7" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值2</label>
+                <label class="layui-form-label">显示值2</label>
                 <div class="layui-input-block">
-                    <input id="Cinp7" type="text" name="hxlValue2" placeholder="测试点为20" autocomplete="off" class="layui-input">
-                    <b id="Cp7"></b>
+                    <input id="Minp8" type="text" name="hxlValue2" data-default="15" placeholder="设定值为15" autocomplete="off" class="layui-input">
+                    <b id="Mp8" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值3</label>
+                <label class="layui-form-label">显示值3</label>
                 <div class="layui-input-block">
-                    <input id="Cinp8" type="text" name="hxlValue3" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                    <b id="Cp8"></b>
+                    <input id="Minp9" type="text" name="hxlValue3" data-default="20" placeholder="设定值为20" autocomplete="off" class="layui-input">
+                    <b id="Mp9" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值4</label>
+                <label class="layui-form-label">显示值4</label>
                 <div class="layui-input-block">
-                    <input id="Cinp9" type="text" name="hxlValue4" placeholder="测试点为60" autocomplete="off" class="layui-input">
-                    <b id="Cp9"></b>
+                    <input id="Minp10" type="text" name="hxlValue4" data-default="40" placeholder="设定值为40" autocomplete="off" class="layui-input">
+                    <b id="Mp10" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值5</label>
+                <label class="layui-form-label">显示值5</label>
                 <div class="layui-input-block">
-                    <input id="Cinp10" type="text" name="hxlValue5" placeholder="测试点为80" autocomplete="off" class="layui-input">
-                    <b id="Cp10"></b>
+                    <input id="Minp11" type="text" name="hxlValue5" data-default="60" placeholder="设定值为60" autocomplete="off" class="layui-input">
+                    <b id="Mp11" class="Mp"></b>
                 </div>
             </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">无创血压 (mmHg)</legend>
-            </fieldset>
-            <div class="layui-collapse">
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值A1</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为35</label>
-                            <div class="layui-input-block">
-                                <input id="CssyA1" type="text" name="wcxyHValue11" placeholder="测试点为35" autocomplete="off" class="layui-input">
-                                <b id="CssyA1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为15</label>
-                            <div class="layui-input-block">
-                                <input id="CszyA1" type="text" name="wcxyMValue11" placeholder="测试点为15" autocomplete="off" class="layui-input">
-                                <b id="CszyA1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue11" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值A2</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为35</label>
-                            <div class="layui-input-block">
-                                <input id="CssyA2" type="text" name="wcxyHValue21" placeholder="测试点为35" autocomplete="off" class="layui-input">
-                                <b id="CssyA2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为15</label>
-                            <div class="layui-input-block">
-                                <input id="CszyA2" type="text" name="wcxyMValue21" placeholder="测试点为15" autocomplete="off" class="layui-input">
-                                <b id="CszyA2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue21" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值A3</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为35</label>
-                            <div class="layui-input-block">
-                                <input id="CssyA3" type="text" name="wcxyHValue31" placeholder="测试点为35" autocomplete="off" class="layui-input">
-                                <b id="CssyA3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为15</label>
-                            <div class="layui-input-block">
-                                <input id="CszyA3" type="text" name="wcxyMValue31" placeholder="测试点为15" autocomplete="off" class="layui-input">
-                                <b id="CszyA3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue31" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-collapse">
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值B1</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为48</label>
-                            <div class="layui-input-block">
-                                <input id="CssyB1" type="text" name="wcxyHValue12" placeholder="测试点为48" autocomplete="off" class="layui-input">
-                                <b id="CssyB1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为22</label>
-                            <div class="layui-input-block">
-                                <input id="CszyB1" type="text" name="wcxyMValue12" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                                <b id="CszyB1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue12" placeholder="测试点为31" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值B2</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为48</label>
-                            <div class="layui-input-block">
-                                <input id="CssyB2" type="text" name="wcxyHValue22" placeholder="测试点为48" autocomplete="off" class="layui-input">
-                                <b id="CssyB2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为22</label>
-                            <div class="layui-input-block">
-                                <input id="CszyB2" type="text" name="wcxyMValue22" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                                <b id="CszyB2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue31" placeholder="测试点为31" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值B3</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为48</label>
-                            <div class="layui-input-block">
-                                <input id="CssyB3" type="text" name="wcxyHValue32" placeholder="测试点为48" autocomplete="off" class="layui-input">
-                                <b id="CssyB3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为22</label>
-                            <div class="layui-input-block">
-                                <input id="CszyB3" type="text" name="wcxyMValue32" placeholder="测试点为22" autocomplete="off" class="layui-input">
-                                <b id="CszyB3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue32" placeholder="测试点为31" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-collapse">
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值C1</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为57</label>
-                            <div class="layui-input-block">
-                                <input id="CssyC1" type="text" name="wcxyHValue13" placeholder="测试点为57" autocomplete="off" class="layui-input">
-                                <b id="CssyC1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为32</label>
-                            <div class="layui-input-block">
-                                <input id="CszyC1" type="text" name="wcxyMValue13" placeholder="测试点为32" autocomplete="off" class="layui-input">
-                                <b id="CszyC1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue13" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值C2</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为57</label>
-                            <div class="layui-input-block">
-                                <input id="CssyC2" type="text" name="wcxyHValue23" placeholder="测试点为57" autocomplete="off" class="layui-input">
-                                <b id="CssyC2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为32</label>
-                            <div class="layui-input-block">
-                                <input id="CszyC2" type="text" name="wcxyMValue23" placeholder="测试点为32" autocomplete="off" class="layui-input">
-                                <b id="CszyC2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue23" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值C3</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为57</label>
-                            <div class="layui-input-block">
-                                <input id="CssyC3" type="text" name="wcxyHValue33" placeholder="测试点为57" autocomplete="off" class="layui-input">
-                                <b id="CssyC3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为32</label>
-                            <div class="layui-input-block">
-                                <input id="CszyC3" type="text" name="wcxyMValue33" placeholder="测试点为32" autocomplete="off" class="layui-input">
-                                <b id="CszyC3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue33" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-collapse">
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值D1</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为70</label>
-                            <div class="layui-input-block">
-                                <input id="CssyD1" type="text" name="wcxyHValue14" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                                <b id="CssyD1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为40</label>
-                            <div class="layui-input-block">
-                                <input id="CszyD1" type="text" name="wcxyMValue14" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                                <b id="CszyD1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue14" placeholder="测试点为50" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值D2</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为70</label>
-                            <div class="layui-input-block">
-                                <input id="CssyD2" type="text" name="wcxyHValue24" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                                <b id="CssyD2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为40</label>
-                            <div class="layui-input-block">
-                                <input id="CszyD2" type="text" name="wcxyMValue24" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                                <b id="CszyD2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue24" placeholder="测试点为50" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值D3</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为70</label>
-                            <div class="layui-input-block">
-                                <input id="CssyD3" type="text" name="wcxyHValue34" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                                <b id="CssyD3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为40</label>
-                            <div class="layui-input-block">
-                                <input id="CszyD3" type="text" name="wcxyMValue34" placeholder="测试点为40" autocomplete="off" class="layui-input">
-                                <b id="CszyD3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue34" placeholder="测试点为50" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="layui-collapse">
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值E1</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为90</label>
-                            <div class="layui-input-block">
-                                <input id="CssyE1" type="text" name="wcxyHValue15" placeholder="测试点为90" autocomplete="off" class="layui-input">
-                                <b id="CssyE1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为60</label>
-                            <div class="layui-input-block">
-                                <input id="CszyE1" type="text" name="wcxyMValue15" placeholder="测试点为60" autocomplete="off" class="layui-input">
-                                <b id="CszyE1P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue15" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值E2</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为90</label>
-                            <div class="layui-input-block">
-                                <input id="CssyE2" type="text" name="wcxyHValue25" placeholder="测试点为90" autocomplete="off" class="layui-input">
-                                <b id="CssyE2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为60</label>
-                            <div class="layui-input-block">
-                                <input id="CszyE2" type="text" name="wcxyMValue25" placeholder="测试点为60" autocomplete="off" class="layui-input">
-                                <b id="CszyE2P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue25" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="layui-colla-item">
-                    <h2 class="layui-colla-title">实测值E3</h2>
-                    <div class="layui-colla-content layui-show">
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为90</label>
-                            <div class="layui-input-block">
-                                <input id="CssyE3" type="text" name="wcxyHValue35" placeholder="测试点为90" autocomplete="off" class="layui-input">
-                                <b id="CssyE3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-6">
-                            <label class="layui-form-label">测试点为60</label>
-                            <div class="layui-input-block">
-                                <input id="CszyE3" type="text" name="wcxyMValue35" placeholder="测试点为60" autocomplete="off" class="layui-input">
-                                <b id="CszyE3P"></b>
-                            </div>
-                        </div>
-                        <div class="layui-form-item col-md-4">
-                            <label class="layui-form-label">平均压</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="wcxyLValue35" placeholder="测试点为70" autocomplete="off" class="layui-input">
-                            </div>
-                        </div>
-                    </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值6</label>
+                <div class="layui-input-block">
+                    <input id="Minp12" type="text" name="hxlValue6" data-default="80" placeholder="设定值为80" autocomplete="off" class="layui-input">
+                    <b id="Mp12" class="Mp"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">血氧饱和度 (%)</legend>
             </fieldset>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值1</label>
+                <label class="layui-form-label">显示值1</label>
                 <div class="layui-input-block">
-                    <input id="Cinp11" type="text" name="xybhdValue1" placeholder="测试点为85" autocomplete="off" class="layui-input">
-                    <b id="Cp11"></b>
+                    <input id="Minp13" type="text" name="xybhdValue1" data-default="70" placeholder="设定值为70" autocomplete="off" class="layui-input">
+                    <b id="Mp13" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值2</label>
+                <label class="layui-form-label">显示值2</label>
                 <div class="layui-input-block">
-                    <input id="Cinp12" type="text" name="xybhdValue2" placeholder="测试点为88" autocomplete="off" class="layui-input">
-                    <b id="Cp12"></b>
+                    <input id="Minp14" type="text" name="xybhdValue2" data-default="80" placeholder="设定值为80" autocomplete="off" class="layui-input">
+                    <b id="Mp14" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值3</label>
+                <label class="layui-form-label">显示值3</label>
                 <div class="layui-input-block">
-                    <input id="Cinp13" type="text" name="xybhdValue3" placeholder="测试点为95" autocomplete="off" class="layui-input">
-                    <b id="Cp13"></b>
+                    <input id="Minp15" type="text" name="xybhdValue3" data-default="85" placeholder="设定值为90" autocomplete="off" class="layui-input">
+                    <b id="Mp15" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值4</label>
+                <label class="layui-form-label">显示值4</label>
                 <div class="layui-input-block">
-                    <input id="Cinp14" type="text" name="xybhdValue4" placeholder="测试点为98" autocomplete="off" class="layui-input">
-                    <b id="Cp14"></b>
+                    <input id="Minp16" type="text" name="xybhdValue4" data-default="85" placeholder="设定值为95" autocomplete="off" class="layui-input">
+                    <b id="Mp16" class="Mp"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">实测值5</label>
+                <label class="layui-form-label">显示值5</label>
                 <div class="layui-input-block">
-                    <input id="Cinp15" type="text" name="xybhdValue5" placeholder="测试点为100" autocomplete="off" class="layui-input">
-                    <b id="Cp15"></b>
+                    <input id="Minp17" type="text" name="xybhdValue5" data-default="100" placeholder="设定值为100" autocomplete="off" class="layui-input">
+                    <b id="Mp17" class="Mp"></b>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">无创血压静态示值 (mmHg) 设定值 150mmHg</legend>
+                <legend style="color: red;">无创血压静态示值误差(mmHg)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">模拟器测量值</label>
-                <div class="layui-input-block">
-                    <input id="Cinp16" type="text" name="wcxyjtMnq" placeholder="模拟器测量值" autocomplete="off" class="layui-input">
-                    <b id="Cp16"></b>
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">显示值A1</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA1" type="text" data-default="10" name="wcxyHValue11" placeholder="设定值为10" autocomplete="off" class="layui-input">
+                                <b id="MssyA1P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值2</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA2" type="text" data-default="10" name="wcxyHValue11" placeholder="设定值为10" autocomplete="off" class="layui-input">
+                                <b id="MssyA2P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">平均值</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA3" type="text" data-default="10" name="wcxyHValue11" placeholder="设定值为10" autocomplete="off" class="layui-input">
+                                <b id="MssyA3P" class="MssyAPAvg" style="width: 100%"></b>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">监护仪测量值</label>
-                <div class="layui-input-block">
-                    <input id="Cinp17" type="text" name="wcxyjtJhy" placeholder="监护仪测量值" autocomplete="off" class="layui-input">
-                    <b id="Cp17"></b>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">显示值A2</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA4" type="text" name="wcxyHValue11" placeholder="设定值为50" autocomplete="off" class="layui-input">
+                                <b id="MssyA4P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值2</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA5" type="text" name="wcxyHValue11" placeholder="设定值为50" autocomplete="off" class="layui-input">
+                                <b id="MssyA5P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">平均值</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA6" type="text" name="wcxyHValue11" data-default="50" placeholder="设定值为50" autocomplete="off" class="layui-input">
+                                <b id="MssyA6P" class="MssyAPAvg" style="width: 100%"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">显示值A3</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA7" type="text" name="wcxyHValue11" placeholder="设定值为100" autocomplete="off" class="layui-input">
+                                <b id="MssyA7P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值2</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA8" type="text" name="wcxyHValue11" placeholder="设定值为100" autocomplete="off" class="layui-input">
+                                <b id="MssyA8P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">平均值</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA9" type="text" name="wcxyHValue11" data-default="100" placeholder="设定值为100" autocomplete="off" class="layui-input">
+                                <b id="MssyA9P" class="MssyAPAvg" style="width: 100%"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">显示值A4</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA10" type="text" name="wcxyHValue11" placeholder="设定值为150" autocomplete="off" class="layui-input">
+                                <b id="MssyA10P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值2</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA11" type="text" name="wcxyHValue11" placeholder="设定值为150" autocomplete="off" class="layui-input">
+                                <b id="MssyA11P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">平均值</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA12" type="text" name="wcxyHValue11" data-default="150" placeholder="设定值为150" autocomplete="off" class="layui-input">
+                                <b id="MssyA12P" class="MssyAPAvg" style="width: 100%"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">显示值A5</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA13" type="text" name="wcxyHValue11" placeholder="设定值为250" autocomplete="off" class="layui-input">
+                                <b id="MssyA13P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">显示值2</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA14" type="text" name="wcxyHValue11" placeholder="设定值为250" autocomplete="off" class="layui-input">
+                                <b id="MssyA14P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">平均值</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA15" type="text" name="wcxyHValue11" data-default="250" placeholder="设定值为250" autocomplete="off" class="layui-input">
+                                <b id="MssyA15P" class="MssyAPAvg" style="width: 100%"></b>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">无创血压气密性</legend>
+                <legend style="color: red;">无创动态血压重复性(mmHg)</legend>
             </fieldset>
-            <div class="layui-form-item col-md-4">
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值1</label>
+                <div class="layui-input-block">
+                    <input id="Minp19" type="text" name="xlValue1" autocomplete="off" class="layui-input wcdtxy">
+                    <b id="Mp19"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值2</label>
+                <div class="layui-input-block">
+                    <input id="Minp20" type="text" name="xlValue2" autocomplete="off" class="layui-input wcdtxy">
+                    <b id="Mp20"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值3</label>
+                <div class="layui-input-block">
+                    <input id="Minp21" type="text" name="xlValue3" autocomplete="off" class="layui-input wcdtxy">
+                    <b id="Mp21"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值4</label>
+                <div class="layui-input-block">
+                    <input id="Minp22" type="text" name="xlValue4" autocomplete="off" class="layui-input wcdtxy">
+                    <b id="Mp22"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
+                <label class="layui-form-label">显示值5</label>
+                <div class="layui-input-block">
+                    <input id="Minp23" type="text" name="xlValue5" autocomplete="off" class="layui-input wcdtxy">
+                    <b id="Mp23"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6">
                 <label class="layui-form-label">设定值</label>
                 <div class="layui-input-block">
-                    <input type="text" value="250" autocomplete="off" class="layui-input">
+                    <input id="Minp18" type="text" name="xlValue1" placeholder="设定值为150mmHg/100mmHg，心率：80次/min" autocomplete="off" class="layui-input">
+                    <b id="Mp18"></b>
                 </div>
             </div>
-            <div class="layui-form-item col-md-6">
-                <label class="layui-form-label">泄露率测量值</label>
-                <div class="layui-input-block">
-                    <input id="Cinp18" type="text" name="wcxyqmXll" placeholder="泄露率测量值" autocomplete="off" class="layui-input">
-                    <b id="Cp18"></b>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">气密性检测</legend>
+            </fieldset>
+            <div class="layui-collapse">
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">压力点A1</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">示值1min</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA17" type="text" name="wcxyHValue11" autocomplete="off" class="layui-input">
+                                <b id="MssyA17P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">示值5min</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA18" type="text" name="wcxyHValue11" autocomplete="off" class="layui-input">
+                                <b id="MssyA18P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">压力点1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA16" type="text" name="wcxyHValue11" data-default="200" placeholder="200mmHg" autocomplete="off" class="layui-input">
+                                <b id="MssyA1P16" class="MssyAPAvg"></b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-colla-item">
+                    <h2 class="layui-colla-title">压力点A2</h2>
+                    <div class="layui-colla-content layui-show">
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">示值1min</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA20" type="text" name="wcxyHValue11" autocomplete="off" class="layui-input">
+                                <b id="MssyA20P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">示值5min</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA21" type="text" name="wcxyHValue11" autocomplete="off" class="layui-input">
+                                <b id="MssyA21P"></b>
+                            </div>
+                        </div>
+                        <div class="layui-form-item col-md-6">
+                            <label class="layui-form-label">压力点1</label>
+                            <div class="layui-input-block">
+                                <input id="MssyA19" type="text" name="wcxyHValue11" data-default="50" placeholder="50mmHg" autocomplete="off" class="layui-input">
+                                <b id="MssyA19P" class="MssyAPAvg"></b>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
@@ -634,7 +469,7 @@
                     <textarea name="jcsm" placeholder="请输入内容" class="layui-textarea"></textarea>
                 </div>
             </div>
-            <div class="layui-form-item btn">
+            <div class="layui-form-item col-md-12 btn">
                 <div class="layui-input-block">
                     <button class="layui-btn" lay-submit lay-filter="saveAll">保存</button>
                 </div>
@@ -646,42 +481,42 @@
     // 获取上个页面传递的类型
     var type = window.location.search;
     var ids = parseInt(type.split("=")[1]);
-    sessionStorage["thisjcyqId"]=ids;
+    sessionStorage["thisjcyqId"] = ids;
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var userName = sessionStorage["userName"];
     var thisId = parseInt(sessionStorage['thisId']);
-    layui.use(['element','jquery','form','layer','laydate'], function() {
+    layui.use(['element', 'jquery', 'form', 'layer', 'laydate'], function () {
         var element = layui.element
             , $ = layui.jquery
             , form = layui.form
             , layer = layui.layer
             , laydate = layui.laydate;
         laydate.render({
-            elem:"#date",
-            type:"datetime"
+            elem: "#date",
+            type: "datetime"
         });
-        $(function(){
+        $(function () {
             $("#isUser").val(userName);
         });
-        form.on('submit(saveAll)',function (data) {
+        form.on('submit(saveAll)', function (data) {
             console.log(data.field);
             $.ajax({
-                url:"/jhy/savechild?eqId="+thiseqId+"&jcyqId="+ids+"&userEqId="+thisId,
-                method:"POST",
-                data:data.field,
-                dataType:"JSON",
-                success:function (res) {
-                    if(res.state === 200){
-                        setTimeout(function(){
+                url: "/jhy/savechild?eqId=" + thiseqId + "&jcyqId=" + ids + "&userEqId=" + thisId,
+                method: "POST",
+                data: data.field,
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
+                        setTimeout(function () {
                             sessionStorage["thissjId"] = res.data[1];
-                            location.href = "/control/home/waiting/wait_info/child_life_table.html?id="+res.data[0];
-                        },1000);
+                            location.href = "/control/home/waiting/wait_info/child_life_table.html?id=" + res.data[0];
+                        }, 1000);
                         layer.msg("保存成功,正在生成表格");
-                    }else{
+                    } else {
                         layer.msg("提交失败");
                     }
                 },
-                error:function (data) {
+                error: function (data) {
                     layer.msg("提交失败");
                     console.log(data);
                 }
