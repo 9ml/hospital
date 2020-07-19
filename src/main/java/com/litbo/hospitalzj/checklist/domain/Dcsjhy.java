@@ -7,16 +7,13 @@ import java.util.Date;
 
 @Data
 public class Dcsjhy {
-
     private Integer dcid;
     private Integer jcyqId;
     private Integer eqId;
     private String tester;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date testTime;
     private String auditor;
     private String shrJcjl;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private Date shsjTime;
     private String jcjl;
     private String jcsm;
@@ -111,5 +108,6 @@ public class Dcsjhy {
     private String state;
     private String spare2;
     private String spare3;
+
 
 }
