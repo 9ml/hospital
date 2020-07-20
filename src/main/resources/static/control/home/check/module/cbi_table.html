@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>移动式C形臂X射线机</title>
+    <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
+    <script src="../../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../../../static/layui/layui.js"></script>
+    <style>
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">移动式C形臂X射线机</legend>
+        </fieldset>
+        <table class="layui-table">
+            <tr>
+                <td style="color: red;background-color: #eaeaea;font-size: 16px;">检测项目</td>
+                <td colspan="2" style="color: red;background-color: #eaeaea;font-size: 16px;">检测条件</td>
+                <td colspan="2" style="color: red;background-color: #eaeaea;font-size: 16px;">检测结果</td>
+                <td style="color: red;background-color: #eaeaea;font-size: 16px;">指标要求</td>
+                <td style="color: red;background-color: #eaeaea;font-size: 16px;">单项评定</td>
+            </tr>
+            <tr>
+                <td rowspan="4">管电压指示的偏离</td>
+                <td>透视、0.4mA</td>
+                <td>60kV</td>
+                <td>1.03kV</td>
+                <td>1.72%</td>
+                <td rowspan="4">±5.0%或±5.0kV内，以较大者控制</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>透视、6.6mA</td>
+                <td>82kV</td>
+                <td>-2.19kV</td>
+                <td>-2.67%</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>透视、5.5mA</td>
+                <td>99kV</td>
+                <td>1.3kV</td>
+                <td>1.31%</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>透视、5.0mA</td>
+                <td>110kV</td>
+                <td>-0.3kV</td>
+                <td>-0.27%</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>有用线束半值层</td>
+                <td colspan="2">82kV、6.6mA、透视</td>
+                <td colspan="2">3.42mmAl</td>
+                <td>≥2.3mmAl</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>透视受检者入射体表空气比释动能率典型值</td>
+                <td colspan="2">71kV、3.5mA；自动透视</td>
+                <td colspan="2">11.64mGy/min</td>
+                <td>≤25mGy/min（影像增强器）</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>空间分辨力</td>
+                <td colspan="2">51kV、0.3mA；自动透视</td>
+                <td colspan="2">1.4 lp/mm</td>
+                <td>≥0.6lp/mm</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td rowspan="2">低对比分辨力</td>
+                <td colspan="2">65kV、2.5mA；自动模式、对比度2%</td>
+                <td colspan="2">5.0 mm</td>
+                <td rowspan="2">4％,≤7mm（测试板）</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td colspan="2">61kV、0.5mA；自动模式、对比度4%</td>
+                <td colspan="2">3.0 mm</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>影像接收器入射屏前空气比释动能率</td>
+                <td colspan="2">64kV、1.6mA；自动模式；输入屏尺寸：9"</td>
+                <td colspan="2">31.15µGy/min</td>
+                <td>≤60.0µGy/min</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>自动亮度控制</td>
+                <td colspan="2">/</td>
+                <td colspan="2">不适用</td>
+                <td>≤15％</td>
+                <td>□符合 □不符合</td>
+            </tr>
+        </table>
+        <div class="col-xs-12 btn">
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
+            <a id="update" class="layui-btn layui-btn-normal">修改</a>
+        </div>
+    </div>
+</div>
+<script>
+    //Demo
+    layui.use(['table', 'layer', 'jquery', 'form'], function () {
+        var table = layui.table
+            , layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        $(function () {
+            $.ajax({
+                url: "/hxj/findTemplate",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    if (res.data !== null && res.data !== "") {
+                        $("#cqz1").append(res.data.cqz1);
+                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
+                        $("#cqz2").append(res.data.cqz2);
+                        $("#cqz3").append(res.data.cqz3);
+
+                        $("#qztq1").append(res.data.qztq1);
+                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
+                        $("#qztq2").append(res.data.qztq2);
+                        $("#qztq3").append(res.data.qztq3);
+
+                        $("#xry1").append(res.data.xry1);
+                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
+                        $("#xry2").append(res.data.xry2);
+                        $("#xry3").append(res.data.xry3);
+
+                        $("#xqf1").append(res.data.xqf1);
+                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
+                        $("#xqf2").append(res.data.xqf2);
+                        $("#xqf3").append(res.data.xqf3);
+
+                        $("#hqm1").append(res.data.hqm1);
+                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
+                        $("#hqm2").append(res.data.hqm2);
+                        $("#hqm3").append(res.data.hqm3);
+                    } else {
+                        layer.msg("无数据");
+                    }
+                }
+            });
+        });
+        // 修改
+        $("#update").click(function () {
+            location.href = "/control/home/check/update/update_breath_module.html"
+        });
+        // 返回
+        $("#back").click(function () {
+            window.history.back();
+        });
+    });
+</script>
+</body>
+
+</html>
