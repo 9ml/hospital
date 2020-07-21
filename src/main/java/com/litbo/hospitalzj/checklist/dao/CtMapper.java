@@ -35,9 +35,9 @@ public interface CtMapper {
     void insert(CtTemplate ctTemplate);
     //修改模板表数据
     @Update(" update ct_template\n" +
-            "    set cjchpc_ch_test1 = #{cjchpcChTest1,jdbcType=INTEGER},\n" +
-            "      cjchpc_ch_test2 = #{cjchpcChTest2,jdbcType=INTEGER},\n" +
-            "      cjchpc_ch_test3 = #{cjchpcChTest3,jdbcType=INTEGER},\n" +
+            "    set cjchpc_ch_test1 = #{cjchpcChTest1,jdbcType=VARCHAR},\n" +
+            "      cjchpc_ch_test2 = #{cjchpcChTest2,jdbcType=VARCHAR},\n" +
+            "      cjchpc_ch_test3 = #{cjchpcChTest3,jdbcType=VARCHAR},\n" +
             "      cjchpc_jctj = #{cjchpcJctj,jdbcType=VARCHAR},\n" +
             "      cjchpc_zbyq = #{cjchpcZbyq,jdbcType=VARCHAR},\n" +
             "      ctdiw_jctj = #{ctdiwJctj,jdbcType=VARCHAR},\n" +

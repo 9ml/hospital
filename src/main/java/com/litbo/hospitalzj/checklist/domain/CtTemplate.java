@@ -6,11 +6,11 @@ import lombok.Data;
 public class CtTemplate {
     private Integer ctTemplateId;
 
-    private Integer cjchpcChTest1;
+    private String cjchpcChTest1;
 
-    private Integer cjchpcChTest2;
+    private String cjchpcChTest2;
 
-    private Integer cjchpcChTest3;
+    private String cjchpcChTest3;
 
     private String cjchpcJctj;
 
