@@ -3,8 +3,11 @@ package com.litbo.hospitalzj.checklist.domain;
 import lombok.Data;
 
 import java.util.Date;
+
 @Data
 public class Ydscxb {
+    private Integer ydscxbTemplateId;
+
     private Integer ydId;
 
     private Integer jcyqId;
@@ -83,7 +86,7 @@ public class Ydscxb {
 
     private Byte tssjzrstbRes;
 
-    private Integer kjfblJctj;
+    private String kjfblJctj;
 
     private String kjfblZbyq;
 

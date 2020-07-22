@@ -47,79 +47,79 @@
             </tr>
             <tr>
                 <td rowspan="4">管电压指示的偏离</td>
-                <td>透视、0.4mA</td>
-                <td>60kV</td>
-                <td>1.03kV</td>
-                <td>1.72%</td>
-                <td rowspan="4">±5.0%或±5.0kV内，以较大者控制</td>
+                <td id="gdyzsplJctj1"></td>
+                <td id="gdyzsplJctj2"></td>
+                <td></td>
+                <td></td>
+                <td rowspan="4" id="gdyzsplZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>透视、6.6mA</td>
-                <td>82kV</td>
-                <td>-2.19kV</td>
-                <td>-2.67%</td>
+                <td id="gdyzsplJctj3"></td>
+                <td id="gdyzsplJctj4"></td>
+                <td></td>
+                <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>透视、5.5mA</td>
-                <td>99kV</td>
-                <td>1.3kV</td>
-                <td>1.31%</td>
+                <td id="gdyzsplJctj5"></td>
+                <td id="gdyzsplJctj6"></td>
+                <td></td>
+                <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>透视、5.0mA</td>
-                <td>110kV</td>
-                <td>-0.3kV</td>
-                <td>-0.27%</td>
+                <td id="gdyzsplJctj7"></td>
+                <td id="gdyzsplJctj8"></td>
+                <td></td>
+                <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>有用线束半值层</td>
-                <td colspan="2">82kV、6.6mA、透视</td>
-                <td colspan="2">3.42mmAl</td>
-                <td>≥2.3mmAl</td>
+                <td colspan="2" id="yyxsbzcJctj"></td>
+                <td colspan="2"></td>
+                <td id="yyxsbzcZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>透视受检者入射体表空气比释动能率典型值</td>
-                <td colspan="2">71kV、3.5mA；自动透视</td>
-                <td colspan="2">11.64mGy/min</td>
-                <td>≤25mGy/min（影像增强器）</td>
+                <td colspan="2" id="tssjzrstbJctj"></td>
+                <td colspan="2"></td>
+                <td id="tssjzrstbZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>空间分辨力</td>
-                <td colspan="2">51kV、0.3mA；自动透视</td>
-                <td colspan="2">1.4 lp/mm</td>
-                <td>≥0.6lp/mm</td>
+                <td colspan="2" id="kjfblJctj"></td>
+                <td colspan="2"></td>
+                <td id="kjfblZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td rowspan="2">低对比分辨力</td>
-                <td colspan="2">65kV、2.5mA；自动模式、对比度2%</td>
-                <td colspan="2">5.0 mm</td>
-                <td rowspan="2">4％,≤7mm（测试板）</td>
+                <td colspan="2" id="ddbfblJctj1"></td>
+                <td colspan="2"></td>
+                <td rowspan="2" id="ddbfblZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td colspan="2">61kV、0.5mA；自动模式、对比度4%</td>
-                <td colspan="2">3.0 mm</td>
+                <td colspan="2" id="ddbfblJctj2"></td>
+                <td colspan="2"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>影像接收器入射屏前空气比释动能率</td>
-                <td colspan="2">64kV、1.6mA；自动模式；输入屏尺寸：9"</td>
-                <td colspan="2">31.15µGy/min</td>
-                <td>≤60.0µGy/min</td>
+                <td colspan="2" id="yxjsqJctj"></td>
+                <td colspan="2"></td>
+                <td id="yxjsqZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>自动亮度控制</td>
                 <td colspan="2">/</td>
-                <td colspan="2">不适用</td>
-                <td>≤15％</td>
+                <td colspan="2"></td>
+                <td id="zdldkzZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
         </table>
@@ -138,36 +138,38 @@
             , form = layui.form;
         $(function () {
             $.ajax({
-                url: "/hxj/findTemplate",
+                url: "/ydscxb/findTemplate",
                 method: "GET",
                 dataType: "JSON",
                 success: function (res) {
-                    console.log(res);
                     if (res.data !== null && res.data !== "") {
-                        $("#cqz1").append(res.data.cqz1);
-                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
-                        $("#cqz2").append(res.data.cqz2);
-                        $("#cqz3").append(res.data.cqz3);
-
-                        $("#qztq1").append(res.data.qztq1);
-                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
-                        $("#qztq2").append(res.data.qztq2);
-                        $("#qztq3").append(res.data.qztq3);
-
-                        $("#xry1").append(res.data.xry1);
-                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
-                        $("#xry2").append(res.data.xry2);
-                        $("#xry3").append(res.data.xry3);
-
-                        $("#xqf1").append(res.data.xqf1);
-                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
-                        $("#xqf2").append(res.data.xqf2);
-                        $("#xqf3").append(res.data.xqf3);
-
-                        $("#hqm1").append(res.data.hqm1);
-                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
-                        $("#hqm2").append(res.data.hqm2);
-                        $("#hqm3").append(res.data.hqm3);
+                        //管电压指示的偏离
+                        $("#gdyzsplJctj1").text(res.data.gdyzsplJctj1);
+                        $("#gdyzsplJctj2").text(res.data.gdyzsplJctj2);
+                        $("#gdyzsplJctj3").text(res.data.gdyzsplJctj3);
+                        $("#gdyzsplJctj4").text(res.data.gdyzsplJctj4);
+                        $("#gdyzsplJctj5").text(res.data.gdyzsplJctj5);
+                        $("#gdyzsplJctj6").text(res.data.gdyzsplJctj6);
+                        $("#gdyzsplJctj7").text(res.data.gdyzsplJctj7);
+                        $("#gdyzsplJctj8").text(res.data.gdyzsplJctj8);
+                        $("#gdyzsplZbyq").text(res.data.gdyzsplZbyq);
+                        //有用线束半值层
+                        $("#yyxsbzcJctj").text(res.data.yyxsbzcJctj);
+                        $("#yyxsbzcZbyq").text(res.data.yyxsbzcZbyq);
+                        $("#tssjzrstbJctj").text(res.data.tssjzrstbJctj);
+                        $("#tssjzrstbZbyq").text(res.data.tssjzrstbZbyq);
+                        //空间分辨力
+                        $("#kjfblJctj").text(res.data.kjfblJctj);
+                        $("#kjfblZbyq").text(res.data.kjfblZbyq);
+                        //低对比分辨力
+                        $("#ddbfblJctj1").text(res.data.ddbfblJctj1);
+                        $("#ddbfblJctj2").text(res.data.ddbfblJctj2);
+                        $("#ddbfblZbyq").text(res.data.ddbfblZbyq);
+                        //影像接收器入射屏前空气比释动能率
+                        $("#yxjsqJctj").text(res.data.yxjsqJctj);
+                        $("#yxjsqZbyq").text(res.data.yxjsqZbyq);
+                        //自动亮度控制
+                        $("#zdldkzZbyq").text(res.data.zdldkzZbyq);
                     } else {
                         layer.msg("无数据");
                     }
@@ -176,7 +178,7 @@
         });
         // 修改
         $("#update").click(function () {
-            location.href = "/control/home/check/update/update_breath_module.html"
+            location.href = "/control/home/check/update/update_cxb_module.html"
         });
         // 返回
         $("#back").click(function () {
