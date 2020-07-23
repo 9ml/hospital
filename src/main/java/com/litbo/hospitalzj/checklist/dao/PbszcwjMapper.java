@@ -15,171 +15,171 @@ public interface PbszcwjMapper {
     PbszcwjTemplate findTemplate();
     //修改模板表数据
     @Update(" update pbszcwj_template\n" +
-            "    set djdq_test1 = #{djdqTest1,jdbcType=DOUBLE},\n" +
-            "      djdq_test2 = #{djdqTest2,jdbcType=DOUBLE},\n" +
-            "      djdq_test3 = #{djdqTest3,jdbcType=DOUBLE},\n" +
-            "      djdq_test4 = #{djdqTest4,jdbcType=DOUBLE},\n" +
-            "      djdq_wc = #{djdqWc,jdbcType=INTEGER},\n" +
-            "      djdn_test1 = #{djdnTest1,jdbcType=DOUBLE},\n" +
-            "      djdn_test2 = #{djdnTest2,jdbcType=DOUBLE},\n" +
-            "      djdn_test3 = #{djdnTest3,jdbcType=DOUBLE},\n" +
-            "      djdn_test4 = #{djdnTest4,jdbcType=DOUBLE},\n" +
-            "      djdn_wc = #{djdnWc,jdbcType=INTEGER},\n" +
-            "      sjdq_test1 = #{sjdqTest1,jdbcType=DOUBLE},\n" +
-            "      sjdq_test2 = #{sjdqTest2,jdbcType=DOUBLE},\n" +
-            "      sjdq_test3 = #{sjdqTest3,jdbcType=DOUBLE},\n" +
-            "      sjdq_test4 = #{sjdqTest4,jdbcType=DOUBLE},\n" +
-            "      sjdq_wc = #{sjdqWc,jdbcType=INTEGER},\n" +
-            "      sjdn_test1 = #{sjdnTest1,jdbcType=DOUBLE},\n" +
-            "      sjdn_test2 = #{sjdnTest2,jdbcType=DOUBLE},\n" +
-            "      sjdn_test3 = #{sjdnTest3,jdbcType=DOUBLE},\n" +
-            "      sjdn_test4 = #{sjdnTest4,jdbcType=DOUBLE},\n" +
-            "      sjdn_wc = #{sjdnWc,jdbcType=INTEGER},\n" +
-            "      djgpld_wc = #{djgpldWc,jdbcType=INTEGER},\n" +
-            "      sjgpld_wc = #{sjgpldWc,jdbcType=INTEGER},\n" +
-            "      spare1 = #{spare1,jdbcType=VARCHAR},\n" +
-            "      spare2 = #{spare2,jdbcType=VARCHAR}\n" +
-            "      spare3 = #{spare3,jdbcType=INTEGER}\n" +
-            "      spare4 = #{spare4,jdbcType=INTEGER}\n" +
-            "      spare5 = #{spare5,jdbcType=INTEGER}\n" +
+            "    set gdyzsdpl_jctj = #{gdyzsdplJctj,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj1 = #{gdyzsdplJctj1,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj2 = #{gdyzsdplJctj2,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj3 = #{gdyzsdplJctj3,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj4 = #{gdyzsdplJctj4,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_zbyq = #{gdyzsdplZbyq,jdbcType=VARCHAR},\n" +
+            "      sclcfx_jctj = #{sclcfxJctj,jdbcType=VARCHAR},\n" +
+            "      sclcfx_zbyq = #{sclcfxZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_jctj = #{yyxsbzcJctj,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_zbyq = #{yyxsbzcZbyq,jdbcType=VARCHAR},\n" +
+            "      zdbgkzcfx_zbyq = #{zdbgkzcfxZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_jctj = #{yyxsczdplJctj,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_zbyq = #{yyxsczdplZbyq,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_jctj = #{gyyzsysbdplJctj,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_zbyq = #{gyyzsysbdplZbyq,jdbcType=VARCHAR},\n" +
+            "      tssjzrstbkqbsdnldxz_jctj = #{tssjzrstbkqbsdnldxzJctj,jdbcType=VARCHAR},\n" +
+            "      tssjzrstbkqbsdnldxz_zbyq = #{tssjzrstbkqbsdnldxzZbyq,jdbcType=VARCHAR},\n" +
+            "      kjfbl_jctj = #{kjfblJctj,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_jctj1 = #{ddbfblJctj1,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_jctj2 = #{ddbfblJctj2,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_zbyq = #{ddbfblZbyq,jdbcType=VARCHAR}" +
             "    where pbszcwj_template_id = #{pbszcwjTemplateId,jdbcType=INTEGER}")
     int updatePbszcwjTemplate(PbszcwjTemplate pbszcwjTemplate);
     //插入模板表数据
-    @Insert(" insert into pbszcwj_template (pbszcwj_template_id, djdq_test1, djdq_test2, \n" +
-            "      djdq_test3, djdq_test4, djdq_wc, \n" +
-            "      djdn_test1, djdn_test2, djdn_test3, \n" +
-            "      djdn_test4, djdn_wc, sjdq_test1, \n" +
-            "      sjdq_test2, sjdq_test3, sjdq_test4, \n" +
-            "      sjdq_wc, sjdn_test1, sjdn_test2, \n" +
-            "      sjdn_test3, sjdn_test4, sjdn_wc, \n" +
-            "      djgpld_wc, sjgpld_wc, spare1, \n" +
-            "      spare2)\n" +
-            "    values (#{pbszcwjTemplateId,jdbcType=INTEGER}, #{djdqTest1,jdbcType=DOUBLE}, #{djdqTest2,jdbcType=DOUBLE}, \n" +
-            "      #{djdqTest3,jdbcType=DOUBLE}, #{djdqTest4,jdbcType=DOUBLE}, #{djdqWc,jdbcType=INTEGER}, \n" +
-            "      #{djdnTest1,jdbcType=DOUBLE}, #{djdnTest2,jdbcType=DOUBLE}, #{djdnTest3,jdbcType=DOUBLE}, \n" +
-            "      #{djdnTest4,jdbcType=DOUBLE}, #{djdnWc,jdbcType=INTEGER}, #{sjdqTest1,jdbcType=DOUBLE}, \n" +
-            "      #{sjdqTest2,jdbcType=DOUBLE}, #{sjdqTest3,jdbcType=DOUBLE}, #{sjdqTest4,jdbcType=DOUBLE}, \n" +
-            "      #{sjdqWc,jdbcType=INTEGER}, #{sjdnTest1,jdbcType=DOUBLE}, #{sjdnTest2,jdbcType=DOUBLE}, \n" +
-            "      #{sjdnTest3,jdbcType=DOUBLE}, #{sjdnTest4,jdbcType=DOUBLE}, #{sjdnWc,jdbcType=INTEGER}, \n" +
-            "      #{djgpldWc,jdbcType=INTEGER}, #{sjgpldWc,jdbcType=INTEGER}, #{spare1,jdbcType=VARCHAR}, \n" +
-            "      #{spare2,jdbcType=VARCHAR})")
+    @Insert(" insert into pbszcwj_template (gdyzsdpl_jctj, \n" +
+            "      gdyzsdpl_jctj1, gdyzsdpl_jctj2, gdyzsdpl_jctj3, \n" +
+            "      gdyzsdpl_jctj4, gdyzsdpl_zbyq, sclcfx_jctj, \n" +
+            "      sclcfx_zbyq, yyxsbzc_jctj, yyxsbzc_zbyq, \n" +
+            "      zdbgkzcfx_zbyq, yyxsczdpl_jctj, yyxsczdpl_zbyq, \n" +
+            "      gyyzsysbdpl_jctj, gyyzsysbdpl_zbyq, tssjzrstbkqbsdnldxz_jctj, \n" +
+            "      tssjzrstbkqbsdnldxz_zbyq, kjfbl_jctj, ddbfbl_jctj1, \n" +
+            "      ddbfbl_jctj2, ddbfbl_zbyq)\n" +
+            "    values (#{gdyzsdplJctj,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplJctj1,jdbcType=VARCHAR}, #{gdyzsdplJctj2,jdbcType=VARCHAR}, #{gdyzsdplJctj3,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplJctj4,jdbcType=VARCHAR}, #{gdyzsdplZbyq,jdbcType=VARCHAR}, #{sclcfxJctj,jdbcType=VARCHAR}, \n" +
+            "      #{sclcfxZbyq,jdbcType=VARCHAR}, #{yyxsbzcJctj,jdbcType=VARCHAR}, #{yyxsbzcZbyq,jdbcType=VARCHAR}, \n" +
+            "      #{zdbgkzcfxZbyq,jdbcType=VARCHAR}, #{yyxsczdplJctj,jdbcType=VARCHAR}, #{yyxsczdplZbyq,jdbcType=VARCHAR}, \n" +
+            "      #{gyyzsysbdplJctj,jdbcType=VARCHAR}, #{gyyzsysbdplZbyq,jdbcType=VARCHAR}, #{tssjzrstbkqbsdnldxzJctj,jdbcType=VARCHAR}, \n" +
+            "      #{tssjzrstbkqbsdnldxzZbyq,jdbcType=VARCHAR}, #{kjfblJctj,jdbcType=VARCHAR}, #{ddbfblJctj1,jdbcType=VARCHAR}, \n" +
+            "      #{ddbfblJctj2,jdbcType=VARCHAR}, #{ddbfblZbyq,jdbcType=VARCHAR})")
     int insert(PbszcwjTemplate pbszcwjTemplate);
 
     //保存
-    @Insert("insert into pbszcwj (pbszcwjId, jcyq_id, eq_id,  tester, auditor, test_time, shsj_time,jcjl, jcsm, djdq_test1, \n" +
-            "      djdq_value1, djdq_test2, djdq_value2,  djdq_test3, djdq_value3, djdq_test4,  djdq_value4, djdq_wc, djdq_result,   djdn_test1, djdn_value1, djdn_test2, \n" +
-            "      djdn_value2, djdn_test3, djdn_value3, djdn_test4, djdn_value4, djdn_wc,   djdn_result, sjdq_test1, sjdq_value1,   sjdq_test2, sjdq_value2, sjdq_test3, \n" +
-            "      sjdq_value3, sjdq_test4, sjdq_value4,  sjdq_wc, sjdq_result, sjdn_test1,  sjdn_value1, sjdn_test2, sjdn_value2,   sjdn_test3, sjdn_value3, sjdn_test4, \n" +
-            "      sjdn_value4, sjdn_wc, sjdn_result,   ssld_djdq, ssld_djdn, zxld_djdq,  zxld_djdn, djgpld_wc, djgpld_result,  ssld_sjdq, ssld_sjdn, zxld_sjdq, \n" +
-            "      zxld_sjdn, sjgpld_wc, sjgpld_result, spare1, spare2, spare3 , spare4, spare5) values (#{pbszcwjId,jdbcType=INTEGER}, #{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=INTEGER}, \n" +
-            "      #{tester,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{testTime,jdbcType=TIMESTAMP},#{shsjTime}, \n" +
-            "      #{jcjl,jdbcType=VARCHAR}, #{jcsm,jdbcType=VARCHAR}, #{djdqTest1,jdbcType=DOUBLE}, \n" +
-            "      #{djdqValue1,jdbcType=DOUBLE}, #{djdqTest2,jdbcType=DOUBLE}, #{djdqValue2,jdbcType=DOUBLE}, \n" +
-            "      #{djdqTest3,jdbcType=DOUBLE}, #{djdqValue3,jdbcType=DOUBLE}, #{djdqTest4,jdbcType=DOUBLE}, \n" +
-            "      #{djdqValue4,jdbcType=DOUBLE}, #{djdqWc,jdbcType=INTEGER}, #{djdqResult,jdbcType=TINYINT}, \n" +
-            "      #{djdnTest1,jdbcType=DOUBLE}, #{djdnValue1,jdbcType=DOUBLE}, #{djdnTest2,jdbcType=DOUBLE}, \n" +
-            "      #{djdnValue2,jdbcType=DOUBLE}, #{djdnTest3,jdbcType=DOUBLE}, #{djdnValue3,jdbcType=DOUBLE}, \n" +
-            "      #{djdnTest4,jdbcType=DOUBLE}, #{djdnValue4,jdbcType=DOUBLE}, #{djdnWc,jdbcType=INTEGER}, \n" +
-            "      #{djdnResult,jdbcType=TINYINT}, #{sjdqTest1,jdbcType=DOUBLE}, #{sjdqValue1,jdbcType=DOUBLE}, \n" +
-            "      #{sjdqTest2,jdbcType=DOUBLE}, #{sjdqValue2,jdbcType=DOUBLE}, #{sjdqTest3,jdbcType=DOUBLE}, \n" +
-            "      #{sjdqValue3,jdbcType=DOUBLE}, #{sjdqTest4,jdbcType=DOUBLE}, #{sjdqValue4,jdbcType=DOUBLE}, \n" +
-            "      #{sjdqWc,jdbcType=INTEGER}, #{sjdqResult,jdbcType=TINYINT}, #{sjdnTest1,jdbcType=DOUBLE}, \n" +
-            "      #{sjdnValue1,jdbcType=DOUBLE}, #{sjdnTest2,jdbcType=DOUBLE}, #{sjdnValue2,jdbcType=DOUBLE}, \n" +
-            "      #{sjdnTest3,jdbcType=DOUBLE}, #{sjdnValue3,jdbcType=DOUBLE}, #{sjdnTest4,jdbcType=DOUBLE}, \n" +
-            "      #{sjdnValue4,jdbcType=DOUBLE}, #{sjdnWc,jdbcType=INTEGER}, #{sjdnResult,jdbcType=TINYINT}, \n" +
-            "      #{ssldDjdq,jdbcType=DOUBLE}, #{ssldDjdn,jdbcType=DOUBLE}, #{zxldDjdq,jdbcType=DOUBLE}, \n" +
-            "      #{zxldDjdn,jdbcType=DOUBLE}, #{djgpldWc,jdbcType=INTEGER}, #{djgpldResult,jdbcType=TINYINT}, \n" +
-            "      #{ssldSjdq,jdbcType=DOUBLE}, #{ssldSjdn,jdbcType=DOUBLE}, #{zxldSjdq,jdbcType=DOUBLE}, \n" +
-            "      #{zxldSjdn,jdbcType=DOUBLE}, #{sjgpldWc,jdbcType=INTEGER}, #{sjgpldResult,jdbcType=TINYINT}, \n" +
-            "      #{spare1,jdbcType=VARCHAR}, #{spare2,jdbcType=VARCHAR}, #{spare3,jdbcType=INTEGER}, \n" +
-            "      #{spare4,jdbcType=INTEGER}, #{spare5,jdbcType=INTEGER})")
-    @Options(useGeneratedKeys = true, keyProperty = "pbszcwjId", keyColumn = "pbszcwjId")
+    @Insert("insert into pbszcwj (jcyq_id, eq_id, \n" +
+            "      tester, shr_jcjl, auditor, \n" +
+            "      test_time, shsj_time, jcjl, \n" +
+            "      jcsm, gdyzsdpl_jctj, gdyzsdpl_jctj1, \n" +
+            "      gdyzsdpl_jctj2, gdyzsdpl_jctj3, gdyzsdpl_jctj4, \n" +
+            "      gdyzsdpl_value1, gdyzsdpl_value2, gdyzsdpl_value3, \n" +
+            "      gdyzsdpl_value4, gdyzsdpl_value5, gdyzsdpl_value6, \n" +
+            "      gdyzsdpl_value7, gdyzsdpl_value8, gdyzsdpl_zbyq, \n" +
+            "      gdyzsdpl_result1, gdyzsdpl_result2, gdyzsdpl_result3, \n" +
+            "      gdyzsdpl_result4, sclcfx_jctj, sclcfx_value, \n" +
+            "      sclcfx_zbyq, sclcfx_result, yyxsbzc_jctj, \n" +
+            "      yyxsbzc_value, yyxsbzc_zbyq, yyxsbzc_result, \n" +
+            "      zdbgkzcfx_value, zdbgkzcfx_zbyq, yyxsczdpl_jctj, \n" +
+            "      yyxsczdpl_value, yyxsczdpl_zbyq, yyxsczdpl_result, \n" +
+            "      gyyzsysbdpl_jctj, gyyzsysbdpl_value1, gyyzsysbdpl_value2, \n" +
+            "      gyyzsysbdpl_value3, gyyzsysbdpl_value4, gyyzsysbdpl_value5, \n" +
+            "      gyyzsysbdpl_value6, gyyzsysbdpl_value7, gyyzsysbdpl_value8, \n" +
+            "      gyyzsysbdpl_zbyq, gyyzsysbdpl_result, tssjzrstbkqbsdnldxz_jctj, \n" +
+            "      tssjzrstbkqbsdnldxz_value, tssjzrstbkqbsdnldxz_zbyq, \n" +
+            "      tssjzrstbkqbsdnldxz_result, kjfbl_jctj, kjfbl_value, \n" +
+            "      ddbfbl_jctj1, ddbfbl_jctj2, ddbfbl_value1, \n" +
+            "      ddbfbl_value2, ddbfbl_zbyq, ddbfbl_result) " +
+            "values ( #{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=INTEGER}, \n" +
+            "      #{tester,jdbcType=VARCHAR}, #{shrJcjl,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, \n" +
+            "      #{testTime,jdbcType=TIMESTAMP}, #{shsjTime,jdbcType=TIMESTAMP}, #{jcjl,jdbcType=VARCHAR}, \n" +
+            "      #{jcsm,jdbcType=VARCHAR}, #{gdyzsdplJctj,jdbcType=VARCHAR}, #{gdyzsdplJctj1,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplJctj2,jdbcType=VARCHAR}, #{gdyzsdplJctj3,jdbcType=VARCHAR}, #{gdyzsdplJctj4,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplValue1,jdbcType=VARCHAR}, #{gdyzsdplValue2,jdbcType=VARCHAR}, #{gdyzsdplValue3,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplValue4,jdbcType=VARCHAR}, #{gdyzsdplValue5,jdbcType=VARCHAR}, #{gdyzsdplValue6,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplValue7,jdbcType=VARCHAR}, #{gdyzsdplValue8,jdbcType=VARCHAR}, #{gdyzsdplZbyq,jdbcType=VARCHAR}, \n" +
+            "      #{gdyzsdplResult1,jdbcType=TINYINT}, #{gdyzsdplResult2,jdbcType=TINYINT}, #{gdyzsdplResult3,jdbcType=TINYINT}, \n" +
+            "      #{gdyzsdplResult4,jdbcType=TINYINT}, #{sclcfxJctj,jdbcType=VARCHAR}, #{sclcfxValue,jdbcType=VARCHAR}, \n" +
+            "      #{sclcfxZbyq,jdbcType=VARCHAR}, #{sclcfxResult,jdbcType=TINYINT}, #{yyxsbzcJctj,jdbcType=VARCHAR}, \n" +
+            "      #{yyxsbzcValue,jdbcType=VARCHAR}, #{yyxsbzcZbyq,jdbcType=VARCHAR}, #{yyxsbzcResult,jdbcType=TINYINT}, \n" +
+            "      #{zdbgkzcfxValue,jdbcType=VARCHAR}, #{zdbgkzcfxZbyq,jdbcType=VARCHAR}, #{yyxsczdplJctj,jdbcType=VARCHAR}, \n" +
+            "      #{yyxsczdplValue,jdbcType=VARCHAR}, #{yyxsczdplZbyq,jdbcType=VARCHAR}, #{yyxsczdplResult,jdbcType=TINYINT}, \n" +
+            "      #{gyyzsysbdplJctj,jdbcType=VARCHAR}, #{gyyzsysbdplValue1,jdbcType=VARCHAR}, #{gyyzsysbdplValue2,jdbcType=VARCHAR}, \n" +
+            "      #{gyyzsysbdplValue3,jdbcType=VARCHAR}, #{gyyzsysbdplValue4,jdbcType=VARCHAR}, #{gyyzsysbdplValue5,jdbcType=VARCHAR}, \n" +
+            "      #{gyyzsysbdplValue6,jdbcType=VARCHAR}, #{gyyzsysbdplValue7,jdbcType=VARCHAR}, #{gyyzsysbdplValue8,jdbcType=VARCHAR}, \n" +
+            "      #{gyyzsysbdplZbyq,jdbcType=VARCHAR}, #{gyyzsysbdplResult,jdbcType=TINYINT}, #{tssjzrstbkqbsdnldxzJctj,jdbcType=VARCHAR}, \n" +
+            "      #{tssjzrstbkqbsdnldxzValue,jdbcType=VARCHAR}, #{tssjzrstbkqbsdnldxzZbyq,jdbcType=VARCHAR}, \n" +
+            "      #{tssjzrstbkqbsdnldxzResult,jdbcType=TINYINT}, #{kjfblJctj,jdbcType=VARCHAR}, #{kjfblValue,jdbcType=VARCHAR}, \n" +
+            "      #{ddbfblJctj1,jdbcType=VARCHAR}, #{ddbfblJctj2,jdbcType=VARCHAR}, #{ddbfblValue1,jdbcType=VARCHAR}, \n" +
+            "      #{ddbfblValue2,jdbcType=VARCHAR}, #{ddbfblZbyq,jdbcType=VARCHAR}, #{ddbfblResult,jdbcType=TINYINT})")
+    @Options(useGeneratedKeys = true, keyProperty = "pbszcwjId", keyColumn = "pbszcwj_id")
     void save(Pbszcwj pbszcwj);
     //修改数据
     @Update(" update pbszcwj\n" +
             "    set jcyq_id = #{jcyqId,jdbcType=INTEGER},\n" +
             "      eq_id = #{eqId,jdbcType=INTEGER},\n" +
             "      tester = #{tester,jdbcType=VARCHAR},\n" +
+            "      shr_jcjl = #{shrJcjl,jdbcType=VARCHAR},\n" +
             "      auditor = #{auditor,jdbcType=VARCHAR},\n" +
             "      test_time = #{testTime,jdbcType=TIMESTAMP},\n" +
             "      shsj_time = #{shsjTime,jdbcType=TIMESTAMP},\n" +
             "      jcjl = #{jcjl,jdbcType=VARCHAR},\n" +
             "      jcsm = #{jcsm,jdbcType=VARCHAR},\n" +
-            "      djdq_test1 = #{djdqTest1,jdbcType=DOUBLE},\n" +
-            "      djdq_value1 = #{djdqValue1,jdbcType=DOUBLE},\n" +
-            "      djdq_test2 = #{djdqTest2,jdbcType=DOUBLE},\n" +
-            "      djdq_value2 = #{djdqValue2,jdbcType=DOUBLE},\n" +
-            "      djdq_test3 = #{djdqTest3,jdbcType=DOUBLE},\n" +
-            "      djdq_value3 = #{djdqValue3,jdbcType=DOUBLE},\n" +
-            "      djdq_test4 = #{djdqTest4,jdbcType=DOUBLE},\n" +
-            "      djdq_value4 = #{djdqValue4,jdbcType=DOUBLE},\n" +
-            "      djdq_wc = #{djdqWc,jdbcType=INTEGER},\n" +
-            "      djdq_result = #{djdqResult,jdbcType=TINYINT},\n" +
-            "      djdn_test1 = #{djdnTest1,jdbcType=DOUBLE},\n" +
-            "      djdn_value1 = #{djdnValue1,jdbcType=DOUBLE},\n" +
-            "      djdn_test2 = #{djdnTest2,jdbcType=DOUBLE},\n" +
-            "      djdn_value2 = #{djdnValue2,jdbcType=DOUBLE},\n" +
-            "      djdn_test3 = #{djdnTest3,jdbcType=DOUBLE},\n" +
-            "      djdn_value3 = #{djdnValue3,jdbcType=DOUBLE},\n" +
-            "      djdn_test4 = #{djdnTest4,jdbcType=DOUBLE},\n" +
-            "      djdn_value4 = #{djdnValue4,jdbcType=DOUBLE},\n" +
-            "      djdn_wc = #{djdnWc,jdbcType=INTEGER},\n" +
-            "      djdn_result = #{djdnResult,jdbcType=TINYINT},\n" +
-            "      sjdq_test1 = #{sjdqTest1,jdbcType=DOUBLE},\n" +
-            "      sjdq_value1 = #{sjdqValue1,jdbcType=DOUBLE},\n" +
-            "      sjdq_test2 = #{sjdqTest2,jdbcType=DOUBLE},\n" +
-            "      sjdq_value2 = #{sjdqValue2,jdbcType=DOUBLE},\n" +
-            "      sjdq_test3 = #{sjdqTest3,jdbcType=DOUBLE},\n" +
-            "      sjdq_value3 = #{sjdqValue3,jdbcType=DOUBLE},\n" +
-            "      sjdq_test4 = #{sjdqTest4,jdbcType=DOUBLE},\n" +
-            "      sjdq_value4 = #{sjdqValue4,jdbcType=DOUBLE},\n" +
-            "      sjdq_wc = #{sjdqWc,jdbcType=INTEGER},\n" +
-            "      sjdq_result = #{sjdqResult,jdbcType=TINYINT},\n" +
-            "      sjdn_test1 = #{sjdnTest1,jdbcType=DOUBLE},\n" +
-            "      sjdn_value1 = #{sjdnValue1,jdbcType=DOUBLE},\n" +
-            "      sjdn_test2 = #{sjdnTest2,jdbcType=DOUBLE},\n" +
-            "      sjdn_value2 = #{sjdnValue2,jdbcType=DOUBLE},\n" +
-            "      sjdn_test3 = #{sjdnTest3,jdbcType=DOUBLE},\n" +
-            "      sjdn_value3 = #{sjdnValue3,jdbcType=DOUBLE},\n" +
-            "      sjdn_test4 = #{sjdnTest4,jdbcType=DOUBLE},\n" +
-            "      sjdn_value4 = #{sjdnValue4,jdbcType=DOUBLE},\n" +
-            "      sjdn_wc = #{sjdnWc,jdbcType=INTEGER},\n" +
-            "      sjdn_result = #{sjdnResult,jdbcType=TINYINT},\n" +
-            "      ssld_djdq = #{ssldDjdq,jdbcType=DOUBLE},\n" +
-            "      ssld_djdn = #{ssldDjdn,jdbcType=DOUBLE},\n" +
-            "      zxld_djdq = #{zxldDjdq,jdbcType=DOUBLE},\n" +
-            "      zxld_djdn = #{zxldDjdn,jdbcType=DOUBLE},\n" +
-            "      djgpld_wc = #{djgpldWc,jdbcType=INTEGER},\n" +
-            "      djgpld_result = #{djgpldResult,jdbcType=TINYINT},\n" +
-            "      ssld_sjdq = #{ssldSjdq,jdbcType=DOUBLE},\n" +
-            "      ssld_sjdn = #{ssldSjdn,jdbcType=DOUBLE},\n" +
-            "      zxld_sjdq = #{zxldSjdq,jdbcType=DOUBLE},\n" +
-            "      zxld_sjdn = #{zxldSjdn,jdbcType=DOUBLE},\n" +
-            "      sjgpld_wc = #{sjgpldWc,jdbcType=INTEGER},\n" +
-            "      sjgpld_result = #{sjgpldResult,jdbcType=TINYINT},\n" +
-            "      spare1 = #{spare1,jdbcType=VARCHAR},\n" +
-            "      spare2 = #{spare2,jdbcType=VARCHAR},\n" +
-            "      spare3 = #{spare3,jdbcType=INTEGER},\n" +
-            "      spare4 = #{spare4,jdbcType=INTEGER},\n" +
-            "      spare5 = #{spare5,jdbcType=INTEGER}\n" +
-            "    where pbszcwjId = #{pbszcwjId,jdbcType=INTEGER}")
+            "      gdyzsdpl_jctj = #{gdyzsdplJctj,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj1 = #{gdyzsdplJctj1,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj2 = #{gdyzsdplJctj2,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj3 = #{gdyzsdplJctj3,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_jctj4 = #{gdyzsdplJctj4,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value1 = #{gdyzsdplValue1,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value2 = #{gdyzsdplValue2,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value3 = #{gdyzsdplValue3,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value4 = #{gdyzsdplValue4,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value5 = #{gdyzsdplValue5,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value6 = #{gdyzsdplValue6,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value7 = #{gdyzsdplValue7,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_value8 = #{gdyzsdplValue8,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_zbyq = #{gdyzsdplZbyq,jdbcType=VARCHAR},\n" +
+            "      gdyzsdpl_result1 = #{gdyzsdplResult1,jdbcType=TINYINT},\n" +
+            "      gdyzsdpl_result2 = #{gdyzsdplResult2,jdbcType=TINYINT},\n" +
+            "      gdyzsdpl_result3 = #{gdyzsdplResult3,jdbcType=TINYINT},\n" +
+            "      gdyzsdpl_result4 = #{gdyzsdplResult4,jdbcType=TINYINT},\n" +
+            "      sclcfx_jctj = #{sclcfxJctj,jdbcType=VARCHAR},\n" +
+            "      sclcfx_value = #{sclcfxValue,jdbcType=VARCHAR},\n" +
+            "      sclcfx_zbyq = #{sclcfxZbyq,jdbcType=VARCHAR},\n" +
+            "      sclcfx_result = #{sclcfxResult,jdbcType=TINYINT},\n" +
+            "      yyxsbzc_jctj = #{yyxsbzcJctj,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_value = #{yyxsbzcValue,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_zbyq = #{yyxsbzcZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_result = #{yyxsbzcResult,jdbcType=TINYINT},\n" +
+            "      zdbgkzcfx_value = #{zdbgkzcfxValue,jdbcType=VARCHAR},\n" +
+            "      zdbgkzcfx_zbyq = #{zdbgkzcfxZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_jctj = #{yyxsczdplJctj,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_value = #{yyxsczdplValue,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_zbyq = #{yyxsczdplZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsczdpl_result = #{yyxsczdplResult,jdbcType=TINYINT},\n" +
+            "      gyyzsysbdpl_jctj = #{gyyzsysbdplJctj,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value1 = #{gyyzsysbdplValue1,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value2 = #{gyyzsysbdplValue2,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value3 = #{gyyzsysbdplValue3,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value4 = #{gyyzsysbdplValue4,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value5 = #{gyyzsysbdplValue5,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value6 = #{gyyzsysbdplValue6,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value7 = #{gyyzsysbdplValue7,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_value8 = #{gyyzsysbdplValue8,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_zbyq = #{gyyzsysbdplZbyq,jdbcType=VARCHAR},\n" +
+            "      gyyzsysbdpl_result = #{gyyzsysbdplResult,jdbcType=TINYINT},\n" +
+            "      tssjzrstbkqbsdnldxz_jctj = #{tssjzrstbkqbsdnldxzJctj,jdbcType=VARCHAR},\n" +
+            "      tssjzrstbkqbsdnldxz_value = #{tssjzrstbkqbsdnldxzValue,jdbcType=VARCHAR},\n" +
+            "      tssjzrstbkqbsdnldxz_zbyq = #{tssjzrstbkqbsdnldxzZbyq,jdbcType=VARCHAR},\n" +
+            "      tssjzrstbkqbsdnldxz_result = #{tssjzrstbkqbsdnldxzResult,jdbcType=TINYINT},\n" +
+            "      kjfbl_jctj = #{kjfblJctj,jdbcType=VARCHAR},\n" +
+            "      kjfbl_value = #{kjfblValue,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_jctj1 = #{ddbfblJctj1,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_jctj2 = #{ddbfblJctj2,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_value1 = #{ddbfblValue1,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_value2 = #{ddbfblValue2,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_zbyq = #{ddbfblZbyq,jdbcType=VARCHAR},\n" +
+            "      ddbfbl_result = #{ddbfblResult,jdbcType=TINYINT}" +
+            "    where pbszcwj_id = #{pbszcwjId,jdbcType=INTEGER}")
     void updatePbszcwj(Pbszcwj pbszcwj);
     //根据设备id查询检测表婴儿培养箱
-    @Select("select pbszcwjId, jcyq_id, eq_id, tester, auditor, test_time, shsj_time, jcjl, jcsm, djdq_test1, \n" +
-            "    djdq_value1, djdq_test2, djdq_value2, djdq_test3, djdq_value3, djdq_test4, djdq_value4, \n" +
-            "    djdq_wc, djdq_result, djdn_test1, djdn_value1, djdn_test2, djdn_value2, djdn_test3, \n" +
-            "    djdn_value3, djdn_test4, djdn_value4, djdn_wc, djdn_result, sjdq_test1, sjdq_value1, \n" +
-            "    sjdq_test2, sjdq_value2, sjdq_test3, sjdq_value3, sjdq_test4, sjdq_value4, sjdq_wc, \n" +
-            "    sjdq_result, sjdn_test1, sjdn_value1, sjdn_test2, sjdn_value2, sjdn_test3, sjdn_value3, \n" +
-            "    sjdn_test4, sjdn_value4, sjdn_wc, sjdn_result, ssld_djdq, ssld_djdn, zxld_djdq, zxld_djdn, \n" +
-            "    djgpld_wc, djgpld_result, ssld_sjdq, ssld_sjdn, zxld_sjdq, zxld_sjdn, sjgpld_wc, \n" +
-            "    sjgpld_result, spare1, spare2, spare3, spare4, spare5 from pbszcwj where eq_id =#{eqId} order by pbszcwjId desc limit 1")
+    @Select("select * from pbszcwj where eq_id =#{eqId} order by pbszcwj_id desc limit 1")
     public Pbszcwj findPbszcwj(String eqId);
     //查询一条
-    @Select("select * from pbszcwj order by pbszcwjId desc limit 1")
+    @Select("select * from pbszcwj order by pbszcwj_id desc limit 1")
     Pbszcwj find();
     //根据设备Id,检测仪器Id以及状态查询电切表查询最后一条记录
-    @Select("select pbszcwj.* from pbszcwj where pbszcwj.eq_id=#{eqId} and pbszcwj.jcyq_id=#{jcyqId} order by test_time desc, pbszcwjId desc limit 1" )
+    @Select("select pbszcwj.* from pbszcwj where pbszcwj.eq_id=#{eqId} and pbszcwj.jcyq_id=#{jcyqId} order by test_time desc, pbszcwj_id desc limit 1" )
     Pbszcwj findByEqIdandJcyqIdLast1(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
     //根据设备Id,检测仪器Id以及状态查询电切表
@@ -191,11 +191,11 @@ public interface PbszcwjMapper {
     List<Pbszcwj> findAll();
 
     //根据检测仪器Id查询
-    @Select("select pbszcwj.* from pbszcwj where pbszcwjId=#{pbszcwjId}" )
+    @Select("select pbszcwj.* from pbszcwj where pbszcwj_id=#{pbszcwjId}" )
     Pbszcwj findByPbszcwjId(@Param("pbszcwjId") Integer pbszcwjId);
 
     //修改审核人意见
-    @Update("update pbszcwj set shr_jcjl=#{shrJcjl},auditor=#{auditor},shsj_time=#{shsjTime} where pbszcwjId=#{pbszcwjId}")
+    @Update("update pbszcwj set shr_jcjl=#{shrJcjl},auditor=#{auditor},shsj_time=#{shsjTime} where pbszcwj_id=#{pbszcwjId}")
     void updateShrJcjy(@Param("pbszcwjId") Integer pbszcwjId, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor, @Param("shsjTime") Date shsjTime);
 }
 
