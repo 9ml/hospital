@@ -20,6 +20,7 @@ public interface YpjMapper {
             "      gdyzs_zbyq = #{gdyzsZbyq,jdbcType=VARCHAR},\n" +
             "      fsscl_jctj = #{fssclJctj,jdbcType=VARCHAR},\n" +
             "      fsscl_zbyq = #{fssclZbyq,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_zbyq = #{yyxsbzcZbyq,jdbcType=VARCHAR},\n" +
             "      yyxsbzc_jctj1 = #{yyxsbzcJctj1,jdbcType=VARCHAR},\n" +
             "      yyxsbzc_jctj2 = #{yyxsbzcJctj2,jdbcType=VARCHAR},\n" +
             "      zlg_jctj = #{zlgJctj,jdbcType=VARCHAR},\n" +
@@ -29,11 +30,11 @@ public interface YpjMapper {
     //插入模板表数据
     @Insert(" insert into ypj_template ( gdyzs_jctj1, gdyzs_jctj2, \n" +
             "      gdyzs_zbyq, fsscl_jctj, fsscl_zbyq, \n" +
-            "      yyxsbzc_jctj1, yyxsbzc_jctj2, zlg_jctj, \n" +
+            "      yyxsbzc_zbyq,yyxsbzc_jctj1, yyxsbzc_jctj2, zlg_jctj, \n" +
             "      zlg_zbyq)\n" +
             "    values ( #{gdyzsJctj1,jdbcType=VARCHAR}, #{gdyzsJctj2,jdbcType=VARCHAR}, \n" +
             "      #{gdyzsZbyq,jdbcType=VARCHAR}, #{fssclJctj,jdbcType=VARCHAR}, #{fssclZbyq,jdbcType=VARCHAR}, \n" +
-            "      #{yyxsbzcJctj1,jdbcType=VARCHAR}, #{yyxsbzcJctj2,jdbcType=VARCHAR}, #{zlgJctj,jdbcType=VARCHAR}, \n" +
+            "      #{yyxsbzcZbyq,jdbcType=VARCHAR},#{yyxsbzcJctj1,jdbcType=VARCHAR}, #{yyxsbzcJctj2,jdbcType=VARCHAR}, #{zlgJctj,jdbcType=VARCHAR}, \n" +
             "      #{zlgZbyq,jdbcType=VARCHAR})")
     int insert(YpjTemplate ypjTemplate);
 
@@ -45,7 +46,7 @@ public interface YpjMapper {
             "      gdyzs_result1, gdyzs_result2, gdyzs_zbyq, \n" +
             "      gdyzs_value1, gdyzs_value2, fsscl_jctj, \n" +
             "      fsscl_value, fsscl_zbyq, fsscl_result, \n" +
-            "      yyxsbzc_jctj1, yyxsbzc_jctj2, yyxsbzc_value1, \n" +
+            "      yyxsbzc_zbyq, yyxsbzc_jctj1, yyxsbzc_jctj2, yyxsbzc_value1, \n" +
             "      yyxsbzc_value2, zlg_jctj, zlg_value, \n" +
             "      zlg_zbyq, zlg_result) " +
             "values (#{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=INTEGER}, \n" +
@@ -55,7 +56,7 @@ public interface YpjMapper {
             "      #{gdyzsResult1,jdbcType=INTEGER}, #{gdyzsResult2,jdbcType=INTEGER}, #{gdyzsZbyq,jdbcType=VARCHAR}, \n" +
             "      #{gdyzsValue1,jdbcType=VARCHAR}, #{gdyzsValue2,jdbcType=VARCHAR}, #{fssclJctj,jdbcType=VARCHAR}, \n" +
             "      #{fssclValue,jdbcType=VARCHAR}, #{fssclZbyq,jdbcType=VARCHAR}, #{fssclResult,jdbcType=INTEGER}, \n" +
-            "      #{yyxsbzcJctj1,jdbcType=VARCHAR}, #{yyxsbzcJctj2,jdbcType=VARCHAR}, #{yyxsbzcValue1,jdbcType=VARCHAR}, \n" +
+            "      #{yyxsbzcZbyq,jdbcType=VARCHAR},#{yyxsbzcJctj1,jdbcType=VARCHAR}, #{yyxsbzcJctj2,jdbcType=VARCHAR}, #{yyxsbzcValue1,jdbcType=VARCHAR}, \n" +
             "      #{yyxsbzcValue2,jdbcType=VARCHAR}, #{zlgJctj,jdbcType=VARCHAR}, #{zlgValue,jdbcType=VARCHAR}, \n" +
             "      #{zlgZbyq,jdbcType=VARCHAR}, #{zlgResult,jdbcType=TINYINT})")
     @Options(useGeneratedKeys = true, keyProperty = "ypjId", keyColumn = "ypj_id")
@@ -83,6 +84,7 @@ public interface YpjMapper {
             "      fsscl_zbyq = #{fssclZbyq,jdbcType=VARCHAR},\n" +
             "      fsscl_result = #{fssclResult,jdbcType=INTEGER},\n" +
             "      yyxsbzc_jctj1 = #{yyxsbzcJctj1,jdbcType=VARCHAR},\n" +
+            "      yyxsbzc_zbyq = #{yyxsbzcZbyq,jdbcType=VARCHAR},\n" +
             "      yyxsbzc_jctj2 = #{yyxsbzcJctj2,jdbcType=VARCHAR},\n" +
             "      yyxsbzc_value1 = #{yyxsbzcValue1,jdbcType=VARCHAR},\n" +
             "      yyxsbzc_value2 = #{yyxsbzcValue2,jdbcType=VARCHAR},\n" +

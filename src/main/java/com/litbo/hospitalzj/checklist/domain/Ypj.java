@@ -51,6 +51,8 @@ public class Ypj {
 
     private String yyxsbzcJctj2;
 
+    private String yyxsbzcZbyq;
+
     private String yyxsbzcValue1;
 
     private String yyxsbzcValue2;

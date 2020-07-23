@@ -20,6 +20,8 @@ public class YpjTemplate {
 
     private String yyxsbzcJctj2;
 
+    private String yyxsbzcZbyq;
+
     private String zlgJctj;
 
     private String zlgZbyq;
