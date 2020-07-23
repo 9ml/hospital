@@ -1,107 +1,39 @@
 package com.litbo.hospitalzj.checklist.service;
 
-import com.litbo.hospitalzj.checklist.domain.StzsM;
-import com.litbo.hospitalzj.checklist.domain.StzsMTemplate;
-import com.litbo.hospitalzj.checklist.domain.SybC;
-import com.litbo.hospitalzj.checklist.domain.SybCTemplate;
+import com.litbo.hospitalzj.checklist.domain.Zsb;
+import com.litbo.hospitalzj.checklist.domain.ZsbTemplate;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
-/**
- * 注射泵Service层
- */
 public interface ZsbService {
-    //查询模板数据（成人，幼儿）
-    SybCTemplate findTemplate(String tableName);
 
-    //查询双通道模板数据，最后一条记录
-    StzsMTemplate findStZsTemplate();
+    //查询模板值
+    public ZsbTemplate findTemplate();
+    //修改模板值
+    public void updateZsbTemplate(ZsbTemplate zsbTemplate);
+    //插入模板值
+    public void insert(ZsbTemplate zsbTemplate);
+   //保存高频电刀数据
+    void save(Zsb zsb);
+    //修改数据
+    void updateZsb(Zsb zsb);
+    //根据设备id查询检测表高频电刀
+    public Zsb findZsb(String eqId);
+    //查询一条
+    Zsb find();
+    //根据设备Id,检测仪器Id以及状态查询电切表查询最后一条记录
+    Zsb findByEqIdandJcyqIdLast1(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
-    //修改模板表数据
-    //幼儿
-    void updateC(SybCTemplate sybCTemplate);
+    //根据设备Id,检测仪器Id以及状态查询电切表
+    List<Zsb> findByEqIdandJcyqId(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
-    //成人
-    void updateM(SybCTemplate sybCTemplate);
+    //查询所有
+    List<Zsb> findAll();
 
-    //双通道
-    void updateS(StzsMTemplate stzsMTemplate);
-
-    //插入模板表数据
-    //幼儿
-    void insertChildTemplate(SybCTemplate template);
-
-    //成人
-    void insertManTemplate(SybCTemplate template);
-
-    //双通道
-    void insertStzsTemplate(StzsMTemplate template);
-
-    //保存信息
-    //输液泵检测信息录入（幼儿）
-    void saveChild(SybC sybC);
-
-    void updateChild(SybC sybC);
-
-    //输液泵检测信息录入（成人）
-    void saveMan(SybC sybC);
-
-    void updateMan(SybC sybC);
-
-    //插入双通道注射泵检测数据
-    void saveStzs(StzsM stzsM);
-
-    void updateStzs(StzsM stzsM);
-
-    //根据设备Id,检测仪器Id以及状态查询最后一条记录
-
-    SybC findByEqIdandJcyqIdLast(@Param("tableName") String tableName, @Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    StzsM findByEqIdandJcyqIdLastStzsM(@Param("tableName") String tableName, @Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-
-    //根据设备Id,检测仪器Id以及状态查询
-    @Select("select * from ${tableName} where syb_c.eq_id=#{eqId} and syb_c.jcyq_id=#{jcyqId}")
-    List<SybC> findByEqIdandJcyqId(@Param("tableName") String tableName, @Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-
-    SybC findByEqIdandJcyqIdLast1C(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //根据设备Id,检测仪器Id以及状态查询电器表
-    List<SybC> findByEqIdandJcyqIdC(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //根据设备Id,检测仪器Id以及状态查询电器表查询最后一条记录
-    SybC findByEqIdandJcyqIdLast1M(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //根据设备Id,检测仪器Id以及状态查询电器表
-    List<SybC> findByEqIdandJcyqIdM(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //根据设备Id,检测仪器Id以及状态查询电器表查询最后一条记录
-    StzsM findByEqIdandJcyqIdLast1S(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //根据设备Id,检测仪器Id以及状态查询电器表
-    List<StzsM> findByEqIdandJcyqIdS(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
-
-    //查询所有检测表数据信息
-    List<SybC> findAll(String tableName);
-
-    List<StzsM> findAllS();
-
-    /**
-     * 根据iD状态查询
-     */
-    SybC findByid(@Param("id") Integer id, @Param("tableName") String tableName);
-
-    StzsM findByidS(@Param("id") Integer id);
+    //根据检测仪器Id查询
+    Zsb findByZsbId(@Param("zsbId") Integer zsbId);
 
     //修改审核人意见
-    void updateShrJcjyC(@Param("dqjcid") Integer dqjcid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
-
-    void updateShrJcjyM(@Param("dqjcid") Integer dqjcid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
-
-    void updateShrJcjyS(@Param("dqjcid") Integer dqjcid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
-
+    void updateShrJcjy(@Param("zsbId") Integer zsbId, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
 }
-

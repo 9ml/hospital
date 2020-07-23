@@ -2,7 +2,9 @@ package com.litbo.hospitalzj.zk.controller;
 
 
 import com.litbo.hospitalzj.checklist.domain.Dcsjhy;
+import com.litbo.hospitalzj.checklist.domain.Syb;
 import com.litbo.hospitalzj.checklist.domain.SybC;
+import com.litbo.hospitalzj.checklist.domain.Zsb;
 import com.litbo.hospitalzj.checklist.service.DcsjhyService;
 import com.litbo.hospitalzj.checklist.service.SybService;
 import com.litbo.hospitalzj.checklist.service.ZsbService;
@@ -41,8 +43,8 @@ public class QfChildORManController {
             return new ResponseResult<>(200, 2);
         } else if (jcyq == 7) {
             //输液设备分析仪
-            List<SybC> syb_c = sybService.findByEqIdandJcyqId("syb_c", eqId, jcyqId);
-            if(syb_c.size() == 0){
+            List<Syb> sybs = sybService.findByEqIdandJcyqId(eqId, jcyqId);
+            if(sybs.size() == 0){
                 //成人
                 return new ResponseResult<>(200, 1);
             }
@@ -50,8 +52,8 @@ public class QfChildORManController {
             return new ResponseResult<>(200, 2);
         } else if (jcyq == 10) {
             //注射设备分析仪
-            List<SybC> zsb_c = zsbService.findByEqIdandJcyqId("zsb_c", eqId, jcyqId);
-            if(zsb_c.size() == 0){
+            List<Zsb> zsbs = zsbService.findByEqIdandJcyqId(eqId, jcyqId);
+            if(zsbs.size() == 0){
                 return new ResponseResult<>(200, 1);
             }
             return new ResponseResult<>(200, 2);

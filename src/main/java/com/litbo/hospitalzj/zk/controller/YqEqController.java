@@ -101,13 +101,11 @@ public class YqEqController extends BaseController {
 
         }*/else if(eqPm == 5 || eqPm == 6){
             //注射泵
-            SybC zsb =zsbService.findByEqIdandJcyqIdLast("zsb_c", eqId, jcyqId);
+            Zsb zsb =zsbService.findByEqIdandJcyqIdLast1(eqId,jcyqId);
+//                    findByEqIdandJcyqIdLast("zsb_c", eqId, jcyqId);
             if(zsb == null){
-                zsb = zsbService.findByEqIdandJcyqIdLast("zsb_m", eqId, jcyqId);
-                if(zsb == null){
-                   StzsM stzsM = zsbService.findByEqIdandJcyqIdLastStzsM("stzs_m",  eqId, jcyqId);
-                    return new ResponseResult<>(200, stzsM);
-                }
+                Syb syb = sybService.findByEqIdandJcyqIdLast1( eqId, jcyqId);
+                    return new ResponseResult<>(200, syb);
 
             }
 
