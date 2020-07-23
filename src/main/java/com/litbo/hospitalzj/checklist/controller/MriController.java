@@ -1,7 +1,9 @@
 package com.litbo.hospitalzj.checklist.controller;
 
-import com.litbo.hospitalzj.checklist.domain.Gpdd;
-import com.litbo.hospitalzj.checklist.service.GpddService;
+import com.litbo.hospitalzj.checklist.domain.Mri;
+import com.litbo.hospitalzj.checklist.domain.MriTemplate;
+import com.litbo.hospitalzj.checklist.service.MriService;
+import com.litbo.hospitalzj.checklist.service.MriService;
 import com.litbo.hospitalzj.checklist.utils.ResponseResult;
 import com.litbo.hospitalzj.checklist.utils.commons.CommonUtils;
 import com.litbo.hospitalzj.controller.BaseController;
@@ -9,7 +11,6 @@ import com.litbo.hospitalzj.user.bean.EqZjls;
 import com.litbo.hospitalzj.user.service.EqZjlsService;
 import com.litbo.hospitalzj.zk.Enum.EnumProcess2;
 import com.litbo.hospitalzj.zk.domian.EqInfo;
-import com.litbo.hospitalzj.zk.domian.GpddTemplate;
 import com.litbo.hospitalzj.zk.service.EqInfoService;
 import com.litbo.hospitalzj.zk.service.UserEqService;
 import com.litbo.hospitalzj.zk.service.YqEqService;
@@ -24,11 +25,11 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
-@RequestMapping("/gpdd")
+@RequestMapping("/mri")
 public class MriController extends BaseController {
 
     @Autowired
-    private GpddService gpddService;
+    private MriService mriService;
     @Autowired
     private UserEqService userEqService;
     @Autowired
@@ -39,21 +40,21 @@ public class MriController extends BaseController {
     private EqInfoService eqInfoService;
     //查询模板值
     @RequestMapping("/findTemplate")
-    public ResponseResult<GpddTemplate> findTemplate() {
-        return new ResponseResult<GpddTemplate>(200, gpddService.findTemplate());
+    public ResponseResult<MriTemplate> findTemplate() {
+        return new ResponseResult<MriTemplate>(200, mriService.findTemplate());
     }
 
     //修改模板值
-    @RequestMapping("/updateGpddTemplate")
-    public ResponseResult<Void> updateGpddTemplate(GpddTemplate gpddTemplate) {
-        gpddService.updateGpddTemplate(gpddTemplate);
+    @RequestMapping("/updateMriTemplate")
+    public ResponseResult<Void> updateMriTemplate(MriTemplate mriTemplate) {
+        mriService.updateMriTemplate(mriTemplate);
         return new ResponseResult<Void>(200);
     }
 
     //插入模板值
     @RequestMapping("/insert")
-    public ResponseResult<Void> insert(GpddTemplate gpddTemplate) {
-        gpddService.insert(gpddTemplate);
+    public ResponseResult<Void> insert(MriTemplate mriTemplate) {
+        mriService.insert(mriTemplate);
         return new ResponseResult<Void>(200);
     }
 
@@ -61,7 +62,7 @@ public class MriController extends BaseController {
     @RequestMapping("/save")
     public ResponseResult save(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId, @RequestParam(value = "userEqId") Integer userEqId,
                                HttpSession session, HttpServletRequest req) {
-        Gpdd gpdd = CommonUtils.toBean(req.getParameterMap(), Gpdd.class);
+        Mri mri = CommonUtils.toBean(req.getParameterMap(), Mri.class);
         int yqEqId = yqEqService.insertBatch(eqId, jcyqId);
         yqEqService.updateType(yqEqId, EnumProcess2.TO_UPLOAD.getMessage());
         //修改状态为待上传
@@ -69,13 +70,13 @@ public class MriController extends BaseController {
 //        String userId = req.getAttribute("uid").toString();
 //        userEqService.insertBatchByJcEqid(userId,jcyqId,)
         userEqService.setEqState(userEqId, EnumProcess2.TO_UPLOAD.getMessage());
-        gpddService.save(gpdd);
+        mriService.save(mri);
         EqZjls eqZjls = CommonUtils.toBean(req.getParameterMap(), EqZjls.class);
         EqInfo eqById = eqInfoService.findEqById(eqId);
         eqZjls.setEqMc(eqById.getEqMc());
         eqZjls.setEqDah(eqById.getEqDah());
         eqZjlsService.insert(eqZjls);
-        int[] x = {gpdd.getGpddid(), yqEqId};
+        int[] x = {mri.getMriId(), yqEqId};
 //        return new ResponseResult<>(200, x);
         return new ResponseResult<int[]>(200, x);
     }
@@ -84,24 +85,24 @@ public class MriController extends BaseController {
     //只根据id更新检测数据
     @RequestMapping("/updataNow/{id}")
     public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
-        Gpdd gpdd = CommonUtils.toBean(req.getParameterMap(), Gpdd.class);
-        gpdd.setGpddid(id);
+        Mri mri = CommonUtils.toBean(req.getParameterMap(), Mri.class);
+        mri.setMriId(id);
         //更新
-        gpddService.updateGpdd(gpdd);
+        mriService.updateMri(mri);
         return new com.litbo.hospitalzj.util.ResponseResult(200, id);
     }
 
-    @RequestMapping("/updataGpdd")
-    public ResponseResult updataGpdd(
+    @RequestMapping("/updataMri")
+    public ResponseResult updataMri(
             @RequestParam("eqId")String eqId,
             @RequestParam("jcyqId") String jcyqId,
             HttpSession session,
             HttpServletRequest req){
-        Gpdd last1 = gpddService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
-        Gpdd gpdd = CommonUtils.toBean(req.getParameterMap(), Gpdd.class);
-        gpdd.setGpddid(last1.getGpddid());
+        Mri last1 = mriService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+        Mri mri = CommonUtils.toBean(req.getParameterMap(), Mri.class);
+        mri.setMriId(last1.getMriId());
         //更新
-        gpddService.updateGpdd(gpdd);
+        mriService.updateMri(mri);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -114,30 +115,30 @@ public class MriController extends BaseController {
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
 
-        int[] x = {gpdd.getGpddid(), yqEqId,userEqId};
+        int[] x = {mri.getMriId(), yqEqId,userEqId};
         return new ResponseResult<int[]>(200, x);
     }
 
 
     //修改录入数据
-  /*  @RequestMapping("/updateGpdd")
-    public ResponseResult<Void> updateGpdd(Gpdd gpdd) {
-        gpddService.updateGpdd(gpdd);
+  /*  @RequestMapping("/updateMri")
+    public ResponseResult<Void> updateMri(Mri mri) {
+        mriService.updateMri(mri);
         return new ResponseResult<Void>(200);
     }*/
 
     //查询本设备的最后一条
-    @RequestMapping("/findGpdd")
-    public ResponseResult<Gpdd> findGpdd(String eqId) {
-        gpddService.findGpdd(eqId);
-        return new ResponseResult<Gpdd>(200);
+    @RequestMapping("/findMri")
+    public ResponseResult<Mri> findMri(String eqId) {
+        mriService.findMri(eqId);
+        return new ResponseResult<Mri>(200);
     }
 
     //查询全部数据的最后一条
     @RequestMapping("/find")
-    public ResponseResult<Gpdd> find() {
-        gpddService.find();
-        return new ResponseResult<Gpdd>(200);
+    public ResponseResult<Mri> find() {
+        mriService.find();
+        return new ResponseResult<Mri>(200);
     }
 
     /**
@@ -146,9 +147,9 @@ public class MriController extends BaseController {
      * @return
      */
     @RequestMapping("/findByEqIdandJcyqIdLast1")
-    public ResponseResult<Gpdd> findByEqIdandJcyqIdLast1(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
-        Gpdd list = gpddService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
-        return new ResponseResult<Gpdd>(200, list);
+    public ResponseResult<Mri> findByEqIdandJcyqIdLast1(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
+        Mri list = mriService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+        return new ResponseResult<Mri>(200, list);
     }
 
     /**
@@ -157,15 +158,15 @@ public class MriController extends BaseController {
      * @return
      */
     @RequestMapping("/findByEqIdandJcyqId")
-    public ResponseResult<List<Gpdd>> findByEqIdandJcyqId(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
-        List<Gpdd> list = gpddService.findByEqIdandJcyqId(eqId, jcyqId);
-        return new ResponseResult<List<Gpdd>>(200, list);
+    public ResponseResult<List<Mri>> findByEqIdandJcyqId(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
+        List<Mri> list = mriService.findByEqIdandJcyqId(eqId, jcyqId);
+        return new ResponseResult<List<Mri>>(200, list);
     }
 
     //查询所有
     @RequestMapping("/findAll")
-    public ResponseResult<List<Gpdd>> findAll() {
-        return new ResponseResult<List<Gpdd>>(200, gpddService.findAll());
+    public ResponseResult<List<Mri>> findAll() {
+        return new ResponseResult<List<Mri>>(200, mriService.findAll());
     }
 
     /**
@@ -173,10 +174,10 @@ public class MriController extends BaseController {
      *
      * @return
      */
-    @RequestMapping("/findByGpddid")
-    public ResponseResult<Gpdd> findByGpddid(Integer mriId) {
-        Gpdd list = gpddService.findByGpddid(mriId);
-        return new ResponseResult<Gpdd>(200, list);
+    @RequestMapping("/findByMriid")
+    public ResponseResult<Mri> findByMriid(Integer mriId) {
+        Mri list = mriService.findByMriId(mriId);
+        return new ResponseResult<Mri>(200, list);
     }
 
     //修改审核人建议同时修改状态
@@ -188,7 +189,7 @@ public class MriController extends BaseController {
                                               @RequestParam("state") Integer state, HttpSession session) {
         String auditor = getUserNameFromSession(session);
         Integer yqEqId = yqEqService.findId(jcyqId, eqId);
-        gpddService.updateShrJcjy(mriId, shrJcjl, auditor);
+        mriService.updateShrJcjy(mriId, shrJcjl, auditor);
         if (state.equals(1)) {
             yqEqService.updateState(yqEqId, 1);
         } else {

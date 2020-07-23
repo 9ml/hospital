@@ -1,7 +1,7 @@
 package com.litbo.hospitalzj.checklist.service;
 
-import com.litbo.hospitalzj.checklist.domain.Gpdd;
-import com.litbo.hospitalzj.zk.domian.GpddTemplate;
+import com.litbo.hospitalzj.checklist.domain.Mri;
+import com.litbo.hospitalzj.checklist.domain.MriTemplate;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -9,31 +9,31 @@ import java.util.List;
 public interface MriService {
 
     //查询模板值
-    public GpddTemplate findTemplate();
+    public MriTemplate findTemplate();
     //修改模板值
-    public void updateGpddTemplate(GpddTemplate gpddTemplate);
+    public void updateMriTemplate(MriTemplate mriTemplate);
     //插入模板值
-    public void insert(GpddTemplate gpddTemplate);
+    public void insert(MriTemplate mriTemplate);
    //保存高频电刀数据
-    void save(Gpdd gpdd);
+    void save(Mri mri);
     //修改数据
-    void updateGpdd(Gpdd gpdd);
+    void updateMri(Mri mri);
     //根据设备id查询检测表高频电刀
-    public Gpdd findGpdd(String eqId);
+    public Mri findMri(String eqId);
     //查询一条
-    Gpdd find();
+    Mri find();
     //根据设备Id,检测仪器Id以及状态查询电切表查询最后一条记录
-    Gpdd findByEqIdandJcyqIdLast1(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
+    Mri findByEqIdandJcyqIdLast1(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
     //根据设备Id,检测仪器Id以及状态查询电切表
-    List<Gpdd> findByEqIdandJcyqId(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
+    List<Mri> findByEqIdandJcyqId(@Param("eqId") String eqId, @Param("jcyqId") String jcyqId);
 
     //查询所有
-    List<Gpdd> findAll();
+    List<Mri> findAll();
 
     //根据检测仪器Id查询
-    Gpdd findByGpddid(@Param("gpddid") Integer gpddid);
+    Mri findByMriId(@Param("mriId") Integer mriId);
 
     //修改审核人意见
-    void updateShrJcjy(@Param("gpddid") Integer gpddid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
+    void updateShrJcjy(@Param("mriId") Integer mriId, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
 }

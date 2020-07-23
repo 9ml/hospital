@@ -1,9 +1,9 @@
 package com.litbo.hospitalzj.checklist.service.Impl;
 
-import com.litbo.hospitalzj.checklist.dao.GpddMapper;
-import com.litbo.hospitalzj.checklist.domain.Gpdd;
-import com.litbo.hospitalzj.checklist.service.GpddService;
-import com.litbo.hospitalzj.zk.domian.GpddTemplate;
+import com.litbo.hospitalzj.checklist.dao.MriMapper;
+import com.litbo.hospitalzj.checklist.domain.Mri;
+import com.litbo.hospitalzj.checklist.domain.MriTemplate;
+import com.litbo.hospitalzj.checklist.service.MriService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,60 +13,60 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class MriServiceImpl implements GpddService {
+public class MriServiceImpl implements MriService {
     @Autowired
-    private GpddMapper gpddMapper;
+    private MriMapper mriMapper;
 
     //查询模板值
-    public GpddTemplate findTemplate(){
-        return gpddMapper.findTemplate();
+    public MriTemplate findTemplate(){
+        return mriMapper.findTemplate();
     }
     //修改模板值
-    public void updateGpddTemplate(GpddTemplate gpddTemplate){
-        gpddMapper.updateGpddTemplate(gpddTemplate);
+    public void updateMriTemplate(MriTemplate mriTemplate){
+        mriMapper.updateMriTemplate(mriTemplate);
     }
     //插入模板值
-    public void insert(GpddTemplate gpddTemplate){
-        gpddMapper.insert(gpddTemplate);
+    public void insert(MriTemplate mriTemplate){
+        mriMapper.insert(mriTemplate);
     }
 
     //保存
-    public void save(Gpdd gpdd){
-        BeanUtils.copyProperties(gpddMapper.findTemplate(), gpdd);
-        gpddMapper.save(gpdd);
+    public void save(Mri mri){
+        BeanUtils.copyProperties(mriMapper.findTemplate(), mri);
+        mriMapper.save(mri);
     }
     @Override
-    public void updateGpdd(Gpdd gpdd) {
-        BeanUtils.copyProperties(gpddMapper.findTemplate(), gpdd);
-        gpddMapper.updateGpdd(gpdd);
+    public void updateMri(Mri mri) {
+        BeanUtils.copyProperties(mriMapper.findTemplate(), mri);
+        mriMapper.updateMri(mri);
     }
 
     @Override
-    public Gpdd findGpdd(String eqId) {
-        return gpddMapper.findGpdd(eqId);
+    public Mri findMri(String eqId) {
+        return mriMapper.findMri(eqId);
     }
     //查询一条
-    public Gpdd find(){
-        return gpddMapper.find();
+    public Mri find(){
+        return mriMapper.find();
     }
 
     //根据设备Id,检测仪器Id以及状态最后一条记录
-    public Gpdd findByEqIdandJcyqIdLast1(String eqId, String jcyqId){
-        return gpddMapper.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+    public Mri findByEqIdandJcyqIdLast1(String eqId, String jcyqId){
+        return mriMapper.findByEqIdandJcyqIdLast1(eqId, jcyqId);
     }
     //根据设备Id,检测仪器Id以及状态查询
-    public List<Gpdd> findByEqIdandJcyqId(String eqId, String jcyqId){
-        return gpddMapper.findByEqIdandJcyqId(eqId, jcyqId);
+    public List<Mri> findByEqIdandJcyqId(String eqId, String jcyqId){
+        return mriMapper.findByEqIdandJcyqId(eqId, jcyqId);
     }
     //查询所有
-    public List<Gpdd> findAll(){
-        return gpddMapper.findAll();
+    public List<Mri> findAll(){
+        return mriMapper.findAll();
     }
-    public Gpdd findByGpddid(@Param("gpddid")Integer gpddid){
-        return gpddMapper.findByGpddid(gpddid);
+    public Mri findByMriId(@Param("mriId")Integer mriId){
+        return mriMapper.findByMriId(mriId);
     }
     @Override
-    public void updateShrJcjy(Integer gpddid, String shrJcjl, String auditor) {
-        gpddMapper.updateShrJcjy(gpddid,shrJcjl,auditor,new Date());
+    public void updateShrJcjy(Integer mriId, String shrJcjl, String auditor) {
+        mriMapper.updateShrJcjy(mriId,shrJcjl,auditor,new Date());
     }
 }
