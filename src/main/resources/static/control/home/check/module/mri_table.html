@@ -47,54 +47,54 @@
             <tr>
                 <td>信噪比</td>
                 <td></td>
-                <td>≥100</td>
+                <td id="xzbBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>几何畸变率</td>
                 <td></td>
-                <td>≤5%</td>
+                <td id="jhqblBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>空间分辨率</td>
                 <td></td>
-                <td>≥4Lp/cm</td>
+                <td id="kjfblBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>图像均匀性</td>
                 <td></td>
-                <td>≥75%</td>
+                <td id="txjyxBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>层厚误差</td>
                 <td></td>
-                <td>≤1.0mm</td>
+                <td id="chwcBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>层厚非均匀性</td>
                 <td></td>
-                <td>≤10%</td>
+                <td id="chfjyxBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td>纵横比</td>
                 <td></td>
-                <td>≥95%</td>
+                <td id="zhbBzyq"></td>
                 <td></td>
             </tr>
             <tr>
                 <td rowspan="2">低对比度分辨率</td>
                 <td></td>
-                <td>4mm(径)</td>
+                <td id="ddbdfblBzyq1"></td>
                 <td></td>
             </tr>
             <tr>
                 <td></td>
-                <td>0.5mm(深)</td>
+                <td id="ddbdfblBzyq2"></td>
                 <td></td>
             </tr>
         </table>
@@ -113,36 +113,21 @@
             , form = layui.form;
         $(function () {
             $.ajax({
-                url: "/hxj/findTemplate",
+                url: "/mri/findTemplate",
                 method: "GET",
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
                     if (res.data !== null && res.data !== "") {
-                        $("#cqz1").append(res.data.cqz1);
-                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
-                        $("#cqz2").append(res.data.cqz2);
-                        $("#cqz3").append(res.data.cqz3);
-
-                        $("#qztq1").append(res.data.qztq1);
-                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
-                        $("#qztq2").append(res.data.qztq2);
-                        $("#qztq3").append(res.data.qztq3);
-
-                        $("#xry1").append(res.data.xry1);
-                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
-                        $("#xry2").append(res.data.xry2);
-                        $("#xry3").append(res.data.xry3);
-
-                        $("#xqf1").append(res.data.xqf1);
-                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
-                        $("#xqf2").append(res.data.xqf2);
-                        $("#xqf3").append(res.data.xqf3);
-
-                        $("#hqm1").append(res.data.hqm1);
-                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
-                        $("#hqm2").append(res.data.hqm2);
-                        $("#hqm3").append(res.data.hqm3);
+                        $("#xzbBzyq").text(res.data.xzbBzyq);
+                        $("#jhqblBzyq").text(res.data.jhqblBzyq);
+                        $("#kjfblBzyq").text(res.data.kjfblBzyq);
+                        $("#txjyxBzyq").text(res.data.txjyxBzyq);
+                        $("#chwcBzyq").text(res.data.chwcBzyq);
+                        $("#chfjyxBzyq").text(res.data.chfjyxBzyq);
+                        $("#zhbBzyq").text(res.data.zhbBzyq);
+                        $("#ddbdfblBzyq1").text(res.data.ddbdfblBzyq1);
+                        $("#ddbdfblBzyq2").text(res.data.ddbdfblBzyq2);
                     } else {
                         layer.msg("无数据");
                     }
@@ -151,7 +136,7 @@
         });
         // 修改
         $("#update").click(function () {
-            location.href = "/control/home/check/update/update_breath_module.html"
+            location.href = "/control/home/check/update/update_mri_module.html"
         });
         // 返回
         $("#back").click(function () {

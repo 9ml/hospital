@@ -48,41 +48,41 @@
             <tr>
                 <td rowspan="2">管电压指示的偏离</td>
                 <td rowspan="2">8mA、0.400s；口内片模式</td>
-                <td>60kV</td>
-                <td>1.3%</td>
-                <td rowspan="2">±10%</td>
+                <td id="gdyzsJctj1"></td>
+                <td></td>
+                <td id="gdyzsZbyq" rowspan="2"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>60kV</td>
-                <td>1.3%</td>
+                <td id="gdyzsJctj2"></td>
+                <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>辐射输出量的重复性</td>
-                <td colspan="2">70kV、8mA、0.400s； MPD紧贴遮线筒； 口内片模式</td>
-                <td>0.2%</td>
-                <td>≤5％</td>
+                <td colspan="2" id="fssclJctj"></td>
+                <td></td>
+                <td id="fssclZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td rowspan="2">有用线束半值层</td>
                 <td rowspan="2">8mA、0.400s；口内片模式</td>
-                <td>60kV</td>
-                <td>1.93mmAl</td>
-                <td rowspan="2">≥1.5mmAl(口内片)</td>
+                <td id="yyxsbzcJctj1"></td>
+                <td></td>
+                <td rowspan="2" id="yyxsbzcZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>70kV</td>
-                <td>2.20mmAl</td>
+                <td id="yyxsbzcJctj2"></td>
+                <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
                 <td>总滤过</td>
-                <td colspan="2">70kV、8mA、0.400s；口内片模式</td>
-                <td>2.2mmAl</td>
-                <td>≥1.5mmAl</td>
+                <td colspan="2" id="zlgJctj"></td>
+                <td></td>
+                <td id="zlgZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
         </table>
@@ -101,36 +101,22 @@
             , form = layui.form;
         $(function () {
             $.ajax({
-                url: "/hxj/findTemplate",
+                url: "/ypj/findTemplate",
                 method: "GET",
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
                     if (res.data !== null && res.data !== "") {
-                        $("#cqz1").append(res.data.cqz1);
-                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
-                        $("#cqz2").append(res.data.cqz2);
-                        $("#cqz3").append(res.data.cqz3);
-
-                        $("#qztq1").append(res.data.qztq1);
-                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
-                        $("#qztq2").append(res.data.qztq2);
-                        $("#qztq3").append(res.data.qztq3);
-
-                        $("#xry1").append(res.data.xry1);
-                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
-                        $("#xry2").append(res.data.xry2);
-                        $("#xry3").append(res.data.xry3);
-
-                        $("#xqf1").append(res.data.xqf1);
-                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
-                        $("#xqf2").append(res.data.xqf2);
-                        $("#xqf3").append(res.data.xqf3);
-
-                        $("#hqm1").append(res.data.hqm1);
-                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
-                        $("#hqm2").append(res.data.hqm2);
-                        $("#hqm3").append(res.data.hqm3);
+                        $("#gdyzsJctj1").text(res.data.gdyzsJctj1);
+                        $("#gdyzsJctj2").text(res.data.gdyzsJctj2);
+                        $("#gdyzsZbyq").text(res.data.gdyzsZbyq);
+                        $("#fssclJctj").text(res.data.fssclJctj);
+                        $("#fssclZbyq").text(res.data.fssclZbyq);
+                        $("#yyxsbzcJctj1").text(res.data.yyxsbzcJctj1);
+                        $("#yyxsbzcJctj2").text(res.data.yyxsbzcJctj2);
+                        $("#yyxsbzcZbyq").text(res.data.yyxsbzcZbyq);
+                        $("#zlgJctj").text(res.data.zlgJctj);
+                        $("#zlgZbyq").text(res.data.zlgZbyq);
                     } else {
                         layer.msg("无数据");
                     }
@@ -139,7 +125,7 @@
         });
         // 修改
         $("#update").click(function () {
-            location.href = "/control/home/check/update/update_breath_module.html"
+            location.href = "/control/home/check/update/update_ypj_module.html"
         });
         // 返回
         $("#back").click(function () {

@@ -14,14 +14,16 @@
     <![endif]-->
     <script src="../../../../static/layui/layui.js"></script>
     <style>
-        h2{
+        h2 {
             text-align: center;
             margin-top: 30px;
         }
-        td{
+
+        td {
             text-align: center;
         }
-        .btn{
+
+        .btn {
             width: 100%;
             margin-top: 50px;
             margin-bottom: 30px;
@@ -33,107 +35,115 @@
 <div class="layui-row">
     <div class="col-xs-12">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">注射泵质量检测原始记录表 (成人)</legend>
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">注射泵质量检测原始记录表</legend>
         </fieldset>
         <table class="layui-table">
             <tr>
-                <td rowspan="2">流量检测</td>
-                <td colspan="3">流量测试点</td>
-                <td id="llcsd1" colspan="3"><!--5 ml/h--></td>
-                <td id="llcsd2" colspan="3"><!--25 ml/h--></td>
-                <td id="wc" ><!--测试结果：允许测量误差±10％--></td>
+                <td rowspan="4">流量检测</td>
+                <td>设定值</td>
+                <td id="llcsd1" colspan="5"><!--25 ml/h--></td>
+                <td>允许误差<!--测试结果：允许测量误差±10％--></td>
+                <td id="jg">结果<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
-                <td colspan="3">平均流量</td>
-                <td colspan="3">&nbsp;</td>
-                <td colspan="3">&nbsp;</td>
-                <td>符合    不符合</td>
+                <td>三组测试值</td>
+                <td>1：</td>
+                <td>2：</td>
+                <td>3：</td>
+                <td>平均值：</td>
+                <td>误差：</td>
+                <td id="wc">±6%<!--测试结果：允许测量误差±10％--></td>
+                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
-                <td id="zsbjllz" rowspan="3"><!--阻塞报警检测<br/>测试流量：25ml/h--></td>
-                <td colspan="3">阻塞报警设置值（产品说明书）</td>
-                <td colspan="3">报警时间(min)</td>
-                <td colspan="3">报警压力（mmHg）</td>
-                <td id="zsbjWc1"><!--测试结果允许测量误差：±20%或者±100mmHg--></td>
-            </tr>
-            <tr>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td rowspan="2">符合  不符合</td>
-            </tr>
-            <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="3">报警系统检测</td>
-                <td colspan="3">堵塞</td>
-                <td id="zs" colspan="3">符合  不符合  不适用</td>
-                <td colspan="3">即将空瓶</td>
-                <td id="jjkp">符合  不符合  不适用</td>
-            </tr>
-            <tr>
-                <td colspan="3">输液管路安装不妥</td>
-                <td id="sygbt" colspan="3">符合  不符合  不适用</td>
-                <td colspan="3">开门报警</td>
-                <td id="kmbj">符合  不符合  不适用</td>
-            </tr>
-            <tr>
-                <td colspan="3">电源线脱开</td>
-                <td id="dyxtk" colspan="3">符合  不符合  不适用</td>
-                <td colspan="3"></td>
                 <td></td>
+                <td colspan="5">100 ml/h</td>
+                <td id="wc">允许误差<!--测试结果：允许测量误差±10％--></td>
+                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+            </tr>
+            <tr>
+                <td>三组测试值</td>
+                <td>1：</td>
+                <td>2：</td>
+                <td>3：</td>
+                <td>平均值：</td>
+                <td>误差：</td>
+                <td id="wc">±6%<!--测试结果：允许测量误差±10％--></td>
+                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+            </tr>
+            <tr>
+                <td rowspan="3">阻塞报警压力检测流速：25 ml/h</td>
+                <td id="pjll1">使用压力值</td>
+                <td id="pjll1"></td>
+                <td id="pjll1">测试值</td>
+                <td id="pjll2">&nbsp;</td>
+                <td id="pjll1">误差</td>
+                <td id="pjll1"></td>
+                <td id="pjll1">允许误差</td>
+                <td>结果</td>
+            </tr>
+            <tr>
+                <td id="pjll1">最小压力值</td>
+                <td id="pjll1"></td>
+                <td id="pjll1">测试值</td>
+                <td id="pjll2">&nbsp;</td>
+                <td id="pjll1">误差</td>
+                <td id="pjll1"></td>
+                <td id="pjll1" rowspan="2">±100mmHg 或 ±30% （两者取最大）</td>
+                <td rowspan="2">□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td id="pjll1">最大压力值</td>
+                <td id="pjll1"></td>
+                <td id="pjll1">测试值</td>
+                <td id="pjll2">&nbsp;</td>
+                <td id="pjll1">误差</td>
+                <td id="pjll1"></td>
+            </tr>
+            <tr>
+                <td id="pjll1" colspan="2">开门报警</td>
+                <td id="pjll1">□符合 □不符合</td>
+                <td id="pjll1" colspan="2">输液完毕报警</td>
+                <td id="pjll1">□符合 □不符合</td>
+                <td id="pjll1" colspan="2">电源线脱落报警</td>
+                <td>□合格 □不合格</td>
             </tr>
         </table>
         <div class="col-xs-12 btn">
-            <a id="back" class="layui-btn">返回</a>
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
             <a id="update" class="layui-btn layui-btn-normal">修改</a>
         </div>
     </div>
 </div>
 <script>
     //Demo
-    layui.use(['table','layer','jquery','form'],function(){
+    layui.use(['table', 'layer', 'jquery', 'form'], function () {
         var table = layui.table
             , layer = layui.layer
             , $ = layui.jquery
             , form = layui.form;
-        $(function(){
+        $(function () {
             $.ajax({
-                url:"/zsb/findTemplateM",
-                method:"GET",
-                dataType:"JSON",
-                success:function(res){
+                url: "/zsb/findTemplateM",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
                     console.log(res);
-                    if(res.data != null && res.data != ""){
-                        $("#llcsd1").append(res.data.llcsd1+"ml/h");
-                        $("#llcsd2").append(res.data.llcsd2+"ml/h");
-                        $("#wc").append("测试结果：允许测量误差±"+res.data.wc+"%");
-                        $("#zsbjllz").append("测试流量："+res.data.zsbjllz+"ml/h");
-                        $("#zsbjWc1").append("测试结果允许测量误差：±"+res.data.zsbjWc1+"%或者±"+res.data.zsbjWc2+"mmHg");
-                    }else{
+                    if (res.data != null && res.data != "") {
+                        $("#llcsd1").append(res.data.llcsd1 + "ml/h");
+                        $("#llcsd2").append(res.data.llcsd2 + "ml/h");
+                        $("#wc").append("测试结果：允许测量误差±" + res.data.wc + "%");
+                        $("#zsbjllz").append("测试流量：" + res.data.zsbjllz + "ml/h");
+                        $("#zsbjWc1").append("测试结果允许测量误差：±" + res.data.zsbjWc1 + "%或者±" + res.data.zsbjWc2 + "mmHg");
+                    } else {
                         layer.msg("无数据");
                     }
                 }
             })
         });
-     // 修改
-        $("#update").click(function(){
-            location.href="/control/home/check/update/update_injection_man.html";
+        // 修改
+        $("#update").click(function () {
+            location.href = "/control/home/check/update/update_injection_man.html";
         });
         // 返回
         $("#back").click(function () {
