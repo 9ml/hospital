@@ -158,7 +158,7 @@ public interface MriMapper {
 
     //根据检测仪器Id查询
     @Select("select mri.* from mri where mri_id=#{mriId}" )
-    Mri findByMriid(@Param("mriId") Integer mriId);
+    Mri findByMriId(@Param("mriId") Integer mriId);
 
     //修改审核人意见
     @Update("update mri set shr_jcjl=#{shrJcjl},auditor=#{auditor},shsj_time=#{shsjTime} where mri_id=#{mriId}")
