@@ -15,26 +15,26 @@ public interface MriMapper {
     MriTemplate findTemplate();
     //修改模板表数据
     @Update(" update mri_template\n" +
-            "    set   xq_smtj = #{record.xqSmtj,jdbcType=VARCHAR},\n" +
-            "      smjz_smtj = #{record.smjzSmtj,jdbcType=VARCHAR},\n" +
-            "      mcxl_smtj = #{record.mcxlSmtj,jdbcType=VARCHAR},\n" +
-            "      cjjz_smtj = #{record.cjjzSmtj,jdbcType=VARCHAR},\n" +
-            "      cfsj_smtj = #{record.cfsjSmtj,jdbcType=VARCHAR},\n" +
-            "      sy_smtj = #{record.sySmtj,jdbcType=VARCHAR},\n" +
-            "      hbsj_smtj = #{record.hbsjSmtj,jdbcType=VARCHAR},\n" +
-            "      ch_smtj = #{record.chSmtj,jdbcType=VARCHAR},\n" +
-            "      pjcs_smtj = #{record.pjcsSmtj,jdbcType=VARCHAR},\n" +
-            "      cjj_smtj = #{record.cjjSmtj,jdbcType=VARCHAR},\n" +
-            "      xzb_bzyq = #{record.xzbBzyq,jdbcType=VARCHAR},\n" +
-            "      jhqbl_bzyq = #{record.jhqblBzyq,jdbcType=VARCHAR},\n" +
-            "      kjfbl_bzyq = #{record.kjfblBzyq,jdbcType=VARCHAR},\n" +
-            "      txjyx_bzyq = #{record.txjyxBzyq,jdbcType=VARCHAR},\n" +
-            "      chwc_bzyq = #{record.chwcBzyq,jdbcType=VARCHAR},\n" +
-            "      chfjyx_bzyq = #{record.chfjyxBzyq,jdbcType=VARCHAR},\n" +
-            "      zhb_bzyq = #{record.zhbBzyq,jdbcType=VARCHAR},\n" +
-            "      ddbdfbl_bzyq1 = #{record.ddbdfblBzyq1,jdbcType=VARCHAR},\n" +
-            "      ddbdfbl_bzyq2 = #{record.ddbdfblBzyq2,jdbcType=VARCHAR},\n" +
-            "      type = #{record.type,jdbcType=TINYINT}"+
+            "    set   xq_smtj = #{xqSmtj,jdbcType=VARCHAR},\n" +
+            "      smjz_smtj = #{smjzSmtj,jdbcType=VARCHAR},\n" +
+            "      mcxl_smtj = #{mcxlSmtj,jdbcType=VARCHAR},\n" +
+            "      cjjz_smtj = #{cjjzSmtj,jdbcType=VARCHAR},\n" +
+            "      cfsj_smtj = #{cfsjSmtj,jdbcType=VARCHAR},\n" +
+            "      sy_smtj = #{sySmtj,jdbcType=VARCHAR},\n" +
+            "      hbsj_smtj = #{hbsjSmtj,jdbcType=VARCHAR},\n" +
+            "      ch_smtj = #{chSmtj,jdbcType=VARCHAR},\n" +
+            "      pjcs_smtj = #{pjcsSmtj,jdbcType=VARCHAR},\n" +
+            "      cjj_smtj = #{cjjSmtj,jdbcType=VARCHAR},\n" +
+            "      xzb_bzyq = #{xzbBzyq,jdbcType=VARCHAR},\n" +
+            "      jhqbl_bzyq = #{jhqblBzyq,jdbcType=VARCHAR},\n" +
+            "      kjfbl_bzyq = #{kjfblBzyq,jdbcType=VARCHAR},\n" +
+            "      txjyx_bzyq = #{txjyxBzyq,jdbcType=VARCHAR},\n" +
+            "      chwc_bzyq = #{chwcBzyq,jdbcType=VARCHAR},\n" +
+            "      chfjyx_bzyq = #{chfjyxBzyq,jdbcType=VARCHAR},\n" +
+            "      zhb_bzyq = #{zhbBzyq,jdbcType=VARCHAR},\n" +
+            "      ddbdfbl_bzyq1 = #{ddbdfblBzyq1,jdbcType=VARCHAR},\n" +
+            "      ddbdfbl_bzyq2 = #{ddbdfblBzyq2,jdbcType=VARCHAR},\n" +
+            "      type = #{type,jdbcType=TINYINT}"+
             "    where mri_template_id = #{mriTemplateId,jdbcType=INTEGER}")
     int updateMriTemplate(MriTemplate mriTemplate);
     //插入模板表数据
@@ -91,51 +91,51 @@ public interface MriMapper {
     void save(Mri mri);
     //修改数据
     @Update(" update mri\n" +
-            "    set jcyq_id = #{record.jcyqId,jdbcType=INTEGER},\n" +
-            "      eq_id = #{record.eqId,jdbcType=INTEGER},\n" +
-            "      shr_jcjl = #{record.shrJcjl,jdbcType=VARCHAR},\n" +
-            "      tester = #{record.tester,jdbcType=VARCHAR},\n" +
-            "      auditor = #{record.auditor,jdbcType=VARCHAR},\n" +
-            "      test_time = #{record.testTime,jdbcType=TIMESTAMP},\n" +
-            "      shsj_time = #{record.shsjTime,jdbcType=TIMESTAMP},\n" +
-            "      jcjl = #{record.jcjl,jdbcType=VARCHAR},\n" +
-            "      jcsm = #{record.jcsm,jdbcType=VARCHAR},\n" +
-            "      xq_smtj = #{record.xqSmtj,jdbcType=VARCHAR},\n" +
-            "      smjz_smtj = #{record.smjzSmtj,jdbcType=VARCHAR},\n" +
-            "      mcxl_smtj = #{record.mcxlSmtj,jdbcType=VARCHAR},\n" +
-            "      cjjz_smtj = #{record.cjjzSmtj,jdbcType=VARCHAR},\n" +
-            "      cfsj_smtj = #{record.cfsjSmtj,jdbcType=VARCHAR},\n" +
-            "      sy_smtj = #{record.sySmtj,jdbcType=VARCHAR},\n" +
-            "      hbsj_smtj = #{record.hbsjSmtj,jdbcType=VARCHAR},\n" +
-            "      ch_smtj = #{record.chSmtj,jdbcType=VARCHAR},\n" +
-            "      pjcs_smtj = #{record.pjcsSmtj,jdbcType=VARCHAR},\n" +
-            "      cjj_smtj = #{record.cjjSmtj,jdbcType=VARCHAR},\n" +
-            "      xzb_bzyq = #{record.xzbBzyq,jdbcType=VARCHAR},\n" +
-            "      xzb_value = #{record.xzbValue,jdbcType=VARCHAR},\n" +
-            "      xzb_result = #{record.xzbResult,jdbcType=TINYINT},\n" +
-            "      jhqbl_bzyq = #{record.jhqblBzyq,jdbcType=VARCHAR},\n" +
-            "      jhqbl_value = #{record.jhqblValue,jdbcType=VARCHAR},\n" +
-            "      jhqbl_result = #{record.jhqblResult,jdbcType=TINYINT},\n" +
-            "      kjfbl_bzyq = #{record.kjfblBzyq,jdbcType=VARCHAR},\n" +
-            "      kjfbl_value = #{record.kjfblValue,jdbcType=VARCHAR},\n" +
-            "      kjfbl_result = #{record.kjfblResult,jdbcType=TINYINT},\n" +
-            "      txjyx_bzyq = #{record.txjyxBzyq,jdbcType=VARCHAR},\n" +
-            "      txjyx_value = #{record.txjyxValue,jdbcType=VARCHAR},\n" +
-            "      txjyx_result = #{record.txjyxResult,jdbcType=TINYINT},\n" +
-            "      chwc_bzyq = #{record.chwcBzyq,jdbcType=VARCHAR},\n" +
-            "      chwc_value = #{record.chwcValue,jdbcType=VARCHAR},\n" +
-            "      chwc_result = #{record.chwcResult,jdbcType=TINYINT},\n" +
-            "      chfjyx_bzyq = #{record.chfjyxBzyq,jdbcType=VARCHAR},\n" +
-            "      chfjyx_value = #{record.chfjyxValue,jdbcType=VARCHAR},\n" +
-            "      chfjyx_result = #{record.chfjyxResult,jdbcType=TINYINT},\n" +
-            "      zhb_bzyq = #{record.zhbBzyq,jdbcType=VARCHAR},\n" +
-            "      zhb_value = #{record.zhbValue,jdbcType=VARCHAR},\n" +
-            "      zhb_result = #{record.zhbResult,jdbcType=TINYINT},\n" +
-            "      ddbdfbl_bzyq1 = #{record.ddbdfblBzyq1,jdbcType=VARCHAR},\n" +
-            "      ddbdfbl_bzyq2 = #{record.ddbdfblBzyq2,jdbcType=VARCHAR},\n" +
-            "      ddbdfbl_value = #{record.ddbdfblValue,jdbcType=VARCHAR},\n" +
-            "      ddbdfbl_result = #{record.ddbdfblResult,jdbcType=TINYINT},\n" +
-            "      type = #{record.type,jdbcType=TINYINT}" +
+            "    set jcyq_id = #{jcyqId,jdbcType=INTEGER},\n" +
+            "      eq_id = #{eqId,jdbcType=INTEGER},\n" +
+            "      shr_jcjl = #{shrJcjl,jdbcType=VARCHAR},\n" +
+            "      tester = #{tester,jdbcType=VARCHAR},\n" +
+            "      auditor = #{auditor,jdbcType=VARCHAR},\n" +
+            "      test_time = #{testTime,jdbcType=TIMESTAMP},\n" +
+            "      shsj_time = #{shsjTime,jdbcType=TIMESTAMP},\n" +
+            "      jcjl = #{jcjl,jdbcType=VARCHAR},\n" +
+            "      jcsm = #{jcsm,jdbcType=VARCHAR},\n" +
+            "      xq_smtj = #{xqSmtj,jdbcType=VARCHAR},\n" +
+            "      smjz_smtj = #{smjzSmtj,jdbcType=VARCHAR},\n" +
+            "      mcxl_smtj = #{mcxlSmtj,jdbcType=VARCHAR},\n" +
+            "      cjjz_smtj = #{cjjzSmtj,jdbcType=VARCHAR},\n" +
+            "      cfsj_smtj = #{cfsjSmtj,jdbcType=VARCHAR},\n" +
+            "      sy_smtj = #{sySmtj,jdbcType=VARCHAR},\n" +
+            "      hbsj_smtj = #{hbsjSmtj,jdbcType=VARCHAR},\n" +
+            "      ch_smtj = #{chSmtj,jdbcType=VARCHAR},\n" +
+            "      pjcs_smtj = #{pjcsSmtj,jdbcType=VARCHAR},\n" +
+            "      cjj_smtj = #{cjjSmtj,jdbcType=VARCHAR},\n" +
+            "      xzb_bzyq = #{xzbBzyq,jdbcType=VARCHAR},\n" +
+            "      xzb_value = #{xzbValue,jdbcType=VARCHAR},\n" +
+            "      xzb_result = #{xzbResult,jdbcType=TINYINT},\n" +
+            "      jhqbl_bzyq = #{jhqblBzyq,jdbcType=VARCHAR},\n" +
+            "      jhqbl_value = #{jhqblValue,jdbcType=VARCHAR},\n" +
+            "      jhqbl_result = #{jhqblResult,jdbcType=TINYINT},\n" +
+            "      kjfbl_bzyq = #{kjfblBzyq,jdbcType=VARCHAR},\n" +
+            "      kjfbl_value = #{kjfblValue,jdbcType=VARCHAR},\n" +
+            "      kjfbl_result = #{kjfblResult,jdbcType=TINYINT},\n" +
+            "      txjyx_bzyq = #{txjyxBzyq,jdbcType=VARCHAR},\n" +
+            "      txjyx_value = #{txjyxValue,jdbcType=VARCHAR},\n" +
+            "      txjyx_result = #{txjyxResult,jdbcType=TINYINT},\n" +
+            "      chwc_bzyq = #{chwcBzyq,jdbcType=VARCHAR},\n" +
+            "      chwc_value = #{chwcValue,jdbcType=VARCHAR},\n" +
+            "      chwc_result = #{chwcResult,jdbcType=TINYINT},\n" +
+            "      chfjyx_bzyq = #{chfjyxBzyq,jdbcType=VARCHAR},\n" +
+            "      chfjyx_value = #{chfjyxValue,jdbcType=VARCHAR},\n" +
+            "      chfjyx_result = #{chfjyxResult,jdbcType=TINYINT},\n" +
+            "      zhb_bzyq = #{zhbBzyq,jdbcType=VARCHAR},\n" +
+            "      zhb_value = #{zhbValue,jdbcType=VARCHAR},\n" +
+            "      zhb_result = #{zhbResult,jdbcType=TINYINT},\n" +
+            "      ddbdfbl_bzyq1 = #{ddbdfblBzyq1,jdbcType=VARCHAR},\n" +
+            "      ddbdfbl_bzyq2 = #{ddbdfblBzyq2,jdbcType=VARCHAR},\n" +
+            "      ddbdfbl_value = #{ddbdfblValue,jdbcType=VARCHAR},\n" +
+            "      ddbdfbl_result = #{ddbdfblResult,jdbcType=TINYINT},\n" +
+            "      type = #{type,jdbcType=TINYINT}" +
             "    where mri_id = #{mriId,jdbcType=INTEGER}")
     void updateMri(Mri mri);
     //根据设备id查询检测表婴儿培养箱
