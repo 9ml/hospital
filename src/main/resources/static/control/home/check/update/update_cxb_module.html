@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>移动式C形臂X射线机模板数据修改</title>
+    <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
+    <script src="../../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../../../static/layui/layui.js"></script>
+    <style>
+        .btn {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .layui-elem-field {
+            width: 100%;
+        }
+
+        .layui-input-block {
+            display: flex;
+            align-items: center;
+        }
+
+        b {
+            padding-left: 30px;
+            width: 60%;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+
+
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;margin-bottom: 30px;">移动式C形臂X射线机模板数据修改</legend>
+        </fieldset>
+        <from class="layui-form layui-form-pane" action="">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">管电压指示的偏离</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">指标要求</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplZbyq" name="gdyzsplZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测A</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj1" name="gdyzsplJctj1" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj2" name="gdyzsplJctj2" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测B</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj3" name="gdyzsplJctj3" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj4" name="gdyzsplJctj4" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测C</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj5" name="gdyzsplJctj5" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj6" name="gdyzsplJctj6" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测D</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件1</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj7" name="gdyzsplJctj7" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="gdyzsplJctj8" name="gdyzsplJctj8" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">有用线束半值层</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="yyxsbzcJctj" name="yyxsbzcJctj" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="yyxsbzcZbyq" name="yyxsbzcZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">透视受检者入射体表空气比释动能率典型值</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="tssjzrstbJctj" name="tssjzrstbJctj" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="tssjzrstbZbyq" name="tssjzrstbZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">空间分辨力</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="kjfblJctj" name="kjfblJctj" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="kjfblZbyq" name="kjfblZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">低对比分辨力</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ddbfblZbyq" name="ddbfblZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测A</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ddbfblJctj1" name="ddbfblJctj1" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">检测B</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="ddbfblJctj2" name="ddbfblJctj2" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">影像接收器入射屏前空气比释动能率</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">检测条件</label>
+                <div class="layui-input-block">
+                    <input type="text" id="yxjsqJctj" name="yxjsqJctj" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="yxjsqZbyq" name="yxjsqZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">自动亮度控制</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">指标要求</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zdldkzZbyq" name="zdldkzZbyq" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item btn">
+                <div class="layui-input-block">
+                    <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveUpdate">保存</button>
+                </div>
+            </div>
+        </from>
+    </div>
+</div>
+<script>
+    // 获取上个页面传递的类型
+    var ids = "";
+    layui.use(['layer', 'jquery', 'form'], function () {
+        var layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        $(function () {
+            $.ajax({
+                url: "/ydscxb/findTemplate",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
+                    if (!!res.data) {
+                        console.log(res.data);
+                        ids = res.data.ydscxbTemplateId;
+                        $("#gdyzsplJctj1").val(res.data.gdyzsplJctj1);
+                        $("#gdyzsplJctj2").val(res.data.gdyzsplJctj2);
+                        $("#gdyzsplJctj3").val(res.data.gdyzsplJctj3);
+                        $("#gdyzsplJctj4").val(res.data.gdyzsplJctj4);
+                        $("#gdyzsplJctj5").val(res.data.gdyzsplJctj5);
+                        $("#gdyzsplJctj6").val(res.data.gdyzsplJctj6);
+                        $("#gdyzsplJctj7").val(res.data.gdyzsplJctj7);
+                        $("#gdyzsplJctj8").val(res.data.gdyzsplJctj8);
+                        $("#gdyzsplZbyq").val(res.data.gdyzsplZbyq);
+                        //有用线束半值层
+                        $("#yyxsbzcJctj").val(res.data.yyxsbzcJctj);
+                        $("#yyxsbzcZbyq").val(res.data.yyxsbzcZbyq);
+                        $("#tssjzrstbJctj").val(res.data.tssjzrstbJctj);
+                        $("#tssjzrstbZbyq").val(res.data.tssjzrstbZbyq);
+                        //空间分辨力
+                        $("#kjfblJctj").val(res.data.kjfblJctj);
+                        $("#kjfblZbyq").val(res.data.kjfblZbyq);
+                        //低对比分辨力
+                        $("#ddbfblJctj1").val(res.data.ddbfblJctj1);
+                        $("#ddbfblJctj2").val(res.data.ddbfblJctj2);
+                        $("#ddbfblZbyq").val(res.data.ddbfblZbyq);
+                        //影像接收器入射屏前空气比释动能率
+                        $("#yxjsqJctj").val(res.data.yxjsqJctj);
+                        $("#yxjsqZbyq").val(res.data.yxjsqZbyq);
+                        //自动亮度控制
+                        $("#zdldkzZbyq").val(res.data.zdldkzZbyq);
+                    } else {
+                        layer.msg("无数据");
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                    layer.msg("请稍后再试");
+                }
+            })
+        });
+        // 保存
+        form.on("submit(saveUpdate)", function (data) {
+            $.ajax({
+                url: "/ydscxb/updateYdscxbTemplate?ydscxbTemplateId=" + ids,
+                method: "POST",
+                data: data.field,
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
+                        layer.msg("修改成功");
+                    } else {
+                        layer.msg("修改失败");
+                    }
+                },
+                error: function (data) {
+                    console.log(data);
+                    layer.msg("请稍后再试");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+.user-table {
+    table-layout: fixed;
+}
+
+.user-table td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.ts {
+    background-color: #f2f2f2;
+    color: #666;
+    position: absolute;
+    max-width: 400px;
+    line-height: 18px;
+    z-index: 99999;
+    border: 1px solid #999;
+    padding: 5px;
+    word-break: break-all;
+    border-radius: 5px;
+}

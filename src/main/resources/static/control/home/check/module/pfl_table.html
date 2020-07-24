@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>普放类设备质量数据表</title>
+    <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
+    <script src="../../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <script src="../../../../static/layui/layui.js"></script>
+    <style>
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-row">
+    <div class="col-xs-12">
+        <fieldset class="layui-elem-field layui-field-title">
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">普放类设备质量数据表</legend>
+        </fieldset>
+        <table class="layui-table">
+            <tr>
+                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">管电压指示偏离(SID 100CM 探测器下放铅围裙，照视野适中，只做大焦点)</td>
+            </tr>
+            <tr>
+                <td>mA× s</td>
+                <td>KV设置值（KV）</td>
+                <td>实测值（KV）</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td rowspan="4">20大焦点</td>
+                <td>60</td>
+                <td>59.7</td>
+                <td rowspan="8">±5.0%或±5.0KV内，以较大者控制</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>80/79</td>
+                <td>78.5</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>100/99</td>
+                <td>98.8</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>120/121</td>
+                <td>120.3</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="4">20小焦点</td>
+                <td>60</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>80</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>100</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>120</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="6" style="color: red;background-color: #eaeaea;font-size: 16px;">输出量重复性(80kV)</td>
+            </tr>
+            <tr>
+                <td>mA× s</td>
+                <td>SID</td>
+                <td>输出量实测值</td>
+                <td>CV计算值</td>
+                <td>要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td rowspan="5">20</td>
+                <td rowspan="5">100</td>
+                <td>1.299</td>
+                <td rowspan="5">0．21%</td>
+                <td rowspan="5">≤10%</td>
+                <td rowspan="5"></td>
+            </tr>
+            <tr>
+                <td>1.311</td>
+            </tr>
+            <tr>
+                <td>1.313</td>
+            </tr>
+            <tr>
+                <td>1.298</td>
+            </tr>
+            <tr>
+                <td>1.312</td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">有用线半值层(SID100CM)</td>
+            </tr>
+            <tr>
+                <td>KV</td>
+                <td>mA× s</td>
+                <td>实测值（mmAl）</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td rowspan="5">80</td>
+                <td rowspan="5">20</td>
+                <td></td>
+                <td rowspan="5">≥2.3</td>
+                <td rowspan="5"></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="6" style="color: red;background-color: #eaeaea;font-size: 16px;">有用线束垂直度偏离(光野 18*24 60KV，10MAS SID 100)</td>
+            </tr>
+            <tr>
+                <td>位置</td>
+                <td>垂直度</td>
+                <td>实测值</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td>小圆影像内</td>
+                <td>≤1.5°</td>
+                <td></td>
+                <td rowspan="3"> ≤3°</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>大圆影像内</td>
+                <td>≤3°</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>大圆影像外</td>
+                <td>＞3°</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="6" style="color: red;background-color: #eaeaea;font-size: 16px;">暗噪声(取出滤线栅，光野最小，加2mm铅板)</td>
+            </tr>
+            <tr>
+                <td>KV</td>
+                <td>mA× s</td>
+                <td>SID</td>
+                <td>实测值 像素值</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td>40</td>
+                <td>0.5</td>
+                <td>130</td>
+                <td></td>
+                <td>在规定值内或基线值的±50.0%，影像均匀无伪影</td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="7" style="color: red;background-color: #eaeaea;font-size: 16px;">探测器剂量指示（DDI）光野最大，放置好探头，加1MM铜板，重复三次 ctrl shift f9</td>
+            </tr>
+            <tr>
+                <td>KV</td>
+                <td>mA× s</td>
+                <td>SID</td>
+                <td>入射空气比释动能（μGy）</td>
+                <td>实测值 像素值</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td rowspan="3">70</td>
+                <td rowspan="3">10</td>
+                <td rowspan="3">130</td>
+                <td>10</td>
+                <td rowspan="3">基线值的±20.0%</td>
+                <td rowspan="3"></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="7" style="color: red;background-color: #eaeaea;font-size: 16px;">极限空间分辨率(加1mm铜板)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">SID</td>
+                <td rowspan="2">KV</td>
+                <td rowspan="2">mA× s</td>
+                <td colspan="2">最大线对目（lp/mm）</td>
+                <td rowspan="2">指标要求</td>
+                <td rowspan="2">备注</td>
+            </tr>
+            <tr>
+                <td>水平</td>
+                <td>垂直</td>
+            </tr>
+            <tr>
+                <td>130</td>
+                <td>60</td>
+                <td>3.2</td>
+                <td colspan="2"></td>
+                <td>≥90.0%厂家规定值，或≥80.0%，建立基线值（验收）；≥90.0%基线值（状态）</td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="8" style="color: red;background-color: #eaeaea;font-size: 16px;">低对比度细节(探头上方加20mm铝板)</td>
+            </tr>
+            <tr>
+                <td>KV</td>
+                <td>mA× s</td>
+                <td>SID</td>
+                <td>入射空气比释动能（μGy）</td>
+                <td>可分辨的低对比度细节（10mm）</td>
+                <td>基线值</td>
+                <td>指标要求</td>
+                <td>备注</td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>2.8</td>
+                <td>100</td>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td rowspan="3">建立基线值（验收）与基线值比较不超过2个细节变化（状态）</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>12.5</td>
+                <td>100</td>
+                <td>5</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>70</td>
+                <td>25</td>
+                <td>100</td>
+                <td>10</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="col-xs-12 btn">
+            <a id="back" class="layui-btn layui-btn-primary">返回</a>
+            <a id="update" class="layui-btn layui-btn-normal">修改</a>
+        </div>
+    </div>
+</div>
+<script>
+    //Demo
+    layui.use(['table', 'layer', 'jquery', 'form'], function () {
+        var table = layui.table
+            , layer = layui.layer
+            , $ = layui.jquery
+            , form = layui.form;
+        $(function () {
+            $.ajax({
+                url: "/hxj/findTemplate",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    if (res.data !== null && res.data !== "") {
+                        $("#cqz1").append(res.data.cqz1);
+                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
+                        $("#cqz2").append(res.data.cqz2);
+                        $("#cqz3").append(res.data.cqz3);
+
+                        $("#qztq1").append(res.data.qztq1);
+                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
+                        $("#qztq2").append(res.data.qztq2);
+                        $("#qztq3").append(res.data.qztq3);
+
+                        $("#xry1").append(res.data.xry1);
+                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
+                        $("#xry2").append(res.data.xry2);
+                        $("#xry3").append(res.data.xry3);
+
+                        $("#xqf1").append(res.data.xqf1);
+                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
+                        $("#xqf2").append(res.data.xqf2);
+                        $("#xqf3").append(res.data.xqf3);
+
+                        $("#hqm1").append(res.data.hqm1);
+                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
+                        $("#hqm2").append(res.data.hqm2);
+                        $("#hqm3").append(res.data.hqm3);
+                    } else {
+                        layer.msg("无数据");
+                    }
+                }
+            });
+        });
+        // 修改
+        $("#update").click(function () {
+            location.href = "/control/home/check/update/update_breath_module.html"
+        });
+        // 返回
+        $("#back").click(function () {
+            window.history.back();
+        });
+    });
+</script>
+</body>
+
+</html>

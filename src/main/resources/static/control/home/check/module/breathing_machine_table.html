@@ -14,14 +14,16 @@
     <![endif]-->
     <script src="../../../../static/layui/layui.js"></script>
     <style>
-        h2{
+        h2 {
             text-align: center;
             margin-top: 30px;
         }
-        td{
+
+        td {
             text-align: center;
         }
-        .btn{
+
+        .btn {
             width: 100%;
             margin-top: 50px;
             margin-bottom: 30px;
@@ -37,17 +39,74 @@
         </fieldset>
         <table class="layui-table">
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">潮气量Vt (VCV模式、f=20bpm、I:E=1:2、PEEP=2cmH2O、FiO2=40%)</td>
+                <td colspan="9" style="color: red;background-color: #eaeaea;font-size: 16px;">电气安全检测</td>
             </tr>
             <tr>
-                <td rowspan="2">呼吸机设定值 (ml)</td>
+                <td colspan="3">检测项目</td>
+                <td colspan="4">测量值</td>
+                <td>允许值</td>
+                <td>测量结论</td>
+            </tr>
+            <tr>
+                <td rowspan="6">电源部分</td>
+                <td colspan="2">保护接地阻抗（mΩ）</td>
+                <td colspan="4"></td>
+                <td>≤200 mΩ</td>
+                <td>□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td colspan="2">绝缘阻抗(电源—外壳)(MΩ)</td>
+                <td colspan="4"></td>
+                <td>≥10 MΩ</td>
+                <td>□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td rowspan="2">对地漏电流（µA）</td>
+                <td>正常状态</td>
+                <td colspan="2">正向：</td>
+                <td colspan="2">反向：</td>
+                <td>≤500µA</td>
+                <td>□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td>单一故障状态</td>
+                <td colspan="2">正向断零：</td>
+                <td colspan="2">反向断零：</td>
+                <td>≤1000µA</td>
+                <td>□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td rowspan="2">外壳漏电流（µA）</td>
+                <td>正常状态</td>
+                <td colspan="2">正向：</td>
+                <td colspan="2">反向：</td>
+                <td>≤500µA</td>
+                <td>□合格 □不合格</td>
+            </tr>
+            <tr>
+                <td>单一故障状态</td>
+                <td>正向断零：</td>
+                <td>正向断地：</td>
+                <td>反向断零：</td>
+                <td>反向断地：</td>
+                <td>≤500µA</td>
+                <td>□合格 □不合格</td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">潮气量Vt (VCV模式、f=20bpm、I:E=1:2、PEEP=2cmH2O、FiO2=40%)</td>
+            </tr>
+            <tr>
+                <td rowspan="2">呼吸机设定值V（ml）</td>
                 <td colspan="3">呼吸机监测值</td>
-                <td rowspan="2">平均值 (呼吸机监测值)</td>
+                <td rowspan="2">平均值 V0（监测值）</td>
                 <td colspan="3">测试仪测量值</td>
-                <td rowspan="2">平均值 (测试仪测量值)</td>
+                <td rowspan="2">平均值Vm （测量值）</td>
                 <td rowspan="2">示值误差</td>
+                <td rowspan="2">输出误差</td>
                 <td rowspan="2">最大允差</td>
-                <td rowspan="2">符合情况</td>
+                <td rowspan="2">结果</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -58,7 +117,7 @@
                 <td>3</td>
             </tr>
             <tr>
-                <td id="cqz1" style="width: 8%;"></td><!--10-->
+                <td style="width: 8%;">400</td><!--10-->
                 <td style="width: 8%;">&nbsp;</td>
                 <td style="width: 8%;">&nbsp;</td>
                 <td style="width: 8%;">&nbsp;</td>
@@ -68,11 +127,13 @@
                 <td style="width: 8%;">&nbsp;</td>
                 <td style="width: 8%;">&nbsp;</td>
                 <td style="width: 8%;">&nbsp;</td>
-                <td id="cqzZdwc1" style="width: 8%;" rowspan="3">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
-                <td style="width: 8%;" rowspan="3">□符合 □不符合</td>
+                <td style="width: 8%;">&nbsp;</td>
+                <td id="cqzZdwc1" style="width: 8%;" rowspan="5">±15％</td>
+                <td style="width: 8%;" rowspan="5">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="cqz2"></td><!--20-->
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -94,9 +155,38 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">强制通气频率f (VCV模式、Vt=400ml、I:E=1:2、PEEP=2cmH2O、FiO2=40%)</td>
+                <td id="cqz3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="cqz3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">强制通气频率f (VCV模式、Vt=400ml、I:E=1:2、PEEP=2cmH2O、FiO2=40%)</td>
             </tr>
             <tr>
                 <td rowspan="2">呼吸机设定值 （BPM）</td>
@@ -105,8 +195,9 @@
                 <td colspan="3">测试仪测量值</td>
                 <td rowspan="2">平均值 （测试仪测量值）</td>
                 <td rowspan="2">示值误差</td>
+                <td rowspan="2">输出误差</td>
                 <td rowspan="2">最大允差</td>
-                <td rowspan="2">符合情况</td>
+                <td rowspan="2">结果</td>
             </tr>
             <tr>
                 <td>1</td>
@@ -117,7 +208,7 @@
                 <td>3</td>
             </tr>
             <tr>
-            	<td id="qztq1"></td><!--10-->
+                <td id="qztq1"></td><!--10-->
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -127,11 +218,13 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td id="qztqZdwc1" rowspan="3">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
-                <td rowspan="3">□符合 □不符合</td>
+                <td>&nbsp;</td>
+                <td id="qztqZdwc1" rowspan="5">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
+                <td rowspan="5">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="qztq2"></td><!--20-->
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -153,9 +246,38 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">吸入氧浓度FiO2 (VCV模式、Vt=400ml、f=15bpm、I:E=1:2、PEEP=2cmH2O)</td>
+                <td id="qztq3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="qztq3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">吸入氧浓度FiO2 (VCV模式、Vt=400ml、f=15bpm、I:E=1:2、PEEP=2cmH2O)</td>
             </tr>
             <tr>
                 <td rowspan="2">呼吸机设定值 （%）</td>
@@ -164,6 +286,7 @@
                 <td colspan="3">测试仪测量值</td>
                 <td rowspan="2">平均值 （测试仪测量值）</td>
                 <td rowspan="2">示值误差</td>
+                <td rowspan="2">输出误差</td>
                 <td rowspan="2">最大允差</td>
                 <td rowspan="2">符合情况</td>
             </tr>
@@ -186,11 +309,13 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td id="xryZdwc1" rowspan="3">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
-                <td rowspan="3">□符合 □不符合</td>
+                <td>&nbsp;</td>
+                <td id="xryZdwc1" rowspan="5">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
+                <td rowspan="5">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="xry2"></td><!--20-->
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -212,9 +337,36 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">吸气峰值压力 (PCV模式、f=15bpm、I:E=1:2、PEEP=0cmH2O、FiO2=40%)</td>
+                <td id="xry3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="xry3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">吸气峰值压力 (PCV模式、f=15bpm、I:E=1:2、PEEP=0cmH2O、FiO2=40%)</td>
             </tr>
             <tr>
                 <td rowspan="2">呼吸机设定值 （cmH2O）</td>
@@ -223,6 +375,7 @@
                 <td colspan="3">测试仪测量值</td>
                 <td rowspan="2">平均值 （测试仪测量值）</td>
                 <td rowspan="2">示值误差</td>
+                <td rowspan="2">输出误差</td>
                 <td rowspan="2">最大允差</td>
                 <td rowspan="2">符合情况</td>
             </tr>
@@ -245,11 +398,13 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td id="xqfZdwc1" rowspan="3">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
-                <td rowspan="3">□符合 □不符合</td>
+                <td>&nbsp;</td>
+                <td id="xqfZdwc1" rowspan="5">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
+                <td rowspan="5">□符合 □不符合</td>
             </tr>
             <tr>
-                <td id="xqf2" ></td><!--20-->
+                <td id="xqf2"></td><!--20-->
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -271,9 +426,36 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">呼气末正压PEEP (VCV模式、Vt=400ml、f=15bpm、I:E=1:2、FiO2=40%)</td>
+                <td id="xqf3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td id="xqf3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">呼气末正压PEEP (VCV模式、Vt=400ml、f=15bpm、I:E=1:2、FiO2=40%)</td>
             </tr>
             <tr>
                 <td rowspan="2">呼吸机设定值 （cmH2O）</td>
@@ -282,6 +464,7 @@
                 <td colspan="3">测试仪测量值</td>
                 <td rowspan="2">平均值 （测试仪测量值）</td>
                 <td rowspan="2">示值误差</td>
+                <td rowspan="2">输出误差</td>
                 <td rowspan="2">最大允差</td>
                 <td rowspan="2">符合情况</td>
             </tr>
@@ -304,11 +487,13 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td id="hqmZdwc1" rowspan="3">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
-                <td style="width: 8%;" rowspan="3">□符合 □不符合</td>
+                <td>&nbsp;</td>
+                <td id="hqmZdwc1" rowspan="5">±3 cmH2O 或设定值的±10% （两者取绝对值大者）</td>
+                <td style="width: 8%;" rowspan="5">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="hqm2"></td><!--20-->
+                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -330,36 +515,91 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="12" style="color: red;background-color: #eaeaea;font-size: 16px;">安全报警功能等检查</td>
+                <td id="hqm3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
             <tr>
-                <td colspan="3">电源报警</td>
-                <td id="dybj" colspan="3">□符合 □不符合 □不适用</td>
-                <td colspan="3">氧浓度上/下限报警</td>
-                <td id="yqndsx" colspan="3">□符合 □不符合 □不适用</td>
-            </tr>
-            <tr>
-                <td colspan="3">气源报警</td>
-                <td id="qybj" colspan="3">□符合 □不符合 □不适用</td>
-                <td colspan="3">窒息报警</td>
-                <td id="zxbj" colspan="3">□符合 □不符合 □不适用</td>
-            </tr>
-            <tr>
-                <td colspan="3">气道压力上/下限报警</td>
-                <td id="qdyl" colspan="3">□符合 □不符合 □不适用</td>
-                <td colspan="3">病人回路过压保护功能</td>
-                <td id="brhl" colspan="3">□符合 □不符合 □不适用</td>
-            </tr>
-            <tr>
-                <td colspan="3">分钟通气量上/下限报警</td>
-                <td id="fztql" colspan="3">□符合 □不符合 □不适用</td>
-                <td colspan="3">按键功能检查(含键盘锁)</td>
-                <td id="ajgn" colspan="3">□符合 □不符合 □不适用</td>
+                <td id="hqm3"></td><!--30-->
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
             </tr>
         </table>
-       	<div class="col-xs-12 btn">
+        <table class="layui-table">
+            <tr>
+                <td colspan="6" style="color: red;background-color: #eaeaea;font-size: 16px;">安全报警功能等检查</td>
+            </tr>
+            <tr>
+                <td>防误操作电源开关</td>
+                <td id="dybj">□符合 □不符合 □不适用</td>
+                <td>病人回路过压保护功能</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+                <td id="yqndsx">静音功能</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>静音时限</td>
+                <td id="dybj">□符合 □不符合 □不适用</td>
+                <td>气道压力上/下限报警</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+                <td id="yqndsx">报警设置</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>断电报警</td>
+                <td id="dybj">□符合 □不符合 □不适用</td>
+                <td>呼吸频率上/下限报警</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+                <td id="yqndsx">内部电源</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>气源报警</td>
+                <td id="dybj">□符合 □不符合 □不适用</td>
+                <td>氧浓度上/下限报警</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+                <td id="yqndsx">误调节预防措施</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+            </tr>
+            <tr>
+                <td>分钟通气量上/下限报警</td>
+                <td id="dybj">□符合 □不符合 □不适用</td>
+                <td>呼气末正压上/下限报警</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+                <td id="yqndsx">通气窒息报警</td>
+                <td id="yqndsx">□符合 □不符合 □不适用</td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td width="12%">检测结论</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>检测说明</td>
+                <td></td>
+            </tr>
+        </table>
+        <div class="col-xs-12 btn">
             <a id="back" class="layui-btn layui-btn-primary">返回</a>
             <a id="update" class="layui-btn layui-btn-normal">修改</a>
         </div>
@@ -367,52 +607,52 @@
 </div>
 <script>
     //Demo
-    layui.use(['table','layer','jquery','form'],function(){
+    layui.use(['table', 'layer', 'jquery', 'form'], function () {
         var table = layui.table
             , layer = layui.layer
             , $ = layui.jquery
             , form = layui.form;
-        $(function(){
+        $(function () {
             $.ajax({
-                url:"/hxj/findTemplate",
-                method:"GET",
-                dataType:"JSON",
-                success:function(res){
+                url: "/hxj/findTemplate",
+                method: "GET",
+                dataType: "JSON",
+                success: function (res) {
                     console.log(res);
-                    if(res.data !== null && res.data !== ""){
+                    if (res.data !== null && res.data !== "") {
                         $("#cqz1").append(res.data.cqz1);
-                        $("#cqzZdwc1").append("±"+res.data.cqzZdwc1+"cmH2O 或设定值的±"+res.data.cqzZdwc2+"% （两者取绝对值大者）");
+                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
                         $("#cqz2").append(res.data.cqz2);
                         $("#cqz3").append(res.data.cqz3);
 
                         $("#qztq1").append(res.data.qztq1);
-                        $("#qztqZdwc1").append("±"+res.data.qztqZdwc1+"cmH2O 或设定值的±"+res.data.qztqZdwc2+"% （两者取绝对值大者）");
+                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
                         $("#qztq2").append(res.data.qztq2);
                         $("#qztq3").append(res.data.qztq3);
 
                         $("#xry1").append(res.data.xry1);
-                        $("#xryZdwc1").append("±"+res.data.xryZdwc1+"cmH2O 或设定值的±"+res.data.xryZdwc2+"% （两者取绝对值大者）");
+                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
                         $("#xry2").append(res.data.xry2);
                         $("#xry3").append(res.data.xry3);
 
                         $("#xqf1").append(res.data.xqf1);
-                        $("#xqfZdwc1").append("±"+res.data.xqfZdwc1+"cmH2O 或设定值的±"+res.data.xqfZdwc2+"% （两者取绝对值大者）");
+                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
                         $("#xqf2").append(res.data.xqf2);
                         $("#xqf3").append(res.data.xqf3);
 
                         $("#hqm1").append(res.data.hqm1);
-                        $("#hqmZdwc1").append("±"+res.data.hqmZdwc1+"cmH2O 或设定值的±"+res.data.hqmZdwc2+"% （两者取绝对值大者）");
+                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
                         $("#hqm2").append(res.data.hqm2);
                         $("#hqm3").append(res.data.hqm3);
-                    }else{
+                    } else {
                         layer.msg("无数据");
                     }
                 }
             });
         });
-     	// 修改
-        $("#update").click(function(){
-            location.href="/control/home/check/update/update_breath_module.html"
+        // 修改
+        $("#update").click(function () {
+            location.href = "/control/home/check/update/update_breath_module.html"
         });
         // 返回
         $("#back").click(function () {

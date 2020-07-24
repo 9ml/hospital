@@ -15,7 +15,7 @@
     <script src="../../../static/js/basic.js"></script>
     <script src="../../../static/layui/layui.js"></script>
     <style>
-        td{
+        td {
             text-align: center;
         }
     </style>
@@ -40,7 +40,7 @@
             <tr>
                 <td>气流分析仪</td>
                 <td>
-                	<a id="yqA" class="layui-btn">查看模板</a>
+                    <a id="yqA" class="layui-btn">查看模板</a>
                 </td>
             </tr>
             <tr>
@@ -52,7 +52,7 @@
             <tr>
                 <td>除颤起搏分析仪</td>
                 <td>
-                	<a id="yqC" class="layui-btn">查看模板</a>
+                    <a id="yqC" class="layui-btn">查看模板</a>
                 </td>
             </tr>
 
@@ -66,6 +66,54 @@
                 <td>双通道注射泵分析仪</td>
                 <td>
                     <a id="yqE" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>CT</td>
+                <td>
+                    <a id="yqF" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>C形臂X射线机</td>
+                <td>
+                    <a id="yqG" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>MRI</td>
+                <td>
+                    <a id="yqH" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>平板数字胃肠机</td>
+                <td>
+                    <a id="yqI" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>牙科X射线机</td>
+                <td>
+                    <a id="yqJ" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>普放类设备</td>
+                <td>
+                    <a id="yqL" class="layui-btn">查看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>输液设备分析仪</td>
+                <td>
+                    <a id="yqG1" class="layui-btn">参看模板</a>
+                </td>
+            </tr>
+            <tr>
+                <td>注射设备分析仪</td>
+                <td>
+                    <a id="yqH1" class="layui-btn">参看模板</a>
                 </td>
             </tr>
             </tbody>
@@ -88,20 +136,6 @@
                     <a id="yqF2" class="layui-btn">新生儿模板</a>
                 </td>
             </tr>
-            <tr>
-                <td>输液设备分析仪</td>
-                <td>
-                    <a id="yqG1" class="layui-btn layui-btn-normal">成人模板</a>
-                    <a id="yqG2" class="layui-btn">新生儿模板</a>
-                </td>
-            </tr>
-            <tr>
-                <td>注射设备分析仪</td>
-                <td>
-                    <a id="yqH1" class="layui-btn layui-btn-normal">成人模板</a>
-                    <a id="yqH2" class="layui-btn">新生儿模板</a>
-                </td>
-            </tr>
             </tbody>
         </table>
         <fieldset class="layui-elem-field layui-field-title">
@@ -118,7 +152,7 @@
             <tr>
                 <td>电气安全分析仪</td>
                 <td>
-                    <a id="yqI" class="layui-btn">查看模板</a>
+                    <a id="yqK" class="layui-btn">查看模板</a>
                 </td>
             </tr>
             </tbody>
@@ -126,45 +160,63 @@
     </div>
 </div>
 <script>
-    layui.use(['table','jquery','layer'],function(){
+    layui.use(['table', 'jquery', 'layer'], function () {
         var table = layui.table
-            ,   $ = layui.jquery
-            ,   layer = layui.layer;
-        $("#yqA").click(function(){
-           location.href = "/control/home/check/module/breathing_machine_table.html";
+            , $ = layui.jquery
+            , layer = layui.layer;
+        $("#yqA").click(function () {
+            location.href = "/control/home/check/module/breathing_machine_table.html";
         });
-        $("#yqB").click(function(){
+        $("#yqB").click(function () {
             location.href = "/control/home/check/module/baby_table.html";
         });
-        $("#yqC").click(function(){
+        $("#yqC").click(function () {
             location.href = "/control/home/check/module/defibrillator_table.html";
         });
-        $("#yqD").click(function(){
+        $("#yqD").click(function () {
             location.href = "/control/home/check/module/endotherm_knife.html";
         });
-        $("#yqE").click(function(){
+        $("#yqE").click(function () {
             location.href = "/control/home/check/module/double_injection_pump.html";
         });
-        $("#yqF1").click(function(){
+        $("#yqF1").click(function () {
             location.href = "/control/home/check/module/man_life_table.html";
         });
-        $("#yqF2").click(function(){
+        $("#yqF2").click(function () {
             location.href = "/control/home/check/module/child_life_table.html";
         });
-        $("#yqG1").click(function(){
+        $("#yqG1").click(function () {
             location.href = "/control/home/check/module/infusion_pump_man.html";
         });
-        $("#yqG2").click(function(){
-            location.href = "/control/home/check/module/infusion_pump_child.html";
-        });
-        $("#yqH1").click(function(){
+        /* $("#yqG2").click(function () {
+             location.href = "/control/home/check/module/infusion_pump_child.html";
+         });*/
+        $("#yqH1").click(function () {
             location.href = "/control/home/check/module/injection_pump_man.html";
         });
-        $("#yqH2").click(function(){
-            location.href = "/control/home/check/module/injection_pump_child.html";
-        });
-        $("#yqI").click(function(){
+        /* $("#yqH2").click(function () {
+             location.href = "/control/home/check/module/injection_pump_child.html";
+         });*/
+        $("#yqK").click(function () {
             location.href = "/control/home/check/module/electric_info.html";
+        });
+        $("#yqF").click(function () {
+            location.href = "/control/home/check/module/ct_table.html";
+        });
+        $("#yqG").click(function () {
+            location.href = "/control/home/check/module/cxb_table.html";
+        });
+        $("#yqH").click(function () {
+            location.href = "/control/home/check/module/mri_table.html";
+        });
+        $("#yqI").click(function () {
+            location.href = "/control/home/check/module/pbszwcj_table.html";
+        });
+        $("#yqJ").click(function () {
+            location.href = "/control/home/check/module/ypj_table.html";
+        });
+        $("#yqL").click(function () {
+            location.href = "/control/home/check/module/pfl_table.html";
         });
     });
 </script>
