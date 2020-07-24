@@ -38,12 +38,6 @@
             </thead>
             <tbody>
             <tr>
-                <td>气流分析仪</td>
-                <td>
-                    <a id="yqA" class="layui-btn">查看模板</a>
-                </td>
-            </tr>
-            <tr>
                 <td>婴儿培养箱分析仪</td>
                 <td>
                     <a id="yqB" class="layui-btn">查看模板</a>
@@ -130,6 +124,13 @@
             </thead>
             <tbody>
             <tr>
+                <td>气流分析仪</td>
+                <td>
+                    <a id="yqM1" class="layui-btn layui-btn-normal">成人模板</a>
+                    <a id="yqM2" class="layui-btn">新生儿模板</a>
+                </td>
+            </tr>
+            <tr>
                 <td>生命体征模拟器</td>
                 <td>
                     <a id="yqF1" class="layui-btn layui-btn-normal">成人模板</a>
@@ -164,9 +165,6 @@
         var table = layui.table
             , $ = layui.jquery
             , layer = layui.layer;
-        $("#yqA").click(function () {
-            location.href = "/control/home/check/module/breathing_machine_table.html";
-        });
         $("#yqB").click(function () {
             location.href = "/control/home/check/module/baby_table.html";
         });
@@ -217,6 +215,12 @@
         });
         $("#yqL").click(function () {
             location.href = "/control/home/check/module/pfl_table.html";
+        });
+        $("#yqM1").click(function () {
+            location.href = "/control/home/check/module/breathing_machine_table.html";
+        });
+        $("#yqM2").click(function () {
+            location.href = "/control/home/check/module/breathing_machine_child_table.html";
         });
     });
 </script>
