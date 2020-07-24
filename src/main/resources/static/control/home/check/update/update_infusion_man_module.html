@@ -47,52 +47,48 @@
                 <legend style="color: red;">流量检测</legend>
             </fieldset>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">流量测试点</legend>
+                <legend style="color: #555555;">流量检测A</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">设定值1</label>
+                <label class="layui-form-label">设定值</label>
                 <div class="layui-input-block">
-                    <input type="text" id="llcsd1" name="llcsd1" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="lljcSdz1" name="lljcSdz1" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">设定值2</label>
+                <label class="layui-form-label">允许误差</label>
                 <div class="layui-input-block">
-                    <input type="text" id="llcsd2" name="llcsd2" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="lljcWc1" name="lljcWc1" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">允许误差</legend>
+                <legend style="color: #555555;">流量检测B</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">误差值1</label>
+                <label class="layui-form-label">设定值</label>
                 <div class="layui-input-block">
-                    <input type="text" id="wc" name="wc" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="lljcSdz2" name="lljcSdz2" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">误差值2</label>
+                <label class="layui-form-label">允许误差</label>
                 <div class="layui-input-block">
-                    <input type="text" id="wc" name="wc" required lay-verify="required" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">阻塞报警压力检测流速：25 ml/h
-                </legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测试流量</label>
-                <div class="layui-input-block">
-                    <input type="text" id="zsbjllz" name="zsbjllz" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="lljcWc2" name="lljcWc2" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">允许误差</legend>
+                <legend style="color: red;">阻塞报警压力检测</legend>
             </fieldset>
             <div class="layui-form-item col-md-5">
-                <label class="layui-form-label">测量误差</label>
+                <label class="layui-form-label">流速</label>
                 <div class="layui-input-block">
-                    <input type="text" id="zsbjWc1" name="zsbjWc1" required lay-verify="required" autocomplete="off" class="layui-input">
+                    <input type="text" id="zsbjyljcLs" name="zsbjyljcLs" required lay-verify="required" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5">
+                <label class="layui-form-label">允许误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="zsbjyljcWc" name="zsbjyljcWc" required lay-verify="required" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <div class="layui-form-item btn">
@@ -117,13 +113,13 @@
                 dataType: "JSON",
                 success: function (res) {
                     if (res.data !== "" && res.data !== null) {
-                        ids = res.data.tempId;
-                        $("#lljcSdz1").text(res.data.lljcSdz1);
-                        $("#lljcSdz2").text(res.data.lljcSdz2);
-                        $("#lljcWc1").text(res.data.lljcWc1);
-                        $("#lljcWc2").text(res.data.lljcWc2);
-                        $("#zsbjyljcWc").text(res.data.zsbjyljcWc);
-                        $("#zsbjyljcLs").text(res.data.zsbjyljcLs);
+                        ids = res.data.sybTemplateId;
+                        $("#lljcSdz1").val(res.data.lljcSdz1);
+                        $("#lljcSdz2").val(res.data.lljcSdz2);
+                        $("#lljcWc1").val(res.data.lljcWc1);
+                        $("#lljcWc2").val(res.data.lljcWc2);
+                        $("#zsbjyljcWc").val(res.data.zsbjyljcWc);
+                        $("#zsbjyljcLs").val(res.data.zsbjyljcLs);
                     } else {
                         layer.msg("无数据");
                     }
@@ -138,7 +134,7 @@
         form.on("submit(saveUpdate)", function (data) {
             console.log(data.field);
             $.ajax({
-                url: "/syb/updateM?tempId=" + ids,
+                url: "/syb/updateSybTemplate?sybTemplateId=" + ids,
                 method: "POST",
                 data: data.field,
                 dataType: "JSON",

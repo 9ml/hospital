@@ -41,9 +41,9 @@
             <tr>
                 <td rowspan="4">流量检测</td>
                 <td>设定值</td>
-                <td id="llcsd1" colspan="5"><!--25 ml/h--></td>
+                <td id="lljcSdz1" colspan="5"><!--25 ml/h--></td>
                 <td>允许误差<!--测试结果：允许测量误差±10％--></td>
-                <td id="jg">结果<!--测试结果：允许测量误差±10％--></td>
+                <td>结果<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
                 <td>三组测试值</td>
@@ -52,14 +52,14 @@
                 <td>3：</td>
                 <td>平均值：</td>
                 <td>误差：</td>
-                <td id="wc">±6%<!--测试结果：允许测量误差±10％--></td>
-                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+                <td id="lljcWc1"><!--测试结果：允许测量误差±10％--></td>
+                <td>□合格□不合格<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
                 <td></td>
-                <td colspan="5">100 ml/h</td>
-                <td id="wc">允许误差<!--测试结果：允许测量误差±10％--></td>
-                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+                <td colspan="5" id="lljcSdz2"></td>
+                <td>允许误差<!--测试结果：允许测量误差±10％--></td>
+                <td>□合格□不合格<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
                 <td>三组测试值</td>
@@ -68,44 +68,44 @@
                 <td>3：</td>
                 <td>平均值：</td>
                 <td>误差：</td>
-                <td id="wc">±6%<!--测试结果：允许测量误差±10％--></td>
-                <td id="jg">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+                <td id="lljcWc2"><!--测试结果：允许测量误差±10％--></td>
+                <td>□合格□不合格<!--测试结果：允许测量误差±10％--></td>
             </tr>
             <tr>
-                <td rowspan="3">阻塞报警压力检测流速：25 ml/h</td>
-                <td id="pjll1">使用压力值</td>
-                <td id="pjll1"></td>
-                <td id="pjll1">测试值</td>
-                <td id="pjll2">&nbsp;</td>
-                <td id="pjll1">误差</td>
-                <td id="pjll1"></td>
-                <td id="pjll1">允许误差</td>
+                <td rowspan="3">阻塞报警压力检测流速：<span id="zsbjyljcLs"></span></td>
+                <td>使用压力值</td>
+                <td></td>
+                <td>测试值</td>
+                <td>&nbsp;</td>
+                <td>误差</td>
+                <td></td>
+                <td>允许误差</td>
                 <td>结果</td>
             </tr>
             <tr>
-                <td id="pjll1">最小压力值</td>
-                <td id="pjll1"></td>
-                <td id="pjll1">测试值</td>
-                <td id="pjll2">&nbsp;</td>
-                <td id="pjll1">误差</td>
-                <td id="pjll1"></td>
-                <td id="pjll1" rowspan="2">±100mmHg 或 ±30% （两者取最大）</td>
+                <td>最小压力值</td>
+                <td></td>
+                <td>测试值</td>
+                <td>&nbsp;</td>
+                <td>误差</td>
+                <td></td>
+                <td rowspan="2" id="zsbjyljcWc"></td>
                 <td rowspan="2">□合格 □不合格</td>
             </tr>
             <tr>
-                <td id="pjll1">最大压力值</td>
-                <td id="pjll1"></td>
-                <td id="pjll1">测试值</td>
-                <td id="pjll2">&nbsp;</td>
-                <td id="pjll1">误差</td>
-                <td id="pjll1"></td>
+                <td>最大压力值</td>
+                <td></td>
+                <td>测试值</td>
+                <td>&nbsp;</td>
+                <td>误差</td>
+                <td></td>
             </tr>
             <tr>
-                <td id="pjll1" colspan="2">开门报警</td>
-                <td id="pjll1">□符合 □不符合</td>
-                <td id="pjll1" colspan="2">输液完毕报警</td>
-                <td id="pjll1">□符合 □不符合</td>
-                <td id="pjll1" colspan="2">电源线脱落报警</td>
+                <td colspan="2">开门报警</td>
+                <td>□符合 □不符合</td>
+                <td colspan="2">输液完毕报警</td>
+                <td>□符合 □不符合</td>
+                <td colspan="2">电源线脱落报警</td>
                 <td>□合格 □不合格</td>
             </tr>
         </table>
@@ -124,17 +124,18 @@
             , form = layui.form;
         $(function () {
             $.ajax({
-                url: "/zsb/findTemplateM",
+                url: "/zsb/findTemplate",
                 method: "GET",
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
                     if (res.data != null && res.data != "") {
-                        $("#llcsd1").append(res.data.llcsd1 + "ml/h");
-                        $("#llcsd2").append(res.data.llcsd2 + "ml/h");
-                        $("#wc").append("测试结果：允许测量误差±" + res.data.wc + "%");
-                        $("#zsbjllz").append("测试流量：" + res.data.zsbjllz + "ml/h");
-                        $("#zsbjWc1").append("测试结果允许测量误差：±" + res.data.zsbjWc1 + "%或者±" + res.data.zsbjWc2 + "mmHg");
+                        $("#lljcSdz1").text(res.data.lljcSdz1);
+                        $("#lljcSdz2").text(res.data.lljcSdz2);
+                        $("#lljcWc1").text(res.data.lljcWc1);
+                        $("#lljcWc2").text(res.data.lljcWc2);
+                        $("#zsbjyljcWc").text(res.data.zsbjyljcWc);
+                        $("#zsbjyljcLs").text(res.data.zsbjyljcLs);
                     } else {
                         layer.msg("无数据");
                     }
