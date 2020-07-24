@@ -118,12 +118,12 @@
                 success: function (res) {
                     if (res.data !== "" && res.data !== null) {
                         ids = res.data.tempId;
-                        $("#llcsd1").val(res.data.llcsd1);
-                        $("#llcsd2").val(res.data.llcsd2);
-                        $("#wc").val(res.data.wc);
-                        $("#zsbjllz").val(res.data.zsbjllz);
-                        $("#zsbjWc1").val(res.data.zsbjWc1);
-                        $("#zsbjWc2").val(res.data.zsbjWc2);
+                        $("#lljcSdz1").text(res.data.lljcSdz1);
+                        $("#lljcSdz2").text(res.data.lljcSdz2);
+                        $("#lljcWc1").text(res.data.lljcWc1);
+                        $("#lljcWc2").text(res.data.lljcWc2);
+                        $("#zsbjyljcWc").text(res.data.zsbjyljcWc);
+                        $("#zsbjyljcLs").text(res.data.zsbjyljcLs);
                     } else {
                         layer.msg("无数据");
                     }
