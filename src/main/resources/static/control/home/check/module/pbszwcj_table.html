@@ -39,94 +39,128 @@
         </fieldset>
         <table class="layui-table">
             <tr>
-                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">X射线摄影质量检测</td>
+                <td colspan="7" style="color: red;background-color: #eaeaea;font-size: 16px;">X射线摄影质量检测</td>
             </tr>
             <tr>
-                <td>层厚（mm）</td>
-                <td>检测条件</td>
-                <td>实测值（mm）</td>
+                <td>检测项目</td>
+                <td colspan="2">检测条件</td>
+                <td colspan="2">检测结果</td>
                 <td>指标要求</td>
                 <td>单项评定</td>
             </tr>
             <tr>
-                <td>10.000</td>
-                <td rowspan="3">120KV，110mA,2.0s, 矩阵512×512,FOV=25.0cm,Angle=0°，轴向扫描</td>
+                <td rowspan="4">管电压指示的偏离</td>
+                <td rowspan="4" id="gdyzsdplJctj"></td>
+                <td id="gdyzsdplJctj1"></td>
                 <td></td>
-                <td rowspan="3">s≥8mm, ±15%；
-                    8mm＞s＞2mm,±30%；
-                    s≤2mm,±50%；
-                </td>
+                <td></td>
+                <td rowspan="4" id="gdyzsdplZbyq"></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td>5.000</td><!--20-->
+                <td id="gdyzsdplJctj2"></td>
                 <td></td>
-                <td>□符合 □不符合</td>
-            </tr>
-            <tr>
-                <td>2.500</td><!--20-->
                 <td></td>
                 <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">CTDIW(mGy)</td>
-            </tr>
-            <tr>
-                <td>检测条件</td>
-                <td>实测值（mGy）</td>
-                <td>指标要求(mGy)</td>
-                <td colspan="2">单项评定</td>
-            </tr>
-            <tr>
-                <td>120KV,110mA,2.0s, 10.000mm/1i，矩阵512×512，FOV=25.0cm,Angle=0°，轴向扫描,16cm头部模体</td>
+                <td id="gdyzsdplJctj3"></td>
                 <td></td>
-                <td>＜50</td>
-                <td colspan="2">□符合 □不符合</td>
-            </tr>
-            <tr>
-                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">CT值（水）</td>
-            </tr>
-            <tr>
-                <td>检测条件</td>
-                <td>实测值(HU)</td>
-                <td>指标要求(HU)</td>
-                <td colspan="2">单项评定</td>
-            </tr>
-            <tr>
-                <td>120KV,110mA,2.0s, 10.000mm/1i，矩阵512×512，FOV=25.0cm,Angle=0°</td>
                 <td></td>
-                <td>±6</td>
-                <td colspan="2">□符合 □不符合</td>
+                <td>□符合 □不符合</td>
             </tr>
             <tr>
-                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">均匀性</td>
-            </tr>
-            <tr>
-                <td>检测条件</td>
-                <td>实测值(HU)</td>
-                <td>指标要求(HU)</td>
-                <td colspan="2">单项评定</td>
-            </tr>
-            <tr>
-                <td>120KV,110mA,2.0s, 10.000mm/1i，矩阵512×512，FOV=25.0cm</td>
+                <td id="gdyzsdplJctj4"></td>
                 <td></td>
-                <td>±6</td>
-                <td colspan="2">□符合 □不符合</td>
-            </tr>
-            <tr>
-                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">噪声(%)</td>
-            </tr>
-            <tr>
-                <td>检测条件</td>
-                <td>实测值(HU)</td>
-                <td>指标要求(HU)</td>
-                <td colspan="2">单项评定</td>
-            </tr>
-            <tr>
-                <td>120KV,110mA,2.0s, 10.000mm/1i，矩阵512×512，FOV=25.0cm,Angle=0°，轴向扫描, CTDIW＜50mGy</td>
                 <td></td>
-                <td>＜0.45</td>
-                <td colspan="2">□符合 □不符合</td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>输出量重复性</td><!--20-->
+                <td colspan="2" id="sclcfxJctj"></td>
+                <td colspan="2"></td>
+                <td id="sclcfxZbyq"></td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>有用线束半值层</td><!--20-->
+                <td colspan="2" id="yyxsbzcJctj"></td>
+                <td colspan="2"></td>
+                <td id="yyxsbzcZbyq"></td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>自动曝光控制重复性</td><!--20-->
+                <td colspan="2">/</td>
+                <td colspan="2"></td>
+                <td id="zdbgkzcfxZbyq"></td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td>有用线束垂直度偏离</td><!--20-->
+                <td colspan="2" id="yyxsczdplJctj"></td>
+                <td colspan="2"></td>
+                <td id="yyxsczdplZbyq"></td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td rowspan="4">光野与照射野四边的偏离</td><!--20-->
+                <td rowspan="4" colspan="2" id="gyyzsysbdplJctj"></td>
+                <td>a1</td>
+                <td></td>
+                <td rowspan="4" id="gyyzsysbdplZbyq"></td>
+                <td rowspan="4">□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>a2</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>b1</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>b2</td>
+                <td></td>
+            </tr>
+        </table>
+        <table class="layui-table">
+            <tr>
+                <td colspan="5" style="color: red;background-color: #eaeaea;font-size: 16px;">X射线透视质量检测</td>
+            </tr>
+            <tr>
+                <td>检测项目</td>
+                <td>检测条件</td>
+                <td>检测结果</td>
+                <td>指标要求</td>
+                <td>单项评定</td>
+            </tr>
+            <tr>
+                <td>透视受检者入射体表空气比释动能率典型值</td>
+                <td id="tssjzrstbkqbsdnldxzJctj"></td>
+                <td></td>
+                <td id="tssjzrstbkqbsdnldxzZbyq"></td>
+                <td>□符合 □不符合</td>
+            </tr>
+            <tr>
+                <td>空间分辨力</td>
+                <td id="kjfblJctj"></td>
+                <td></td>
+                <td>/</td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td rowspan="2">低对比分辨力</td>
+                <td id="ddbfblJctj1"></td>
+                <td></td>
+                <td>/</td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td id="ddbfblJctj2"></td>
+                <td></td>
+                <td id="ddbfblZbyq"></td>
+                <td>□符合 □不符合</td>
             </tr>
         </table>
         <div class="col-xs-12 btn">
@@ -144,36 +178,33 @@
             , form = layui.form;
         $(function () {
             $.ajax({
-                url: "/hxj/findTemplate",
+                url: "/pbszcwj/findTemplate",
                 method: "GET",
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
                     if (res.data !== null && res.data !== "") {
-                        $("#cqz1").append(res.data.cqz1);
-                        $("#cqzZdwc1").append("±" + res.data.cqzZdwc1 + "cmH2O 或设定值的±" + res.data.cqzZdwc2 + "% （两者取绝对值大者）");
-                        $("#cqz2").append(res.data.cqz2);
-                        $("#cqz3").append(res.data.cqz3);
-
-                        $("#qztq1").append(res.data.qztq1);
-                        $("#qztqZdwc1").append("±" + res.data.qztqZdwc1 + "cmH2O 或设定值的±" + res.data.qztqZdwc2 + "% （两者取绝对值大者）");
-                        $("#qztq2").append(res.data.qztq2);
-                        $("#qztq3").append(res.data.qztq3);
-
-                        $("#xry1").append(res.data.xry1);
-                        $("#xryZdwc1").append("±" + res.data.xryZdwc1 + "cmH2O 或设定值的±" + res.data.xryZdwc2 + "% （两者取绝对值大者）");
-                        $("#xry2").append(res.data.xry2);
-                        $("#xry3").append(res.data.xry3);
-
-                        $("#xqf1").append(res.data.xqf1);
-                        $("#xqfZdwc1").append("±" + res.data.xqfZdwc1 + "cmH2O 或设定值的±" + res.data.xqfZdwc2 + "% （两者取绝对值大者）");
-                        $("#xqf2").append(res.data.xqf2);
-                        $("#xqf3").append(res.data.xqf3);
-
-                        $("#hqm1").append(res.data.hqm1);
-                        $("#hqmZdwc1").append("±" + res.data.hqmZdwc1 + "cmH2O 或设定值的±" + res.data.hqmZdwc2 + "% （两者取绝对值大者）");
-                        $("#hqm2").append(res.data.hqm2);
-                        $("#hqm3").append(res.data.hqm3);
+                        $("#gdyzsdplJctj").text(res.data.gdyzsdplJctj);
+                        $("#gdyzsdplJctj1").text(res.data.gdyzsdplJctj1);
+                        $("#gdyzsdplJctj2").text(res.data.gdyzsdplJctj2);
+                        $("#gdyzsdplJctj3").text(res.data.gdyzsdplJctj3);
+                        $("#gdyzsdplJctj4").text(res.data.gdyzsdplJctj4);
+                        $("#gdyzsdplZbyq").text(res.data.gdyzsdplZbyq);
+                        $("#sclcfxJctj").text(res.data.sclcfxJctj);
+                        $("#sclcfxZbyq").text(res.data.sclcfxZbyq);
+                        $("#yyxsbzcJctj").text(res.data.yyxsbzcJctj);
+                        $("#yyxsbzcZbyq").text(res.data.yyxsbzcZbyq);
+                        $("#zdbgkzcfxZbyq").text(res.data.zdbgkzcfxZbyq);
+                        $("#yyxsczdplJctj").text(res.data.yyxsczdplJctj);
+                        $("#yyxsczdplZbyq").text(res.data.yyxsczdplZbyq);
+                        $("#gyyzsysbdplJctj").text(res.data.gyyzsysbdplJctj);
+                        $("#gyyzsysbdplZbyq").text(res.data.gyyzsysbdplZbyq);
+                        $("#tssjzrstbkqbsdnldxzJctj").text(res.data.tssjzrstbkqbsdnldxzJctj);
+                        $("#tssjzrstbkqbsdnldxzZbyq").text(res.data.tssjzrstbkqbsdnldxzZbyq);
+                        $("#kjfblJctj").text(res.data.kjfblJctj);
+                        $("#ddbfblJctj1").text(res.data.ddbfblJctj1);
+                        $("#ddbfblJctj2").text(res.data.ddbfblJctj2);
+                        $("#ddbfblZbyq").text(res.data.ddbfblZbyq);
                     } else {
                         layer.msg("无数据");
                     }
@@ -182,7 +213,7 @@
         });
         // 修改
         $("#update").click(function () {
-            location.href = "/control/home/check/update/update_breath_module.html"
+            location.href = "/control/home/check/update/update_pbszwcj_module.html"
         });
         // 返回
         $("#back").click(function () {

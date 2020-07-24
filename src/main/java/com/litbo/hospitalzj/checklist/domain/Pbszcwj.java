@@ -3,6 +3,7 @@ package com.litbo.hospitalzj.checklist.domain;
 import lombok.Data;
 
 import java.util.Date;
+
 @Data
 public class Pbszcwj {
     private Integer pbszcwjId;
