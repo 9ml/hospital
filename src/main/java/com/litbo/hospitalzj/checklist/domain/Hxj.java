@@ -137,7 +137,7 @@ public class Hxj {
 
     private String cqlCslclzValue22;
 
-    private Integer cqlCslclzValue23;
+    private String cqlCslclzValue23;
 
     private String cqlCslclzValue24;
 
@@ -203,7 +203,7 @@ public class Hxj {
 
     private String qztqplHxjjczValue13;
 
-    private Integer qztqplHxjjczValue14;
+    private String qztqplHxjjczValue14;
 
     private String qztqplHxjjczValue15;
 
@@ -297,6 +297,10 @@ public class Hxj {
 
     private String qztqplScwcValue5;
 
+    private String qztqplZdyc;
+
+    private String qztqplResult;
+
     private String xryndHxjsdz1;
 
     private String xryndHxjsdz2;
@@ -361,7 +365,7 @@ public class Hxj {
 
     private String xryndCslclzValue22;
 
-    private Integer xryndCslclzValue23;
+    private String xryndCslclzValue23;
 
     private String xryndCslclzValue24;
 
@@ -475,7 +479,7 @@ public class Hxj {
 
     private String xqfzylCslclzValue22;
 
-    private Integer xqfzylCslclzValue23;
+    private String xqfzylCslclzValue23;
 
     private String xqfzylCslclzValue24;
 
@@ -589,7 +593,7 @@ public class Hxj {
 
     private String hqmzyCslclzValue22;
 
-    private Integer hqmzyCslclzValue23;
+    private String hqmzyCslclzValue23;
 
     private String hqmzyCslclzValue24;
 

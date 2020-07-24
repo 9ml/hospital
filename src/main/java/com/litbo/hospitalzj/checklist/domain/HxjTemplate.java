@@ -40,6 +40,8 @@ public class HxjTemplate {
 
     private String qztqplHxjsdz5;
 
+    private String qztqplZdyc;
+
     private String xryndHxjsdz1;
 
     private String xryndHxjsdz2;
