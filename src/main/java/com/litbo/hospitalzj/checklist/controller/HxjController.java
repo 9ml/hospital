@@ -75,7 +75,7 @@ public class HxjController extends BaseController {
         eqZjls.setEqMc(eqById.getEqMc());
         eqZjls.setEqDah(eqById.getEqDah());
         eqZjlsService.insert(eqZjls);
-        int[] x={hxj.getHxjid(),yqEqId};
+        int[] x={hxj.getHxjId(),yqEqId};
         return new ResponseResult(200, x);
     }
 
@@ -83,7 +83,7 @@ public class HxjController extends BaseController {
     @RequestMapping("/updataNow/{id}")
     public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
         Hxj hxj = CommonUtils.toBean(req.getParameterMap(), Hxj.class);
-        hxj.setHxjid(id);
+        hxj.setHxjId(id);
         //更新
         hxjService.updateHxj(hxj);
         return new com.litbo.hospitalzj.util.ResponseResult(200, id);
@@ -101,7 +101,7 @@ public class HxjController extends BaseController {
             HttpServletRequest req){
         Hxj last1 = hxjService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         Hxj hxj = CommonUtils.toBean(req.getParameterMap(), Hxj.class);
-        hxj.setHxjid(last1.getHxjid());
+        hxj.setHxjId(last1.getHxjId());
         //更新
         hxjService.updateHxj(hxj);
         //修改yq_eq 得state 和 type
@@ -118,7 +118,7 @@ public class HxjController extends BaseController {
         }
 
 
-        int[] x={hxj.getHxjid(),yqEqId,userEqId};
+        int[] x={hxj.getHxjId(),yqEqId,userEqId};
         return new ResponseResult(200, x);
     }
 

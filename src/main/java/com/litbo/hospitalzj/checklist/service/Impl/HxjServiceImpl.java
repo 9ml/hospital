@@ -39,13 +39,13 @@ public class HxjServiceImpl implements HxjService {
     }
 
     @Override
-    public Hxj findByHxjId(Integer hxjid) {
-        return hxjMapper.findByHxjId(hxjid);
+    public Hxj findByHxjId(Integer hxjId) {
+        return hxjMapper.findByHxjId(hxjId);
     }
 
     @Override
-    public void updateShrJcjy(Integer hxjid, String shrJcjl, String auditor) {
-        hxjMapper.updateShrJcjy(hxjid, shrJcjl, auditor, new Date());
+    public void updateShrJcjy(Integer hxjId, String shrJcjl, String auditor) {
+        hxjMapper.updateShrJcjy(hxjId, shrJcjl, auditor, new Date());
     }
 
     //保存呼吸机检测数据

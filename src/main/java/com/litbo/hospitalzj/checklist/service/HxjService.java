@@ -41,9 +41,9 @@ public interface HxjService {
     /**
      * 根据iD状态查询
      */
-    Hxj findByHxjId(@Param("hxjid") Integer hxjid);
+    Hxj findByHxjId(@Param("hxjId") Integer hxjId);
 
     //修改审核人意见
-    void updateShrJcjy(@Param("hxjid") Integer hxjid, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
+    void updateShrJcjy(@Param("hxjId") Integer hxjId, @Param("shrJcjl") String shrJcjl, @Param("auditor") String auditor);
 
 }

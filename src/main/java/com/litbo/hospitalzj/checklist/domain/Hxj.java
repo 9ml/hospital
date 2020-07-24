@@ -5,11 +5,11 @@ import lombok.Data;
 import java.util.Date;
 @Data
 public class Hxj {
-    private Integer hxjid;
+    private Integer hxjId;
 
     private Integer jcyqId;
 
-    private Integer eqId;
+    private String eqId;
 
     private String tester;
 
@@ -25,407 +25,649 @@ public class Hxj {
 
     private String jcsm;
 
-    private Double bhjdzkTest;
+    private String bhjdzkClzValue;
 
-    private Double bhjdzkYx;
+    private String bhjdzkYxz;
 
-    private Double bhjdzkResult;
+    private String bhjdzkResult;
 
-    private Double jykzTest;
+    private String jyzkClzValue;
 
-    private Double jykzYx;
+    private String jyzkYxz;
 
-    private Double jykzResult;
+    private String jykzResult;
 
-    private Double ddldZZ;
+    private String ddldZcZxValue;
 
-    private Double ddldZF;
+    private String ddldZcFxValue;
 
-    private Double ddldZYx;
+    private String ddldZcYxz;
 
-    private Double ddldZResult;
+    private String ddldZcResult;
 
-    private Double ddldDZ1;
+    private String ddldDygzZxdlValue;
 
-    private Double ddldDZ2;
+    private String ddldDygzFxdlValue;
 
-    private Double ddldDYx;
+    private String ddldDygzYxz;
 
-    private Double ddldDResult;
+    private String ddldDygzResult;
 
-    private Double wkldZZ;
+    private String wkldZcZxValue;
 
-    private Double wkldZF;
+    private String wkldZcFxValue;
 
-    private Double wkldZYx;
+    private String wkldZcYxz;
 
-    private Double wkldZResult;
+    private String wkldZcResult;
 
-    private Double wkldDZ1;
+    private String wkldDyZxdlValue1;
 
-    private Double wkldDZ2;
+    private String wkldDyZxddValue;
 
-    private Double wkldDZ3;
+    private String wkldDyZxdlValue2;
 
-    private Double wkldDZ4;
+    private String wkldDyFxddValue;
 
-    private Double wkldDYx;
+    private String wkldDyYx;
 
-    private Double wkldDResult;
+    private String wkldDyResult;
 
-    private Double cqz1;
+    private String cqlHxjsdz1;
 
-    private Double cqzh11;
+    private String cqlHxjsdz2;
 
-    private Double cqzh12;
+    private String cqlHxjsdz3;
 
-    private Double cqzh13;
+    private String cqlHxjsdz4;
 
-    private Double cqzhp11;
+    private String cqlHxjsdz5;
 
-    private Double cqzc11;
+    private String cqlHxjjczValue11;
 
-    private Double cqzc12;
+    private String cqlHxjjczValue12;
 
-    private Double cqzc13;
+    private String cqlHxjjczValue13;
 
-    private Double cqzcp12;
+    private String cqlHxjjczValue14;
 
-    private Double cqz1Swc;
+    private String cqlHxjjczValue15;
 
-    private Double cqz2;
+    private String cqlHxjjczValue21;
 
-    private Double cqzh21;
+    private String cqlHxjjczValue22;
 
-    private Double cqzh22;
+    private String cqlHxjjczValue23;
 
-    private Double cqzh23;
+    private String cqlHxjjczValue24;
 
-    private Double cqzhp21;
+    private String cqlHxjjczValue25;
 
-    private Double cqzc21;
+    private String cqlHxjjczValue31;
 
-    private Double cqzc22;
+    private String cqlHxjjczValue32;
 
-    private Double cqzc23;
+    private String cqlHxjjczValue33;
 
-    private Double cqzcp22;
+    private String cqlHxjjczValue34;
 
-    private Double cqz2Swc;
+    private String cqlHxjjczValue35;
 
-    private Double cqz3;
+    private String cqlPjzJczValue1;
 
-    private Double cqzh31;
+    private String cqlPjzJczValue2;
 
-    private Double cqzh32;
+    private String cqlPjzJczValue3;
 
-    private Double cqzh33;
+    private String cqlPjzJczValue4;
 
-    private Double cqzhp31;
+    private String cqlPjzJczValue5;
 
-    private Double cqzc31;
+    private String cqlCslclzValue11;
 
-    private Double cqzc32;
+    private String cqlCslclzValue12;
 
-    private Double cqzc33;
+    private String cqlCslclzValue13;
 
-    private Double cqzcp32;
+    private String cqlCslclzValue14;
 
-    private Double cqz3Swc;
+    private String cqlCslclzValue15;
 
-    private Double cqzZdwc1;
+    private String cqlCslclzValue21;
 
-    private Double cqzZdwc2;
+    private String cqlCslclzValue22;
 
-    private Integer cqzResult;
+    private Integer cqlCslclzValue23;
 
-    private Double qztq1;
+    private String cqlCslclzValue24;
 
-    private Double qztqh11;
+    private String cqlCslclzValue25;
 
-    private Double qztqh12;
+    private String cqlCslclzValue31;
 
-    private Double qztqh13;
+    private String cqlCslclzValue32;
 
-    private Double qztqhp11;
+    private String cqlCslclzValue33;
 
-    private Double qztqc11;
+    private String cqlCslclzValue34;
 
-    private Double qztqc12;
+    private String cqlCslclzValue35;
 
-    private Double qztqc13;
+    private String cqlPjzClzValue1;
 
-    private Double qztqcp12;
+    private String cqlPjzClzValue2;
 
-    private Double qztq1Swc;
+    private String cqlPjzClzValue3;
 
-    private Double qztq2;
+    private String cqlPjzClzValue4;
 
-    private Double qztqh21;
+    private String cqlPjzClzValue5;
 
-    private Double qztqh22;
+    private String cqlSzwcValue1;
 
-    private Double qztqh23;
+    private String cqlSzwcValue2;
 
-    private Double qztqhp21;
+    private String cqlSzwcValue3;
 
-    private Double qztqc21;
+    private String cqlSzwcValue4;
 
-    private Double qztqc22;
+    private String cqlSzwcValue5;
 
-    private Double qztqc23;
+    private String cqlScwcValue1;
 
-    private Double qztqcp22;
+    private String cqlScwcValue2;
 
-    private Double qztq2Swc;
+    private String cqlScwcValue3;
 
-    private Double qztq3;
+    private String cqlScwcValue4;
 
-    private Double qztqh31;
+    private String cqlScwcValue5;
 
-    private Double qztqh32;
+    private String cqlZdyc;
 
-    private Double qztqh33;
+    private String cqlResult;
 
-    private Double qztqhp31;
+    private String qztqplHxjsdz1;
 
-    private Double qztqc31;
+    private String qztqplHxjsdz2;
 
-    private Double qztqc32;
+    private String qztqplHxjsdz3;
 
-    private Double qztqc33;
+    private String qztqplHxjsdz4;
 
-    private Double qztqcp32;
+    private String qztqplHxjsdz5;
 
-    private Double qztq3Swc;
+    private String qztqplHxjjczValue11;
 
-    private Double qztqZdwc1;
+    private String qztqplHxjjczValue12;
 
-    private Double qztqZdwc2;
+    private String qztqplHxjjczValue13;
 
-    private Integer qztqResult;
+    private Integer qztqplHxjjczValue14;
 
-    private Double xry1;
+    private String qztqplHxjjczValue15;
 
-    private Double xryh11;
+    private String qztqplHxjjczValue21;
 
-    private Double xryh12;
+    private String qztqplHxjjczValue22;
 
-    private Double xryh13;
+    private String qztqplHxjjczValue23;
 
-    private Double xryhp11;
+    private String qztqplHxjjczValue24;
 
-    private Double xryc11;
+    private String qztqplHxjjczValue25;
 
-    private Double xryc12;
+    private String qztqplHxjjczValue31;
 
-    private Double xryc13;
+    private String qztqplHxjjczValue32;
 
-    private Double xrycp12;
+    private String qztqplHxjjczValue33;
 
-    private Double xry1Swc;
+    private String qztqplHxjjczValue34;
 
-    private Double xry2;
+    private String qztqplHxjjczValue35;
 
-    private Double xryh21;
+    private String qztqplPjzJczValue1;
 
-    private Double xryh22;
+    private String qztqplPjzJczValue2;
 
-    private Double xryh23;
+    private String qztqplPjzJczValue3;
 
-    private Double xryhp21;
+    private String qztqplPjzJczValue4;
 
-    private Double xryc21;
+    private String qztqplPjzJczValue5;
 
-    private Double xryc22;
+    private String qztqplCsyclzValue11;
 
-    private Double xryc23;
+    private String qztqplCsyclzValue12;
 
-    private Double xrycp22;
+    private String qztqplCsyclzValue13;
 
-    private Double xry2Swc;
+    private String qztqplCsyclzValue14;
 
-    private Double xry3;
+    private String qztqplCsyclzValue15;
 
-    private Double xryh31;
+    private String qztqplCsyclzValue21;
 
-    private Double xryh32;
+    private String qztqplCsyclzValue22;
 
-    private Double xryh33;
+    private String qztqplCsyclzValue23;
 
-    private Double xryhp31;
+    private String qztqplCsyclzValue24;
 
-    private Double xryc31;
+    private String qztqplCsyclzValue25;
 
-    private Double xryc32;
+    private String qztqplCsyclzValue31;
 
-    private Double xryc33;
+    private String qztqplCsyclzValue32;
 
-    private Double xrycp32;
+    private String qztqplCsyclzValue33;
 
-    private Double xry3Swc;
+    private String qztqplCsyclzValue34;
 
-    private Double xryZdwc1;
+    private String qztqplCsyclzValue35;
 
-    private Double xryZdwc2;
+    private String qztqplPjzClzValue1;
 
-    private Double xryResult;
+    private String qztqplPjzClzValue2;
 
-    private Double xqf1;
+    private String qztqplPjzClzValue3;
 
-    private Double xqfh11;
+    private String qztqplPjzClzValue4;
 
-    private Double xqfh12;
+    private String qztqplPjzClzValue5;
 
-    private Double xqfh13;
+    private String qztqplSzwcValue1;
 
-    private Double xqfhp11;
+    private String qztqplSzwcValue2;
 
-    private Double xqfc11;
+    private String qztqplSzwcValue3;
 
-    private Double xqfc12;
+    private String qztqplSzwcValue4;
 
-    private Double xqfc13;
+    private String qztqplSzwcValue5;
 
-    private Double xqfcp12;
+    private String qztqplScwcValue1;
 
-    private Double xqf1Swc;
+    private String qztqplScwcValue2;
 
-    private Double xqf2;
+    private String qztqplScwcValue3;
 
-    private Double xqfh21;
+    private String qztqplScwcValue4;
 
-    private Double xqfh22;
+    private String qztqplScwcValue5;
 
-    private Double xqfh23;
+    private String xryndHxjsdz1;
 
-    private Double xqfhp21;
+    private String xryndHxjsdz2;
 
-    private Double xqfc21;
+    private String xryndHxjsdz3;
 
-    private Double xqfc22;
+    private String xryndHxjsdz4;
 
-    private Double xqfc23;
+    private String xryndHxjsdz5;
 
-    private Double xqfcp22;
+    private String xryndHxjjczValue11;
 
-    private Double xqf2Swc;
+    private String xryndHxjjczValue12;
 
-    private Double xqf3;
+    private String xryndHxjjczValue13;
 
-    private Double xqfh31;
+    private String xryndHxjjczValue14;
 
-    private Double xqfh32;
+    private String xryndHxjjczValue15;
 
-    private Double xqfh33;
+    private String xryndHxjjczValue21;
 
-    private Double xqfhp31;
+    private String xryndHxjjczValue22;
 
-    private Double xqfc31;
+    private String xryndHxjjczValue23;
 
-    private Double xqfc32;
+    private String xryndHxjjczValue24;
 
-    private Double xqfc33;
+    private String xryndHxjjczValue25;
 
-    private Double xqfcp32;
+    private String xryndHxjjczValue31;
 
-    private Double xqf3Swc;
+    private String xryndHxjjczValue32;
 
-    private Double xqfZdwc1;
+    private String xryndHxjjczValue33;
 
-    private Double xqfZdwc2;
+    private String xryndHxjjczValue34;
 
-    private Integer xqfResult;
+    private String xryndHxjjczValue35;
 
-    private Double hqm1;
+    private String xryndPjzJczValue1;
 
-    private Double hqmh11;
+    private String xryndPjzJczValue2;
 
-    private Double hqmh12;
+    private String xryndPjzJczValue3;
 
-    private Double hqmh13;
+    private String xryndPjzJczValue4;
 
-    private Double hqmhp11;
+    private String xryndPjzJczValue5;
 
-    private Double hqmc11;
+    private String xryndCslclzValue11;
 
-    private Double hqmc12;
+    private String xryndCslclzValue12;
 
-    private Double hqmc13;
+    private String xryndCslclzValue13;
 
-    private Double hqmcp12;
+    private String xryndCslclzValue14;
 
-    private Double hqm1Swc;
+    private String xryndCslclzValue15;
 
-    private Double hqm2;
+    private String xryndCslclzValue21;
 
-    private Double hqmh21;
+    private String xryndCslclzValue22;
 
-    private Double hqmh22;
+    private Integer xryndCslclzValue23;
 
-    private Double hqmh23;
+    private String xryndCslclzValue24;
 
-    private Double hqmhp21;
+    private String xryndCslclzValue25;
 
-    private Double hqmc21;
+    private String xryndCslclzValue31;
 
-    private Double hqmc22;
+    private String xryndCslclzValue32;
 
-    private Double hqmc23;
+    private String xryndCslclzValue33;
 
-    private Double hqmcp22;
+    private String xryndCslclzValue34;
 
-    private Double hqm2Swc;
+    private String xryndCslclzValue35;
 
-    private Double hqm3;
+    private String xryndPjzClzValue1;
 
-    private Double hqmh31;
+    private String xryndPjzClzValue2;
 
-    private Double hqmh32;
+    private String xryndPjzClzValue3;
 
-    private Double hqmh33;
+    private String xryndPjzClzValue4;
 
-    private Double hqmhp31;
+    private String xryndPjzClzValue5;
 
-    private Double hqmc31;
+    private String xryndSzwcValue1;
 
-    private Double hqmc32;
+    private String xryndSzwcValue2;
 
-    private Double hqmc33;
+    private String xryndSzwcValue3;
 
-    private Double hqmcp32;
+    private String xryndSzwcValue4;
 
-    private Double hqm3Swc;
+    private String xryndSzwcValue5;
 
-    private Double hqmZdwc1;
+    private String xryndScwcValue1;
 
-    private Double hqmZdwc2;
+    private String xryndScwcValue2;
 
-    private Double hqmResult;
+    private String xryndScwcValue3;
 
-    private Double dybj;
+    private String xryndScwcValue4;
 
-    private Double yqndsx;
+    private String xryndScwcValue5;
 
-    private Double qybj;
+    private String xryndZdyc;
 
-    private Double zxbj;
+    private String xryndResult;
 
-    private Double qdyl;
+    private String xqfzylHxjsdz1;
 
-    private Double brhl;
+    private String xqfzylHxjsdz2;
 
-    private Double fztql;
+    private String xqfzylHxjsdz3;
 
-    private Double ajgn;
+    private String xqfzylHxjsdz4;
 
-    private Double bz;
+    private String xqfzylHxjsdz5;
 
-    private Double bz1;
+    private String xqfzylHxjjczValue11;
+
+    private String xqfzylHxjjczValue12;
+
+    private String xqfzylHxjjczValue13;
+
+    private String xqfzylHxjjczValue14;
+
+    private String xqfzylHxjjczValue15;
+
+    private String xqfzylHxjjczValue21;
+
+    private String xqfzylHxjjczValue22;
+
+    private String xqfzylHxjjczValue23;
+
+    private String xqfzylHxjjczValue24;
+
+    private String xqfzylHxjjczValue25;
+
+    private String xqfzylHxjjczValue31;
+
+    private String xqfzylHxjjczValue32;
+
+    private String xqfzylHxjjczValue33;
+
+    private String xqfzylHxjjczValue34;
+
+    private String xqfzylHxjjczValue35;
+
+    private String xqfzylPjzJczValue1;
+
+    private String xqfzylPjzJczValue2;
+
+    private String xqfzylPjzJczValue3;
+
+    private String xqfzylPjzJczValue4;
+
+    private String xqfzylPjzJczValue5;
+
+    private String xqfzylCslclzValue11;
+
+    private String xqfzylCslclzValue12;
+
+    private String xqfzylCslclzValue13;
+
+    private String xqfzylCslclzValue14;
+
+    private String xqfzylCslclzValue15;
+
+    private String xqfzylCslclzValue21;
+
+    private String xqfzylCslclzValue22;
+
+    private Integer xqfzylCslclzValue23;
+
+    private String xqfzylCslclzValue24;
+
+    private String xqfzylCslclzValue25;
+
+    private String xqfzylCslclzValue31;
+
+    private String xqfzylCslclzValue32;
+
+    private String xqfzylCslclzValue33;
+
+    private String xqfzylCslclzValue34;
+
+    private String xqfzylCslclzValue35;
+
+    private String xqfzylPjzClzValue1;
+
+    private String xqfzylPjzClzValue2;
+
+    private String xqfzylPjzClzValue3;
+
+    private String xqfzylPjzClzValue4;
+
+    private String xqfzylPjzClzValue5;
+
+    private String xqfzylSzwcValue1;
+
+    private String xqfzylSzwcValue2;
+
+    private String xqfzylSzwcValue3;
+
+    private String xqfzylSzwcValue4;
+
+    private String xqfzylSzwcValue5;
+
+    private String xqfzylScwcValue1;
+
+    private String xqfzylScwcValue2;
+
+    private String xqfzylScwcValue3;
+
+    private String xqfzylScwcValue4;
+
+    private String xqfzylScwcValue5;
+
+    private String xqfzylZdyc;
+
+    private String xqfzylResult;
+
+    private String hqmzyHxjsdz1;
+
+    private String hqmzyHxjsdz2;
+
+    private String hqmzyHxjsdz3;
+
+    private String hqmzyHxjsdz4;
+
+    private String hqmzyHxjsdz5;
+
+    private String hqmzyHxjjczValue11;
+
+    private String hqmzyHxjjczValue12;
+
+    private String hqmzyHxjjczValue13;
+
+    private String hqmzyHxjjczValue14;
+
+    private String hqmzyHxjjczValue15;
+
+    private String hqmzyHxjjczValue21;
+
+    private String hqmzyHxjjczValue22;
+
+    private String hqmzyHxjjczValue23;
+
+    private String hqmzyHxjjczValue24;
+
+    private String hqmzyHxjjczValue25;
+
+    private String hqmzyHxjjczValue31;
+
+    private String hqmzyHxjjczValue32;
+
+    private String hqmzyHxjjczValue33;
+
+    private String hqmzyHxjjczValue34;
+
+    private String hqmzyHxjjczValue35;
+
+    private String hqmzyPjzJczValue1;
+
+    private String hqmzyPjzJczValue2;
+
+    private String hqmzyPjzJczValue3;
+
+    private String hqmzyPjzJczValue4;
+
+    private String hqmzyPjzJczValue5;
+
+    private String hqmzyCslclzValue11;
+
+    private String hqmzyCslclzValue12;
+
+    private String hqmzyCslclzValue13;
+
+    private String hqmzyCslclzValue14;
+
+    private String hqmzyCslclzValue15;
+
+    private String hqmzyCslclzValue21;
+
+    private String hqmzyCslclzValue22;
+
+    private Integer hqmzyCslclzValue23;
+
+    private String hqmzyCslclzValue24;
+
+    private String hqmzyCslclzValue25;
+
+    private String hqmzyCslclzValue31;
+
+    private String hqmzyCslclzValue32;
+
+    private String hqmzyCslclzValue33;
+
+    private String hqmzyCslclzValue34;
+
+    private String hqmzyCslclzValue35;
+
+    private String hqmzyPjzClzValue1;
+
+    private String hqmzyPjzClzValue2;
+
+    private String hqmzyPjzClzValue3;
+
+    private String hqmzyPjzClzValue4;
+
+    private String hqmzyPjzClzValue5;
+
+    private String hqmzySzwcValue1;
+
+    private String hqmzySzwcValue2;
+
+    private String hqmzySzwcValue3;
+
+    private String hqmzySzwcValue4;
+
+    private String hqmzySzwcValue5;
+
+    private String hqmzyScwcValue1;
+
+    private String hqmzyScwcValue2;
+
+    private String hqmzyScwcValue3;
+
+    private String hqmzyScwcValue4;
+
+    private String hqmzyScwcValue5;
+
+    private String hqmzyZdyc;
+
+    private String hqmzyResult;
+
+    private String fwczdykg;
+
+    private String brhlgybhgn;
+
+    private String jygn;
+
+    private String jysx;
+
+    private String qdylsxxbj;
+
+    private String bjsz;
+
+    private String ddbj;
+
+    private String hxplsxxbj;
+
+    private String nbdy;
+
+    private String qybj;
+
+    private String yndsxxbj;
+
+    private String wtjyfcs;
+
+    private String fztqlsxxbj;
+
+    private String hqmzysxxbj;
+
+    private String tqzxbj;
 
     private Integer type;
-
-
-
-
 }
