@@ -28,7 +28,7 @@ import java.util.List;
 public class ZsbController extends BaseController {
 
     @Autowired
-    private ZsbService sybService;
+    private ZsbService zsbService;
     @Autowired
     private UserEqService userEqService;
     @Autowired
@@ -40,20 +40,20 @@ public class ZsbController extends BaseController {
     //查询模板值
     @RequestMapping("/findTemplate")
     public ResponseResult<ZsbTemplate> findTemplate() {
-        return new ResponseResult<ZsbTemplate>(200, sybService.findTemplate());
+        return new ResponseResult<ZsbTemplate>(200, zsbService.findTemplate());
     }
 
     //修改模板值
     @RequestMapping("/updateZsbTemplate")
-    public ResponseResult<Void> updateZsbTemplate(ZsbTemplate sybTemplate) {
-        sybService.updateZsbTemplate(sybTemplate);
+    public ResponseResult<Void> updateZsbTemplate(ZsbTemplate zsbTemplate) {
+        zsbService.updateZsbTemplate(zsbTemplate);
         return new ResponseResult<Void>(200);
     }
 
     //插入模板值
     @RequestMapping("/insert")
-    public ResponseResult<Void> insert(ZsbTemplate sybTemplate) {
-        sybService.insert(sybTemplate);
+    public ResponseResult<Void> insert(ZsbTemplate zsbTemplate) {
+        zsbService.insert(zsbTemplate);
         return new ResponseResult<Void>(200);
     }
 
@@ -61,7 +61,7 @@ public class ZsbController extends BaseController {
     @RequestMapping("/save")
     public ResponseResult save(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId, @RequestParam(value = "userEqId") Integer userEqId,
                                HttpSession session, HttpServletRequest req) {
-        Zsb syb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
+        Zsb zsb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
         int yqEqId = yqEqService.insertBatch(eqId, jcyqId);
         yqEqService.updateType(yqEqId, EnumProcess2.TO_UPLOAD.getMessage());
         //修改状态为待上传
@@ -69,13 +69,13 @@ public class ZsbController extends BaseController {
 //        String userId = req.getAttribute("uid").toString();
 //        userEqService.insertBatchByJcEqid(userId,jcyqId,)
         userEqService.setEqState(userEqId, EnumProcess2.TO_UPLOAD.getMessage());
-        sybService.save(syb);
+        zsbService.save(zsb);
         EqZjls eqZjls = CommonUtils.toBean(req.getParameterMap(), EqZjls.class);
         EqInfo eqById = eqInfoService.findEqById(eqId);
         eqZjls.setEqMc(eqById.getEqMc());
         eqZjls.setEqDah(eqById.getEqDah());
         eqZjlsService.insert(eqZjls);
-        int[] x = {syb.getZsbId(), yqEqId};
+        int[] x = {zsb.getZsbId(), yqEqId};
 //        return new ResponseResult<>(200, x);
         return new ResponseResult<int[]>(200, x);
     }
@@ -83,12 +83,12 @@ public class ZsbController extends BaseController {
 
     //只根据id更新检测数据
     @RequestMapping("/updataNow/{id}")
-    public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("sybId")Integer sybId, HttpServletRequest req){
-        Zsb syb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
-        syb.setZsbId(sybId);
+    public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("zsbId")Integer zsbId, HttpServletRequest req){
+        Zsb zsb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
+        zsb.setZsbId(zsbId);
         //更新
-        sybService.updateZsb(syb);
-        return new com.litbo.hospitalzj.util.ResponseResult(200, sybId);
+        zsbService.updateZsb(zsb);
+        return new com.litbo.hospitalzj.util.ResponseResult(200, zsbId);
     }
 
     @RequestMapping("/updataZsb")
@@ -97,11 +97,11 @@ public class ZsbController extends BaseController {
             @RequestParam("jcyqId") String jcyqId,
             HttpSession session,
             HttpServletRequest req){
-        Zsb last1 = sybService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
-        Zsb syb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
-        syb.setZsbId(last1.getZsbId());
+        Zsb last1 = zsbService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+        Zsb zsb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
+        zsb.setZsbId(last1.getZsbId());
         //更新
-        sybService.updateZsb(syb);
+        zsbService.updateZsb(zsb);
         //修改yq_eq 得state 和 type
         int yqEqId=yqEqService.insertBatch(eqId,jcyqId);
         yqEqService.updateType(yqEqId,EnumProcess2.TO_UPLOAD.getMessage());
@@ -114,29 +114,29 @@ public class ZsbController extends BaseController {
             userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
         }
 
-        int[] x = {syb.getZsbId(), yqEqId,userEqId};
+        int[] x = {zsb.getZsbId(), yqEqId,userEqId};
         return new ResponseResult<int[]>(200, x);
     }
 
 
     //修改录入数据
   /*  @RequestMapping("/updateZsb")
-    public ResponseResult<Void> updateZsb(Zsb syb) {
-        sybService.updateZsb(syb);
+    public ResponseResult<Void> updateZsb(Zsb zsb) {
+        zsbService.updateZsb(zsb);
         return new ResponseResult<Void>(200);
     }*/
 
     //查询本设备的最后一条
     @RequestMapping("/findZsb")
     public ResponseResult<Zsb> findZsb(String eqId) {
-        sybService.findZsb(eqId);
+        zsbService.findZsb(eqId);
         return new ResponseResult<Zsb>(200);
     }
 
     //查询全部数据的最后一条
     @RequestMapping("/find")
     public ResponseResult<Zsb> find() {
-        sybService.find();
+        zsbService.find();
         return new ResponseResult<Zsb>(200);
     }
 
@@ -147,7 +147,7 @@ public class ZsbController extends BaseController {
      */
     @RequestMapping("/findByEqIdandJcyqIdLast1")
     public ResponseResult<Zsb> findByEqIdandJcyqIdLast1(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
-        Zsb list = sybService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+        Zsb list = zsbService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
         return new ResponseResult<Zsb>(200, list);
     }
 
@@ -158,14 +158,14 @@ public class ZsbController extends BaseController {
      */
     @RequestMapping("/findByEqIdandJcyqId")
     public ResponseResult<List<Zsb>> findByEqIdandJcyqId(@RequestParam("eqId") String eqId, @RequestParam("jcyqId") String jcyqId) {
-        List<Zsb> list = sybService.findByEqIdandJcyqId(eqId, jcyqId);
+        List<Zsb> list = zsbService.findByEqIdandJcyqId(eqId, jcyqId);
         return new ResponseResult<List<Zsb>>(200, list);
     }
 
     //查询所有
     @RequestMapping("/findAll")
     public ResponseResult<List<Zsb>> findAll() {
-        return new ResponseResult<List<Zsb>>(200, sybService.findAll());
+        return new ResponseResult<List<Zsb>>(200, zsbService.findAll());
     }
 
     /**
@@ -174,21 +174,21 @@ public class ZsbController extends BaseController {
      * @return
      */
     @RequestMapping("/findByZsbid")
-    public ResponseResult<Zsb> findByZsbid(Integer sybId) {
-        Zsb list = sybService.findByZsbId(sybId);
+    public ResponseResult<Zsb> findByZsbid(Integer zsbId) {
+        Zsb list = zsbService.findByZsbId(zsbId);
         return new ResponseResult<Zsb>(200, list);
     }
 
     //修改审核人建议同时修改状态
     @RequestMapping("/updateShrJcjy")
-    public ResponseResult<Void> updateShrJcjy(@RequestParam("sybId") Integer sybId,
+    public ResponseResult<Void> updateShrJcjy(@RequestParam("zsbId") Integer zsbId,
                                               @RequestParam("jcyqId") Integer jcyqId,
                                               @RequestParam("eqId") Integer eqId,
                                               @RequestParam("shrJcjl") String shrJcjl,
                                               @RequestParam("state") Integer state, HttpSession session) {
         String auditor = getUserNameFromSession(session);
         Integer yqEqId = yqEqService.findId(jcyqId, eqId);
-        sybService.updateShrJcjy(sybId, shrJcjl, auditor);
+        zsbService.updateShrJcjy(zsbId, shrJcjl, auditor);
         if (state.equals(1)) {
             yqEqService.updateState(yqEqId, 1);
         } else {
