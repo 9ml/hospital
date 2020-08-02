@@ -30,6 +30,10 @@ private UserMapper userMapper;
         UserRoleVo data = userMapper.findByName(user.getUserName());
         // 判断查询到的数据是否为null
         if (data == null) {
+            if(userMapper.findNameById(user.getUserId())!=null){
+                throw new DuplicateKeyException(
+                        "插入失败！尝试插入的员工号(" + user.getUserId() + ")已经被占用！");
+            }
             user.setIsDelete(0);
             add(user);
             // 返回注册的用户对象

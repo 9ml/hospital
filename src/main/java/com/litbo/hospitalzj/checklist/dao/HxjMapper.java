@@ -45,7 +45,8 @@ public interface HxjMapper {
             "      xqfzyl_hxjsdz3 = #{xqfzylHxjsdz3,jdbcType=VARCHAR},\n" +
             "      xqfzyl_hxjsdz4 = #{xqfzylHxjsdz4,jdbcType=VARCHAR},\n" +
             "      xqfzyl_hxjsdz5 = #{xqfzylHxjsdz5,jdbcType=VARCHAR},\n" +
-            "      xqfzyl_zdyc = #{xqfzylZdyc,jdbcType=VARCHAR},\n" +
+            "      xqfzyl_zdyc1 = #{xqfzylZdyc1,jdbcType=VARCHAR},\n" +
+            "      xqfzyl_zdyc2 = #{xqfzylZdyc2,jdbcType=VARCHAR},\n" +
             "      hqmzy_hxjsdz1 = #{hqmzyHxjsdz1,jdbcType=VARCHAR},\n" +
             "      hqmzy_hxjsdz2 = #{hqmzyHxjsdz2,jdbcType=VARCHAR},\n" +
             "      hqmzy_hxjsdz3 = #{hqmzyHxjsdz3,jdbcType=VARCHAR},\n" +
@@ -65,7 +66,7 @@ public interface HxjMapper {
             "      xrynd_hxjsdz1, xrynd_hxjsdz2, xrynd_hxjsdz3, \n" +
             "      xrynd_hxjsdz4, xrynd_hxjsdz5, xrynd_zdyc, \n" +
             "      xqfzyl_hxjsdz1, xqfzyl_hxjsdz2, xqfzyl_hxjsdz3, \n" +
-            "      xqfzyl_hxjsdz4, xqfzyl_hxjsdz5, xqfzyl_zdyc, \n" +
+            "      xqfzyl_hxjsdz4, xqfzyl_hxjsdz5, xqfzyl_zdyc1, xqfzyl_zdyc2, \n" +
             "      hqmzy_hxjsdz1, hqmzy_hxjsdz2, hqmzy_hxjsdz3, \n" +
             "      hqmzy_hxjsdz4, hqmzy_hxjsdz5, hqmzy_zdyc, \n" +
             "      type )" +
@@ -78,7 +79,7 @@ public interface HxjMapper {
             "      #{xryndHxjsdz1,jdbcType=VARCHAR}, #{xryndHxjsdz2,jdbcType=VARCHAR}, #{xryndHxjsdz3,jdbcType=VARCHAR}, \n" +
             "      #{xryndHxjsdz4,jdbcType=VARCHAR}, #{xryndHxjsdz5,jdbcType=VARCHAR}, #{xryndZdyc,jdbcType=VARCHAR}, \n" +
             "      #{xqfzylHxjsdz1,jdbcType=VARCHAR}, #{xqfzylHxjsdz2,jdbcType=VARCHAR}, #{xqfzylHxjsdz3,jdbcType=VARCHAR}, \n" +
-            "      #{xqfzylHxjsdz4,jdbcType=VARCHAR}, #{xqfzylHxjsdz5,jdbcType=VARCHAR}, #{xqfzylZdyc,jdbcType=VARCHAR}, \n" +
+            "      #{xqfzylHxjsdz4,jdbcType=VARCHAR}, #{xqfzylHxjsdz5,jdbcType=VARCHAR}, #{xqfzylZdyc1,jdbcType=VARCHAR},#{xqfzylZdyc2,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjsdz1,jdbcType=VARCHAR}, #{hqmzyHxjsdz2,jdbcType=VARCHAR}, #{hqmzyHxjsdz3,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjsdz4,jdbcType=VARCHAR}, #{hqmzyHxjsdz5,jdbcType=VARCHAR}, #{hqmzyZdyc,jdbcType=VARCHAR}, \n" +
             "      #{type,jdbcType=INTEGER}\n" +
@@ -190,7 +191,7 @@ public interface HxjMapper {
             "      xqfzyl_szwc_value1, xqfzyl_szwc_value2, xqfzyl_szwc_value3, \n" +
             "      xqfzyl_szwc_value4, xqfzyl_szwc_value5, xqfzyl_scwc_value1, \n" +
             "      xqfzyl_scwc_value2, xqfzyl_scwc_value3, xqfzyl_scwc_value4, \n" +
-            "      xqfzyl_scwc_value5, xqfzyl_zdyc, xqfzyl_result, \n" +
+            "      xqfzyl_scwc_value5, xqfzyl_zdyc1, xqfzyl_zdyc2, xqfzyl_result, \n" +
             "      hqmzy_hxjsdz1, hqmzy_hxjsdz2, hqmzy_hxjsdz3, \n" +
             "      hqmzy_hxjsdz4, hqmzy_hxjsdz5, hqmzy_hxjjcz_value11, \n" +
             "      hqmzy_hxjjcz_value12, hqmzy_hxjjcz_value13, \n" +
@@ -324,7 +325,7 @@ public interface HxjMapper {
             "      #{xqfzylSzwcValue1,jdbcType=VARCHAR}, #{xqfzylSzwcValue2,jdbcType=VARCHAR}, #{xqfzylSzwcValue3,jdbcType=VARCHAR}, \n" +
             "      #{xqfzylSzwcValue4,jdbcType=VARCHAR}, #{xqfzylSzwcValue5,jdbcType=VARCHAR}, #{xqfzylScwcValue1,jdbcType=VARCHAR}, \n" +
             "      #{xqfzylScwcValue2,jdbcType=VARCHAR}, #{xqfzylScwcValue3,jdbcType=VARCHAR}, #{xqfzylScwcValue4,jdbcType=VARCHAR}, \n" +
-            "      #{xqfzylScwcValue5,jdbcType=VARCHAR}, #{xqfzylZdyc,jdbcType=VARCHAR}, #{xqfzylResult,jdbcType=VARCHAR}, \n" +
+            "      #{xqfzylScwcValue5,jdbcType=VARCHAR}, #{xqfzylZdyc1,jdbcType=VARCHAR}, #{xqfzylZdyc2,jdbcType=VARCHAR}, #{xqfzylResult,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjsdz1,jdbcType=VARCHAR}, #{hqmzyHxjsdz2,jdbcType=VARCHAR}, #{hqmzyHxjsdz3,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjsdz4,jdbcType=VARCHAR}, #{hqmzyHxjsdz5,jdbcType=VARCHAR}, #{hqmzyHxjjczValue11,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjjczValue12,jdbcType=VARCHAR}, #{hqmzyHxjjczValue13,jdbcType=VARCHAR}, \n" +
@@ -673,7 +674,8 @@ public interface HxjMapper {
         "      hqmzy_scwc_value3 = #{hqmzyScwcValue3,jdbcType=VARCHAR},\n" +
         "      hqmzy_scwc_value4 = #{hqmzyScwcValue4,jdbcType=VARCHAR},\n" +
         "      hqmzy_scwc_value5 = #{hqmzyScwcValue5,jdbcType=VARCHAR},\n" +
-        "      hqmzy_zdyc = #{hqmzyZdyc,jdbcType=VARCHAR},\n" +
+        "      hqmzy_zdyc1 = #{hqmzyZdyc1,jdbcType=VARCHAR},\n" +
+        "      hqmzy_zdyc2 = #{hqmzyZdyc2,jdbcType=VARCHAR},\n" +
         "      hqmzy_result = #{hqmzyResult,jdbcType=VARCHAR},\n" +
         "      fwczdykg = #{fwczdykg,jdbcType=VARCHAR},\n" +
         "      brhlgybhgn = #{brhlgybhgn,jdbcType=VARCHAR},\n" +

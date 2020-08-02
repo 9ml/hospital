@@ -525,7 +525,9 @@ public class Hxj {
 
     private String xqfzylScwcValue5;
 
-    private String xqfzylZdyc;
+    private String xqfzylZdyc1;
+
+    private String xqfzylZdyc2;
 
     private String xqfzylResult;
 
