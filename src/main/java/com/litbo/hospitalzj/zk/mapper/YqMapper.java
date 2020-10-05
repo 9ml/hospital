@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.LongSummaryStatistics;
 
 @Mapper
 public interface YqMapper {
@@ -72,6 +73,10 @@ public interface YqMapper {
 	//根据档案号查询出设备以及仪器
 	@Select("SELECT * FROM eq_info where eq_dah=#{eqDah}")
 	EqInfo selectEqInfo(String eqDah);
+
+	@Select("SELECT eq_dah FROM eq_info where eq_dah like concat('%',#{eqDah},'%') limit 10")
+	List<String> selectEqInfoEqMc(String eqDah);
+
 	/*@Select("SELECT yq.* FROM eq_info e left join yq_pm y on e.eq_pm_id=y.eq_pm_id left join yq on y.yq_id=yq.jcyq_id where e.eq_dah=#{eqDah}")
 	List<Yq> selectEqYq(String eqDah);*/
     //用户查看仪器表

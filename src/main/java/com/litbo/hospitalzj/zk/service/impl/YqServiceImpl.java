@@ -196,4 +196,9 @@ public class YqServiceImpl implements YqService{
 		return null;
 	}
 
+	@Override
+	public List<String> selectEqInfoEqMc(String eqDah) {
+		return yqMapper.selectEqInfoEqMc(eqDah);
+	}
+
 }
