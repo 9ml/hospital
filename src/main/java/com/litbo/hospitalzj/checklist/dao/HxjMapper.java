@@ -52,7 +52,8 @@ public interface HxjMapper {
             "      hqmzy_hxjsdz3 = #{hqmzyHxjsdz3,jdbcType=VARCHAR},\n" +
             "      hqmzy_hxjsdz4 = #{hqmzyHxjsdz4,jdbcType=VARCHAR},\n" +
             "      hqmzy_hxjsdz5 = #{hqmzyHxjsdz5,jdbcType=VARCHAR},\n" +
-            "      hqmzy_zdyc = #{hqmzyZdyc,jdbcType=VARCHAR},\n" +
+            "      hqmzy_zdyc1 = #{hqmzyZdyc1,jdbcType=VARCHAR},\n" +
+            "      hqmzy_zdyc2 = #{hqmzyZdyc2,jdbcType=VARCHAR},\n" +
             "      type = #{type,jdbcType=INTEGER}" +
             "    where hxj_template_id = #{hxjTemplateId,jdbcType=INTEGER}")
     int updateHxjTemplate(HxjTemplate hxjTemplate);
@@ -81,7 +82,7 @@ public interface HxjMapper {
             "      #{xqfzylHxjsdz1,jdbcType=VARCHAR}, #{xqfzylHxjsdz2,jdbcType=VARCHAR}, #{xqfzylHxjsdz3,jdbcType=VARCHAR}, \n" +
             "      #{xqfzylHxjsdz4,jdbcType=VARCHAR}, #{xqfzylHxjsdz5,jdbcType=VARCHAR}, #{xqfzylZdyc1,jdbcType=VARCHAR},#{xqfzylZdyc2,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyHxjsdz1,jdbcType=VARCHAR}, #{hqmzyHxjsdz2,jdbcType=VARCHAR}, #{hqmzyHxjsdz3,jdbcType=VARCHAR}, \n" +
-            "      #{hqmzyHxjsdz4,jdbcType=VARCHAR}, #{hqmzyHxjsdz5,jdbcType=VARCHAR}, #{hqmzyZdyc,jdbcType=VARCHAR}, \n" +
+            "      #{hqmzyHxjsdz4,jdbcType=VARCHAR}, #{hqmzyHxjsdz5,jdbcType=VARCHAR}, #{hqmzyZdyc1,jdbcType=VARCHAR},  #{hqmzyZdyc2,jdbcType=VARCHAR},\n" +
             "      #{type,jdbcType=INTEGER}\n" +
             "      )")
     int insertHxjTemplate(HxjTemplate hxjTemplate);
@@ -352,7 +353,7 @@ public interface HxjMapper {
             "      #{hqmzySzwcValue2,jdbcType=VARCHAR}, #{hqmzySzwcValue3,jdbcType=VARCHAR}, #{hqmzySzwcValue4,jdbcType=VARCHAR}, \n" +
             "      #{hqmzySzwcValue5,jdbcType=VARCHAR}, #{hqmzyScwcValue1,jdbcType=VARCHAR}, #{hqmzyScwcValue2,jdbcType=VARCHAR}, \n" +
             "      #{hqmzyScwcValue3,jdbcType=VARCHAR}, #{hqmzyScwcValue4,jdbcType=VARCHAR}, #{hqmzyScwcValue5,jdbcType=VARCHAR}, \n" +
-            "      #{hqmzyZdyc,jdbcType=VARCHAR}, #{hqmzyResult,jdbcType=VARCHAR}, #{fwczdykg,jdbcType=VARCHAR}, \n" +
+            "      #{hqmzyZdyc1,jdbcType=VARCHAR},#{hqmzyZdyc2,jdbcType=VARCHAR}, #{hqmzyResult,jdbcType=VARCHAR}, #{fwczdykg,jdbcType=VARCHAR}, \n" +
             "      #{brhlgybhgn,jdbcType=VARCHAR}, #{jygn,jdbcType=VARCHAR}, #{jysx,jdbcType=VARCHAR}, \n" +
             "      #{qdylsxxbj,jdbcType=VARCHAR}, #{bjsz,jdbcType=VARCHAR}, #{ddbj,jdbcType=VARCHAR}, \n" +
             "      #{hxplsxxbj,jdbcType=VARCHAR}, #{nbdy,jdbcType=VARCHAR}, #{qybj,jdbcType=VARCHAR}, \n" +
