@@ -81,12 +81,13 @@ public class HxjController extends BaseController {
 
     //只根据id更新检测数据
     @RequestMapping("/updataNow/{id}")
-    public com.litbo.hospitalzj.util.ResponseResult updataNow(@PathVariable("id")Integer id, HttpServletRequest req){
-        Hxj hxj = CommonUtils.toBean(req.getParameterMap(), Hxj.class);
+    public ResponseResult updateNow(@PathVariable("id")Integer id,Hxj hxj){
+        if(hxj.getType() == null)
+            hxj.setType(0);
         hxj.setHxjId(id);
         //更新
         hxjService.updateHxj(hxj);
-        return new com.litbo.hospitalzj.util.ResponseResult(200, id);
+        return new ResponseResult(200, id);
     }
 
 

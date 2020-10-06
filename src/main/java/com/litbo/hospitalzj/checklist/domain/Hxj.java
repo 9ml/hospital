@@ -19,7 +19,7 @@ public class Hxj {
 
     private String shrJcjl;
 
-    private Date testTime;
+    private String testTime;
 
     private String jcjl;
 

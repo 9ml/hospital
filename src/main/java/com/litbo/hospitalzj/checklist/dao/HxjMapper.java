@@ -225,7 +225,7 @@ public interface HxjMapper {
             "      )\n" +
             "    values ( #{jcyqId,jdbcType=INTEGER}, #{eqId,jdbcType=VARCHAR}, \n" +
             "      #{tester,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{shsjTime,jdbcType=TIMESTAMP}, \n" +
-            "      #{shrJcjl,jdbcType=VARCHAR}, #{testTime,jdbcType=TIMESTAMP}, #{jcjl,jdbcType=VARCHAR}, \n" +
+            "      #{shrJcjl,jdbcType=VARCHAR}, #{testTime,jdbcType=VARCHAR}, #{jcjl,jdbcType=VARCHAR}, \n" +
             "      #{jcsm,jdbcType=VARCHAR}, #{bhjdzkClzValue,jdbcType=VARCHAR}, #{bhjdzkYxz,jdbcType=VARCHAR}, \n" +
             "      #{bhjdzkResult,jdbcType=VARCHAR}, #{jyzkClzValue,jdbcType=VARCHAR}, #{jyzkYxz,jdbcType=VARCHAR}, \n" +
             "      #{jykzResult,jdbcType=VARCHAR}, #{ddldZcZxValue,jdbcType=VARCHAR}, #{ddldZcFxValue,jdbcType=VARCHAR}, \n" +
@@ -368,7 +368,7 @@ public interface HxjMapper {
         "      auditor = #{auditor,jdbcType=VARCHAR},\n" +
         "      shsj_time = #{shsjTime,jdbcType=TIMESTAMP},\n" +
         "      shr_jcjl = #{shrJcjl,jdbcType=VARCHAR},\n" +
-        "      test_time = #{testTime,jdbcType=TIMESTAMP},\n" +
+        "      test_time = #{testTime,jdbcType=VARCHAR},\n" +
         "      jcjl = #{jcjl,jdbcType=VARCHAR},\n" +
         "      jcsm = #{jcsm,jdbcType=VARCHAR},\n" +
         "      bhjdzk_clz_value = #{bhjdzkClzValue,jdbcType=VARCHAR},\n" +
