@@ -217,7 +217,7 @@ public interface HxjMapper {
             "      hqmzy_szwc_value2, hqmzy_szwc_value3, hqmzy_szwc_value4, \n" +
             "      hqmzy_szwc_value5, hqmzy_scwc_value1, hqmzy_scwc_value2, \n" +
             "      hqmzy_scwc_value3, hqmzy_scwc_value4, hqmzy_scwc_value5, \n" +
-            "      hqmzy_zdyc, hqmzy_result, fwczdykg, \n" +
+            "      hqmzy_zdyc1,hqmzy_zdyc2, hqmzy_result, fwczdykg, \n" +
             "      brhlgybhgn, jygn, jysx, \n" +
             "      qdylsxxbj, bjsz, ddbj, \n" +
             "      hxplsxxbj, nbdy, qybj, \n" +
