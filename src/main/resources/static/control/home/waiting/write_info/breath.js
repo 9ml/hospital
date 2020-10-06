@@ -17,6 +17,8 @@ window.onload = function () {
             $tip.text("× 不符合");
             $tip.removeClass("is").addClass("no");
         }
+        //检测所有的结果
+
     });
     //潮气量Vt
     $(document).on("blur", ".cqzjc input[type=text]", function () {

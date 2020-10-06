@@ -40,8 +40,6 @@ public class ZzInfoController extends BaseController {
             return new ResponseResult<Void>(SUCCESS);
         }catch (Exception e){
             e.printStackTrace();
-            log.error(zzInfo.toString());
-            log.error(e.getMessage());
             return new ResponseResult<>(ERROR);
         }
 

@@ -65,15 +65,18 @@
                     <div class="layui-input-block">
                         <input type="text" id="bhjdzkClzValue" name="bhjdzkClzValue" placeholder="保护接地阻抗（mΩ） " data-target="≤200 mΩ" autocomplete="off" class="layui-input"
                                style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                        <input type="hidden" name="bhjdzkResult">
                         <b class="jcjgTip"></b></div>
                 </div>
                 <div class="layui-form-item col-md-6 col-xs-12">
                     <label class="layui-form-label">2</label>
                     <div class="layui-input-block">
                         <input type="text" id="jyzkClzValue" name="jyzkClzValue" placeholder="绝缘阻抗(电源—外壳)(MΩ)" data-target="≥10 MΩ" autocomplete="off" class="layui-input">
+                        <input type="hidden" name="jykzResult">
                         <b class="jcjgTip"></b></div>
                 </div>
                 <div class="layui-form-item col-md-6 col-xs-12">
+                    <input type="hidden" name="ddldZcResult">
                     <label class="layui-form-label">3</label>
                     <div class="layui-input-block">
                         <input type="text" id="ddldZcZxValue" name="ddldZcZxValue" placeholder="对地漏电流（µA）-正常状态-正向" data-target="≤500µA" autocomplete="off" class="layui-input">
@@ -86,6 +89,7 @@
                         <b class="jcjgTip"></b></div>
                 </div>
                 <div class="layui-form-item col-md-6 col-xs-12">
+                    <input type="hidden" name="ddldDygzResult">
                     <label class="layui-form-label">5</label>
                     <div class="layui-input-block">
                         <input type="text" id="ddldDygzZxdlValue" name="ddldDygzZxdlValue" placeholder="对地漏电流（µA）-单一故障状态-正向断零" data-target="≤1000µA" autocomplete="off" class="layui-input">
@@ -98,6 +102,7 @@
                         <b class="jcjgTip"></b></div>
                 </div>
                 <div class="layui-form-item col-md-6 col-xs-12">
+                    <input type="hidden" name="wkldZcResult">
                     <label class="layui-form-label">7</label>
                     <div class="layui-input-block">
                         <input type="text" id="wkldZcZxValue" name="wkldZcZxValue" placeholder="外壳漏电流（µA）-正常状态-正向" data-target="≤100µA" autocomplete="off" class="layui-input">
@@ -110,6 +115,7 @@
                         <b class="jcjgTip"></b></div>
                 </div>
                 <div class="layui-form-item col-md-6 col-xs-12">
+                    <input type="hidden" name="wkldDyResult">
                     <label class="layui-form-label">9</label>
                     <div class="layui-input-block">
                         <input type="text" id="wkldDyZxdlValue1" name="wkldDyZxdlValue1" placeholder="外壳漏电流（µA）-单一故障状态-正向断零" data-target="≤500µA" autocomplete="off" class="layui-input">
@@ -135,6 +141,7 @@
                 </div>
             </div>
             <div class="cqzjc">
+                <input type="hidden" name="cqlResult">
                 <!--潮气量Vt (VCV模式、f=20bpm、I:E=1:2、PEEP=2cmH2O、FiO2=40%)-->
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend style="color: red;">潮气量Vt (VCV模式、f=20bpm、I:E=1:2、PEEP=2cmH2O、FiO2=40%)</legend>
@@ -467,6 +474,7 @@
             </div>
             <!--强制通气频率f（VCV模式、Vt=400ml、I:E=1:2、PEEP=2cmH2O、FiO2=40%）-->
             <div class="qztqpljc">
+                <input type="hidden" name="qztqplResult">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend style="color: red;">强制通气频率f（VCV模式、Vt=400ml、I:E=1:2、PEEP=2cmH2O、FiO2=40%）</legend>
                 </fieldset>
@@ -797,6 +805,7 @@
                 </div>
             </div>
             <div class="xryndjc">
+                <input type="hidden" name="xryndResult">
                 <!--吸入氧浓度FiO2（VCV模式、Vt=400ml、f=15bpm、I:E=1:2、PEEP=2cmH2O）-->
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend style="color: red;">吸入氧浓度FiO2（VCV模式、Vt=400ml、f=15bpm、I:E=1:2、PEEP=2cmH2O）</legend>
@@ -1129,6 +1138,7 @@
             </div>
             <!--吸气峰值压力（PCV模式、f=15bpm、I:E=1:2、PEEP=0cmH2O、FiO2=40%）-->
             <div class="xqfzyljc">
+                <input type="hidden" name="xqfzylResult">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend style="color: red;">吸气峰值压力（PCV模式、f=15bpm、I:E=1:2、PEEP=0cmH2O、FiO2=40%）</legend>
                 </fieldset>
@@ -1460,6 +1470,7 @@
             </div>
             <!--呼气末正压PEEP（VCV模式、Vt=400ml、f=15bpm、I:E=1:2、FiO2=40%）-->
             <div class="hqmzyjc">
+                <input type="hidden" name="hqmzyResult">
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend style="color: red;">呼气末正压PEEP（VCV模式、Vt=400ml、f=15bpm、I:E=1:2、FiO2=40%）</legend>
                 </fieldset>
@@ -1952,9 +1963,30 @@
                             <input type="radio" name="tqzxbj" value="-1" title="不适用">
                         </div>
                     </div>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend style="color: red;">检测结论</legend>
+                    </fieldset>
+                    <div class="layui-form-item col-md-5">
+                        <label class="layui-form-label">检测结论</label>
+                        <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                            <input type="text" name="jcjl" class="layui-input" autocomplete="off">
+                        </div>
+                    </div>
+                    <fieldset class="layui-elem-field layui-field-title">
+                        <legend style="color: red;">检测说明</legend>
+                    </fieldset>
+                    <div class="layui-form-item col-md-5">
+                        <label class="layui-form-label">检测说明</label>
+                        <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                            <input type="text" name="jcsm" class="layui-input" autocomplete="off">
+                        </div>
+                    </div>
+                    <input type="hidden" name="tester">
+                    <input type="hidden" name="testTime">
                     <div class="layui-form-item btn">
                         <div class="layui-input-block">
-                            <button class="layui-btn layui-btn-normal" lay-submit="" lay-filter="saveAll">保存</button>
+                            <button class="layui-btn layui-btn-normal js-save" lay-submit="" lay-filter="saveAll">保存</button>
+                            <input type="button" class="layui-btn js-create">生成数据</input>
                         </div>
                     </div>
                 </div>
@@ -1970,6 +2002,110 @@
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var userName = sessionStorage["userName"];
     var thisId = parseInt(sessionStorage['thisId']);
+    if (typeof (Date.prototype.format) == 'undefined') {
+        Date.prototype.format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1, //月份
+                "[Dd]+": this.getDate(), //日
+                "[Hh]+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds(), //秒
+                "[Qq]+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds() //毫秒
+            };
+            if (/([Yy]+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        }
+    }
+    $(".js-create").on("click", function () {
+        $("input[type=text]").each(function () {
+            $(this).val(2);
+        });
+        $("input[type=text]").each(function () {
+            $(this).focus().blur();
+        });
+    })
+    //设置结果
+    $(".js-save").on("click", function () {
+        settingResult();
+    })
+
+    function settingResult() {
+        //电气安全检测
+        //保护接地阻抗
+        $("input[name='bhjdzkResult']").val($("#bhjdzkClzValue").siblings(".jcjgTip").is(".is") ? "合格" : "不合格");
+        //绝缘阻抗(电源—外壳)(MΩ)
+        $("input[name='jykzResult']").val($("#jyzkClzValue").siblings(".jcjgTip").is(".is") ? "合格" : "不合格");
+        //对地漏电流正常状态
+        if ($("#ddldZcZxValue").siblings(".jcjgTip").is(".is") && $("#ddldZcFxValue").siblings(".jcjgTip").is(".is")) {
+            $("input[name='ddldZcResult']").val("合格");
+        } else {
+            $("input[name='ddldZcResult']").val("不合格");
+        }
+        //对地漏电流单一故障状态
+        if ($("#ddldDygzZxdlValue").siblings(".jcjgTip").is(".is") && $("#ddldDygzFxdlValue").siblings(".jcjgTip").is(".is")) {
+            $("input[name='ddldDygzResult']").val("合格");
+        } else {
+            $("input[name='ddldDygzResult']").val("不合格");
+        }
+        //外壳漏电流正常状态
+        if ($("#wkldZcZxValue").siblings(".jcjgTip").is(".is") && $("#wkldZcFxValue").siblings(".jcjgTip").is(".is")) {
+            $("input[name='wkldZcResult']").val("合格");
+        } else {
+            $("input[name='wkldZcResult']").val("不合格");
+        }
+        //外壳漏电流单一故障状态
+        if ($("#wkldDyZxdlValue1").siblings(".jcjgTip").is(".is") && $("#wkldDyZxddValue").siblings(".jcjgTip").is(".is") && $("#wkldDyZxdlValue2").siblings(".jcjgTip").is(".is") && $("#wkldDyFxddValue").siblings(".jcjgTip").is(".is")) {
+            $("input[name='wkldDyResult']").val("合格");
+        } else {
+            $("input[name='wkldDyResult']").val("不合格");
+        }
+        //潮气量Vt
+        var cqzjcPass = true;
+        $(".cqzjc .jcjgTip").each(function () {
+            if ($(this).is(".no")) {
+                cqzjcPass = false;
+            }
+        });
+        $("input[name=cqlResult]").val(cqzjcPass ? "合格" : "不合格");
+        //强制通气频率f
+        var qztqpljcPass = true;
+        $(".qztqpljc .jcjgTip").each(function () {
+            if ($(this).is(".no")) {
+                qztqpljcPass = false;
+            }
+        });
+        $("input[name=qztqplResult]").val(qztqpljcPass ? "合格" : "不合格");
+        //吸入氧浓度FiO2
+        var xryndjcPass = true;
+        $(".xryndjc .jcjgTip").each(function () {
+            if ($(this).is(".no")) {
+                xryndjcPass = false;
+            }
+        });
+        $("input[name=xryndResult]").val(xryndjcPass ? "合格" : "不合格");
+        //吸气峰值压力
+        var xqfzyljcPass = true;
+        $(".xqfzyljc .jcjgTip").each(function () {
+            if ($(this).is(".no")) {
+                xqfzyljcPass = false;
+            }
+        });
+        $("input[name=xqfzylResult]").val(xqfzyljcPass ? "合格" : "不合格");
+        //呼气末正压PEEP
+        var hqmzyjcPass = true;
+        $(".hqmzyjc .jcjgTip").each(function () {
+            if ($(this).is(".no")) {
+                hqmzyjcPass = false;
+            }
+        });
+        $("input[name=hqmzyResult]").val(hqmzyjcPass ? "合格" : "不合格");
+        $("input[name=tester]").val(userName);
+        $("input[name=testTime]").val(new Date().format("yyyy-MM-dd HH:mm:ss"));
+    }
+
     layui.use(['element', 'jquery', 'form', 'layer', 'laydate'], function () {
         var element = layui.element
             , $ = layui.jquery
@@ -1986,7 +2122,7 @@
         form.on("submit(saveAll)", function (data) {
             console.log(data.field);
             $.ajax({
-                url: "/hxj/save?eqId=" + thiseqId + "&jcyqId=" + ids + "&userEqId=" + thisId,
+                url: "/hxj/save?eqId=" + thiseqId + "&jcyqId=" + ids + "&userEqId=" + thisId + "&type=0",
                 method: "POST",
                 data: data.field,
                 dataType: "JSON",

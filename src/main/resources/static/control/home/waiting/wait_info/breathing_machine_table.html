@@ -35,7 +35,7 @@
 <div class="layui-row">
     <div class="col-xs-12">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">呼吸机质量检测原始记录表(成人)</legend>
+            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;" id="table_title">呼吸机质量检测原始记录表(成人)</legend>
         </fieldset>
         <table class="layui-table">
             <tr>
@@ -50,47 +50,47 @@
             <tr>
                 <td rowspan="6">电源部分</td>
                 <td colspan="2">保护接地阻抗（mΩ）</td>
-                <td colspan="4"></td>
-                <td id="bhjdzkYxz"></td>
-                <td>□合格 □不合格</td>
+                <td colspan="4" id="bhjdzkClzValue"></td>
+                <td id="bhjdzkYxz" id="bhjdzkYxz"></td>
+                <td id="bhjdzkResult">□合格 □不合格</td>
             </tr>
             <tr>
                 <td colspan="2">绝缘阻抗(电源—外壳)(MΩ)</td>
-                <td colspan="4"></td>
+                <td colspan="4" id="jyzkClzValue"></td>
                 <td id="jyzkYxz"></td>
-                <td>□合格 □不合格</td>
+                <td id="jykzResult">□合格 □不合格</td>
             </tr>
             <tr>
                 <td rowspan="2">对地漏电流（µA）</td>
                 <td>正常状态</td>
-                <td colspan="2">正向：</td>
-                <td colspan="2">反向：</td>
+                <td colspan="2">正向：<span id="ddldZcZxValue"></span></td>
+                <td colspan="2">反向：<span id="ddldZcFxValue"></span></td>
                 <td id="ddldZcYxz"></td>
-                <td>□合格 □不合格</td>
+                <td id="ddldZcResult">□合格 □不合格</td>
             </tr>
             <tr>
                 <td>单一故障状态</td>
-                <td colspan="2">正向断零：</td>
-                <td colspan="2">反向断零：</td>
+                <td colspan="2">正向断零：<span id="ddldDygzZxdlValue"></span></td>
+                <td colspan="2">反向断零：<span id="ddldDygzFxdlValue"></span></td>
                 <td id="ddldDygzYxz"></td>
-                <td>□合格 □不合格</td>
+                <td id="ddldDygzResult">□合格 □不合格</td>
             </tr>
             <tr>
                 <td rowspan="2">外壳漏电流（µA）</td>
                 <td>正常状态</td>
-                <td colspan="2">正向：</td>
-                <td colspan="2">反向：</td>
+                <td colspan="2">正向：<span id="wkldZcZxValue"></span></td>
+                <td colspan="2">反向：<span id="wkldZcFxValue"></span></td>
                 <td id="wkldZcYxz"></td>
-                <td>□合格 □不合格</td>
+                <td id="wkldZcResult">□合格 □不合格</td>
             </tr>
             <tr>
                 <td>单一故障状态</td>
-                <td>正向断零：</td>
-                <td>正向断地：</td>
-                <td>反向断零：</td>
-                <td>反向断地：</td>
+                <td>正向断零：<span id="wkldDyZxdlValue1"></span></td>
+                <td>正向断地：<span id="wkldDyZxddValue"></span></td>
+                <td>反向断零：<span id="wkldDyZxdlValue2"></span></td>
+                <td>反向断地：<span id="wkldDyFxddValue"></span></td>
                 <td id="wkldDyYx"></td>
-                <td>□合格 □不合格</td>
+                <td id="wkldDyResult">□合格 □不合格</td>
             </tr>
         </table>
         <table class="layui-table">
@@ -118,70 +118,70 @@
             </tr>
             <tr>
                 <td id="cqlHxjsdz1" style="width: 8%;"></td><!--10-->
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
-                <td style="width: 8%;">&nbsp;</td>
+                <td style="width: 8%;" id="cqlHxjjczValue11">&nbsp;</td>
+                <td style="width: 8%;" id="cqlHxjjczValue21">&nbsp;</td>
+                <td style="width: 8%;" id="cqlHxjjczValue31">&nbsp;</td>
+                <td style="width: 8%;" id="cqlPjzJczValue1">&nbsp;</td>
+                <td style="width: 8%;" id="cqlCslclzValue11">&nbsp;</td>
+                <td style="width: 8%;" id="cqlCslclzValue21">&nbsp;</td>
+                <td style="width: 8%;" id="cqlCslclzValue31">&nbsp;</td>
+                <td style="width: 8%;" id="cqlPjzClzValue1">&nbsp;</td>
+                <td style="width: 8%;" id="cqlSzwcValue1">&nbsp;</td>
+                <td style="width: 8%;" id="cqlScwcValue1">&nbsp;</td>
                 <td id="cqlZdyc" style="width: 8%;" rowspan="5"></td>
-                <td style="width: 8%;" rowspan="5">□符合 □不符合</td>
+                <td style="width: 8%;" rowspan="5" id="cqlResult">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="cqlHxjsdz2"></td><!--20-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="cqlHxjjczValue12">&nbsp;</td>
+                <td id="cqlHxjjczValue22">&nbsp;</td>
+                <td id="cqlHxjjczValue32">&nbsp;</td>
+                <td id="cqlPjzJczValue2">&nbsp;</td>
+                <td id="cqlCslclzValue12">&nbsp;</td>
+                <td id="cqlCslclzValue22">&nbsp;</td>
+                <td id="cqlCslclzValue32">&nbsp;</td>
+                <td id="cqlPjzClzValue2">&nbsp;</td>
+                <td id="cqlSzwcValue2">&nbsp;</td>
+                <td id="cqlScwcValue2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="cqlHxjsdz3"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="cqlHxjjczValue13">&nbsp;</td>
+                <td id="cqlHxjjczValue23">&nbsp;</td>
+                <td id="cqlHxjjczValue33">&nbsp;</td>
+                <td id="cqlPjzJczValue3">&nbsp;</td>
+                <td id="cqlCslclzValue13">&nbsp;</td>
+                <td id="cqlCslclzValue23">&nbsp;</td>
+                <td id="cqlCslclzValue33">&nbsp;</td>
+                <td id="cqlPjzClzValue3">&nbsp;</td>
+                <td id="cqlSzwcValue3">&nbsp;</td>
+                <td id="cqlScwcValue3">&nbsp;</td>
             </tr>
             <tr>
                 <td id="cqlHxjsdz4"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="cqlHxjjczValue14">&nbsp;</td>
+                <td id="cqlHxjjczValue24">&nbsp;</td>
+                <td id="cqlHxjjczValue34">&nbsp;</td>
+                <td id="cqlPjzJczValue4">&nbsp;</td>
+                <td id="cqlCslclzValue14">&nbsp;</td>
+                <td id="cqlCslclzValue24">&nbsp;</td>
+                <td id="cqlCslclzValue34">&nbsp;</td>
+                <td id="cqlPjzClzValue4">&nbsp;</td>
+                <td id="cqlSzwcValue4">&nbsp;</td>
+                <td id="cqlScwcValue4">&nbsp;</td>
             </tr>
             <tr>
                 <td id="cqlHxjsdz5"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="cqlHxjjczValue15">&nbsp;</td>
+                <td id="cqlHxjjczValue25">&nbsp;</td>
+                <td id="cqlHxjjczValue35">&nbsp;</td>
+                <td id="cqlPjzJczValue5">&nbsp;</td>
+                <td id="cqlCslclzValue15">&nbsp;</td>
+                <td id="cqlCslclzValue25">&nbsp;</td>
+                <td id="cqlCslclzValue35">&nbsp;</td>
+                <td id="cqlPjzClzValue5">&nbsp;</td>
+                <td id="cqlSzwcValue5">&nbsp;</td>
+                <td id="cqlScwcValue5">&nbsp;</td>
             </tr>
         </table>
         <table class="layui-table">
@@ -209,70 +209,70 @@
             </tr>
             <tr>
                 <td id="qztqplHxjsdz1"></td><!--10-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="qztqplHxjjczValue11">&nbsp;</td>
+                <td id="qztqplHxjjczValue21">&nbsp;</td>
+                <td id="qztqplHxjjczValue31">&nbsp;</td>
+                <td id="qztqplPjzJczValue1">&nbsp;</td>
+                <td id="qztqplCsyclzValue11">&nbsp;</td>
+                <td id="qztqplCsyclzValue21">&nbsp;</td>
+                <td id="qztqplCsyclzValue31">&nbsp;</td>
+                <td id="qztqplPjzClzValue1">&nbsp;</td>
+                <td id="qztqplSzwcValue1">&nbsp;</td>
+                <td id="qztqplScwcValue1">&nbsp;</td>
                 <td id="qztqplZdyc" rowspan="5"></td>
-                <td rowspan="5">□符合 □不符合</td>
+                <td rowspan="5" id="qztqplResult">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="qztqplHxjsdz2"></td><!--20-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="qztqplHxjjczValue12">&nbsp;</td>
+                <td id="qztqplHxjjczValue22">&nbsp;</td>
+                <td id="qztqplHxjjczValue32">&nbsp;</td>
+                <td id="qztqplPjzJczValue2">&nbsp;</td>
+                <td id="qztqplCsyclzValue12">&nbsp;</td>
+                <td id="qztqplCsyclzValue22">&nbsp;</td>
+                <td id="qztqplCsyclzValue32">&nbsp;</td>
+                <td id="qztqplPjzClzValue2">&nbsp;</td>
+                <td id="qztqplSzwcValue2">&nbsp;</td>
+                <td id="qztqplScwcValue2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="qztqplHxjsdz3"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="qztqplHxjjczValue13">&nbsp;</td>
+                <td id="qztqplHxjjczValue23">&nbsp;</td>
+                <td id="qztqplHxjjczValue33">&nbsp;</td>
+                <td id="qztqplPjzJczValue3">&nbsp;</td>
+                <td id="qztqplCsyclzValue13">&nbsp;</td>
+                <td id="qztqplCsyclzValue23">&nbsp;</td>
+                <td id="qztqplCsyclzValue33">&nbsp;</td>
+                <td id="qztqplPjzClzValue3">&nbsp;</td>
+                <td id="qztqplSzwcValue3">&nbsp;</td>
+                <td id="qztqplScwcValue3">&nbsp;</td>
             </tr>
             <tr>
                 <td id="qztqplHxjsdz4"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="qztqplHxjjczValue14">&nbsp;</td>
+                <td id="qztqplHxjjczValue24">&nbsp;</td>
+                <td id="qztqplHxjjczValue34">&nbsp;</td>
+                <td id="qztqplPjzJczValue4">&nbsp;</td>
+                <td id="qztqplCsyclzValue14">&nbsp;</td>
+                <td id="qztqplCsyclzValue24">&nbsp;</td>
+                <td id="qztqplCsyclzValue34">&nbsp;</td>
+                <td id="qztqplPjzClzValue4">&nbsp;</td>
+                <td id="qztqplSzwcValue4">&nbsp;</td>
+                <td id="qztqplScwcValue4">&nbsp;</td>
             </tr>
             <tr>
                 <td id="qztqplHxjsdz5"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="qztqplHxjjczValue15">&nbsp;</td>
+                <td id="qztqplHxjjczValue25">&nbsp;</td>
+                <td id="qztqplHxjjczValue35">&nbsp;</td>
+                <td id="qztqplPjzJczValue5">&nbsp;</td>
+                <td id="qztqplCsyclzValue15">&nbsp;</td>
+                <td id="qztqplCsyclzValue25">&nbsp;</td>
+                <td id="qztqplCsyclzValue35">&nbsp;</td>
+                <td id="qztqplPjzClzValue5">&nbsp;</td>
+                <td id="qztqplSzwcValue5">&nbsp;</td>
+                <td id="qztqplScwcValue5">&nbsp;</td>
             </tr>
         </table>
         <table class="layui-table">
@@ -300,70 +300,70 @@
             </tr>
             <tr>
                 <td id="xryndHxjsdz1"></td><!--10-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xryndHxjjczValue11">&nbsp;</td>
+                <td id="xryndHxjjczValue21">&nbsp;</td>
+                <td id="xryndHxjjczValue31">&nbsp;</td>
+                <td id="xryndPjzJczValue1">&nbsp;</td>
+                <td id="xryndCslclzValue11">&nbsp;</td>
+                <td id="xryndCslclzValue21">&nbsp;</td>
+                <td id="xryndCslclzValue31">&nbsp;</td>
+                <td id="xryndPjzClzValue1">&nbsp;</td>
+                <td id="xryndSzwcValue1">&nbsp;</td>
+                <td id="xryndScwcValue1">&nbsp;</td>
                 <td id="xryndZdyc" rowspan="5"></td>
-                <td rowspan="5">□符合 □不符合</td>
+                <td rowspan="5" id="xryndResult">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="xryndHxjsdz2"></td><!--20-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xryndHxjjczValue12">&nbsp;</td>
+                <td id="xryndHxjjczValue22">&nbsp;</td>
+                <td id="xryndHxjjczValue32">&nbsp;</td>
+                <td id="xryndPjzJczValue2">&nbsp;</td>
+                <td id="xryndCslclzValue12">&nbsp;</td>
+                <td id="xryndCslclzValue22">&nbsp;</td>
+                <td id="xryndCslclzValue32">&nbsp;</td>
+                <td id="xryndPjzClzValue2">&nbsp;</td>
+                <td id="xryndSzwcValue2">&nbsp;</td>
+                <td id="xryndScwcValue2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xryndHxjsdz3"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xryndHxjjczValue13">&nbsp;</td>
+                <td id="xryndHxjjczValue23">&nbsp;</td>
+                <td id="xryndHxjjczValue33">&nbsp;</td>
+                <td id="xryndPjzJczValue3">&nbsp;</td>
+                <td id="xryndCslclzValue13">&nbsp;</td>
+                <td id="xryndCslclzValue23">&nbsp;</td>
+                <td id="xryndCslclzValue33">&nbsp;</td>
+                <td id="xryndPjzClzValue3">&nbsp;</td>
+                <td id="xryndSzwcValue3">&nbsp;</td>
+                <td id="xryndScwcValue3">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xryndHxjsdz4"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xryndHxjjczValue14">&nbsp;</td>
+                <td id="xryndHxjjczValue24">&nbsp;</td>
+                <td id="xryndHxjjczValue34">&nbsp;</td>
+                <td id="xryndPjzJczValue4">&nbsp;</td>
+                <td id="xryndCslclzValue14">&nbsp;</td>
+                <td id="xryndCslclzValue24">&nbsp;</td>
+                <td id="xryndCslclzValue34">&nbsp;</td>
+                <td id="xryndPjzClzValue4">&nbsp;</td>
+                <td id="xryndSzwcValue4">&nbsp;</td>
+                <td id="xryndScwcValue4">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xryndHxjsdz5"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xryndHxjjczValue15">&nbsp;</td>
+                <td id="xryndHxjjczValue25">&nbsp;</td>
+                <td id="xryndHxjjczValue35">&nbsp;</td>
+                <td id="xryndPjzJczValue5">&nbsp;</td>
+                <td id="xryndCslclzValue15">&nbsp;</td>
+                <td id="xryndCslclzValue25">&nbsp;</td>
+                <td id="xryndCslclzValue35">&nbsp;</td>
+                <td id="xryndPjzClzValue5">&nbsp;</td>
+                <td id="xryndSzwcValue5">&nbsp;</td>
+                <td id="xryndScwcValue5">&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">吸气峰值压力 (PCV模式、f=15bpm、I:E=1:2、PEEP=0cmH2O、FiO2=40%)</td>
@@ -389,70 +389,70 @@
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz1"></td><!--10-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xqfzylHxjjczValue11">&nbsp;</td>
+                <td id="xqfzylHxjjczValue21">&nbsp;</td>
+                <td id="xqfzylHxjjczValue31">&nbsp;</td>
+                <td id="xqfzylPjzJczValue1">&nbsp;</td>
+                <td id="xqfzylCslclzValue11">&nbsp;</td>
+                <td id="xqfzylCslclzValue21">&nbsp;</td>
+                <td id="xqfzylCslclzValue31">&nbsp;</td>
+                <td id="xqfzylPjzClzValue1">&nbsp;</td>
+                <td id="xqfzylSzwcValue1">&nbsp;</td>
+                <td id="xqfzylScwcValue1">&nbsp;</td>
                 <td id="xqfzylZdyc" rowspan="5"></td>
-                <td rowspan="5">□符合 □不符合</td>
+                <td rowspan="5" id="xqfzylResult">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz2"></td><!--20-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xqfzylHxjjczValue12">&nbsp;</td>
+                <td id="xqfzylHxjjczValue22">&nbsp;</td>
+                <td id="xqfzylHxjjczValue32">&nbsp;</td>
+                <td id="xqfzylPjzJczValue2">&nbsp;</td>
+                <td id="xqfzylCslclzValue12">&nbsp;</td>
+                <td id="xqfzylCslclzValue22">&nbsp;</td>
+                <td id="xqfzylCslclzValue32">&nbsp;</td>
+                <td id="xqfzylPjzClzValue2">&nbsp;</td>
+                <td id="xqfzylSzwcValue2">&nbsp;</td>
+                <td id="xqfzylScwcValue2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz3"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xqfzylHxjjczValue13">&nbsp;</td>
+                <td id="xqfzylHxjjczValue23">&nbsp;</td>
+                <td id="xqfzylHxjjczValue33">&nbsp;</td>
+                <td id="xqfzylPjzJczValue3">&nbsp;</td>
+                <td id="xqfzylCslclzValue13">&nbsp;</td>
+                <td id="xqfzylCslclzValue23">&nbsp;</td>
+                <td id="xqfzylCslclzValue33">&nbsp;</td>
+                <td id="xqfzylPjzClzValue3">&nbsp;</td>
+                <td id="xqfzylSzwcValue3">&nbsp;</td>
+                <td id="xqfzylScwcValue3">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz4"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xqfzylHxjjczValue14">&nbsp;</td>
+                <td id="xqfzylHxjjczValue24">&nbsp;</td>
+                <td id="xqfzylHxjjczValue34">&nbsp;</td>
+                <td id="xqfzylPjzJczValue4">&nbsp;</td>
+                <td id="xqfzylCslclzValue14">&nbsp;</td>
+                <td id="xqfzylCslclzValue24">&nbsp;</td>
+                <td id="xqfzylCslclzValue34">&nbsp;</td>
+                <td id="xqfzylPjzClzValue4">&nbsp;</td>
+                <td id="xqfzylSzwcValue4">&nbsp;</td>
+                <td id="xqfzylScwcValue4">&nbsp;</td>
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz5"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="xqfzylHxjjczValue15">&nbsp;</td>
+                <td id="xqfzylHxjjczValue25">&nbsp;</td>
+                <td id="xqfzylHxjjczValue35">&nbsp;</td>
+                <td id="xqfzylPjzJczValue5">&nbsp;</td>
+                <td id="xqfzylCslclzValue15">&nbsp;</td>
+                <td id="xqfzylCslclzValue25">&nbsp;</td>
+                <td id="xqfzylCslclzValue35">&nbsp;</td>
+                <td id="xqfzylPjzClzValue5">&nbsp;</td>
+                <td id="xqfzylSzwcValue5">&nbsp;</td>
+                <td id="xqfzylScwcValue5">&nbsp;</td>
             </tr>
             <tr>
                 <td colspan="13" style="color: red;background-color: #eaeaea;font-size: 16px;">呼气末正压PEEP (VCV模式、Vt=400ml、f=15bpm、I:E=1:2、FiO2=40%)</td>
@@ -478,70 +478,70 @@
             </tr>
             <tr>
                 <td id="hqmzyHxjsdz1" style="width: 8%;"></td><!--10-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="hqmzyHxjjczValue11">&nbsp;</td>
+                <td id="hqmzyHxjjczValue21">&nbsp;</td>
+                <td id="hqmzyHxjjczValue31">&nbsp;</td>
+                <td id="hqmzyPjzJczValue1">&nbsp;</td>
+                <td id="hqmzyCslclzValue11">&nbsp;</td>
+                <td id="hqmzyCslclzValue21">&nbsp;</td>
+                <td id="hqmzyCslclzValue31">&nbsp;</td>
+                <td id="hqmzyPjzClzValue1">&nbsp;</td>
+                <td id="hqmzySzwcValue1">&nbsp;</td>
+                <td id="hqmzyScwcValue1">&nbsp;</td>
                 <td id="hqmzyZdyc" rowspan="5"></td>
-                <td style="width: 8%;" rowspan="5">□符合 □不符合</td>
+                <td style="width: 8%;" rowspan="5" id="hqmzyResult">□符合 □不符合</td>
             </tr>
             <tr>
                 <td id="hqmzyHxjsdz2"></td><!--20-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="hqmzyHxjjczValue12">&nbsp;</td>
+                <td id="hqmzyHxjjczValue22">&nbsp;</td>
+                <td id="hqmzyHxjjczValue32">&nbsp;</td>
+                <td id="hqmzyPjzJczValue2">&nbsp;</td>
+                <td id="hqmzyCslclzValue12">&nbsp;</td>
+                <td id="hqmzyCslclzValue22">&nbsp;</td>
+                <td id="hqmzyCslclzValue32">&nbsp;</td>
+                <td id="hqmzyPjzClzValue2">&nbsp;</td>
+                <td id="hqmzySzwcValue2">&nbsp;</td>
+                <td id="hqmzyScwcValue2">&nbsp;</td>
             </tr>
             <tr>
                 <td id="hqmzyHxjsdz3"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="hqmzyHxjjczValue13">&nbsp;</td>
+                <td id="hqmzyHxjjczValue23">&nbsp;</td>
+                <td id="hqmzyHxjjczValue33">&nbsp;</td>
+                <td id="hqmzyPjzJczValue3">&nbsp;</td>
+                <td id="hqmzyCslclzValue13">&nbsp;</td>
+                <td id="hqmzyCslclzValue23">&nbsp;</td>
+                <td id="hqmzyCslclzValue33">&nbsp;</td>
+                <td id="hqmzyPjzClzValue3">&nbsp;</td>
+                <td id="hqmzySzwcValue3">&nbsp;</td>
+                <td id="hqmzyScwcValue3">&nbsp;</td>
             </tr>
             <tr>
                 <td id="hqmzyHxjsdz4"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="hqmzyHxjjczValue14">&nbsp;</td>
+                <td id="hqmzyHxjjczValue24">&nbsp;</td>
+                <td id="hqmzyHxjjczValue34">&nbsp;</td>
+                <td id="hqmzyPjzJczValue4">&nbsp;</td>
+                <td id="hqmzyCslclzValue14">&nbsp;</td>
+                <td id="hqmzyCslclzValue24">&nbsp;</td>
+                <td id="hqmzyCslclzValue34">&nbsp;</td>
+                <td id="hqmzyPjzClzValue4">&nbsp;</td>
+                <td id="hqmzySzwcValue4">&nbsp;</td>
+                <td id="hqmzyScwcValue4">&nbsp;</td>
             </tr>
             <tr>
                 <td id="hqmzyHxjsdz5"></td><!--30-->
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td id="hqmzyHxjjczValue15">&nbsp;</td>
+                <td id="hqmzyHxjjczValue25">&nbsp;</td>
+                <td id="hqmzyHxjjczValue35">&nbsp;</td>
+                <td id="hqmzyPjzJczValue5">&nbsp;</td>
+                <td id="hqmzyCslclzValue15">&nbsp;</td>
+                <td id="hqmzyCslclzValue25">&nbsp;</td>
+                <td id="hqmzyCslclzValue35">&nbsp;</td>
+                <td id="hqmzyPjzClzValue5">&nbsp;</td>
+                <td id="hqmzySzwcValue5">&nbsp;</td>
+                <td id="hqmzyScwcValue5">&nbsp;</td>
             </tr>
         </table>
         <table class="layui-table">
@@ -550,53 +550,53 @@
             </tr>
             <tr>
                 <td>防误操作电源开关</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="fwczdykg">□符合 □不符合 □不适用</td>
                 <td>病人回路过压保护功能</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="brhlgybhgn">□符合 □不符合 □不适用</td>
                 <td>静音功能</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="jygn">□符合 □不符合 □不适用</td>
             </tr>
             <tr>
                 <td>静音时限</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="jysx">□符合 □不符合 □不适用</td>
                 <td>气道压力上/下限报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="qdylsxxbj">□符合 □不符合 □不适用</td>
                 <td>报警设置</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="bjsz">□符合 □不符合 □不适用</td>
             </tr>
             <tr>
                 <td>断电报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="ddbj">□符合 □不符合 □不适用</td>
                 <td>呼吸频率上/下限报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="hxplsxxbj">□符合 □不符合 □不适用</td>
                 <td>内部电源</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="nbdy">□符合 □不符合 □不适用</td>
             </tr>
             <tr>
                 <td>气源报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="qybj">□符合 □不符合 □不适用</td>
                 <td>氧浓度上/下限报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="yndsxxbj">□符合 □不符合 □不适用</td>
                 <td>误调节预防措施</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="wtjyfcs">□符合 □不符合 □不适用</td>
             </tr>
             <tr>
                 <td>分钟通气量上/下限报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="fztqlsxxbj">□符合 □不符合 □不适用</td>
                 <td>呼气末正压上/下限报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="hqmzysxxbj">□符合 □不符合 □不适用</td>
                 <td>通气窒息报警</td>
-                <td>□符合 □不符合 □不适用</td>
+                <td id="tqzxbj">□符合 □不符合 □不适用</td>
             </tr>
         </table>
         <table class="layui-table">
             <tr>
                 <td width="12%">检测结论</td>
-                <td></td>
+                <td id="jcjl"></td>
             </tr>
             <tr>
                 <td>检测说明</td>
-                <td></td>
+                <td id="jcsm"></td>
             </tr>
         </table>
         <fieldset class="layui-elem-field layui-field-title">
@@ -605,8 +605,8 @@
         <table class="layui-hide" id="testerInfo"></table>
         <div class="col-xs-12 btn">
             <a id="update" class="layui-btn">修改</a>
-            <a id="back" class="layui-btn">暂不上传</a>
-            <button id="upload" class="layui-btn layui-btn-normal">上传</button>
+            <!--<a id="back" class="layui-btn">暂不上传</a>
+            <button id="upload" class="layui-btn layui-btn-normal">上传</button>-->
         </div>
     </div>
 </div>
@@ -622,8 +622,9 @@
     var thisId = parseInt(sessionStorage['thisId']);
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var dqSb = sessionStorage['dqSb'];
+    var breathType = 0;
     $(function () {
-        sessionStorage['breathSb'] = 1;
+        sessionStorage['brheathSb'] = 1;
         $.ajax({
             url: "/hxj/findByHxjId?hxjId=" + ids,
             method: "GET",
@@ -631,244 +632,353 @@
             success: function (res) {
                 console.log(res);
                 if (res.data != null && res.data != "") {
-                    // 400
-                    $("#cqzh11").append(res.data.cqzh11);
-                    $("#cqzh12").append(res.data.cqzh12);
-                    $("#cqzh13").append(res.data.cqzh13);
-                    $("#cqzhp11").append(res.data.cqzhp11);
-                    $("#cqzc11").append(res.data.cqzc11);
-                    $("#cqzc12").append(res.data.cqzc12);
-                    $("#cqzc13").append(res.data.cqzc13);
-                    $("#cqzcp12").append(res.data.cqzcp12);
-                    $("#cqz1Swc").append(res.data.cqz1Swc);
-                    // 600
-                    $("#cqzh21").append(res.data.cqzh21);
-                    $("#cqzh22").append(res.data.cqzh22);
-                    $("#cqzh23").append(res.data.cqzh23);
-                    $("#cqzhp21").append(res.data.cqzhp21);
-                    $("#cqzc21").append(res.data.cqzc21);
-                    $("#cqzc22").append(res.data.cqzc22);
-                    $("#cqzc23").append(res.data.cqzc23);
-                    $("#cqzcp22").append(res.data.cqzcp22);
-                    $("#cqz2Swc").append(res.data.cqz2Swc);
-                    // 800
-                    $("#cqzh31").append(res.data.cqzh31);
-                    $("#cqzh32").append(res.data.cqzh32);
-                    $("#cqzh33").append(res.data.cqzh33);
-                    $("#cqzhp31").append(res.data.cqzhp31);
-                    $("#cqzc31").append(res.data.cqzc31);
-                    $("#cqzc32").append(res.data.cqzc32);
-                    $("#cqzc33").append(res.data.cqzc33);
-                    $("#cqzcp32").append(res.data.cqzcp32);
-                    $("#cqz3Swc").append(res.data.cqz3Swc);
-                    if (res.data.cqz1Swc >= 0 && res.data.cqz1Swc <= 60 && res.data.cqz2Swc >= 0 && res.data.cqz2Swc <= 90 && res.data.cqz3Swc >= 0 && res.data.cqz3Swc <= 120) {
-                        $("#jy1").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jy1").append("<p style='color:red;'>不符合</p>");
+                    for (var d in res.data) {
+                        if (res.data.hasOwnProperty(d) && res.data[d] === "合格" || res.data[d] === "不合格") {
+                            if (res.data[d] === "合格") {
+                                res.data[d] = "<p style='color:green;'>符合</p>";
+                            } else if (res.data[d] === "不合格") {
+                                res.data[d] = "<p style='color:red;' class='not_pass'>不符合</p>";
+                            }
+                        }
                     }
-                    // 10
-                    $("#qztqh11").append(res.data.qztqh11);
-                    $("#qztqh12").append(res.data.qztqh12);
-                    $("#qztqh13").append(res.data.qztqh13);
-                    $("#qztqhp11").append(res.data.qztqhp11);
-                    $("#qztqc11").append(res.data.qztqc11);
-                    $("#qztqc12").append(res.data.qztqc12);
-                    $("#qztqc13").append(res.data.qztqc13);
-                    $("#qztqcp12").append(res.data.qztqcp12);
-                    $("#qztq1Swc").append(res.data.qztq1Swc);
-                    // 25
-                    $("#qztqh21").append(res.data.qztqh21);
-                    $("#qztqh22").append(res.data.qztqh22);
-                    $("#qztqh23").append(res.data.qztqh23);
-                    $("#qztqhp21").append(res.data.qztqhp21);
-                    $("#qztqc21").append(res.data.qztqc21);
-                    $("#qztqc22").append(res.data.qztqc22);
-                    $("#qztqc23").append(res.data.qztqc23);
-                    $("#qztqcp22").append(res.data.qztqcp22);
-                    $("#qztq2Swc").append(res.data.qztq2Swc);
-                    // 40
-                    $("#qztqh31").append(res.data.qztqh31);
-                    $("#qztqh32").append(res.data.qztqh32);
-                    $("#qztqh33").append(res.data.qztqh33);
-                    $("#qztqhp31").append(res.data.qztqhp31);
-                    $("#qztqc32").append(res.data.qztqc32);
-                    $("#qztqc33").append(res.data.qztqc33);
-                    $("#qztqcp32").append(res.data.qztqcp32);
-                    $("#qztq3Swc").append(res.data.qztq3Swc);
-                    if (res.data.qztq1Swc >= 0 && res.data.qztq1Swc <= 1 && res.data.qztq2Swc >= 0 && res.data.qztq2Swc <= 2.5 && res.data.qztq3Swc >= 0 && res.data.qztq3Swc <= 4) {
-                        $("#jy2").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jy2").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 21
-                    $("#xryh11").append(res.data.xryh11);
-                    $("#xryh12").append(res.data.xryh12);
-                    $("#xryh13").append(res.data.xryh13);
-                    $("#xryhp11").append(res.data.xryhp11);
-                    $("#xryc11").append(res.data.xryc11);
-                    $("#xryc12").append(res.data.xryc12);
-                    $("#xryc13").append(res.data.xryc13);
-                    $("#xrycp12").append(res.data.xrycp12);
-                    $("#xry1Swc").append(res.data.xry1Swc);
-                    // 60
-                    $("#xryh21").append(res.data.xryh21);
-                    $("#xryh22").append(res.data.xryh22);
-                    $("#xryh23").append(res.data.xryh23);
-                    $("#xryhp21").append(res.data.xryhp21);
-                    $("#xryc21").append(res.data.xryc21);
-                    $("#xryc22").append(res.data.xryc22);
-                    $("#xryc23").append(res.data.xryc23);
-                    $("#xrycp22").append(res.data.xrycp22);
-                    $("#xry2Swc").append(res.data.xry2Swc);
-                    // 100
-                    $("#xryh31").append(res.data.xryh31);
-                    $("#xryh32").append(res.data.xryh32);
-                    $("#xryh33").append(res.data.xryh33);
-                    $("#xryhp31").append(res.data.xryhp31);
-                    $("#xryc31").append(res.data.xryc31);
-                    $("#xryc32").append(res.data.xryc32);
-                    $("#xryc33").append(res.data.xryc33);
-                    $("#xrycp32").append(res.data.xrycp32);
-                    $("#xry3Swc").append(res.data.xry3Swc);
-                    if (res.data.xry1Swc >= 0 && res.data.xry1Swc <= 1.05 && res.data.xry2Swc >= 0 && res.data.xry2Swc <= 3 && res.data.xry3Swc >= 0 && res.data.xry3Swc <= 5) {
-                        $("#jy3").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jy3").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 10
-                    $("#xqfh11").append(res.data.xqfh11);
-                    $("#xqfh12").append(res.data.xqfh12);
-                    $("#xqfh13").append(res.data.xqfh13);
-                    $("#xqfhp11").append(res.data.xqfhp11);
-                    $("#xqfc11").append(res.data.xqfc11);
-                    $("#xqfc12").append(res.data.xqfc12);
-                    $("#xqfc13").append(res.data.xqfc13);
-                    $("#xqfcp12").append(res.data.xqfcp12);
-                    $("#xqf1Swc").append(res.data.xqf1Swc);
-                    // 20
-                    $("#xqfh21").append(res.data.xqfh21);
-                    $("#xqfh22").append(res.data.xqfh22);
-                    $("#xqfh23").append(res.data.xqfh23);
-                    $("#xqfhp21").append(res.data.xqfhp21);
-                    $("#xqfc21").append(res.data.xqfc21);
-                    $("#xqfc22").append(res.data.xqfc22);
-                    $("#xqfc23").append(res.data.xqfc23);
-                    $("#xqfcp22").append(res.data.xqfcp22);
-                    $("#xqf2Swc").append(res.data.xqf2Swc);
-                    // 30
-                    $("#xqfh31").append(res.data.xqfh31);
-                    $("#xqfh32").append(res.data.xqfh32);
-                    $("#xqfh33").append(res.data.xqfh33);
-                    $("#xqfhp31").append(res.data.xqfhp31);
-                    $("#xqfc31").append(res.data.xqfc31);
-                    $("#xqfc32").append(res.data.xqfc32);
-                    $("#xqfc33").append(res.data.xqfc33);
-                    $("#xqfcp32").append(res.data.xqfcp32);
-                    $("#xqf3Swc").append(res.data.xqf3Swc);
-                    if (res.data.xqf1Swc >= 0 && res.data.xqf1Swc <= 3 && res.data.xqf2Swc >= 0 && res.data.xqf2Swc <= 3 && res.data.xqf3Swc >= 0 && res.data.xqf3Swc <= 3) {
-                        $("#jy4").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jy4").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 2
-                    $("#hqmh11").append(res.data.hqmh11);
-                    $("#hqmh12").append(res.data.hqmh12);
-                    $("#hqmh13").append(res.data.hqmh13);
-                    $("#hqmhp11").append(res.data.hqmhp11);
-                    $("#hqmc11").append(res.data.hqmc11);
-                    $("#hqmc12").append(res.data.hqmc12);
-                    $("#hqmc13").append(res.data.hqmc13);
-                    $("#hqmcp12").append(res.data.hqmcp12);
-                    $("#hqm1Swc").append(res.data.hqm1Swc);
-                    // 5
-                    $("#hqmh21").append(res.data.hqmh21);
-                    $("#hqmh22").append(res.data.hqmh22);
-                    $("#hqmh23").append(res.data.hqmh23);
-                    $("#hqmhp21").append(res.data.hqmhp21);
-                    $("#hqmc21").append(res.data.hqmc21);
-                    $("#hqmc22").append(res.data.hqmc22);
-                    $("#hqmc23").append(res.data.hqmc23);
-                    $("#hqmcp22").append(res.data.hqmcp22);
-                    $("#hqm2Swc").append(res.data.hqm2Swc);
-                    // 15
-                    $("#hqmh31").append(res.data.hqmh31);
-                    $("#hqmh32").append(res.data.hqmh32);
-                    $("#hqmh33").append(res.data.hqmh33);
-                    $("#hqmhp31").append(res.data.hqmhp31);
-                    $("#hqmc31").append(res.data.hqmc31);
-                    $("#hqmc32").append(res.data.hqmc32);
-                    $("#hqmc33").append(res.data.hqmc33);
-                    $("#hqmcp32").append(res.data.hqmcp32);
-                    $("#hqm3Swc").append(res.data.hqm3Swc);
-                    if (res.data.hqm1Swc >= 0 && res.data.hqm1Swc <= 2 && res.data.hqm2Swc >= 0 && res.data.hqm2Swc <= 2 && res.data.hqm3Swc >= 0 && res.data.hqm3Swc <= 2) {
-                        $("#jy5").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jy5").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 单选框
-                    if (res.data.dybj == 1) {
-                        $("#dybj").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.dybj == 2) {
-                        $("#dybj").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#dybj").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.yqndsx == 1) {
-                        $("#yqndsx").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.yqndsx == 2) {
-                        $("#yqndsx").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#yqndsx").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.qybj == 1) {
-                        $("#qybj").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.qybj == 2) {
-                        $("#qybj").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#qybj").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.zxbj == 1) {
-                        $("#zxbj").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.zxbj == 2) {
-                        $("#zxbj").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#zxbj").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.qdyl == 1) {
-                        $("#qdyl").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.qdyl == 2) {
-                        $("#qdyl").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#qdyl").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.brhl == 1) {
-                        $("#brhl").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.brhl == 2) {
-                        $("#brhl").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#brhl").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.fztql == 1) {
-                        $("#fztql").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.fztql == 2) {
-                        $("#fztql").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#fztql").append("<p style='color: red;'>不适用</p>");
-                    }
-
-                    if (res.data.ajgn == 1) {
-                        $("#ajgn").append("<p style='color: green;'>符合</p>");
-                    } else if (res.data.fztql == 2) {
-                        $("#ajgn").append("<p style='color: red;'>不符合</p>");
-                    } else {
-                        $("#ajgn").append("<p style='color: red;'>不适用</p>");
-                    }
+                    breathType = res.data.type;
+                    $("#table_title").html(res.data.type == 0 ? "呼吸机质量检测原始记录表(成人)" : "呼吸机质量检测原始记录表(新生儿)");
+                    $("#hxjId").html(res.data.hxjId);
+                    $("#jcyqId").html(res.data.jcyqId);
+                    $("#eqId").html(res.data.eqId);
+                    $("#tester").html(res.data.tester);
+                    $("#auditor").html(res.data.auditor);
+                    $("#shsjTime").html(res.data.shsjTime);
+                    $("#shrJcjl").html(res.data.shrJcjl);
+                    $("#testTime").html(res.data.testTime);
+                    $("#jcjl").html(res.data.jcjl);
+                    $("#jcsm").html(res.data.jcsm);
+                    $("#bhjdzkClzValue").html(res.data.bhjdzkClzValue);
+                    $("#bhjdzkYxz").html(res.data.bhjdzkYxz);
+                    $("#bhjdzkResult").html(res.data.bhjdzkResult);
+                    $("#jyzkClzValue").html(res.data.jyzkClzValue);
+                    $("#jyzkYxz").html(res.data.jyzkYxz);
+                    $("#jykzResult").html(res.data.jykzResult);
+                    $("#ddldZcZxValue").html(res.data.ddldZcZxValue);
+                    $("#ddldZcFxValue").html(res.data.ddldZcFxValue);
+                    $("#ddldZcYxz").html(res.data.ddldZcYxz);
+                    $("#ddldZcResult").html(res.data.ddldZcResult);
+                    $("#ddldDygzZxdlValue").html(res.data.ddldDygzZxdlValue);
+                    $("#ddldDygzFxdlValue").html(res.data.ddldDygzFxdlValue);
+                    $("#ddldDygzYxz").html(res.data.ddldDygzYxz);
+                    $("#ddldDygzResult").html(res.data.ddldDygzResult);
+                    $("#wkldZcZxValue").html(res.data.wkldZcZxValue);
+                    $("#wkldZcFxValue").html(res.data.wkldZcFxValue);
+                    $("#wkldZcYxz").html(res.data.wkldZcYxz);
+                    $("#wkldZcResult").html(res.data.wkldZcResult);
+                    $("#wkldDyZxdlValue1").html(res.data.wkldDyZxdlValue1);
+                    $("#wkldDyZxddValue").html(res.data.wkldDyZxddValue);
+                    $("#wkldDyZxdlValue2").html(res.data.wkldDyZxdlValue2);
+                    $("#wkldDyFxddValue").html(res.data.wkldDyFxddValue);
+                    $("#wkldDyYx").html(res.data.wkldDyYx);
+                    $("#wkldDyResult").html(res.data.wkldDyResult);
+                    $("#cqlHxjsdz1").html(res.data.cqlHxjsdz1);
+                    $("#cqlHxjsdz2").html(res.data.cqlHxjsdz2);
+                    $("#cqlHxjsdz3").html(res.data.cqlHxjsdz3);
+                    $("#cqlHxjsdz4").html(res.data.cqlHxjsdz4);
+                    $("#cqlHxjsdz5").html(res.data.cqlHxjsdz5);
+                    $("#cqlHxjjczValue11").html(res.data.cqlHxjjczValue11);
+                    $("#cqlHxjjczValue12").html(res.data.cqlHxjjczValue12);
+                    $("#cqlHxjjczValue13").html(res.data.cqlHxjjczValue13);
+                    $("#cqlHxjjczValue14").html(res.data.cqlHxjjczValue14);
+                    $("#cqlHxjjczValue15").html(res.data.cqlHxjjczValue15);
+                    $("#cqlHxjjczValue21").html(res.data.cqlHxjjczValue21);
+                    $("#cqlHxjjczValue22").html(res.data.cqlHxjjczValue22);
+                    $("#cqlHxjjczValue23").html(res.data.cqlHxjjczValue23);
+                    $("#cqlHxjjczValue24").html(res.data.cqlHxjjczValue24);
+                    $("#cqlHxjjczValue25").html(res.data.cqlHxjjczValue25);
+                    $("#cqlHxjjczValue31").html(res.data.cqlHxjjczValue31);
+                    $("#cqlHxjjczValue32").html(res.data.cqlHxjjczValue32);
+                    $("#cqlHxjjczValue33").html(res.data.cqlHxjjczValue33);
+                    $("#cqlHxjjczValue34").html(res.data.cqlHxjjczValue34);
+                    $("#cqlHxjjczValue35").html(res.data.cqlHxjjczValue35);
+                    $("#cqlPjzJczValue1").html(res.data.cqlPjzJczValue1);
+                    $("#cqlPjzJczValue2").html(res.data.cqlPjzJczValue2);
+                    $("#cqlPjzJczValue3").html(res.data.cqlPjzJczValue3);
+                    $("#cqlPjzJczValue4").html(res.data.cqlPjzJczValue4);
+                    $("#cqlPjzJczValue5").html(res.data.cqlPjzJczValue5);
+                    $("#cqlCslclzValue11").html(res.data.cqlCslclzValue11);
+                    $("#cqlCslclzValue12").html(res.data.cqlCslclzValue12);
+                    $("#cqlCslclzValue13").html(res.data.cqlCslclzValue13);
+                    $("#cqlCslclzValue14").html(res.data.cqlCslclzValue14);
+                    $("#cqlCslclzValue15").html(res.data.cqlCslclzValue15);
+                    $("#cqlCslclzValue21").html(res.data.cqlCslclzValue21);
+                    $("#cqlCslclzValue22").html(res.data.cqlCslclzValue22);
+                    $("#cqlCslclzValue23").html(res.data.cqlCslclzValue23);
+                    $("#cqlCslclzValue24").html(res.data.cqlCslclzValue24);
+                    $("#cqlCslclzValue25").html(res.data.cqlCslclzValue25);
+                    $("#cqlCslclzValue31").html(res.data.cqlCslclzValue31);
+                    $("#cqlCslclzValue32").html(res.data.cqlCslclzValue32);
+                    $("#cqlCslclzValue33").html(res.data.cqlCslclzValue33);
+                    $("#cqlCslclzValue34").html(res.data.cqlCslclzValue34);
+                    $("#cqlCslclzValue35").html(res.data.cqlCslclzValue35);
+                    $("#cqlPjzClzValue1").html(res.data.cqlPjzClzValue1);
+                    $("#cqlPjzClzValue2").html(res.data.cqlPjzClzValue2);
+                    $("#cqlPjzClzValue3").html(res.data.cqlPjzClzValue3);
+                    $("#cqlPjzClzValue4").html(res.data.cqlPjzClzValue4);
+                    $("#cqlPjzClzValue5").html(res.data.cqlPjzClzValue5);
+                    $("#cqlSzwcValue1").html(res.data.cqlSzwcValue1);
+                    $("#cqlSzwcValue2").html(res.data.cqlSzwcValue2);
+                    $("#cqlSzwcValue3").html(res.data.cqlSzwcValue3);
+                    $("#cqlSzwcValue4").html(res.data.cqlSzwcValue4);
+                    $("#cqlSzwcValue5").html(res.data.cqlSzwcValue5);
+                    $("#cqlScwcValue1").html(res.data.cqlScwcValue1);
+                    $("#cqlScwcValue2").html(res.data.cqlScwcValue2);
+                    $("#cqlScwcValue3").html(res.data.cqlScwcValue3);
+                    $("#cqlScwcValue4").html(res.data.cqlScwcValue4);
+                    $("#cqlScwcValue5").html(res.data.cqlScwcValue5);
+                    $("#cqlZdyc").html(res.data.cqlZdyc);
+                    $("#cqlResult").html(res.data.cqlResult);
+                    $("#qztqplHxjsdz1").html(res.data.qztqplHxjsdz1);
+                    $("#qztqplHxjsdz2").html(res.data.qztqplHxjsdz2);
+                    $("#qztqplHxjsdz3").html(res.data.qztqplHxjsdz3);
+                    $("#qztqplHxjsdz4").html(res.data.qztqplHxjsdz4);
+                    $("#qztqplHxjsdz5").html(res.data.qztqplHxjsdz5);
+                    $("#qztqplHxjjczValue11").html(res.data.qztqplHxjjczValue11);
+                    $("#qztqplHxjjczValue12").html(res.data.qztqplHxjjczValue12);
+                    $("#qztqplHxjjczValue13").html(res.data.qztqplHxjjczValue13);
+                    $("#qztqplHxjjczValue14").html(res.data.qztqplHxjjczValue14);
+                    $("#qztqplHxjjczValue15").html(res.data.qztqplHxjjczValue15);
+                    $("#qztqplHxjjczValue21").html(res.data.qztqplHxjjczValue21);
+                    $("#qztqplHxjjczValue22").html(res.data.qztqplHxjjczValue22);
+                    $("#qztqplHxjjczValue23").html(res.data.qztqplHxjjczValue23);
+                    $("#qztqplHxjjczValue24").html(res.data.qztqplHxjjczValue24);
+                    $("#qztqplHxjjczValue25").html(res.data.qztqplHxjjczValue25);
+                    $("#qztqplHxjjczValue31").html(res.data.qztqplHxjjczValue31);
+                    $("#qztqplHxjjczValue32").html(res.data.qztqplHxjjczValue32);
+                    $("#qztqplHxjjczValue33").html(res.data.qztqplHxjjczValue33);
+                    $("#qztqplHxjjczValue34").html(res.data.qztqplHxjjczValue34);
+                    $("#qztqplHxjjczValue35").html(res.data.qztqplHxjjczValue35);
+                    $("#qztqplPjzJczValue1").html(res.data.qztqplPjzJczValue1);
+                    $("#qztqplPjzJczValue2").html(res.data.qztqplPjzJczValue2);
+                    $("#qztqplPjzJczValue3").html(res.data.qztqplPjzJczValue3);
+                    $("#qztqplPjzJczValue4").html(res.data.qztqplPjzJczValue4);
+                    $("#qztqplPjzJczValue5").html(res.data.qztqplPjzJczValue5);
+                    $("#qztqplCsyclzValue11").html(res.data.qztqplCsyclzValue11);
+                    $("#qztqplCsyclzValue12").html(res.data.qztqplCsyclzValue12);
+                    $("#qztqplCsyclzValue13").html(res.data.qztqplCsyclzValue13);
+                    $("#qztqplCsyclzValue14").html(res.data.qztqplCsyclzValue14);
+                    $("#qztqplCsyclzValue15").html(res.data.qztqplCsyclzValue15);
+                    $("#qztqplCsyclzValue21").html(res.data.qztqplCsyclzValue21);
+                    $("#qztqplCsyclzValue22").html(res.data.qztqplCsyclzValue22);
+                    $("#qztqplCsyclzValue23").html(res.data.qztqplCsyclzValue23);
+                    $("#qztqplCsyclzValue24").html(res.data.qztqplCsyclzValue24);
+                    $("#qztqplCsyclzValue25").html(res.data.qztqplCsyclzValue25);
+                    $("#qztqplCsyclzValue31").html(res.data.qztqplCsyclzValue31);
+                    $("#qztqplCsyclzValue32").html(res.data.qztqplCsyclzValue32);
+                    $("#qztqplCsyclzValue33").html(res.data.qztqplCsyclzValue33);
+                    $("#qztqplCsyclzValue34").html(res.data.qztqplCsyclzValue34);
+                    $("#qztqplCsyclzValue35").html(res.data.qztqplCsyclzValue35);
+                    $("#qztqplPjzClzValue1").html(res.data.qztqplPjzClzValue1);
+                    $("#qztqplPjzClzValue2").html(res.data.qztqplPjzClzValue2);
+                    $("#qztqplPjzClzValue3").html(res.data.qztqplPjzClzValue3);
+                    $("#qztqplPjzClzValue4").html(res.data.qztqplPjzClzValue4);
+                    $("#qztqplPjzClzValue5").html(res.data.qztqplPjzClzValue5);
+                    $("#qztqplSzwcValue1").html(res.data.qztqplSzwcValue1);
+                    $("#qztqplSzwcValue2").html(res.data.qztqplSzwcValue2);
+                    $("#qztqplSzwcValue3").html(res.data.qztqplSzwcValue3);
+                    $("#qztqplSzwcValue4").html(res.data.qztqplSzwcValue4);
+                    $("#qztqplSzwcValue5").html(res.data.qztqplSzwcValue5);
+                    $("#qztqplScwcValue1").html(res.data.qztqplScwcValue1);
+                    $("#qztqplScwcValue2").html(res.data.qztqplScwcValue2);
+                    $("#qztqplScwcValue3").html(res.data.qztqplScwcValue3);
+                    $("#qztqplScwcValue4").html(res.data.qztqplScwcValue4);
+                    $("#qztqplScwcValue5").html(res.data.qztqplScwcValue5);
+                    $("#qztqplZdyc").html(res.data.qztqplZdyc);
+                    $("#qztqplResult").html(res.data.qztqplResult);
+                    $("#xryndHxjsdz1").html(res.data.xryndHxjsdz1);
+                    $("#xryndHxjsdz2").html(res.data.xryndHxjsdz2);
+                    $("#xryndHxjsdz3").html(res.data.xryndHxjsdz3);
+                    $("#xryndHxjsdz4").html(res.data.xryndHxjsdz4);
+                    $("#xryndHxjsdz5").html(res.data.xryndHxjsdz5);
+                    $("#xryndHxjjczValue11").html(res.data.xryndHxjjczValue11);
+                    $("#xryndHxjjczValue12").html(res.data.xryndHxjjczValue12);
+                    $("#xryndHxjjczValue13").html(res.data.xryndHxjjczValue13);
+                    $("#xryndHxjjczValue14").html(res.data.xryndHxjjczValue14);
+                    $("#xryndHxjjczValue15").html(res.data.xryndHxjjczValue15);
+                    $("#xryndHxjjczValue21").html(res.data.xryndHxjjczValue21);
+                    $("#xryndHxjjczValue22").html(res.data.xryndHxjjczValue22);
+                    $("#xryndHxjjczValue23").html(res.data.xryndHxjjczValue23);
+                    $("#xryndHxjjczValue24").html(res.data.xryndHxjjczValue24);
+                    $("#xryndHxjjczValue25").html(res.data.xryndHxjjczValue25);
+                    $("#xryndHxjjczValue31").html(res.data.xryndHxjjczValue31);
+                    $("#xryndHxjjczValue32").html(res.data.xryndHxjjczValue32);
+                    $("#xryndHxjjczValue33").html(res.data.xryndHxjjczValue33);
+                    $("#xryndHxjjczValue34").html(res.data.xryndHxjjczValue34);
+                    $("#xryndHxjjczValue35").html(res.data.xryndHxjjczValue35);
+                    $("#xryndPjzJczValue1").html(res.data.xryndPjzJczValue1);
+                    $("#xryndPjzJczValue2").html(res.data.xryndPjzJczValue2);
+                    $("#xryndPjzJczValue3").html(res.data.xryndPjzJczValue3);
+                    $("#xryndPjzJczValue4").html(res.data.xryndPjzJczValue4);
+                    $("#xryndPjzJczValue5").html(res.data.xryndPjzJczValue5);
+                    $("#xryndCslclzValue11").html(res.data.xryndCslclzValue11);
+                    $("#xryndCslclzValue12").html(res.data.xryndCslclzValue12);
+                    $("#xryndCslclzValue13").html(res.data.xryndCslclzValue13);
+                    $("#xryndCslclzValue14").html(res.data.xryndCslclzValue14);
+                    $("#xryndCslclzValue15").html(res.data.xryndCslclzValue15);
+                    $("#xryndCslclzValue21").html(res.data.xryndCslclzValue21);
+                    $("#xryndCslclzValue22").html(res.data.xryndCslclzValue22);
+                    $("#xryndCslclzValue23").html(res.data.xryndCslclzValue23);
+                    $("#xryndCslclzValue24").html(res.data.xryndCslclzValue24);
+                    $("#xryndCslclzValue25").html(res.data.xryndCslclzValue25);
+                    $("#xryndCslclzValue31").html(res.data.xryndCslclzValue31);
+                    $("#xryndCslclzValue32").html(res.data.xryndCslclzValue32);
+                    $("#xryndCslclzValue33").html(res.data.xryndCslclzValue33);
+                    $("#xryndCslclzValue34").html(res.data.xryndCslclzValue34);
+                    $("#xryndCslclzValue35").html(res.data.xryndCslclzValue35);
+                    $("#xryndPjzClzValue1").html(res.data.xryndPjzClzValue1);
+                    $("#xryndPjzClzValue2").html(res.data.xryndPjzClzValue2);
+                    $("#xryndPjzClzValue3").html(res.data.xryndPjzClzValue3);
+                    $("#xryndPjzClzValue4").html(res.data.xryndPjzClzValue4);
+                    $("#xryndPjzClzValue5").html(res.data.xryndPjzClzValue5);
+                    $("#xryndSzwcValue1").html(res.data.xryndSzwcValue1);
+                    $("#xryndSzwcValue2").html(res.data.xryndSzwcValue2);
+                    $("#xryndSzwcValue3").html(res.data.xryndSzwcValue3);
+                    $("#xryndSzwcValue4").html(res.data.xryndSzwcValue4);
+                    $("#xryndSzwcValue5").html(res.data.xryndSzwcValue5);
+                    $("#xryndScwcValue1").html(res.data.xryndScwcValue1);
+                    $("#xryndScwcValue2").html(res.data.xryndScwcValue2);
+                    $("#xryndScwcValue3").html(res.data.xryndScwcValue3);
+                    $("#xryndScwcValue4").html(res.data.xryndScwcValue4);
+                    $("#xryndScwcValue5").html(res.data.xryndScwcValue5);
+                    $("#xryndZdyc").html(res.data.xryndZdyc);
+                    $("#xryndResult").html(res.data.xryndResult);
+                    $("#xqfzylHxjsdz1").html(res.data.xqfzylHxjsdz1);
+                    $("#xqfzylHxjsdz2").html(res.data.xqfzylHxjsdz2);
+                    $("#xqfzylHxjsdz3").html(res.data.xqfzylHxjsdz3);
+                    $("#xqfzylHxjsdz4").html(res.data.xqfzylHxjsdz4);
+                    $("#xqfzylHxjsdz5").html(res.data.xqfzylHxjsdz5);
+                    $("#xqfzylHxjjczValue11").html(res.data.xqfzylHxjjczValue11);
+                    $("#xqfzylHxjjczValue12").html(res.data.xqfzylHxjjczValue12);
+                    $("#xqfzylHxjjczValue13").html(res.data.xqfzylHxjjczValue13);
+                    $("#xqfzylHxjjczValue14").html(res.data.xqfzylHxjjczValue14);
+                    $("#xqfzylHxjjczValue15").html(res.data.xqfzylHxjjczValue15);
+                    $("#xqfzylHxjjczValue21").html(res.data.xqfzylHxjjczValue21);
+                    $("#xqfzylHxjjczValue22").html(res.data.xqfzylHxjjczValue22);
+                    $("#xqfzylHxjjczValue23").html(res.data.xqfzylHxjjczValue23);
+                    $("#xqfzylHxjjczValue24").html(res.data.xqfzylHxjjczValue24);
+                    $("#xqfzylHxjjczValue25").html(res.data.xqfzylHxjjczValue25);
+                    $("#xqfzylHxjjczValue31").html(res.data.xqfzylHxjjczValue31);
+                    $("#xqfzylHxjjczValue32").html(res.data.xqfzylHxjjczValue32);
+                    $("#xqfzylHxjjczValue33").html(res.data.xqfzylHxjjczValue33);
+                    $("#xqfzylHxjjczValue34").html(res.data.xqfzylHxjjczValue34);
+                    $("#xqfzylHxjjczValue35").html(res.data.xqfzylHxjjczValue35);
+                    $("#xqfzylPjzJczValue1").html(res.data.xqfzylPjzJczValue1);
+                    $("#xqfzylPjzJczValue2").html(res.data.xqfzylPjzJczValue2);
+                    $("#xqfzylPjzJczValue3").html(res.data.xqfzylPjzJczValue3);
+                    $("#xqfzylPjzJczValue4").html(res.data.xqfzylPjzJczValue4);
+                    $("#xqfzylPjzJczValue5").html(res.data.xqfzylPjzJczValue5);
+                    $("#xqfzylCslclzValue11").html(res.data.xqfzylCslclzValue11);
+                    $("#xqfzylCslclzValue12").html(res.data.xqfzylCslclzValue12);
+                    $("#xqfzylCslclzValue13").html(res.data.xqfzylCslclzValue13);
+                    $("#xqfzylCslclzValue14").html(res.data.xqfzylCslclzValue14);
+                    $("#xqfzylCslclzValue15").html(res.data.xqfzylCslclzValue15);
+                    $("#xqfzylCslclzValue21").html(res.data.xqfzylCslclzValue21);
+                    $("#xqfzylCslclzValue22").html(res.data.xqfzylCslclzValue22);
+                    $("#xqfzylCslclzValue23").html(res.data.xqfzylCslclzValue23);
+                    $("#xqfzylCslclzValue24").html(res.data.xqfzylCslclzValue24);
+                    $("#xqfzylCslclzValue25").html(res.data.xqfzylCslclzValue25);
+                    $("#xqfzylCslclzValue31").html(res.data.xqfzylCslclzValue31);
+                    $("#xqfzylCslclzValue32").html(res.data.xqfzylCslclzValue32);
+                    $("#xqfzylCslclzValue33").html(res.data.xqfzylCslclzValue33);
+                    $("#xqfzylCslclzValue34").html(res.data.xqfzylCslclzValue34);
+                    $("#xqfzylCslclzValue35").html(res.data.xqfzylCslclzValue35);
+                    $("#xqfzylPjzClzValue1").html(res.data.xqfzylPjzClzValue1);
+                    $("#xqfzylPjzClzValue2").html(res.data.xqfzylPjzClzValue2);
+                    $("#xqfzylPjzClzValue3").html(res.data.xqfzylPjzClzValue3);
+                    $("#xqfzylPjzClzValue4").html(res.data.xqfzylPjzClzValue4);
+                    $("#xqfzylPjzClzValue5").html(res.data.xqfzylPjzClzValue5);
+                    $("#xqfzylSzwcValue1").html(res.data.xqfzylSzwcValue1);
+                    $("#xqfzylSzwcValue2").html(res.data.xqfzylSzwcValue2);
+                    $("#xqfzylSzwcValue3").html(res.data.xqfzylSzwcValue3);
+                    $("#xqfzylSzwcValue4").html(res.data.xqfzylSzwcValue4);
+                    $("#xqfzylSzwcValue5").html(res.data.xqfzylSzwcValue5);
+                    $("#xqfzylScwcValue1").html(res.data.xqfzylScwcValue1);
+                    $("#xqfzylScwcValue2").html(res.data.xqfzylScwcValue2);
+                    $("#xqfzylScwcValue3").html(res.data.xqfzylScwcValue3);
+                    $("#xqfzylScwcValue4").html(res.data.xqfzylScwcValue4);
+                    $("#xqfzylScwcValue5").html(res.data.xqfzylScwcValue5);
+                    $("#xqfzylZdyc").html(res.data.xqfzylZdyc1);
+                    $("#xqfzylResult").html(res.data.xqfzylResult);
+                    $("#hqmzyHxjsdz1").html(res.data.hqmzyHxjsdz1);
+                    $("#hqmzyHxjsdz2").html(res.data.hqmzyHxjsdz2);
+                    $("#hqmzyHxjsdz3").html(res.data.hqmzyHxjsdz3);
+                    $("#hqmzyHxjsdz4").html(res.data.hqmzyHxjsdz4);
+                    $("#hqmzyHxjsdz5").html(res.data.hqmzyHxjsdz5);
+                    $("#hqmzyHxjjczValue11").html(res.data.hqmzyHxjjczValue11);
+                    $("#hqmzyHxjjczValue12").html(res.data.hqmzyHxjjczValue12);
+                    $("#hqmzyHxjjczValue13").html(res.data.hqmzyHxjjczValue13);
+                    $("#hqmzyHxjjczValue14").html(res.data.hqmzyHxjjczValue14);
+                    $("#hqmzyHxjjczValue15").html(res.data.hqmzyHxjjczValue15);
+                    $("#hqmzyHxjjczValue21").html(res.data.hqmzyHxjjczValue21);
+                    $("#hqmzyHxjjczValue22").html(res.data.hqmzyHxjjczValue22);
+                    $("#hqmzyHxjjczValue23").html(res.data.hqmzyHxjjczValue23);
+                    $("#hqmzyHxjjczValue24").html(res.data.hqmzyHxjjczValue24);
+                    $("#hqmzyHxjjczValue25").html(res.data.hqmzyHxjjczValue25);
+                    $("#hqmzyHxjjczValue31").html(res.data.hqmzyHxjjczValue31);
+                    $("#hqmzyHxjjczValue32").html(res.data.hqmzyHxjjczValue32);
+                    $("#hqmzyHxjjczValue33").html(res.data.hqmzyHxjjczValue33);
+                    $("#hqmzyHxjjczValue34").html(res.data.hqmzyHxjjczValue34);
+                    $("#hqmzyHxjjczValue35").html(res.data.hqmzyHxjjczValue35);
+                    $("#hqmzyPjzJczValue1").html(res.data.hqmzyPjzJczValue1);
+                    $("#hqmzyPjzJczValue2").html(res.data.hqmzyPjzJczValue2);
+                    $("#hqmzyPjzJczValue3").html(res.data.hqmzyPjzJczValue3);
+                    $("#hqmzyPjzJczValue4").html(res.data.hqmzyPjzJczValue4);
+                    $("#hqmzyPjzJczValue5").html(res.data.hqmzyPjzJczValue5);
+                    $("#hqmzyCslclzValue11").html(res.data.hqmzyCslclzValue11);
+                    $("#hqmzyCslclzValue12").html(res.data.hqmzyCslclzValue12);
+                    $("#hqmzyCslclzValue13").html(res.data.hqmzyCslclzValue13);
+                    $("#hqmzyCslclzValue14").html(res.data.hqmzyCslclzValue14);
+                    $("#hqmzyCslclzValue15").html(res.data.hqmzyCslclzValue15);
+                    $("#hqmzyCslclzValue21").html(res.data.hqmzyCslclzValue21);
+                    $("#hqmzyCslclzValue22").html(res.data.hqmzyCslclzValue22);
+                    $("#hqmzyCslclzValue23").html(res.data.hqmzyCslclzValue23);
+                    $("#hqmzyCslclzValue24").html(res.data.hqmzyCslclzValue24);
+                    $("#hqmzyCslclzValue25").html(res.data.hqmzyCslclzValue25);
+                    $("#hqmzyCslclzValue31").html(res.data.hqmzyCslclzValue31);
+                    $("#hqmzyCslclzValue32").html(res.data.hqmzyCslclzValue32);
+                    $("#hqmzyCslclzValue33").html(res.data.hqmzyCslclzValue33);
+                    $("#hqmzyCslclzValue34").html(res.data.hqmzyCslclzValue34);
+                    $("#hqmzyCslclzValue35").html(res.data.hqmzyCslclzValue35);
+                    $("#hqmzyPjzClzValue1").html(res.data.hqmzyPjzClzValue1);
+                    $("#hqmzyPjzClzValue2").html(res.data.hqmzyPjzClzValue2);
+                    $("#hqmzyPjzClzValue3").html(res.data.hqmzyPjzClzValue3);
+                    $("#hqmzyPjzClzValue4").html(res.data.hqmzyPjzClzValue4);
+                    $("#hqmzyPjzClzValue5").html(res.data.hqmzyPjzClzValue5);
+                    $("#hqmzySzwcValue1").html(res.data.hqmzySzwcValue1);
+                    $("#hqmzySzwcValue2").html(res.data.hqmzySzwcValue2);
+                    $("#hqmzySzwcValue3").html(res.data.hqmzySzwcValue3);
+                    $("#hqmzySzwcValue4").html(res.data.hqmzySzwcValue4);
+                    $("#hqmzySzwcValue5").html(res.data.hqmzySzwcValue5);
+                    $("#hqmzyScwcValue1").html(res.data.hqmzyScwcValue1);
+                    $("#hqmzyScwcValue2").html(res.data.hqmzyScwcValue2);
+                    $("#hqmzyScwcValue3").html(res.data.hqmzyScwcValue3);
+                    $("#hqmzyScwcValue4").html(res.data.hqmzyScwcValue4);
+                    $("#hqmzyScwcValue5").html(res.data.hqmzyScwcValue5);
+                    $("#hqmzyZdyc").html(res.data.hqmzyZdyc);
+                    $("#hqmzyResult").html(res.data.hqmzyResult);
+                    //防误操作电源开关
+                    $("#fwczdykg").html(res.data.fwczdykg === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#brhlgybhgn").html(res.data.brhlgybhgn === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#jygn").html(res.data.jygn === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#jysx").html(res.data.jysx === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#qdylsxxbj").html(res.data.qdylsxxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#bjsz").html(res.data.bjsz === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#ddbj").html(res.data.ddbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#hxplsxxbj").html(res.data.hxplsxxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#nbdy").html(res.data.nbdy === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#qybj").html(res.data.qybj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#yndsxxbj").html(res.data.yndsxxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#wtjyfcs").html(res.data.wtjyfcs === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#fztqlsxxbj").html(res.data.fztqlsxxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#hqmzysxxbj").html(res.data.hqmzysxxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#tqzxbj").html(res.data.tqzxbj === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");
+                    $("#type").html(res.data.type);
                 } else {
                     layer.msg("无数据");
                 }
@@ -896,6 +1006,7 @@
             },
             parseData: function (res) {
                 console.log(res.data);
+                res.data.jcjlInfo = $(".not_pass").length > 0 ? "不符合" : "符合";
 //                sessionStorage['lreqId'] = res.data.eqId;
                 return {
                     "status": 200
@@ -907,7 +1018,7 @@
             cols: [[
                 {field: 'tester', title: '检测人', align: 'center'},
                 {field: 'testTime', title: '检测时间', align: 'center'},
-                {field: 'jcsm', title: '检测情况说明', align: 'center'}
+                {field: 'jcjlInfo', title: '检测结论', align: 'center'},
             ]]
         });
         // 上传
@@ -937,7 +1048,11 @@
         });
         // 修改
         $("#update").click(function () {
-            location.href = "/control/home/waiting/update/write_breath_info.html?id=" + ids;
+            if (breathType == 0) {
+                location.href = "/control/home/waiting/update/write_breath_info.html?id=" + ids;
+            } else {
+                location.href = "/control/home/waiting/update/write_breath_info_child.html?id=" + ids;
+            }
         });
         // 返回
         $("#back").click(function () {

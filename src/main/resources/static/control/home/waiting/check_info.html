@@ -15,7 +15,7 @@
     <script src="../../../static/js/basic.js"></script>
     <script src="../../../static/layui/layui.js"></script>
     <style>
-        .layui-elem-field{
+        .layui-elem-field {
             width: 100%;
             margin-top: 20px;
             color: red;
@@ -25,7 +25,7 @@
 <body>
 <div class="layui-row">
     <div class="col-xs-12">
-    	<fieldset class="layui-elem-field layui-field-title">
+        <fieldset class="layui-elem-field layui-field-title">
             <legend style="color: #000000;font-weight: bold">检测仪器</legend>
         </fieldset>
         <fieldset class="layui-elem-field layui-field-title">
@@ -55,117 +55,122 @@
     var ids = parseInt(type.split("=")[1]);
     sessionStorage['thiseqId'] = ids;
     //Demo
-    layui.use(['form','layer','jquery','table','element'], function(){
+    layui.use(['form', 'layer', 'jquery', 'table', 'element'], function () {
         var form = layui.form
-            ,   layer = layui.layer
-            ,   $ = layui.jquery
-            ,   table = layui.table
-            ,   element = layui.element;
-		// 性能检测
-		table.render({
-            elem:"#xnInfo",
-            cellMinWidth:100,
+            , layer = layui.layer
+            , $ = layui.jquery
+            , table = layui.table
+            , element = layui.element;
+        // 性能检测
+        table.render({
+            elem: "#xnInfo",
+            cellMinWidth: 100,
             toolbar: '#toolbarDemo',
-            url:"/yq/selectEqYqNotDqByEqId?eqId="+ids,
-            method:"GET",
+            url: "/yq/selectEqYqNotDqByEqId?eqId=" + ids,
+            method: "GET",
             response: {
                 statusName: 'status'
-                ,statusCode: 200
-                ,msgName: 'hint'
-                ,countName: 'total'
-                ,dataName: 'data'
+                , statusCode: 200
+                , msgName: 'hint'
+                , countName: 'total'
+                , dataName: 'data'
             },
-            parseData:function(res){
+            parseData: function (res) {
                 console.log(res);
-                if(res.data[0].jcyqName == "生命体征模拟器" || res.data[0].jcyqName == "注射设备分析仪" || res.data[0].jcyqName == "输液设备分析仪"){
+                if (res.data[0].jcyqName == "生命体征模拟器" || res.data[0].jcyqName == "注射设备分析仪" || res.data[0].jcyqName == "输液设备分析仪" || res.data[0].jcyqName == "气流分析仪") {
                     $("#xnJump").append("<a class='layui-btn layui-btn-xs layui-btn-normal' lay-event='man'>成人</a><a class='layui-btn layui-btn-xs' lay-event='child'>新生儿</a>")
-                }else{
+                } else {
                     $("#xnJump").append("<a class='layui-btn layui-btn-xs layui-btn-normal' lay-event='writeInfo'>录入数据</a>")
                 }
-                return{
-                    "status":200
-                    ,"msg":res.message
-                    ,"count":res.total
-                    ,"data":res.data
+                return {
+                    "status": 200
+                    , "msg": res.message
+                    , "count": res.total
+                    , "data": res.data
                 }
             },
-            cols:[[
-                {field:'jcyqName', title:'仪器名称',align:'center'},
-                {field:'jcyqXh', title:'型号',align:'center'},
-                {field:'jcyqDah', title:'档案号',align:'center'},
-                {field:'jcyqBh', title:'机身编码',align:'center'},
-                {field:'jcyqJzTime', title:'校准日期',align:'center'},
-                {fixed: 'right', title:'操作',toolbar: '#xnJump',align:'center'}
+            cols: [[
+                {field: 'jcyqName', title: '仪器名称', align: 'center'},
+                {field: 'jcyqXh', title: '型号', align: 'center'},
+                {field: 'jcyqDah', title: '档案号', align: 'center'},
+                {field: 'jcyqBh', title: '机身编码', align: 'center'},
+                {field: 'jcyqJzTime', title: '校准日期', align: 'center'},
+                {fixed: 'right', title: '操作', toolbar: '#xnJump', align: 'center'}
             ]]
         });
         // 电气安全检测
-		table.render({
-            elem:"#dqaqInfo",
-            cellMinWidth:220,
+        table.render({
+            elem: "#dqaqInfo",
+            cellMinWidth: 220,
             toolbar: '#toolbarDemo',
-            url:"/yq/selectEqYqByEqId?eqId="+ids,
-            method:"GET",
+            url: "/yq/selectEqYqByEqId?eqId=" + ids,
+            method: "GET",
             response: {
                 statusName: 'status'
-                ,statusCode: 200
-                ,msgName: 'hint'
-                ,countName: 'total'
-                ,dataName: 'data'
+                , statusCode: 200
+                , msgName: 'hint'
+                , countName: 'total'
+                , dataName: 'data'
             },
-            parseData:function(res){
+            parseData: function (res) {
                 console.log(res);
-                return{
-                    "status":200
-                    ,"msg":res.message
-                    ,"count":res.total
-                    ,"data":res.data
+                return {
+                    "status": 200
+                    , "msg": res.message
+                    , "count": res.total
+                    , "data": res.data
                 }
             },
-            cols:[[
-                {field:'jcyqName', title:'仪器名称',align:'center'},
-                {field:'jcyqXh', title:'型号',align:'center'},
-                {field:'jcyqDah', title:'档案号',align:'center'},
-                {field:'jcyqBh', title:'机身编码',align:'center'},
-                {field:'jcyqJzTime', title:'校准日期',align:'center'},
-                {fixed: 'right', title:'操作',toolbar: '#dqJump',align:'center'}
+            cols: [[
+                {field: 'jcyqName', title: '仪器名称', align: 'center'},
+                {field: 'jcyqXh', title: '型号', align: 'center'},
+                {field: 'jcyqDah', title: '档案号', align: 'center'},
+                {field: 'jcyqBh', title: '机身编码', align: 'center'},
+                {field: 'jcyqJzTime', title: '校准日期', align: 'center'},
+                {fixed: 'right', title: '操作', toolbar: '#dqJump', align: 'center'}
             ]]
         });
-        table.on('tool(handle1)',function(obj){
+        table.on('tool(handle1)', function (obj) {
             var data = obj.data;
             console.log(obj);
-            if(obj.event === "man"){
-                if(data.jcyqName == "生命体征模拟器"){
-                    location.href="/control/home/waiting/write_info/write_life_man.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪"){
-                    location.href="/control/home/waiting/write_info/write_injection_man.html?id="+obj.data.jcyqId;
+            if (obj.event === "man") {
+                if (data.jcyqName == "生命体征模拟器") {
+                    location.href = "/control/home/waiting/write_info/write_life_man.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_injection_man.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "气流分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_breath_info.html?id=" + obj.data.jcyqId;
                 }
-            }else if(obj.event === "child"){
-                if(data.jcyqName == "生命体征模拟器"){
-                    location.href="/control/home/waiting/write_info/write_life_child.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪"){
-                    location.href="/control/home/waiting/write_info/write_injection_child.html?id="+obj.data.jcyqId;
+            } else if (obj.event === "child") {
+                if (data.jcyqName == "生命体征模拟器") {
+                    location.href = "/control/home/waiting/write_info/write_life_child.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_injection_child.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "气流分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_breath_info_child.html?id=" + obj.data.jcyqId;
                 }
-            }else if(obj.event === "writeInfo"){
-                if(data.jcyqName == "婴儿培养箱分析仪"){
-                    location.href="/control/home/waiting/write_info/write_baby_info.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "高频电刀分析仪"){
-                    location.href="/control/home/waiting/write_info/write_endotherm_knife_info.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "气流分析仪"){
-                    location.href="/control/home/waiting/write_info/write_breath_info.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "除颤起搏分析仪"){
-                    location.href="/control/home/waiting/write_info/write_defibrillator_info.html?id="+obj.data.jcyqId;
-                }else if(data.jcyqName == "生命体征模拟器"){
-                    location.href="/control/home/waiting/write_info/write_life_man.html?id="+obj.data.jcyqId;
+            } else if (obj.event === "writeInfo") {
+                if (data.jcyqName == "婴儿培养箱分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_baby_info.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "高频电刀分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_endotherm_knife_info.html?id=" + obj.data.jcyqId;
+                    /*} else if (data.jcyqName == "气流分析仪") {
+                        location.href = "/control/home/waiting/write_info/write_breath_info.html?id=" + obj.data.jcyqId;
+                    */
+                } else if (data.jcyqName == "除颤起搏分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_defibrillator_info.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "生命体征模拟器") {
+                    location.href = "/control/home/waiting/write_info/write_life_man.html?id=" + obj.data.jcyqId;
                 }
             }
         });
-        table.on('tool(handle2)',function(obj){
-            if(obj.event === "hands1"){
-            	location.href="/control/home/waiting/write_info/write_electric_cf.html?id="+obj.data.jcyqId;
-            }else if(obj.event === "hands2"){
-                location.href="/control/home/waiting/write_info/write_electric_bf.html?id="+obj.data.jcyqId;
-            }else if(obj.event === "hands3"){
-                location.href="/control/home/waiting/write_info/write_electric_none.html?id="+obj.data.jcyqId;
+        table.on('tool(handle2)', function (obj) {
+            if (obj.event === "hands1") {
+                location.href = "/control/home/waiting/write_info/write_electric_cf.html?id=" + obj.data.jcyqId;
+            } else if (obj.event === "hands2") {
+                location.href = "/control/home/waiting/write_info/write_electric_bf.html?id=" + obj.data.jcyqId;
+            } else if (obj.event === "hands3") {
+                location.href = "/control/home/waiting/write_info/write_electric_none.html?id=" + obj.data.jcyqId;
             }
         });
     });
