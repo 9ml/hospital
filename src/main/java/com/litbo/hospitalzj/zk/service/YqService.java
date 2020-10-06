@@ -51,4 +51,6 @@ public interface YqService {
 	List<Yq> selectYqDqByEqId(@Param("eqId") Integer eqId, @Param("jcyqName") String jcyqName);
 
 	List<Yq> selectTime();
+
+	List<String> selectEqInfoEqMc(String eqDah);
 }

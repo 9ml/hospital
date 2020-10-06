@@ -53,7 +53,7 @@ public interface NdjhMapper {
     @Select("select * from ndjh where user_id=#{userId} ")
     List<Ndjh> selectByUserId(String userId);
 
-    @Select("select * from ndjh where user_id=#{userId} and state=#{state}")
+    @Select("select * from ndjh where user_id=#{userId} and state=#{state} ORDER BY  ndjh_sbsj DESC ")
     List<Ndjh> selectByUserIdAndState(@Param("userId") String userId, @Param("state") String state);
 
     //用户查询年度计划中各状态数量

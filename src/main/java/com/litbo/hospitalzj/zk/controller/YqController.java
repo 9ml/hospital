@@ -110,7 +110,10 @@ public class YqController extends BaseController{
 		ndjhService.updateMonth(Integer.valueOf(ndjhId));
 		return new ResponseResult<EqInfo>(SUCCESS,data);
 	}
-
+	@RequestMapping("/selectEqInfoEqMc")
+	public ResponseResult<List<String>> selectEqInfoEqMc(@RequestParam(value = "eqDah",defaultValue = "") String eqDah){
+    	return new ResponseResult(SUCCESS,yqService.selectEqInfoEqMc(eqDah));
+	}
 	//电器的数据
 	@RequestMapping("/selectEqYqByEqId")
 	public ResponseResult<List<Yq>> selectEqYqByEqId(@RequestParam("eqId") Integer eqId){
