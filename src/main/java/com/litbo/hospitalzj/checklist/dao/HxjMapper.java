@@ -622,7 +622,8 @@ public interface HxjMapper {
         "      xqfzyl_scwc_value3 = #{xqfzylScwcValue3,jdbcType=VARCHAR},\n" +
         "      xqfzyl_scwc_value4 = #{xqfzylScwcValue4,jdbcType=VARCHAR},\n" +
         "      xqfzyl_scwc_value5 = #{xqfzylScwcValue5,jdbcType=VARCHAR},\n" +
-        "      xqfzyl_zdyc = #{xqfzylZdyc,jdbcType=VARCHAR},\n" +
+        "      xqfzyl_zdyc1 = #{xqfzylZdyc1,jdbcType=VARCHAR},\n" +
+        "      xqfzyl_zdyc2 = #{xqfzylZdyc2,jdbcType=VARCHAR},\n" +
         "      xqfzyl_result = #{xqfzylResult,jdbcType=VARCHAR},\n" +
         "      hqmzy_hxjsdz1 = #{hqmzyHxjsdz1,jdbcType=VARCHAR},\n" +
         "      hqmzy_hxjsdz2 = #{hqmzyHxjsdz2,jdbcType=VARCHAR},\n" +
