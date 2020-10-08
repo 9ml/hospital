@@ -61,7 +61,7 @@
                 <td id="xlValue4">&nbsp;</td>
                 <td id="xlValue5">&nbsp;</td>
                 <td id="xlValue6">&nbsp;</td>
-                <td id="xlValues"></td>
+                <td id="xlResult"></td>
             </tr>
             <tr>
                 <th rowspan="2" scope="row">呼吸频率(次/min)</th>
@@ -82,7 +82,7 @@
                 <td id="hxlValue4">&nbsp;</td>
                 <td id="hxlValue5">&nbsp;</td>
                 <td id="hxlValue6">&nbsp;</td>
-                <td id="hxlValues"></td>
+                <td id="hxlResult"></td>
             </tr>
             <tr>
                 <th rowspan="2" scope="row">血氧饱和度(%)</th>
@@ -103,7 +103,7 @@
                 <td id="xybhdValue4">&nbsp;</td>
                 <td id="xybhdValue5">&nbsp;</td>
                 <td></td>
-                <td id="xybhdValues"></td>
+                <td id="xybhdResult"></td>
             </tr>
             <tr>
                 <th id="wcxyjtSd" rowspan="4" scope="row"><p>无创血压静态示值误差(mmHg)</p></th>
@@ -114,7 +114,9 @@
                 <td id="wcxyJtTest4"><!--150--></td>
                 <td id="wcxyJtTest5"><!--250--></td>
                 <td></td>
-                <td id="wcxyJtWc" rowspan="2"><!--允许误差： 首次检测:±3mmHg 使用中检测:±4mmHg --></td>
+                <td id="wcxyJtWc" rowspan="2"><!--允许误差： 首次检测:±3mmHg 使用中检测:±4mmHg --><p id="wcxyScWc"></p>
+                    <p id="wcxySyzWc"></p>
+                </td>
             </tr>
             <tr>
                 <td>显示值1</td>
@@ -133,15 +135,15 @@
                 <td id="wcxyJtXsz2Value4">&nbsp;</td>
                 <td id="wcxyJtXsz2Value5">&nbsp;</td>
                 <td></td>
-                <td rowspan="2" id="wcxyJtValues"></td>
+                <td rowspan="2" id="wcxyJtResult"></td>
             </tr>
             <tr>
                 <td>平均值</td>
-                <td id="wcxyJtXAvgValue1">&nbsp;</td>
-                <td id="wcxyJtXAvgValue2">&nbsp;</td>
-                <td id="wcxyJtXAvgValue3">&nbsp;</td>
-                <td id="wcxyJtXAvgValue4">&nbsp;</td>
-                <td id="wcxyJtXAvgValue5">&nbsp;</td>
+                <td id="wcxyJtPjzValue1">&nbsp;</td>
+                <td id="wcxyJtPjzValue2">&nbsp;</td>
+                <td id="wcxyJtPjzValue3">&nbsp;</td>
+                <td id="wcxyJtPjzValue4">&nbsp;</td>
+                <td id="wcxyJtPjzValue5">&nbsp;</td>
                 <td></td>
             </tr>
             <tr>
@@ -158,8 +160,8 @@
                 <td>3:<span id="wcdtxyValue3"></span></td>
                 <td>4:<span id="wcdtxyValue4"></span></td>
                 <td>5:<span id="wcdtxyValue5"></span></td>
-                <td>收缩压(R收)：<span style="display: inline-block;width:50px;"></span>舒张压(R舒)：</td>
-                <td id="wcdtxyValues"></td>
+                <td>收缩压(R收)：<span style="display: inline-block;width:50px;" id="wcdtxySsyValue"></span>舒张压(R舒)：<span id="wcdtxySzyValue"></span></td>
+                <td id="wcdtxyResult"></td>
             </tr>
             <tr>
                 <th rowspan="3" scope="row">气密性检测</th>
@@ -170,16 +172,16 @@
             </tr>
             <tr>
                 <td colspan="1">压力示值</td>
-                <td colspan="1">1min（P1min）:</td>
-                <td colspan="2">5min（P5min）:</td>
-                <td colspan="1">1min（P1min）:</td>
-                <td colspan="2">5min（P5min）:</td>
-                <td rowspan="2" id="qmxjcValues"></td>
+                <td colspan="1">1min（P1min）:<span id="qmxjcYlszValue1"></span></td>
+                <td colspan="2">5min（P5min）:<span id="qmxjcYlszValue2"></span></td>
+                <td colspan="1">1min（P1min）:<span id="qmxjcYlszValue3"></span></td>
+                <td colspan="2">5min（P5min）:<span id="qmxjcYlszValue4"></span></td>
+                <td rowspan="2" id="qmxjcResult"></td>
             </tr>
             <tr>
                 <td colspan="1">气密性数值</td>
-                <td colspan="3"></td>
-                <td colspan="3"></td>
+                <td colspan="3" id="qmxjcQmxszValue1"></td>
+                <td colspan="3" id="qmxjcQmxszValue2"></td>
             </tr>
             <tr>
                 <th scope="row">声光报警</th>
@@ -196,8 +198,6 @@
         <table class="layui-hide" id="testerInfo"></table>
         <div class="col-xs-12 btn">
             <a id="update" class="layui-btn">修改</a>
-            <a id="back" class="layui-btn">暂不上传</a>
-            <button id="upload" class="layui-btn layui-btn-normal">上传</button>
         </div>
     </div>
 </div>
@@ -223,138 +223,107 @@
             success: function (res) {
                 console.log(res);
                 if (res.data != null && res.data != "") {
-                    // 心率(次/min)
-                    $("#xlTest1").append(res.data.xlTest1);
-                    $("#xlTest2").append(res.data.xlTest2);
-                    $("#xlTest3").append(res.data.xlTest3);
-                    $("#xlTest4").append(res.data.xlTest4);
-                    $("#xlTest5").append(res.data.xlTest5);
-                    $("#xlTest6").append(res.data.xlTest6);
-                    $("#xlWc").append(res.data.xlWc);
-                    $("#xlValue1").append(res.data.xlValue1);
-                    $("#xlValue2").append(res.data.xlValue2);
-                    $("#xlValue3").append(res.data.xlValue3);
-                    $("#xlValue4").append(res.data.xlValue4);
-                    $("#xlValue5").append(res.data.xlValue5);
-                    $("#xlValue6").append(res.data.xlValue6);
-                    if (res.data.xlResult) {
-                        $("#xlValues").append("<p style='color:green;'>符合</p>")
-                    } else {
-                        $("#xlValues").append("<p style='color:red;'>不符合</p>")
-                    }
-                    // 呼吸率(次/min)
-                    $("#hxlTest1").append(res.data.hxlTest1);
-                    $("#hxlTest2").append(res.data.hxlTest2);
-                    $("#hxlTest3").append(res.data.hxlTest3);
-                    $("#hxlTest4").append(res.data.hxlTest4);
-                    $("#hxlTest5").append(res.data.hxlTest5);
-                    $("#hxlTest6").append(res.data.hxlTest6);
-                    $("#hxlWc").append(res.data.hxlWc);
-                    $("#hxlValue1").append(res.data.hxlValue1);
-                    $("#hxlValue2").append(res.data.hxlValue2);
-                    $("#hxlValue3").append(res.data.hxlValue3);
-                    $("#hxlValue4").append(res.data.hxlValue4);
-                    $("#hxlValue5").append(res.data.hxlValue5);
-                    $("#hxlValue6").append(res.data.hxlValue6);
-                    if (res.data.hxlResult) {
-                        $("#hxlValues").append("<p style='color:green;'>符合</p>")
-                    } else {
-                        $("#hxlValues").append("<p style='color:red;'>不符合</p>")
-                    }
-
-                    // 血氧饱和度(%)
-                    $("#xybhdTest1").append(res.data.xybhdTest1);
-                    $("#xybhdTest2").append(res.data.xybhdTest2);
-                    $("#xybhdTest3").append(res.data.xybhdTest3);
-                    $("#xybhdTest4").append(res.data.xybhdTest4);
-                    $("#xybhdTest5").append(res.data.xybhdTest5);
-                    $("#xybhdWc").append(res.data.xybhdWc + "%");
-                    $("#xybhdValue1").append(res.data.xybhdValue1);
-                    $("#xybhdValue2").append(res.data.xybhdValue2);
-                    $("#xybhdValue3").append(res.data.xybhdValue3);
-                    $("#xybhdValue4").append(res.data.xybhdValue4);
-                    $("#xybhdValue5").append(res.data.xybhdValue5);
-                    if (res.data.xybhdResult) {
-                        $("#xybhdValues").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#xybhdValues").append("<p style='color:red;'>不符合</p>");
-                    }
-                    //无创血压静态
-                    $("#wcxyJtTest1").append(res.data.wcxyJtTest1);
-                    $("#wcxyJtTest2").append(res.data.wcxyJtTest2);
-                    $("#wcxyJtTest3").append(res.data.wcxyJtTest3);
-                    $("#wcxyJtTest4").append(res.data.wcxyJtTest4);
-                    $("#wcxyJtTest5").append(res.data.wcxyJtTest5);
-                    $("#wcxyJtWc").append("首次检测：" + res.data.wcxyScWc + "mmHg 使用中检测: " + res.data.wcxySyzWc + "mmHg");
-                    $("#wcxyJtXsz1Value1").append(res.data.wcxyJtXsz1Value1 || 0);
-                    $("#wcxyJtXsz1Value2").append(res.data.wcxyJtXsz1Value2 || 0);
-                    $("#wcxyJtXsz1Value3").append(res.data.wcxyJtXsz1Value3 || 0);
-                    $("#wcxyJtXsz1Value4").append(res.data.wcxyJtXsz1Value4 || 0);
-                    $("#wcxyJtXsz1Value5").append(res.data.wcxyJtXsz1Value5 || 0);
-                    $("#wcxyJtXsz2Value1").append(res.data.wcxyJtXsz2Value1 || 0);
-                    $("#wcxyJtXsz2Value2").append(res.data.wcxyJtXsz2Value2 || 0);
-                    $("#wcxyJtXsz2Value3").append(res.data.wcxyJtXsz2Value3 || 0);
-                    $("#wcxyJtXsz2Value4").append(res.data.wcxyJtXsz2Value4 || 0);
-                    $("#wcxyJtXsz2Value5").append(res.data.wcxyJtXsz2Value5 || 0);
-                    $("#wcxyJtXAvgValue1").append(((res.data.wcxyJtXsz1Value1 || 0) + (res.data.wcxyJtXsz2Value1 || 0)) / 2);
-                    $("#wcxyJtXAvgValue2").append(((res.data.wcxyJtXsz1Value2 || 0) + (res.data.wcxyJtXsz2Value2 || 0)) / 2);
-                    $("#wcxyJtXAvgValue3").append(((res.data.wcxyJtXsz1Value3 || 0) + (res.data.wcxyJtXsz2Value3 || 0)) / 2);
-                    $("#wcxyJtXAvgValue4").append(((res.data.wcxyJtXsz1Value4 || 0) + (res.data.wcxyJtXsz2Value4 || 0)) / 2);
-                    $("#wcxyJtXAvgValue5").append(((res.data.wcxyJtXsz1Value5 || 0) + (res.data.wcxyJtXsz2Value5 || 0)) / 2);
-                    if (res.data.wcxyJtResult) {
-                        $("#wcxyJtValues").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#wcxyJtValues").append("<p style='color:red;'>不符合</p>");
-                    }
-                    //无创动态血压重复性(mmHg)
-                    $("#wcdtxySdzTest1").append(res.data.wcdtxySdzTest1);
-                    $("#wcdtxySdzTest2").append(res.data.wcdtxySdzTest2);
-                    $("#wcdtxyXl").append(res.data.wcdtxyXl);
-                    $("#wcdtxyValue1").append(res.data.wcdtxyValue1);
-                    $("#wcdtxyValue2").append(res.data.wcdtxyValue2);
-                    $("#wcdtxyValue3").append(res.data.wcdtxyValue3);
-                    $("#wcdtxyValue4").append(res.data.wcdtxyValue4);
-                    $("#wcdtxyValue5").append(res.data.wcdtxyValue5);
-                    $("#wcdtxyWc").append(res.data.wcdtxyWc);
-                    if (res.data.wcdtxyResult) {
-                        $("#wcdtxyValues").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#wcdtxyValues").append("<p style='color:red;'>不符合</p>");
-                    }
-
-                    //气密性
-                    $("#qmxjcYldTest1").append(res.data.qmxjcYldTest1);
-                    $("#qmxjcYldTest2").append(res.data.qmxjcYldTest2);
-                    $("#qmxjcYlszValue1").append(res.data.qmxjcYlszValue1);
-                    $("#qmxjcYlszValue2").append(res.data.qmxjcYlszValue2);
-                    $("#qmxjcYlszValue3").append(res.data.qmxjcYlszValue3);
-                    $("#qmxjcYlszValue4").append(res.data.qmxjcYlszValue4);
-                    $("#qmxjcQmxszValue1").append(res.data.qmxjcQmxszValue1);
-                    $("#qmxjcQmxszValue2").append(res.data.qmxjcQmxszValue2);
-                    $("#qmxjcWc").append(res.data.qmxjcWc + "mmHg/min");
-                    if (res.data.qmxjcResult) {
-                        $("#qmxjcValues").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#qmxjcValues").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 声光警报
-                    if (res.data.sgbjResult == 1) {
-                        $("#sgbjResult").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#sgbjResult").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 报警限检查
-                    if (res.data.bjxjcResult == 1) {
-                        $("#bjxjcResult").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#bjxjcResult").append("<p style='color:red;'>不符合</p>");
-                    }
-                    // 静音检查
-                    if (res.data.jyjcResult == 1) {
-                        $("#jyjcResult").append("<p style='color:green;'>符合</p>");
-                    } else {
-                        $("#jyjcResult").append("<p style='color:red;'>不符合</p>");
-                    }
+                    $("#dcid").html(res.data.dcid);
+                    $("#jcyqId").html(res.data.jcyqId);
+                    $("#eqId").html(res.data.eqId);
+                    $("#tester").html(res.data.tester);
+                    $("#testTime").html(res.data.testTime);
+                    $("#auditor").html(res.data.auditor);
+                    $("#shrJcjl").html(res.data.shrJcjl);
+                    $("#shsjTime").html(res.data.shsjTime);
+                    $("#jcjl").html(res.data.jcjl);
+                    $("#jcsm").html(res.data.jcsm);
+                    $("#xlTest1").html(res.data.xlTest1);
+                    $("#xlTest2").html(res.data.xlTest2);
+                    $("#xlTest3").html(res.data.xlTest3);
+                    $("#xlTest4").html(res.data.xlTest4);
+                    $("#xlTest5").html(res.data.xlTest5);
+                    $("#xlTest6").html(res.data.xlTest6);
+                    $("#xlValue1").html(res.data.xlValue1);
+                    $("#xlValue2").html(res.data.xlValue2);
+                    $("#xlValue3").html(res.data.xlValue3);
+                    $("#xlValue4").html(res.data.xlValue4);
+                    $("#xlValue5").html(res.data.xlValue5);
+                    $("#xlValue6").html(res.data.xlValue6);
+                    $("#xlWc").html(res.data.xlWc);
+                    $("#xlResult").html(res.data.xlResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#hxlTest1").html(res.data.hxlTest1);
+                    $("#hxlTest2").html(res.data.hxlTest2);
+                    $("#hxlTest3").html(res.data.hxlTest3);
+                    $("#hxlTest4").html(res.data.hxlTest4);
+                    $("#hxlTest5").html(res.data.hxlTest5);
+                    $("#hxlTest6").html(res.data.hxlTest6);
+                    $("#hxlValue1").html(res.data.hxlValue1);
+                    $("#hxlValue2").html(res.data.hxlValue2);
+                    $("#hxlValue3").html(res.data.hxlValue3);
+                    $("#hxlValue4").html(res.data.hxlValue4);
+                    $("#hxlValue5").html(res.data.hxlValue5);
+                    $("#hxlValue6").html(res.data.hxlValue6);
+                    $("#hxlWc").html(res.data.hxlWc);
+                    $("#hxlResult").html(res.data.hxlResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#xybhdTest1").html(res.data.xybhdTest1);
+                    $("#xybhdTest2").html(res.data.xybhdTest2);
+                    $("#xybhdTest3").html(res.data.xybhdTest3);
+                    $("#xybhdTest4").html(res.data.xybhdTest4);
+                    $("#xybhdTest5").html(res.data.xybhdTest5);
+                    $("#xybhdValue1").html(res.data.xybhdValue1);
+                    $("#xybhdValue2").html(res.data.xybhdValue2);
+                    $("#xybhdValue3").html(res.data.xybhdValue3);
+                    $("#xybhdValue4").html(res.data.xybhdValue4);
+                    $("#xybhdValue5").html(res.data.xybhdValue5);
+                    $("#xybhdWc").html(res.data.xybhdWc);
+                    $("#xybhdResult").html(res.data.xybhdResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#wcxyJtTest1").html(res.data.wcxyJtTest1);
+                    $("#wcxyJtTest2").html(res.data.wcxyJtTest2);
+                    $("#wcxyJtTest3").html(res.data.wcxyJtTest3);
+                    $("#wcxyJtTest4").html(res.data.wcxyJtTest4);
+                    $("#wcxyJtTest5").html(res.data.wcxyJtTest5);
+                    $("#wcxyJtXsz1Value1").html(res.data.wcxyJtXsz1Value1);
+                    $("#wcxyJtXsz1Value2").html(res.data.wcxyJtXsz1Value2);
+                    $("#wcxyJtXsz1Value3").html(res.data.wcxyJtXsz1Value3);
+                    $("#wcxyJtXsz1Value4").html(res.data.wcxyJtXsz1Value4);
+                    $("#wcxyJtXsz1Value5").html(res.data.wcxyJtXsz1Value5);
+                    $("#wcxyJtXsz2Value1").html(res.data.wcxyJtXsz2Value1);
+                    $("#wcxyJtXsz2Value2").html(res.data.wcxyJtXsz2Value2);
+                    $("#wcxyJtXsz2Value3").html(res.data.wcxyJtXsz2Value3);
+                    $("#wcxyJtXsz2Value4").html(res.data.wcxyJtXsz2Value4);
+                    $("#wcxyJtXsz2Value5").html(res.data.wcxyJtXsz2Value5);
+                    $("#wcxyJtPjzValue1").html(res.data.wcxyJtPjzValue1);
+                    $("#wcxyJtPjzValue2").html(res.data.wcxyJtPjzValue2);
+                    $("#wcxyJtPjzValue3").html(res.data.wcxyJtPjzValue3);
+                    $("#wcxyJtPjzValue4").html(res.data.wcxyJtPjzValue4);
+                    $("#wcxyJtPjzValue5").html(res.data.wcxyJtPjzValue5);
+                    $("#wcxySyzWc").html("使用中:±4mmHg");
+                    $("#wcxyScWc").html("首次检测:± 3mmHg");
+                    $("#wcxyJtResult").html(res.data.wcxyJtResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#wcdtxySdzTest1").html(res.data.wcdtxySdzTest1);
+                    $("#wcdtxySdzTest2").html(res.data.wcdtxySdzTest2);
+                    $("#wcdtxyXl").html(res.data.wcdtxyXl);
+                    $("#wcdtxyWc").html("5mmHg");
+                    $("#wcdtxyValue1").html(res.data.wcdtxyValue1);
+                    $("#wcdtxyValue2").html(res.data.wcdtxyValue2);
+                    $("#wcdtxyValue3").html(res.data.wcdtxyValue3);
+                    $("#wcdtxyValue4").html(res.data.wcdtxyValue4);
+                    $("#wcdtxyValue5").html(res.data.wcdtxyValue5);
+                    $("#wcdtxySsyValue").html(res.data.wcdtxySsyValue);
+                    $("#wcdtxySzyValue").html(res.data.wcdtxySzyValue);
+                    $("#wcdtxyResult").html(res.data.wcdtxyResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#qmxjcYldTest1").html(res.data.qmxjcYldTest1);
+                    $("#qmxjcYldTest2").html(res.data.qmxjcYldTest2);
+                    $("#qmxjcWc").html("6mmHg/min");
+                    $("#qmxjcYlszValue1").html(res.data.qmxjcYlszValue1);
+                    $("#qmxjcYlszValue2").html(res.data.qmxjcYlszValue2);
+                    $("#qmxjcYlszValue3").html(res.data.qmxjcYlszValue3);
+                    $("#qmxjcYlszValue4").html(res.data.qmxjcYlszValue4);
+                    $("#qmxjcQmxszValue1").html(res.data.qmxjcQmxszValue1);
+                    $("#qmxjcQmxszValue2").html(res.data.qmxjcQmxszValue2);
+                    $("#qmxjcResult").html(res.data.qmxjcResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#sgbjResult").html(res.data.sgbjResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#bjxjcResult").html(res.data.bjxjcResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#jyjcResult").html(res.data.jyjcResult == 0 ? "<span style='color:red' class='not_pass'>不符合</span>" : "<span style='color:green'>符合</span>");
+                    $("#state").html(res.data.state);
+                    $("#spare2").html(res.data.spare2);
+                    $("#spare3").html(res.data.spare3);
                 } else {
                     layer.msg("无数据");
                 }
@@ -381,6 +350,7 @@
             },
             parseData: function (res) {
                 console.log(res.data);
+                res.data.jcqkInfo = $(".not_pass").length > 0 ? "不符合" : "符合";
                 return {
                     "status": 200
                     , "msg": res.message
@@ -391,7 +361,7 @@
             cols: [[
                 {field: 'tester', title: '检测人', align: 'center'},
                 {field: 'testTime', title: '检测时间', align: 'center'},
-                {field: 'jcsm', title: '检测情况说明', align: 'center'}
+                {field: 'jcqkInfo', title: '检测情况说明', align: 'center'}
             ]]
         });
         // 上传
