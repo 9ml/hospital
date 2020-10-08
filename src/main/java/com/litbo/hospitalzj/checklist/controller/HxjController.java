@@ -69,6 +69,8 @@ public class HxjController extends BaseController {
         yqEqService.updateType(yqEqId, EnumProcess2.TO_UPLOAD.getMessage());
         //修改状态为待上传
         userEqService.setEqState(userEqId,EnumProcess2.TO_UPLOAD.getMessage());
+        if(hxj.getType() == null)
+            hxj.setType(0);
         hxjService.save(hxj);
         EqZjls eqZjls = CommonUtils.toBean(req.getParameterMap(), EqZjls.class);
         EqInfo eqById = eqInfoService.findEqById(eqId);
