@@ -16,26 +16,31 @@
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <style>
-        .layui-elem-field{
+        .layui-elem-field {
             width: 100%;
         }
-        .btn{
+
+        .btn {
             text-align: center;
             margin-top: 70px;
             margin-bottom: 40px;
         }
-        .layui-input-block{
+
+        .layui-input-block {
             display: flex;
             align-items: center;
         }
-        b{
+
+        b {
             padding-left: 30px;
             width: 20%;
         }
-        .is{
+
+        .is {
             color: green;
         }
-        .no{
+
+        .no {
             color: red;
         }
     </style>
@@ -55,9 +60,37 @@
                 <legend style="color: #555555;">流量测试点 —— <span class="sign">5 ml/h</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">平均流量</label>
+                <label class="layui-form-label">测试值1</label>
                 <div class="layui-input-block">
-                    <input type="text" id="pjll1" name="pjll1" placeholder="平均流量" autocomplete="off" class="layui-input">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值1" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">测试值2</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值2" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">测试值3</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值3" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">平均值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="平均值" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="误差" autocomplete="off" class="layui-input">
                     <b id="wc1"></b>
                 </div>
             </div>
@@ -65,129 +98,134 @@
                 <legend style="color: #555555;">流量测试点 —— <span class="sign">25 ml/h</span></legend>
             </fieldset>
             <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">平均流量</label>
+                <label class="layui-form-label">测试值1</label>
                 <div class="layui-input-block">
-                    <input type="text" id="pjll2" name="pjll2" placeholder="平均流量" autocomplete="off" class="layui-input">
-                    <b id="wc2"></b>
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: red;">阻塞报警检测 —— 测试流量: 25ml/h </legend>
-            </fieldset>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">阻塞报警设置值 —— <span class="sign">产品说明书</span></legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">H</label>
-                <div class="layui-input-block">
-                    <input type="text" id="bjszH" name="bjszH" placeholder="H" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">M</label>
-                <div class="layui-input-block">
-                    <input type="text" id="bjszM" name="bjszM" placeholder="M" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">L</label>
-                <div class="layui-input-block">
-                    <input type="text" id="bjszL" name="bjszL" placeholder="L" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">报警时间 —— <span class="sign">min:sec</span></legend>
-            </fieldset>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">H</label>
-                <div class="layui-input-block">
-                    <input type="text" name="bjsjH" placeholder="H" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">M</label>
-                <div class="layui-input-block">
-                    <input type="text" name="bjsjM" placeholder="M" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item col-md-5 col-xs-12">
-                <label class="layui-form-label">L</label>
-                <div class="layui-input-block">
-                    <input type="text" name="bjsjL" placeholder="L" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">报警压力 —— <span class="sign">mmHg</span></legend>
-            </fieldset>
-            <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">H</label>
-                <div class="layui-input-block">
-                    <input type="text" id="bjylH" name="bjylH" placeholder="H" autocomplete="off" class="layui-input">
-                    <b id="wc3"></b>
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值1" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">M</label>
+                <label class="layui-form-label">测试值2</label>
                 <div class="layui-input-block">
-                    <input type="text" id="bjylM" name="bjylM" placeholder="M" autocomplete="off" class="layui-input">
-                    <b id="wc4"></b>
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值2" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
                 </div>
             </div>
             <div class="layui-form-item col-md-6 col-xs-12">
-                <label class="layui-form-label">L</label>
+                <label class="layui-form-label">测试值3</label>
                 <div class="layui-input-block">
-                    <input type="text" id="bjylL" name="bjylL" placeholder="L" autocomplete="off" class="layui-input">
-                    <b id="wc5"></b>
+                    <input type="text" id="pjll1" name="pjll1" placeholder="测试值3" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">平均值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="平均值" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <div class="layui-form-item col-md-6 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="pjll1" name="pjll1" placeholder="误差" autocomplete="off" class="layui-input">
+                    <b id="wc1"></b>
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: red;">阻塞报警检测 —— 测试流量: 25ml/h</legend>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">使用压力值</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">使用压力值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszH" name="bjszH" placeholder="使用压力值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测试值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszM" name="bjszM" placeholder="测试值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszL" name="bjszL" placeholder="误差" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">最小压力值</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">最小压力值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszH" name="bjszH" placeholder="最小压力值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测试值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszM" name="bjszM" placeholder="测试值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszL" name="bjszL" placeholder="误差" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">最大压力值</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">最大压力值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszH" name="bjszH" placeholder="最大压力值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">测试值</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszM" name="bjszM" placeholder="测试值" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item col-md-5 col-xs-12">
+                <label class="layui-form-label">误差</label>
+                <div class="layui-input-block">
+                    <input type="text" id="bjszL" name="bjszL" placeholder="误差" autocomplete="off" class="layui-input">
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: red;">报警系统检测</legend>
             </fieldset>
             <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">堵塞</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-4">
-                <label class="layui-form-label">堵塞</label>
-                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
-                    <input type="radio" name="zs" value="1" title="符合" checked>
-                    <input type="radio" name="zs" value="2" title="不符合">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">输液管路安装不妥</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-4">
-                <label class="layui-form-label">输液管路安装不妥</label>
-                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
-                    <input type="radio" name="sygbt" value="1" title="符合" checked>
-                    <input type="radio" name="sygbt" value="2" title="不符合">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">电源线脱开</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-4">
-                <label class="layui-form-label">电源线脱开</label>
-                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
-                    <input type="radio" name="dyxtk" value="1" title="符合" checked>
-                    <input type="radio" name="dyxtk" value="2" title="不符合">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend style="color: #555555;">即将空瓶</legend>
-            </fieldset>
-            <div class="layui-form-item col-md-4">
-                <label class="layui-form-label">即将空瓶</label>
-                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
-                    <input type="radio" name="jjkp" value="1" title="符合" checked>
-                    <input type="radio" name="jjkp" value="2" title="不符合">
-                </div>
-            </div>
-            <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">开门报警</legend>
             </fieldset>
             <div class="layui-form-item col-md-4">
                 <label class="layui-form-label">开门报警</label>
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="radio" name="kmbj" value="1" title="符合" checked>
+                    <input type="radio" name="kmbj" value="2" title="不符合">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">输液完毕报警</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">输液完毕报警</label>
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="radio" name="kmbj" value="1" title="符合" checked>
+                    <input type="radio" name="kmbj" value="2" title="不符合">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">电源线脱落报警</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">电源线脱落报警</label>
                 <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
                     <input type="radio" name="kmbj" value="1" title="符合" checked>
                     <input type="radio" name="kmbj" value="2" title="不符合">
@@ -226,43 +264,43 @@
     // 获取上个页面传递的类型
     var type = window.location.search;
     var ids = parseInt(type.split("=")[1]);
-    sessionStorage["thisjcyqId"]=ids;
+    sessionStorage["thisjcyqId"] = ids;
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var userName = sessionStorage["userName"];
     var thisId = parseInt(sessionStorage['thisId']);
-    layui.use(['element','jquery','form','layer','laydate'], function(){
+    layui.use(['element', 'jquery', 'form', 'layer', 'laydate'], function () {
         var element = layui.element
             , $ = layui.jquery
             , form = layui.form
             , layer = layui.layer
             , laydate = layui.laydate;
-        $(function(){
+        $(function () {
             $("#isUser").val(userName);
         });
         laydate.render({
             elem: "#date",
-            type:"datetime"
+            type: "datetime"
         });
         // 成人
-        form.on("submit(saveAll)",function(data){
+        form.on("submit(saveAll)", function (data) {
             console.log(data.field);
             $.ajax({
-                url:"/zsb/saveMan?eqId="+thiseqId+"&jcyqId="+ids+"&userEqId="+thisId,
-                method:"POST",
-                data:data.field,
-                dataType:"JSON",
-                success:function(res){
-                    if(res.state === 200){
+                url: "/zsb/saveMan?eqId=" + thiseqId + "&jcyqId=" + ids + "&userEqId=" + thisId,
+                method: "POST",
+                data: data.field,
+                dataType: "JSON",
+                success: function (res) {
+                    if (res.state === 200) {
                         sessionStorage["thissjId"] = res.data[1];
-                        setTimeout(function(){
-                            location.href = "/control/home/waiting/wait_info/injection_pump_man.html?id="+res.data[0];
-                        },1000);
+                        setTimeout(function () {
+                            location.href = "/control/home/waiting/wait_info/injection_pump_man.html?id=" + res.data[0];
+                        }, 1000);
                         layer.msg("保存成功,正在生成表格");
-                    }else{
+                    } else {
                         layer.msg("提交失败");
                     }
                 },
-                error:function(data){
+                error: function (data) {
                     layer.msg("请稍后再试");
                     console.log(data);
                 }

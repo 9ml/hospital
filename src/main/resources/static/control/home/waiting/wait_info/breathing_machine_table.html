@@ -399,8 +399,11 @@
                 <td id="xqfzylPjzClzValue1">&nbsp;</td>
                 <td id="xqfzylSzwcValue1">&nbsp;</td>
                 <td id="xqfzylScwcValue1">&nbsp;</td>
-                <td id="xqfzylZdyc" rowspan="5"></td>
-                <td rowspan="5" id="xqfzylResult">□符合 □不符合</td>
+                <td rowspan="5">
+                    <p>FS:<span id="xqfzylZdyc1"></span></p>
+                    <p id="xqfzylZdyc2"></p>
+                </td>
+                <td rowspan="5" id="xqfzylResult"></td>
             </tr>
             <tr>
                 <td id="xqfzylHxjsdz2"></td><!--20-->
@@ -488,7 +491,8 @@
                 <td id="hqmzyPjzClzValue1">&nbsp;</td>
                 <td id="hqmzySzwcValue1">&nbsp;</td>
                 <td id="hqmzyScwcValue1">&nbsp;</td>
-                <td id="hqmzyZdyc" rowspan="5"></td>
+                <td rowspan="5"><p>FS:<span id="hqmzyZdyc1"></span></p>
+                    <p id="hqmzyZdyc2"></p></td>
                 <td style="width: 8%;" rowspan="5" id="hqmzyResult">□符合 □不符合</td>
             </tr>
             <tr>
@@ -903,7 +907,8 @@
                     $("#xqfzylScwcValue3").html(res.data.xqfzylScwcValue3);
                     $("#xqfzylScwcValue4").html(res.data.xqfzylScwcValue4);
                     $("#xqfzylScwcValue5").html(res.data.xqfzylScwcValue5);
-                    $("#xqfzylZdyc").html(res.data.xqfzylZdyc1);
+                    $("#xqfzylZdyc1").html(res.data.xqfzylZdyc1);
+                    $("#xqfzylZdyc2").html(res.data.xqfzylZdyc2);
                     $("#xqfzylResult").html(res.data.xqfzylResult);
                     $("#hqmzyHxjsdz1").html(res.data.hqmzyHxjsdz1);
                     $("#hqmzyHxjsdz2").html(res.data.hqmzyHxjsdz2);
@@ -960,7 +965,8 @@
                     $("#hqmzyScwcValue3").html(res.data.hqmzyScwcValue3);
                     $("#hqmzyScwcValue4").html(res.data.hqmzyScwcValue4);
                     $("#hqmzyScwcValue5").html(res.data.hqmzyScwcValue5);
-                    $("#hqmzyZdyc").html(res.data.hqmzyZdyc);
+                    $("#hqmzyZdyc1").html(res.data.hqmzyZdyc1);
+                    $("#hqmzyZdyc2").html(res.data.hqmzyZdyc2);
                     $("#hqmzyResult").html(res.data.hqmzyResult);
                     //防误操作电源开关
                     $("#fwczdykg").html(res.data.fwczdykg === "1" ? "<p style='color:green;'>符合</p>" : "<p style='color:red;' class='not_pass'>不符合</p>");

@@ -77,7 +77,7 @@
             },
             parseData: function (res) {
                 console.log(res);
-                if (res.data[0].jcyqName == "生命体征模拟器" || res.data[0].jcyqName == "注射设备分析仪" || res.data[0].jcyqName == "输液设备分析仪" || res.data[0].jcyqName == "气流分析仪") {
+                if (res.data[0].jcyqName == "生命体征模拟器" || res.data[0].jcyqName == "气流分析仪") {
                     $("#xnJump").append("<a class='layui-btn layui-btn-xs layui-btn-normal' lay-event='man'>成人</a><a class='layui-btn layui-btn-xs' lay-event='child'>新生儿</a>")
                 } else {
                     $("#xnJump").append("<a class='layui-btn layui-btn-xs layui-btn-normal' lay-event='writeInfo'>录入数据</a>")
@@ -136,16 +136,12 @@
             if (obj.event === "man") {
                 if (data.jcyqName == "生命体征模拟器") {
                     location.href = "/control/home/waiting/write_info/write_life_man.html?id=" + obj.data.jcyqId;
-                } else if (data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪") {
-                    location.href = "/control/home/waiting/write_info/write_injection_man.html?id=" + obj.data.jcyqId;
                 } else if (data.jcyqName == "气流分析仪") {
                     location.href = "/control/home/waiting/write_info/write_breath_info.html?id=" + obj.data.jcyqId;
                 }
             } else if (obj.event === "child") {
                 if (data.jcyqName == "生命体征模拟器") {
                     location.href = "/control/home/waiting/write_info/write_life_child.html?id=" + obj.data.jcyqId;
-                } else if (data.jcyqName == "注射设备分析仪" || data.jcyqName == "输液设备分析仪") {
-                    location.href = "/control/home/waiting/write_info/write_injection_child.html?id=" + obj.data.jcyqId;
                 } else if (data.jcyqName == "气流分析仪") {
                     location.href = "/control/home/waiting/write_info/write_breath_info_child.html?id=" + obj.data.jcyqId;
                 }
@@ -161,6 +157,10 @@
                     location.href = "/control/home/waiting/write_info/write_defibrillator_info.html?id=" + obj.data.jcyqId;
                 } else if (data.jcyqName == "生命体征模拟器") {
                     location.href = "/control/home/waiting/write_info/write_life_man.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "注射设备分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_injection_man.html?id=" + obj.data.jcyqId;
+                } else if (data.jcyqName == "输液设备分析仪") {
+                    location.href = "/control/home/waiting/write_info/write_injection_man.html?id=" + obj.data.jcyqId;
                 }
             }
         });

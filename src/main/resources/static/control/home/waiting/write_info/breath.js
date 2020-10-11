@@ -132,8 +132,9 @@ window.onload = function () {
         $group.find("input[type=text]").eq(9).val(scwc + "%");
         var $szwcjc = $group.find("input[type=text]").eq(8).parent().find(".jcjgTip");
         var $scwcjc = $group.find("input[type=text]").eq(9).parent().find(".jcjgTip");
-
-        if (Math.abs(szwc) <= 5) {
+        var zdycVal = $("#xqfzylZdyc1").val();
+        var zdyc = (0.02 * zdycVal + 0.04 * vn) * 100;
+        if (Math.abs(szwc) <= zdyc) {
             $szwcjc.text("√ 符合");
             $szwcjc.removeClass("no").addClass("is");
         } else {
@@ -164,8 +165,9 @@ window.onload = function () {
         $group.find("input[type=text]").eq(9).val(scwc + "%");
         var $szwcjc = $group.find("input[type=text]").eq(8).parent().find(".jcjgTip");
         var $scwcjc = $group.find("input[type=text]").eq(9).parent().find(".jcjgTip");
-
-        if (Math.abs(szwc) <= 5) {
+        var zdycVal = $("#hqmzyZdyc1").val();
+        var zdyc = (0.02 * zdycVal + 0.04 * vn) * 100;
+        if (Math.abs(szwc) <= zdyc) {
             $szwcjc.text("√ 符合");
             $szwcjc.removeClass("no").addClass("is");
         } else {
