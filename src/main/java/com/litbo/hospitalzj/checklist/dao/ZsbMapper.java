@@ -38,7 +38,7 @@ public interface ZsbMapper {
             "      shr_jcjl, auditor, tester, \n" +
             "      test_time, shsj_time, jcjl, \n" +
             "      jcsm, lljc_sdz1, lljc_sdz2, \n" +
-            "      lljc_csz1, lljc_csz2, lljc_csz3, \n" +
+            "      lljc_csz1, lljc_csz2, lljc_csz3,lljc_csz4, lljc_csz5, lljc_csz6,  \n" +
             "      lljc_pjz1, lljc_wcz1, lljc_wcz2, \n" +
             "      lljc_pjz2, lljc_wc1, lljc_wc2, \n" +
             "      lljc_result1, lljc_result2, zsbjyljc_ls, \n" +
@@ -52,7 +52,7 @@ public interface ZsbMapper {
             "      #{shrJcjl,jdbcType=VARCHAR}, #{auditor,jdbcType=VARCHAR}, #{tester,jdbcType=VARCHAR}, \n" +
             "      #{testTime,jdbcType=TIMESTAMP}, #{shsjTime,jdbcType=TIMESTAMP}, #{jcjl,jdbcType=VARCHAR}, \n" +
             "      #{jcsm,jdbcType=VARCHAR}, #{lljcSdz1,jdbcType=VARCHAR}, #{lljcSdz2,jdbcType=VARCHAR}, \n" +
-            "      #{lljcCsz1,jdbcType=VARCHAR}, #{lljcCsz2,jdbcType=VARCHAR}, #{lljcCsz3,jdbcType=VARCHAR}, \n" +
+            "      #{lljcCsz1,jdbcType=VARCHAR}, #{lljcCsz2,jdbcType=VARCHAR}, #{lljcCsz3,jdbcType=VARCHAR}, #{lljcCsz4,jdbcType=VARCHAR}, #{lljcCsz5,jdbcType=VARCHAR}, #{lljcCsz6,jdbcType=VARCHAR}, \n" +
             "      #{lljcPjz1,jdbcType=VARCHAR}, #{lljcWcz1,jdbcType=VARCHAR}, #{lljcWcz2,jdbcType=VARCHAR}, \n" +
             "      #{lljcPjz2,jdbcType=VARCHAR}, #{lljcWc1,jdbcType=VARCHAR}, #{lljcWc2,jdbcType=VARCHAR}, \n" +
             "      #{lljcResult1,jdbcType=VARCHAR}, #{lljcResult2,jdbcType=VARCHAR}, #{zsbjyljcLs,jdbcType=VARCHAR}, \n" +
@@ -80,6 +80,9 @@ public interface ZsbMapper {
             "      lljc_csz1 = #{lljcCsz1,jdbcType=VARCHAR},\n" +
             "      lljc_csz2 = #{lljcCsz2,jdbcType=VARCHAR},\n" +
             "      lljc_csz3 = #{lljcCsz3,jdbcType=VARCHAR},\n" +
+            "      lljc_csz4 = #{lljcCsz4,jdbcType=VARCHAR},\n" +
+            "      lljc_csz5 = #{lljcCsz5,jdbcType=VARCHAR},\n" +
+            "      lljc_csz6 = #{lljcCsz6,jdbcType=VARCHAR},\n" +
             "      lljc_pjz1 = #{lljcPjz1,jdbcType=VARCHAR},\n" +
             "      lljc_wcz1 = #{lljcWcz1,jdbcType=VARCHAR},\n" +
             "      lljc_wcz2 = #{lljcWcz2,jdbcType=VARCHAR},\n" +

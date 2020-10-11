@@ -35,6 +35,12 @@ public class Zsb {
 
     private String lljcCsz3;
 
+    private String lljcCsz4;
+
+    private String lljcCsz5;
+
+    private String lljcCsz6;
+
     private String lljcPjz1;
 
     private String lljcWcz1;
