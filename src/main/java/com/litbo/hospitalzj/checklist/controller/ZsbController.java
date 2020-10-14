@@ -98,6 +98,8 @@ public class ZsbController extends BaseController {
             HttpSession session,
             HttpServletRequest req){
         Zsb last1 = zsbService.findByEqIdandJcyqIdLast1(eqId, jcyqId);
+        if(last1 == null)
+            return new ResponseResult(ERROR,"查询不到信息！！");
         Zsb zsb = CommonUtils.toBean(req.getParameterMap(), Zsb.class);
         zsb.setZsbId(last1.getZsbId());
         //更新

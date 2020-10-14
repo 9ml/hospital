@@ -17,9 +17,9 @@ public class Zsb {
 
     private String tester;
 
-    private Date testTime;
+    private String testTime;
 
-    private Date shsjTime;
+    private String shsjTime;
 
     private String jcjl;
 

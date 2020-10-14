@@ -66,13 +66,13 @@ public interface ZsbMapper {
     void save(Zsb zsb);
     //修改数据
     @Update(" update zsb\n" +
-            "    set jcyqId,jdbcType=INTEGER},\n" +
+            "    set jcyq_id = #{jcyqId,jdbcType=INTEGER},\n" +
             "      eq_id = #{eqId,jdbcType=INTEGER},\n" +
             "      shr_jcjl = #{shrJcjl,jdbcType=VARCHAR},\n" +
             "      auditor = #{auditor,jdbcType=VARCHAR},\n" +
             "      tester = #{tester,jdbcType=VARCHAR},\n" +
-            "      test_time = #{testTime,jdbcType=TIMESTAMP},\n" +
-            "      shsj_time = #{shsjTime,jdbcType=TIMESTAMP},\n" +
+            "      test_time = #{testTime,jdbcType=VARCHAR},\n" +
+            "      shsj_time = #{shsjTime,jdbcType=VARCHAR},\n" +
             "      jcjl = #{jcjl,jdbcType=VARCHAR},\n" +
             "      jcsm = #{jcsm,jdbcType=VARCHAR},\n" +
             "      lljc_sdz1 = #{lljcSdz1,jdbcType=VARCHAR},\n" +
