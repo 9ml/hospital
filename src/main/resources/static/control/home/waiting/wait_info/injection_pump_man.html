@@ -5,23 +5,26 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>成人注射泵质量检测原始记录表</title>
+    <title>注射泵质量检测原始记录表</title>
     <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
     <script src="../../../../static/js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <script src="../../../../static/layui/layui.js"></script>
     <style>
-        h2{
+        h2 {
             text-align: center;
             margin-top: 30px;
         }
-        td{
+
+        td {
             text-align: center;
         }
-        .btn{
+
+        .btn {
             width: 100%;
             margin-top: 50px;
             margin-bottom: 30px;
@@ -32,81 +35,77 @@
 <body>
 <div class="layui-row">
     <div class="col-xs-12">
-        <fieldset class="layui-elem-field layui-field-title">
-            <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">注射泵质量检测原始记录表 (成人)</legend>
-        </fieldset>
-        <table class="layui-table">
-            <tr>
-                <td rowspan="2">流量检测</td>
-                <td colspan="3">流量测试点</td>
-                <td colspan="3">5 ml/h</td>
-                <td colspan="3">25 ml/h</td>
-                <td>测试结果：允许测量误差±10％</td>
-            </tr>
-            <tr>
-                <td colspan="3">平均流量</td>
-                <td id="pjll1" colspan="3">&nbsp;</td>
-                <td id="pjll2" colspan="3">&nbsp;</td>
-                <td id="is1"></td>
-            </tr>
-            <tr>
-                <td rowspan="3">阻塞报警检测<br/>测试流量：25ml/h</td>
-                <td colspan="3">阻塞报警设置值（产品说明书）</td>
-                <td colspan="3">报警时间(min)</td>
-                <td colspan="3">报警压力（mmHg）</td>
-                <td>测试结果允许测量误差：±20%或者±100mmHg</td>
-            </tr>
-            <tr>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td>H</td>
-                <td>M</td>
-                <td>L</td>
-                <td id="is2" rowspan="2"></td>
-            </tr>
-            <tr>
-                <td id="bjszH">&nbsp;</td>
-                <td id="bjszM">&nbsp;</td>
-                <td id="bjszL">&nbsp;</td>
-                <td id="bjsjH">&nbsp;</td>
-                <td id="bjsjM">&nbsp;</td>
-                <td id="bjsjL">&nbsp;</td>
-                <td id="bjylH">&nbsp;</td>
-                <td id="bjylM">&nbsp;</td>
-                <td id="bjylL">&nbsp;</td>
-            </tr>
-            <tr>
-                <td rowspan="3">报警系统检测</td>
-                <td colspan="3">堵塞</td>
-                <td id="zs" colspan="3"></td>
-                <td colspan="3">即将空瓶</td>
-                <td id="jjkp"></td>
-            </tr>
-            <tr>
-                <td colspan="3">输液管路安装不妥</td>
-                <td id="sygbt" colspan="3"></td>
-                <td colspan="3">开门报警</td>
-                <td id="kmbj"></td>
-            </tr>
-            <tr>
-                <td colspan="3">电源线脱开</td>
-                <td id="dyxtk" colspan="3"></td>
-                <td colspan="3"></td>
-                <td></td>
-            </tr>
-        </table>
+        <div class="col-xs-12">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #000000;font-weight: bold;text-align: center;margin-bottom: 30px;">注射泵质量检测原始记录表</legend>
+            </fieldset>
+            <table class="layui-table">
+                <tr>
+                    <td rowspan="4">流量检测</td>
+                    <td>设定值</td>
+                    <td id="lljcSdz1" colspan="4"><!--25 ml/h--></td>
+                    <td>允许误差<!--测试结果：允许测量误差±10％--></td>
+                    <td>结果<!--测试结果：允许测量误差±10％--></td>
+                </tr>
+                <tr>
+                    <td>三组测试值</td>
+                    <td>1：<span id="lljcCsz1"></span></td>
+                    <td>2：<span id="lljcCsz2"></span></td>
+                    <td>3：<span id="lljcCsz3"></span></td>
+                    <td>平均值：<span id="lljcPjz1"></span></td>
+                    <td id="lljcWc1"><!--测试结果：允许测量误差±10％--></td>
+                    <td id="lljcResult1">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td colspan="4" id="lljcSdz2"></td>
+                </tr>
+                <tr>
+                    <td>三组测试值</td>
+                    <td>1：<span id="lljcCsz4"></span></td>
+                    <td>2：<span id="lljcCsz5"></span></td>
+                    <td>3：<span id="lljcCsz6"></span></td>
+                    <td>平均值：<span id="lljcPjz2"></span></td>
+                    <td id="lljcWc2"><!--测试结果：允许测量误差±10％--></td>
+                    <td id="lljcResult2">□合格□不合格<!--测试结果：允许测量误差±10％--></td>
+                </tr>
+                <tr>
+                    <td rowspan="3">阻塞报警压力检测流速：<span id="zsbjyljcLs"></span></td>
+                    <td>使用压力值</td>
+                    <td id="zsbjyljcSyylz"></td>
+                    <td>测试值</td>
+                    <td colspan="2" id="zsbjyljcCsz1">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>最小压力值</td>
+                    <td id="zsbjyljcZxylz"></td>
+                    <td>测试值</td>
+                    <td colspan="2" id="zsbjyljcCsz2">&nbsp;</td>
+                    <td rowspan="2" id="zsbjyljcWc"></td>
+                    <td rowspan="2" id="zsbjyljcResult">□合格 □不合格</td>
+                </tr>
+                <tr>
+                    <td>最大压力值</td>
+                    <td id="zsbjyljcZdylz"></td>
+                    <td>测试值</td>
+                    <td colspan="2" id="zsbjyljcCsz3">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="1">开门报警</td>
+                    <td id="kmbj" colspan="2">□符合 □不符合</td>
+                    <td colspan="2">输液完毕报警</td>
+                    <td id="sywbbj">□符合 □不符合</td>
+                    <td colspan="1">电源线脱落报警</td>
+                    <td id="dyxtlbj">□合格 □不合格</td>
+                </tr>
+            </table>
+        </div>
         <fieldset class="layui-elem-field layui-field-title">
             <legend style="color: #000000;font-weight: bold;">检测人信息</legend>
         </fieldset>
         <table class="layui-hide" id="testerInfo"></table>
         <div class="col-xs-12 btn">
             <a id="update" class="layui-btn">修改</a>
-            <a id="back" class="layui-btn">暂不上传</a>
-            <button id="upload" class="layui-btn layui-btn-normal">上传</button>
         </div>
     </div>
 </div>
@@ -122,140 +121,110 @@
     var thisId = parseInt(sessionStorage['thisId']);
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var dqSb = sessionStorage['dqSb'];
-    $(function(){
+    $(function () {
         sessionStorage['zsSb'] = 1;
         $.ajax({
-            url:"/zsb/findByidM?id="+ids,
-            method:"GET",
-            dataType:"JSON",
-            success:function(res){
+            url: "/zsb/findByZsbid?zsbId=" + ids,
+            method: "GET",
+            dataType: "JSON",
+            success: function (res) {
                 console.log(res);
-                if(res.data != null && res.data != ""){
-                    // 流量检测
-                    $("#pjll1").append(res.data.pjll1);
-                    $("#pjll2").append(res.data.pjll2);
-                    if(res.data.pjll1 >= 4.5 && res.data.pjll1 <= 5.5 && res.data.pjll2 >= 22.5 && res.data.pjll2 <= 27.5){
-                        $("#is1").append("<p style='color:green;'>符合</p>")
-                    }else{
-                        $("#is1").append("<p style='color:red;'>不符合</p>")
-                    }
-                    // 阻塞报警检测
-                    $("#bjszH").append(res.data.bjszH);
-                    $("#bjszM").append(res.data.bjszM);
-                    $("#bjszL").append(res.data.bjszL);
-                    $("#bjsjH").append(res.data.bjsjH);
-                    $("#bjsjM").append(res.data.bjsjM);
-                    $("#bjsjL").append(res.data.bjsjL);
-                    $("#bjylH").append(res.data.bjylH);
-                    $("#bjylM").append(res.data.bjylM);
-                    $("#bjylL").append(res.data.bjylL);
-                    if(res.data.bjylH >= (res.data.bjszH - res.data.bjszH * 0.2) && res.data.bjylH <= (res.data.bjszH + res.data.bjszH * 0.2) && res.data.bjylM >= (res.data.bjszM - res.data.bjszM * 0.2) && res.data.bjylM <= (res.data.bjszM + res.data.bjszM * 0.2) && res.data.bjylL >= 200 && res.data.bjylL <= 400){
-                        $("#is2").append("<p style='color:green;'>符合</p>")
-                    }else{
-                        $("#is2").append("<p style='color:red;'>不符合</p>")
-                    }
-                    // 单选
-                    if(res.data.zs == 1){
-                        $("#zs").append("<p style='color: green;'>符合</p>");
-                    }else{
-                        $("#zs").append("<p style='color: red;'>不符合</p>");
-                    }
-                    if(res.data.jjkp == 1){
-                        $("#jjkp").append("<p style='color: green;'>符合</p>");
-                    }else{
-                        $("#jjkp").append("<p style='color: red;'>不符合</p>");
-                    }
-                    if(res.data.sygbt == 1){
-                        $("#sygbt").append("<p style='color: green;'>符合</p>");
-                    }else{
-                        $("#sygbt").append("<p style='color: red;'>不符合</p>");
-                    }
-                    if(res.data.dyxtk == 1){
-                        $("#dyxtk").append("<p style='color: green;'>符合</p>");
-                    }else{
-                        $("#dyxtk").append("<p style='color: red;'>不符合</p>");
-                    }
-                    if(res.data.kmbj == 1){
-                        $("#kmbj").append("<p style='color: green;'>符合</p>");
-                    }else{
-                        $("#kmbj").append("<p style='color: red;'>不符合</p>");
-                    }
-                }else{
+                if (res.data != null && res.data != "") {
+                    $("#zsbId").html(res.data.zsbId);
+                    $("#jcyqId").html(res.data.jcyqId);
+                    $("#eqId").html(res.data.eqId);
+                    $("#shrJcjl").html(res.data.shrJcjl);
+                    $("#auditor").html(res.data.auditor);
+                    $("#tester").html(res.data.tester);
+                    $("#testTime").html(res.data.testTime);
+                    $("#shsjTime").html(res.data.shsjTime);
+                    $("#jcjl").html(res.data.jcjl);
+                    $("#jcsm").html(res.data.jcsm);
+                    $("#lljcSdz1").html(res.data.lljcSdz1);
+                    $("#lljcSdz2").html(res.data.lljcSdz2);
+                    $("#lljcCsz1").html(res.data.lljcCsz1);
+                    $("#lljcCsz2").html(res.data.lljcCsz2);
+                    $("#lljcCsz3").html(res.data.lljcCsz3);
+                    $("#lljcCsz4").html(res.data.lljcCsz4);
+                    $("#lljcCsz5").html(res.data.lljcCsz5);
+                    $("#lljcCsz6").html(res.data.lljcCsz6);
+                    $("#lljcPjz1").html(res.data.lljcPjz1);
+                    $("#lljcWcz1").html(res.data.lljcWcz1);
+                    $("#lljcWcz2").html(res.data.lljcWcz2);
+                    $("#lljcPjz2").html(res.data.lljcPjz2);
+                    $("#lljcWc1").html(res.data.lljcWc1);
+                    $("#lljcWc2").html(res.data.lljcWc2);
+                    $("#lljcResult1").html(res.data.lljcResult1 == "合格" ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#lljcResult2").html(res.data.lljcResult2 == "合格" ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#zsbjyljcLs").html(res.data.zsbjyljcLs);
+                    $("#zsbjyljcSyylz").html(res.data.zsbjyljcSyylz);
+                    $("#zsbjyljcCsz1").html(res.data.zsbjyljcCsz1);
+                    $("#zsbjyljcWcz1").html(res.data.zsbjyljcWcz1);
+                    $("#zsbjyljcZxylz").html(res.data.zsbjyljcZxylz);
+                    $("#zsbjyljcCsz2").html(res.data.zsbjyljcCsz2);
+                    $("#zsbjyljcWcz2").html(res.data.zsbjyljcWcz2);
+                    $("#zsbjyljcZdylz").html(res.data.zsbjyljcZdylz);
+                    $("#zsbjyljcCsz3").html(res.data.zsbjyljcCsz3);
+                    $("#zsbjyljcWcz3").html(res.data.zsbjyljcWcz3);
+                    $("#zsbjyljcWc").html(res.data.zsbjyljcWc);
+                    $("#zsbjyljcResult").html(res.data.zsbjyljcResult == "合格" ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#kmbj").html(res.data.kmbj == 1 ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#sywbbj").html(res.data.sywbbj == 1 ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#dyxtlbj").html(res.data.dyxtlbj == 1 ? "<span style='color:green'>合格</span>" : "<span class='not_pass' style='color:red'>不合格</span>");
+                    $("#jl").html(res.data.jl);
+                    $("#qksm").html(res.data.qksm);
+                    $("#type").html(res.data.type);
+                } else {
                     layer.msg("无数据");
                 }
             }
         })
     });
     //Demo
-    layui.use(['table','layer','jquery','form'],function(){
+    layui.use(['table', 'layer', 'jquery', 'form'], function () {
         var table = layui.table
             , layer = layui.layer
             , $ = layui.jquery
             , form = layui.form;
         table.render({
-            elem:"#testerInfo",
-            cellMinWidth:100,
+            elem: "#testerInfo",
+            cellMinWidth: 100,
             toolbar: '#toolbarDemo',
-            url:"/zsb/findByidM?id="+ids,
-            method:"GET",
+            url: "/zsb/findByZsbid?zsbId=" + ids,
+            method: "GET",
             response: {
                 statusName: 'status'
-                ,statusCode: 200
-                ,msgName: 'hint'
-                ,countName: 'total'
-                ,dataName: 'data'
+                , statusCode: 200
+                , msgName: 'hint'
+                , countName: 'total'
+                , dataName: 'data'
             },
-            parseData:function(res){
+            parseData: function (res) {
                 console.log(res.data);
 //                sessionStorage['lreqId'] = res.data.eqId;
-                return{
-                    "status":200
-                    ,"msg":res.message
-                    ,"count":res.total
-                    ,"data":[res.data]
+                return {
+                    "status": 200
+                    , "msg": res.message
+                    , "count": res.total
+                    , "data": [res.data]
                 }
             },
-            cols:[[
-                {field:'tester', title:'检测人',align:'center'},
-                {field:'testTime', title:'检测时间',align:'center'},
-                {field:'jcsm', title:'检测情况说明',align:'center'}
+            cols: [[
+                {field: 'tester', title: '检测人', align: 'center'},
+                {field: 'testTime', title: '检测时间', align: 'center'},
+                {field: 'jcsm', title: '检测情况说明', align: 'center'}
             ]]
         });
-        // 上传
-        $("#upload").click(function(){
-            $.ajax({
-                url:"/dqjc/updateState?yqEqId="+thissjId+"&userEqId="+thisId,
-                method:"POST",
-                success:function(res){
-                    if(res.state === 200){
-                        layer.msg("上传成功，请耐心等待管理员审核");
-                        setTimeout(function(){
-                            if(dqSb == 1){
-                                location.href="/control/home/home.html";
-                            }else{
-                                location.href="/control/home/waiting/check_info.html?id="+thiseqId;
-                            }
-                        },1000)
-                    }else{
-                        layer.msg("上传失败");
-                    }
-                },
-                error:function(data){
-                    layer.msg("上传失败,请稍后再试");
-                    console.log(data);
-                }
-            })
-        });
         // 修改
-        $("#update").click(function(){
-            location.href="/control/home/waiting/update/write_injection_man.html?id="+ids;
+        $("#update").click(function () {
+            location.href = "/control/home/waiting/update/write_injection_man.html?id=" + ids;
         });
         // 返回
         $("#back").click(function () {
-            if(dqSb == 1){
-                location.href="/control/home/home.html";
-            }else{
-                location.href="/control/home/waiting/check_info.html?id="+thiseqId;
+            if (dqSb == 1) {
+                location.href = "/control/home/home.html";
+            } else {
+                location.href = "/control/home/waiting/check_info.html?id=" + thiseqId;
             }
         })
     })
