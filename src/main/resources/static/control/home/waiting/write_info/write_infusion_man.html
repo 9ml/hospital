@@ -5,13 +5,13 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <title>注射泵质量检测原始记录</title>
+    <title>输液泵质量检测原始记录</title>
     <link rel="stylesheet" type="text/css" href="../../../../static/layui/css/layui.css"/>
     <link rel="stylesheet" type="text/css" href="../../../../static/css/admin.css"/>
     <link rel="stylesheet" href="../../../../static/css/all.min.css"/>
     <script type="text/javascript" src="../../../../static/js/jquery-3.3.1.min.js"></script>
     <script src="../../../../static/layui/layui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../write_info/injection_man.js"></script>
+    <script src="injection_man.js"></script>
     <!--[if IE 8]>
     <script type="text/javascript" src="../../../../static/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
@@ -50,7 +50,7 @@
     <p style="height: 34px;width: 100%;line-height: 34px;background-color: lightyellow; text-align: center;"><span class="sign">***</span>请认真填写数据信息<span class="sign">***</span></p>
     <div class="col-xs-12">
         <fieldset class="layui-elem-field layui-field-title">
-            <legend style="font-size: 22px;font-weight: bold;">注射泵质量检测原始记录(成人)</legend>
+            <legend style="font-size: 22px;font-weight: bold;">输液泵质量检测原始记录(成人)</legend>
         </fieldset>
         <form class="layui-form layui-form-pane" action="">
             <fieldset class="layui-elem-field layui-field-title">
@@ -58,7 +58,7 @@
             </fieldset>
             <div class="group_llcsd5">
                 <fieldset class="layui-elem-field layui-field-title">
-                    <legend style="color: #555555;">流量测试点 —— <span class="sign">5 ml/h</span></legend>
+                    <legend style="color: #555555;">流量测试点 —— <span class="sign">25 ml/h</span></legend>
                 </fieldset>
                 <div class="layui-form-item col-md-6 col-xs-12">
                     <label class="layui-form-label">测试值1</label>
@@ -95,7 +95,7 @@
             </div>
             <div class="group_llcsd25">
                 <fieldset class="layui-elem-field layui-field-title">
-                    <legend style="color: #555555;">流量测试点 —— <span class="sign">25 ml/h</span></legend>
+                    <legend style="color: #555555;">流量测试点 —— <span class="sign">100 ml/h</span></legend>
                 </fieldset>
                 <div class="layui-form-item col-md-6 col-xs-12">
                     <label class="layui-form-label">测试值1</label>
@@ -221,6 +221,16 @@
                 </div>
             </div>
             <fieldset class="layui-elem-field layui-field-title">
+                <legend style="color: #555555;">气泡报警</legend>
+            </fieldset>
+            <div class="layui-form-item col-md-4">
+                <label class="layui-form-label">气泡报警</label>
+                <div class="layui-input-block" style="border: 1px solid #CCCCCC;">
+                    <input type="radio" name="qpbj" value="1" title="符合" checked>
+                    <input type="radio" name="qpbj" value="2" title="不符合">
+                </div>
+            </div>
+            <fieldset class="layui-elem-field layui-field-title">
                 <legend style="color: #555555;">输液完毕报警</legend>
             </fieldset>
             <div class="layui-form-item col-md-4">
@@ -274,11 +284,12 @@
     // 获取上个页面传递的类型
     var type = window.location.search;
     var ids = parseInt(type.split("=")[1]);
-    // sessionStorage["thisjcyqId"]=ids;
-    var thisjcyqId = parseInt(sessionStorage['thisjcyqId']);
+    sessionStorage["thisjcyqId"] = ids;
     var thiseqId = parseInt(sessionStorage['thiseqId']);
+    var userName = sessionStorage["userName"];
     var thisId = parseInt(sessionStorage['thisId']);
-    var zsbId = null;
+
+
     $(".js-create").on("click", function () {
         $("input[type=text]").each(function () {
             $(this).val(2);
@@ -294,7 +305,7 @@
 
     function settingResult() {
         //心率
-        //流量测试点 —— 5 ml/h
+        //流量测试点 —— 25 ml/h
         var llcsd5ResultPass = true;
         $(".group_llcsd5 .mp").each(function () {
             if ($(this).is(".no")) {
@@ -302,7 +313,7 @@
             }
         });
         $("input[name='lljcResult1']").val(llcsd5ResultPass ? "合格" : "不合格");
-        //流量测试点 —— 25 ml/h
+        //流量测试点 —— 100 ml/h
         var llcsd25ResultPass = true;
         $(".group_llcsd25 .mp").each(function () {
             if ($(this).is(".no")) {
@@ -320,93 +331,40 @@
         $("input[name='zsbjyljcResult']").val(zsylbjResultPass ? "合格" : "不合格");
     };
 
-    $(function () {
-        $.ajax({
-            url: "/zsb/findByZsbid?zsbId=" + ids,
-            method: "GET",
-            dataType: "JSON",
-            success: function (res) {
-                console.log(res);
-                if (res.data != null && res.data != "") {
-                    zsbId = res.data.zsbId;
-                    $("input[name='zsbId']").val(res.data.zsbId);
-                    $("input[name='jcyqId']").val(res.data.jcyqId);
-                    $("input[name='eqId']").val(res.data.eqId);
-                    $("input[name='shrJcjl']").val(res.data.shrJcjl);
-                    $("input[name='auditor']").val(res.data.auditor);
-                    $("input[name='tester']").val(res.data.tester);
-                    $("input[name='testTime']").val(res.data.testTime);
-                    $("input[name='shsjTime']").val(res.data.shsjTime);
-                    $("input[name='jcjl']").val(res.data.jcjl);
-                    $("input[name='jcsm']").val(res.data.jcsm);
-                    $("input[name='lljcSdz1']").val(res.data.lljcSdz1);
-                    $("input[name='lljcSdz2']").val(res.data.lljcSdz2);
-                    $("input[name='lljcCsz1']").val(res.data.lljcCsz1);
-                    $("input[name='lljcCsz2']").val(res.data.lljcCsz2);
-                    $("input[name='lljcCsz3']").val(res.data.lljcCsz3);
-                    $("input[name='lljcCsz4']").val(res.data.lljcCsz4);
-                    $("input[name='lljcCsz5']").val(res.data.lljcCsz5);
-                    $("input[name='lljcCsz6']").val(res.data.lljcCsz6);
-                    $("input[name='lljcPjz1']").val(res.data.lljcPjz1);
-                    $("input[name='lljcWcz1']").val(res.data.lljcWcz1);
-                    $("input[name='lljcWcz2']").val(res.data.lljcWcz2);
-                    $("input[name='lljcPjz2']").val(res.data.lljcPjz2);
-                    $("input[name='lljcWc1']").val(res.data.lljcWc1);
-                    $("input[name='lljcWc2']").val(res.data.lljcWc2);
-                    $("input[name='lljcResult1']").val(res.data.lljcResult1);
-                    $("input[name='lljcResult2']").val(res.data.lljcResult2);
-                    $("input[name='zsbjyljcLs']").val(res.data.zsbjyljcLs);
-                    $("input[name='zsbjyljcSyylz']").val(res.data.zsbjyljcSyylz);
-                    $("input[name='zsbjyljcCsz1']").val(res.data.zsbjyljcCsz1);
-                    $("input[name='zsbjyljcWcz1']").val(res.data.zsbjyljcWcz1);
-                    $("input[name='zsbjyljcZxylz']").val(res.data.zsbjyljcZxylz);
-                    $("input[name='zsbjyljcCsz2']").val(res.data.zsbjyljcCsz2);
-                    $("input[name='zsbjyljcWcz2']").val(res.data.zsbjyljcWcz2);
-                    $("input[name='zsbjyljcZdylz']").val(res.data.zsbjyljcZdylz);
-                    $("input[name='zsbjyljcCsz3']").val(res.data.zsbjyljcCsz3);
-                    $("input[name='zsbjyljcWcz3']").val(res.data.zsbjyljcWcz3);
-                    $("input[name='zsbjyljcWc']").val(res.data.zsbjyljcWc);
-                    $("input[name='zsbjyljcResult']").val(res.data.zsbjyljcResult);
-                    $("input[name='kmbj']").val(res.data.kmbj);
-                    $("input[name='sywbbj']").val(res.data.sywbbj);
-                    $("input[name='dyxtlbj']").val(res.data.dyxtlbj);
-                    $("input[name='jl']").val(res.data.jl);
-                    $("input[name='qksm']").val(res.data.qksm);
-                    $("input[name='type']").val(res.data.type);
-                }
-            }
-        })
-    });
-    //Demo
     layui.use(['element', 'jquery', 'form', 'layer', 'laydate'], function () {
         var element = layui.element
             , $ = layui.jquery
             , form = layui.form
             , layer = layui.layer
             , laydate = layui.laydate;
-        laydate.render({
-            elem: "#date"
+        $(function () {
+            $("#isUser").val(userName);
         });
-        form.on('submit(saveAll)', function (data) {
+        laydate.render({
+            elem: "#date",
+            type: "datetime"
+        });
+        // 成人
+        form.on("submit(saveAll)", function (data) {
             console.log(data.field);
-            data.field.zsbId = zsbId;
             $.ajax({
-                url: "/zsb/updataZsb?eqId=" + thiseqId + "&jcyqId=" + thisjcyqId + "&userEqId=" + thisId,
+                url: "/syb/save?eqId=" + thiseqId + "&jcyqId=" + ids + "&userEqId=" + thisId,
                 method: "POST",
                 data: data.field,
                 dataType: "JSON",
                 success: function (res) {
                     if (res.state === 200) {
+                        sessionStorage["thissjId"] = res.data[1];
                         setTimeout(function () {
-                            location.href = "/control/home/waiting/wait_info/injection_pump_man.html?id=" + ids;
+                            location.href = "/control/home/waiting/wait_info/infusion_pump_man.html?id=" + res.data[0];
                         }, 1000);
-                        layer.msg("修改成功,正在生成表格");
+                        layer.msg("保存成功,正在生成表格");
                     } else {
                         layer.msg("提交失败");
                     }
                 },
                 error: function (data) {
-                    layer.msg("提交失败");
+                    layer.msg("请稍后再试");
                     console.log(data);
                 }
             });
