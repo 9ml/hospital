@@ -2006,7 +2006,6 @@
                     <div class="layui-form-item btn">
                         <div class="layui-input-block">
                             <button class="layui-btn layui-btn-normal js-save" lay-submit="" lay-filter="saveAll">保存</button>
-                            <input type="button" class="layui-btn js-create">生成数据</input>
                         </div>
                     </div>
                 </div>
@@ -2370,6 +2369,9 @@
                     $("input[name='hqmzysxxbj']").val(res.data.hqmzysxxbj === "1" ? "符合" : "不符合");
                     $("input[name='tqzxbj']").val(res.data.tqzxbj === "1" ? "符合" : "不符合");
                     $("input[name='type']").val(res.data.type);
+                    $("input[type=text]").each(function () {
+                        $(this).focus().blur();
+                    });
                 } else {
                     layer.msg("无数据");
                 }
@@ -2394,14 +2396,6 @@
             return fmt;
         }
     }
-    $(".js-create").on("click", function () {
-        $("input[type=text]").each(function () {
-            $(this).val(2);
-        });
-        $("input[type=text]").each(function () {
-            $(this).focus().blur();
-        });
-    })
     //设置结果
     $(".js-save").on("click", function () {
         settingResult();

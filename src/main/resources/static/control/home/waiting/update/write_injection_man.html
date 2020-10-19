@@ -264,7 +264,6 @@
             <div class="layui-form-item btn">
                 <div class="layui-input-block">
                     <button class="layui-btn js-save" lay-submit lay-filter="saveAll">保存</button>
-                    <input type="button" class="layui-btn js-create">生成数据</input>
                 </div>
             </div>
         </form>
@@ -279,14 +278,6 @@
     var thiseqId = parseInt(sessionStorage['thiseqId']);
     var thisId = parseInt(sessionStorage['thisId']);
     var zsbId = null;
-    $(".js-create").on("click", function () {
-        $("input[type=text]").each(function () {
-            $(this).val(2);
-        });
-        $("input[type=text]").each(function () {
-            $(this).focus().blur();
-        });
-    })
     //设置结果
     $(".js-save").on("click", function () {
         settingResult();
@@ -373,6 +364,9 @@
                     $("input[name='jl']").val(res.data.jl);
                     $("input[name='qksm']").val(res.data.qksm);
                     $("input[name='type']").val(res.data.type);
+                    $("input[type=text]").each(function () {
+                        $(this).focus().blur();
+                    });
                 }
             }
         })
